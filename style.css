@@ -1,0 +1,715 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Ubuntu:wght@400;500;700&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+html {
+    scroll-behavior: smooth;
+    cursor: none;
+    overflow-x: hidden !important;
+}
+:root {
+    --navbar: #171414;
+    --main1: #151928;
+    --main2: #2A2E35;
+    --primary: #fff031;
+    --secondary: #fff5f5;
+    --ternary: #43e97b;
+    --hover: #3DCFD3;
+}
+
+/* ----- Common Styling ----- */
+
+section {
+    padding: 100px 0;
+}
+.max-width {
+    max-width: 100%;
+    padding: 0 80px;
+    margin: auto;
+}
+.about .about-content,
+.projects .project-content,
+.contact .contact-content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+section .title {
+    position: relative;
+    text-align: center;
+    font-weight: 700;
+    margin-bottom: 25px;
+    font-family: "Lato", sans-serif;
+    color: var(--secondary);
+}
+section .title span {
+    font-size: 50px;
+    background-image: url(https://media.giphy.com/media/RsWTBRWrA071LXNMXM/giphy.gif);
+    background-size: cover;
+    color: transparent;
+    -webkit-background-clip: text;
+    text-transform: uppercase;
+}
+section .text {
+    font-size: 23px;
+    color: var(--secondary);
+    text-align: center;
+    margin-bottom: 61px;
+}
+section .text span {
+    padding: 4.1px 14px;
+    border: 2.5px solid var(--primary);
+    border-radius: 25px;
+}
+
+/* ----- Navbar Section Styling ----- */
+
+.navbar {
+    position: fixed;
+    width: 100%;
+    z-index: 999;
+    padding: 0.2px 0;
+    font-family: "Ubuntu", sans-serif;
+    transition: all 0.3s ease;
+}
+.navbar .max-width {
+    display: flex;
+    background-color: var(--navbar);
+    align-items: center;
+    justify-content: space-between;
+}
+.navbar .img-logo {
+    height: 126px;
+    width: 145px;
+    margin-bottom: -21px;
+    margin-top: -21px;
+    -webkit-user-drag: none;
+}
+.navbar .menu li {
+    list-style: none;
+    display: inline-block;
+}
+.navbar .menu li a {
+    display: block;
+    color: var(--secondary);
+    font-size: 18px;
+    font-weight: 600;
+    margin-left: 25px;
+    -webkit-user-drag: none;
+}
+.navbar .menu li a:hover {
+    margin: 0;
+    background: var(--primary);
+    color: var(--main1);
+    padding: 9px 10px;
+    border-radius: 10px;
+    transition: all 0.5s ease;
+}
+
+/* ----- Menu Button Styling ----- */
+
+.menu-btn {
+    color: var(--secondary);
+    font-size: 23px;
+    cursor: pointer;
+    display: none;
+}
+
+/* ----- Home Section Styling ----- */
+
+.home {
+    display: flex;
+    background: url("assets/images/home.png") no-repeat center;
+    background-size: cover;
+    height: 100vh;
+    color: var(--secondary);
+    min-height: 500px;
+    background-attachment: fixed;
+    font-family: "Ubuntu", sans-serif;
+}
+.home .max-width {
+    width: 90%;
+    display: flex;
+}
+.home .text-1 {
+    color: var(--ternary);
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 9px;
+    letter-spacing: 1.5px;
+}
+.home .text-2 {
+    color: var(--secondary);
+    font-size: 37px;
+    font-weight: 400;
+    margin-left: -3px;
+    margin-bottom: 9px;
+    letter-spacing: 1.5px;
+}
+.home .text-2 span {
+    color: var(--ternary);
+}
+.home .text-3 {
+    color: var(--secondary);
+    font-size: 45px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    margin: 5px 0 50px 0;
+}
+.home .text-3 span {
+    color: var(--ternary);
+}
+.home button {
+    padding: 9px 23px;
+    font-size: 21px;
+    font-weight: 600;
+    background: transparent;
+    color: var(--hover);
+    border: 5px solid var(--hover);
+    transition: all 0.5s ease;
+}
+.home button:hover {
+    cursor: pointer;
+    background: var(--hover);
+    color: var(--main2);
+    border-color: var(--primary);
+    box-shadow: 0px 0px 14px 2px var(--secondary);
+}
+
+/* ----- About Section Styling ----- */
+
+.about {
+    background: var(--main2);
+}
+.about .title {
+    margin-bottom: 64px;
+}
+.about .left {
+    width: 25%;
+}
+.about .left img {
+    height: 410px;
+    width: 350px;
+    object-fit: cover;
+    border-radius: 5px;
+    transition: 0.5s;
+    filter: grayscale(1);
+    box-shadow: -8px 8px 15px var(--main1);
+    -webkit-user-drag: none;
+}
+.about .left img:hover {
+    filter: grayscale(0);
+}
+.about .right {
+    width: 55%;
+}
+.about .right .topic span {
+    font-size: 25px;
+    font-family: 'Lato', sans-serif;
+    font-weight: bold;
+    background: linear-gradient(45deg, var(--secondary), var(--primary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.about .right p {
+    text-align: justify;
+    font-family: 'Lato', sans-serif;
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--secondary);
+    line-height: 1.6;
+    margin-top: 25px;
+}
+.about .media-icons img {
+    width: 7.3%;
+    background-color: var(--main1);
+    border-radius: 45%;
+    margin-top: 25px;
+    transition: all .3s ease;
+    -webkit-user-drag: none;
+}
+.about .media-icons img:hover {
+    background: var(--hover);
+    transform: translateY(14px);
+}
+.about .media-icons a {
+    -webkit-user-drag: none;
+}
+
+/* ----- Skills Section Styling ----- */
+
+.skills {
+    background: var(--main1);
+}
+.skills .skill-boxes {
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+    padding: 0 160px 25px;
+    align-items: center;
+    justify-content: center;
+    column-gap: 32px;
+    row-gap: 41px;
+}
+.skills .box {
+    justify-content: center;
+    background-color: var(--main2);
+    margin-bottom: -21px;
+    border-radius: 10px;
+    border-color: var(--primary);
+    border-style: solid;
+    transition: 0.5s ease;
+}
+.skills .box:hover {
+    box-shadow: 9px 9px var(--secondary);
+    -webkit-transform: translateX(-3px);
+    transform: translateX(-0.32);
+    transition: 0.5s ease;
+}
+.skills .box img {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    padding: 16px 25px;
+    -webkit-user-drag: none;
+}
+.skills .box .topic {
+    font-size: 19px;
+    width: 140px;
+    color: var(--secondary);
+    font-weight: bold;
+    text-align: center;
+    margin: 10px;
+    margin-bottom: 25px;
+}
+
+/* ----- Education Section Styling ----- */
+
+.education {
+    background: var(--main2);
+}
+.education .education-boxes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.education .box {
+    background: var(--main1);
+    display: flex;
+    width: 80%;
+    border-radius: 9px;
+    box-shadow: 9px 9px 9px var(--primary);
+    text-align: center;
+    margin-bottom: 45px;
+    overflow: hidden;
+    transition: 0.3s ease;
+}
+.education .box:hover {
+    box-shadow: 16px 10px 16px var(--hover);
+}
+.education .image {
+    flex: 1 320px;
+    width: 100%;
+}
+.education .image a {
+    -webkit-user-drag: none;
+}
+.education .image img {
+    object-fit: cover;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    filter: brightness(122%);
+    -webkit-user-drag: none;
+}
+.education .content {
+    display: flex;
+    flex-wrap: wrap;
+}
+.education .content h3 {
+    color: var(--primary);
+    margin-left: 25px;
+    margin-top: 19px;
+    font-size: 29px;
+    font-weight: 600;
+    text-align: left;
+}
+.education .content h4 {
+    color: var(--hover);
+    margin-left: 25px;
+    margin-top: 7px;
+    margin-bottom: 9px;
+    font-size: 27px;
+    font-weight: 700;
+    text-align: left;
+}
+.education .content p {
+    color: var(--secondary);
+    width: 95%;
+    margin-left: 25px;
+    font-size: 23px;
+    text-align: left;
+}
+
+/* ----- Experience Section Styling ----- */
+
+.experience {
+    background: var(--main1);
+}
+.experience .experience-boxes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    row-gap: 64px;
+    padding: 21px 90px 0 90px;
+}
+.experience .box {
+    position: relative;
+    width: 410px;
+    margin: 0 16px;
+    padding-left: 50px;
+    border-left: 3.2px solid var(--secondary);
+}
+.experience .box i {
+    position: absolute;
+    top: -19px; left: -32px;
+    height: 64px;
+    width: 64px;
+    border-radius: 50%;
+    line-height: 64px;
+    text-align: center;
+    font-size: 32px;
+    color: var(--secondary);
+    background: var(--primary);
+}
+.experience .box .duration {
+    font-size: 23px;
+    font-weight: 900;
+    border: 2px solid var(--primary);
+    background: var(--main2);
+    color: var(--secondary);
+    border-radius: 50px;
+    padding: 8px 32px;
+}
+.experience .box h3 {
+    font-size: 28px;
+    color: var(--ternary);
+    font-weight: 900;
+    margin-top: 36px;
+    margin-bottom: 25px;
+}
+.experience .box ul li {
+    margin-left: 16px;
+    font-size: 20px;
+    line-height: 25px;
+    color: var(--secondary);
+    padding: 7px;
+}
+.experience .box ul li .focus {
+    color: var(--primary);
+    font-weight: 900;
+}
+.experience .box ul li a {
+    color: var(--primary);
+    font-weight: 900;
+    border-bottom: 2px solid var(--primary);
+    -webkit-user-drag: none;
+}
+.experience .box ul li a:hover {
+    color: var(--hover);
+    border-bottom: 2px solid var(--hover);
+    transition: all 0.4s ease;
+}
+
+/* ----- Projects Section Styling ----- */
+
+.projects {
+    background: var(--main2);
+}
+.projects .box {
+    width: calc(33% - 20px);
+    background: var(--main1);
+    text-align: center;
+    border-radius: 6px;
+    padding: 25px 15px;
+    padding-top: 10px;
+    margin-bottom: 28px;
+    box-shadow: 6px 6px 7px var(--primary);
+}
+.projects .box:hover {
+    background-image: radial-gradient(var(--primary), var(--hover));
+    transform: translateY(10px);
+    box-shadow: -5px -5px 6px var(--secondary);
+    transition: all 0.5s ease;
+}
+.projects .box:hover .topic {
+    color: var(--navbar);
+    font-weight: 900;
+}
+.projects .box:hover p {
+    color: var(--navbar);
+    font-weight: 600;
+}
+.projects .box:hover .techs {
+    border: 2px solid var(--main1);
+    border-radius: 5px;
+}
+.projects .tooltip {
+    position: relative;
+    display: inline-block;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-bottom: 10px;
+}
+.projects .tooltip a {
+    -webkit-user-drag: none;
+}
+.projects .tooltip img {
+    height: 32px;
+    width: 32px;
+    border-radius: 100%;
+    background-color: var(--secondary); 
+    -webkit-user-drag: none;
+}
+.projects .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: var(--navbar);
+    color: var(--secondary);
+    font-size: 17px;
+    padding: 5px 0;
+    border-radius: 14px;
+    position: absolute;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -60px;
+}
+
+/* Tooltip arrow */
+.projects .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -7px;
+    border-width: 7px;
+    border-style: solid;
+    border-color: var(--navbar) transparent transparent;
+}
+.projects .tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+.projects .snapshot {
+    height: 100%;
+    width: 100%;
+    -webkit-user-drag: none;
+}
+.projects .topic {
+    font-size: 27px;
+    font-weight: 900;
+    margin: 21px 0;
+    color: var(--secondary);
+    text-align: center;
+}
+.projects p {
+    color: var(--secondary);
+    margin-bottom: 25px;
+    font-size: 19px;
+    font-weight: 500;
+}
+.projects .techs {
+    padding: 4.1px;
+    border-radius: 2px;
+    font-weight: 600;
+    margin-left: 5px;
+    font-size: 14px;
+    color: var(--navbar);
+    background-color: var(--ternary);
+    border-radius: 5px;
+}
+
+/* ----- Certificates Section Styling ----- */
+
+.certificates {
+    background: var(--main1);
+}
+.certificates .certificate-boxes {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    padding: 0px 100px 25px;
+    column-gap: 25px;
+    row-gap: 45px;
+    margin-top: 50px;
+}
+.certificates .box {
+    background-color: var(--main2);
+    border: 2.7px solid var(--ternary);
+    border-radius: 14px;
+    text-align: center;
+    padding: 14px 10px;
+}
+.certificates .box img {
+    height: 190px;
+    width: 190px;
+    margin-bottom: 8px;
+    -webkit-user-drag: none;
+}
+.certificates .box img:hover {
+    transform: scale(2.3);
+    transition: all 0.5s ease;
+    border: 3.2px solid var(--hover);
+    border-radius: 10px;
+}
+.certificates .box .topic {
+    width: 180px;
+    color: var(--primary);
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0 auto 5px auto;
+}
+.certificates .box .topic1 {
+    width: 180px;
+    color: var(--secondary);
+    font-size: 17px;
+    font-weight: bold;
+    margin: 0 auto 5px auto;
+}
+
+/* ----- Contact Section Styling ----- */
+
+.contact {
+    background: var(--main2);
+}
+.contact p {
+    text-align: center;
+    font-size: 32px;
+    font-weight: 900;
+    color: var(--secondary);
+}
+.contact .contact-content .column {
+    width: calc(50% - 30px);
+}
+.contact .right form .fields {
+    display: flex;
+}
+.contact .right form .fields .field,
+.contact .right form .field {
+    height: 45px;
+    width: 100%;
+    border: 3.2px solid var(--hover);
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+.contact .right form .field input,
+.contact .right form .textarea textarea {
+    height: 100%;
+    width: 100%;
+    border: 1px solid var(--secondary);
+    border-radius: 6px;
+    outline: none;
+    padding: 0 15px;
+    font-size: 17px;
+    font-family: "Poppins", sans-serif;
+    transition: all 0.3s ease;
+}
+.contact .right form .field input:focus,
+.contact .right form .textarea textarea:focus {
+    border: 2px solid var(--main1);
+    background: var(--secondary);
+}
+.contact .right form .name {
+    margin-right: 10px;
+}
+.contact .right form .textarea {
+    height: 180px;  
+    width: 100%;
+}
+.contact .right form .textarea textarea {
+    padding-top: 10px;
+    resize: none;
+}
+.contact .right form .button-area {
+    display: flex;
+    justify-content: center;
+}
+.contact .right form .button-area button {
+    display: inline-block;
+    background: var(--hover);
+    color: var(--main1);
+    border: 4.1px solid var(--primary);
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: 700;
+    padding: 10px 25px;
+    margin-top: 14px;
+    transition: all 0.3s ease;
+}
+.contact .right form .button-area button:hover {
+    cursor: pointer;
+    color: var(--main1);
+    border-color: var(--hover);
+    background: var(--primary);
+    transform: skew(5deg);
+    box-shadow: 0px 0px 14px 2px var(--secondary);
+}
+.contact .left img {
+    float: right;
+    height: 550px;
+    -webkit-user-drag: none;
+}
+
+/* ----- Footer Section Styling ----- */
+
+footer {
+    background: var(--main1);
+    padding: 14px 23px;
+    font-weight: 900;
+    margin-top: -50px;
+    color: var(--secondary);
+    text-align: center;
+}
+footer a {
+    color: var(--secondary);
+    -webkit-user-drag: none;
+}
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* ----- Custom Scroll Bar ----- */
+
+::-webkit-scrollbar {
+    width: 14px;
+}
+::-webkit-scrollbar-track {
+    background-color: var(--secondary);
+}
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(45deg, var(--ternary), var(--primary));
+    border-radius: 10px;
+    height: 100px;
+}
+
+/* ----- Cursor Styling ----- */
+
+.circle {
+    height: 25px;
+    width: 25px;
+    border-radius: 24px;
+    background-color: var(--navbar);
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 99999999; /* so that it stays on top of all other elements */
+}

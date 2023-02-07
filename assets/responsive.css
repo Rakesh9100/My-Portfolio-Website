@@ -1,0 +1,265 @@
+@media (max-width: 1243px) {
+    .home button {
+        font-size: 18px;
+    }
+    .about .media-icons img {
+        width: 8.6%;
+    }
+    .skills .skill-boxes {
+        padding: 0 100px 25px;
+    }
+    .education .content h3 {
+        font-size: 25px;
+    }
+    .education .content h4 {
+        font-size: 23px;
+    }
+    .education .content p {
+        font-size: 21px;
+        margin-bottom: 21px;
+    }
+}
+
+@media (max-width: 1184px) {
+    section .text span{
+        display: inline-block;
+    }
+    .home .text-1 {
+        font-size: 25px;
+    }
+    .home .text-2 {
+        font-size: 32px;
+    }
+    .home .text-3 {
+        font-size: 37px;
+    }
+    .about .media-icons img {
+        width: 9%;
+    }
+    .skills .skill-boxes {
+        padding: 0 50px 25px;
+    }
+    .experience .box {
+        width: 360px;
+    }
+    .contact .left img {
+        height: 460px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .about .left img {
+        height: 360px;
+        width: 320px;
+    }
+    .experience .experience-boxes {
+        padding: 21px 50px 0 70px;
+    }
+    .experience .box {
+        width: 320px;
+    } 
+    .experience .box .duration {
+        font-size: 17px;
+    }
+    .experience .box h3 {
+        font-size: 25px;
+    }
+    .experience .box ul li {
+        font-size: 18px;
+    }
+    .projects .topic {
+        font-size: 25px;
+    }
+    .projects p {
+        font-size: 17px;
+    }
+    .projects .techs {
+        font-size: 12px;
+    }
+    .certificates .certificate-boxes {
+        padding: 0px 50px 25px;
+    }
+    .contact .left img {
+        height: 410px;
+    }
+}
+
+@media (max-width: 947px) {
+    .navbar .menu {
+        position: fixed;
+        height: 100vh;
+        width: 100%;
+        left: -100%;
+        top: 0;
+        background: var(--navbar);
+        text-align: center;
+        padding-top: 80px;
+        transition: all 0.3s ease;
+    }
+    .navbar .menu.active {
+        left: 0;
+    }
+    .navbar .menu li {
+        display: block;
+    }
+    .navbar .menu li a {
+        display: inline-block;
+        margin: 20px 0;
+        color: var(--primary);
+        font-size: 21px;
+    }
+    .menu-btn {
+        display: block;
+        z-index: 999;
+    }
+    .menu-btn i.active:before {
+        content: "\f00d";
+    }
+    section .text span{
+        font-size: 21px;
+    }
+    .home {
+        background: url("images/home1.png");
+    }
+    .home .text-1 {
+        font-size: 27px;
+    }
+    .home .text-2 {
+        font-size: 32px;
+    }
+    .home .text-3 {
+        font-size: 39px;
+    }
+    .about .column {
+        width: 100%;
+    }
+    .about .left {
+        display: flex;
+        justify-content: center;
+        margin: 0 auto 60px;
+    }
+    .about .left img {
+        height: 395px;
+        width: 350px;
+    }
+    .about .right {
+        flex: 100%;
+    }
+    .about .media-icons img {
+        width: 6.4%;
+    }
+    .skills .skill-boxes {
+        padding: 0 25px 25px;
+    }
+    .skills .box .topic {
+        font-size: 17px;
+    }
+    .education .content h3 {
+        font-size: 23px;
+    }
+    .education .content h4 {
+        font-size: 22px;
+    }
+    .education .content p {
+        font-size: 18px;
+    }
+    .projects .box {
+        width: calc(50% - 10px);
+    }
+    .contact .contact-content .column {
+        width: 100%;
+        margin-bottom: 35px;
+    }
+    .contact .left {
+        display: none;
+    }
+}
+
+@media (max-width: 827px) {
+    .home .text-3 {
+        font-size: 37px;
+    }
+    .about .media-icons img {
+        width: 7.3%;
+    }
+    .skills .skill-boxes {
+        padding: 0 14px 25px;
+    }
+    .education .content h3 {
+        font-size: 21px;
+    }
+    .education .content h4 {
+        font-size: 19px;
+    }
+    .education .content p {
+        font-size: 16px;
+    }
+    .experience .box {
+        width: 280px;
+    }
+    .certificates .box img {
+        height: 160px;
+        width: 160px;
+    }
+    .certificates .box .topic {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    .experience .box {
+        width: 100%;
+    }
+    .experience .box .duration {
+        font-size: 21px;
+    }
+    .certificates .certificate-boxes {
+        padding: 0px 15px 25px;
+    }
+}
+
+@media (max-width: 690px) {
+    .max-width {
+        padding: 0 23px;
+    }
+    .home .text-2 {
+        font-size: 37px;
+    }
+    .home .text-3 {
+        font-size: 41px;
+    }
+    .about .media-icons img {
+        width: 8.6%;
+    }
+    .education .box {
+        width: 90%;
+    }
+    .projects .box {
+        width: 100%;
+    }
+}
+
+@media (max-width: 500px) {
+    html {
+        display: flex;
+    }
+    section .title span {
+        font-size: 41px;
+    }
+    section .text span {
+        font-size: 17px;
+    }
+    .about .media-icons img {
+        width: 12%;
+    }
+    .experience .box .duration {
+        display: block;
+    }
+    .contact .right form .fields {
+        flex-direction: column;
+    }
+    .contact .right form .name,
+    .contact .right form .email {
+        margin: 0;
+    }
+}
