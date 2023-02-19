@@ -7,7 +7,6 @@
     text-decoration: none;
 }
 html {
-    scroll-behavior: smooth;
     cursor: none;
     overflow-x: hidden !important;
 }
@@ -49,7 +48,7 @@ section .title {
 }
 section .title span {
     font-size: 50px;
-    background-image: url(https://media.giphy.com/media/RsWTBRWrA071LXNMXM/giphy.gif);
+    background-image: url("assets/images/text.webp");
     background-size: cover;
     color: transparent;
     -webkit-background-clip: text;
