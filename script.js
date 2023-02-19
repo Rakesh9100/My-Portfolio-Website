@@ -1,3 +1,11 @@
+/* ----- Preloader ----- */
+
+var preloader = document.getElementById('loading');
+
+function preloaderFunction() {
+    preloader.style.display = 'none';
+}
+
 /* ----- Navbar Menu ----- */
 
 $(".menu-btn").click(function () {

@@ -82,6 +82,9 @@
     .contact .left img {
         height: 410px;
     }
+    .circle {
+        display: none;
+    }
 }
 
 @media (max-width: 947px) {
