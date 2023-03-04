@@ -210,6 +210,9 @@
 }
 
 @media (max-width: 768px) {
+    .about .left img {
+        filter: grayscale(0);
+    }
     .experience .box {
         width: 100%;
     }
@@ -243,9 +246,6 @@
 }
 
 @media (max-width: 500px) {
-    html {
-        display: flex;
-    }
     section .title span {
         font-size: 41px;
     }
@@ -255,8 +255,12 @@
     .about .media-icons img {
         width: 12%;
     }
+    .experience .experience-boxes {
+        padding: 21px 5px 0 25px;
+    }
     .experience .box .duration {
         display: block;
+        text-align: center;
     }
     .contact .right form .fields {
         flex-direction: column;
@@ -264,5 +268,76 @@
     .contact .right form .name,
     .contact .right form .email {
         margin: 0;
+    }
+}
+
+@media (max-width: 370px) {
+    section .title span {
+        font-size: 32px;
+    }
+    .home .text-2 {
+        font-size: 32px;
+    }
+    .home .text-3 {
+        font-size: 35px;
+    }
+    .about .left img {
+        height: 320px;
+        width: 270px;
+    }
+    .experience .box ul li {
+        margin-left: 0;
+    }
+    .certificates .box img:hover {
+        transform: scale(1.9);
+    }
+}
+
+@media (max-width: 325px) {
+    .home button {
+        padding: 5px 10px;
+        font-size: 17px;
+    }
+}
+
+@media (max-width: 270px) {
+    section .title span {
+        font-size: 27px;
+    }
+    .home .text-1 {
+        font-size: 25px;
+    }
+    .home .text-2 {
+        font-size: 27px;
+    }
+    .home .text-3 {
+        font-size: 29px;
+    }
+    .about .left img {
+        height: 250px;
+        width: 205px;
+    }
+    .experience .box .duration {
+        font-size: 14px;
+        padding: 5px 14px;
+        margin-left: -16px;
+        margin-right: 16px;
+    }
+    .experience .box h3 {
+        font-size: 19px;
+        margin-left: -25px;
+    }
+    .experience .box ul li {
+        margin-left: -16px;
+        font-size: 14px;
+    }
+    .contact p {
+        font-size: 27px;
+    }
+}
+
+@media (max-width: 207px) {
+    html {
+        display: flex;
     }
 }
