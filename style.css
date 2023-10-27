@@ -160,16 +160,15 @@ section .text span {
     color: var(--secondary);
     font-size: 18px;
     font-weight: 600;
-    margin-left: 25px;
+    margin: 0 2.5px;
+    padding: 9px 10px;
     -webkit-user-drag: none;
+    transition: all 0.5s ease;
 }
 .navbar .menu li a:hover {
-    margin: 0;
     background: var(--primary);
     color: var(--main1);
-    padding: 9px 10px;
     border-radius: 10px;
-    transition: all 0.5s ease;
 }
 
 /* ----- Menu Button Styling ----- */
