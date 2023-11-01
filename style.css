@@ -257,13 +257,48 @@ section .text span {
     width: 350px;
     object-fit: cover;
     border-radius: 5px;
-    transition: 0.5s;
     filter: grayscale(1);
     box-shadow: -8px 8px 15px var(--main1);
     -webkit-user-drag: none;
+    animation: transition 1.4s linear infinite;
+}
+@keyframes transition {
+    20% {
+        filter: grayscale(1) drop-shadow(5px 5px 25px rgb(238, 255, 0));
+    }
+    40% {
+        filter: grayscale(1) drop-shadow(5px 5px 25px rgb(0, 119, 255));
+    }
+    60% {
+        filter: grayscale(1) drop-shadow(5px 5px 25px rgb(0, 255, 17));
+    }
+    80% {
+        filter: grayscale(1) drop-shadow(5px 5px 25px rgb(255, 0, 132));
+    }
+    100% {
+        filter: grayscale(1) drop-shadow(5px 5px 25px rgb(0, 255, 251));
+    }
 }
 .about .left img:hover {
     filter: grayscale(0);
+    animation: transition1 1.4s linear infinite;
+}
+@keyframes transition1 {
+    20% {
+        filter: drop-shadow(5px 5px 25px rgb(255, 0, 132));
+    }
+    40% {
+        filter: drop-shadow(50px 5px 25px rgb(0, 255, 251));
+    }
+    60% {
+        filter: drop-shadow(5px 50px 25px rgb(0, 255, 17));
+    }
+    80% {
+        filter: drop-shadow(45px 5px 25px rgb(0, 119, 255));
+    }
+    100% {
+        filter: drop-shadow(0px 5px 25px rgb(238, 255, 0));
+    }
 }
 .about .right {
     width: 55%;
