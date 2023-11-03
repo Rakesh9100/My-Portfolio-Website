@@ -16,6 +16,35 @@
     });
 }
 
+/* ----- Navbar Menu Active Element ----- */
+
+{
+    document.addEventListener("DOMContentLoaded", function () {
+        const menuItems = document.querySelectorAll(".menu-btn");
+        const sections = document.querySelectorAll("section");
+    
+        window.addEventListener("scroll", function () {
+            let current = "";
+    
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+    
+                if (scrollY >= sectionTop - sectionHeight / 7) {
+                    current = section.getAttribute("id");
+                }
+            });
+    
+            menuItems.forEach(item => {
+                item.classList.remove("active");
+                if (item.getAttribute("href").slice(1) === current) {
+                    item.classList.add("active");
+                }
+            });
+        });
+    });
+}
+
 /* ----- Typing Animation ----- */
 
 {
