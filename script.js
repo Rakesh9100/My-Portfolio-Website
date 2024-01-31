@@ -123,6 +123,39 @@
     animateCircles();
 }
 
+/* ----- Scroll To Top ----- */
+
+let calcScrollValue = () => {
+    let scrollProg = document.getElementById("progress");
+    let pos = document.documentElement.scrollTop;
+    let calcHeight =
+        document.documentElement.scrollHeight -
+        document.documentElement.clientHeight;
+    let scrollValue = Math.round((pos * 100) / calcHeight);
+    if (pos > 100) {
+        scrollProg.style.display = "grid";
+    } else {
+        scrollProg.style.display = "none";
+    }
+    scrollProg.style.background = `conic-gradient(var(--hover) ${scrollValue}%, var(--secondary) ${scrollValue}%)`;
+};
+
+window.addEventListener('scroll', function () {
+    var scrollToTopButton = document.getElementById('progress');
+    if (window.pageYOffset > 200) {
+        scrollToTopButton.style.display = 'block';
+    } else {
+        scrollToTopButton.style.display = 'none';
+    }
+});
+
+window.onscroll = calcScrollValue;
+window.onload = calcScrollValue;
+
+document.getElementById('progress').addEventListener("click", () => {
+    document.documentElement.scrollIntoView({ behavior: "smooth" });
+});
+
 /* ----- Smooth Scrolling ----- */
 
 {

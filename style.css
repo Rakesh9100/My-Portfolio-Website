@@ -924,6 +924,42 @@ footer a:hover {
     text-decoration: underline;
 }
 
+/* ----- Scroll To Top Button Styling ----- */
+
+#progress {
+    position: fixed;
+    bottom: 20px;
+    right: 10px;
+    height: 50px;
+    width: 50px;
+    display: none;
+    place-items: center;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+#progress:hover {
+    opacity: 1;
+    animation: animate 1s linear infinite;
+}
+
+@keyframes animate {
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+#progress-value {
+    display: block;
+    height: calc(100% - 15px);
+    width: calc(100% - 15px);
+    background-color: var(--primary);
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    font-size: 26px;
+}
+
 /* ----- Custom Scroll Bar ----- */
 
 ::-webkit-scrollbar {
