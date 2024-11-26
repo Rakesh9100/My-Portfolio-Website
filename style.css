@@ -55,6 +55,7 @@ section .title span {
     background-image: url("assets/images/text.webp");
     background-size: cover;
     color: transparent;
+    background-clip: text;
     -webkit-background-clip: text;
     text-transform: uppercase;
 }
@@ -388,6 +389,7 @@ section .text span {
     font-family: 'Lato', sans-serif;
     font-weight: bold;
     background: linear-gradient(45deg, var(--secondary), var(--primary));
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
