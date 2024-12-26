@@ -272,44 +272,61 @@ section .text span {
 
 /* ----- Home Section Styling ----- */
 
+canvas {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--main1);
+}
+
 .home {
-    display: flex;
-    align-items: center;
     height: 100%;
-    background: url("assets/images/home.png") no-repeat center center;
-    background-size: cover;
-    color: var(--secondary);
-    min-height: 100vh;
     padding: 0 20px;
+    min-height: 100vh;
+    display: flex;
+    background: none;
+    position: relative;
+    align-items: center;
+    color: var(--secondary);
 }
 
 .home .max-width {
     width: 100%;
     display: flex;
-    align-items: center;
-    justify-content: flex-start;
     text-align: left;
+    align-items: center;
+    justify-content: space-between;
 }
 
-.home .home-content {
+.home .home-image {
+    margin: 20px 0 0 20px;
+    max-width: clamp(200px, 35vw, 600px);
+}
+
+.home .home-image img {
+    width: 100%;
+    height: auto;
+}
+
+.home .home-text {
     max-width: 600px;
     min-height: 300px;
 }
 
 .home .text-1 {
-    color: var(--ternary);
-    font-size: clamp(25px, 4vw, 40px);
     font-weight: bold;
     margin-bottom: 9px;
     letter-spacing: 1.5px;
+    color: var(--ternary);
+    font-size: clamp(25px, 4vw, 40px);
 }
 
 .home .text-2 {
-    color: var(--secondary);
-    font-size: clamp(21px, 4vw, 32px);
     font-weight: 400;
     margin-bottom: 9px;
     letter-spacing: 1.5px;
+    color: var(--secondary);
+    font-size: clamp(21px, 2vw, 32px);
 }
 
 .home .text-2 span {
@@ -317,11 +334,31 @@ section .text span {
 }
 
 .home .text-3 {
-    color: var(--secondary);
-    font-size: clamp(18px, 4vw, 28px);
     font-weight: 600;
     letter-spacing: 1.5px;
     margin: 5px 0 50px 0;
+    color: var(--secondary);
+    font-size: clamp(18px, 2vw, 28px);
+}
+
+.typed-cursor {
+    width: 1ch;
+    display: inline-block;
+    vertical-align: bottom;
+    animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+
+    0%,
+    50% {
+        opacity: 1;
+    }
+
+    50.01%,
+    100% {
+        opacity: 0;
+    }
 }
 
 .home .text-3 span {
@@ -1122,8 +1159,8 @@ footer a:hover {
         font-size: 5vw;
     }
 
-    .home {
-        background: var(--main1);
+    .home .home-text {
+        white-space: nowrap;
     }
 
     .about .column {
@@ -1241,6 +1278,32 @@ footer a:hover {
     }
 }
 
+@media (max-width: 768px) {
+    .ring {
+        width: 230px;
+        height: 230px;
+    }
+
+    .loading {
+        font-size: 17px;
+    }
+
+    .home .max-width {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .home .text-1 {
+        margin-bottom: 20px;
+        margin-top: 50px;
+    }
+
+    .home button {
+        font-size: clamp(12px, 2vw, 18px);
+    }
+}
+
 @media (max-width: 690px) {
     .max-width {
         padding: 0 23px;
@@ -1323,6 +1386,10 @@ footer a:hover {
 }
 
 @media (max-width: 370px) {
+    .home .text-3 {
+        white-space: wrap;
+    }
+
     .experience .box ul li {
         margin-left: 0;
     }
@@ -1332,4 +1399,16 @@ footer a:hover {
     html {
         display: flex;
     }
+}
+
+
+.parallax {
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+}
+
+/* Example specific parallax backgrounds */
+.home.parallax {
+    background-image: url('assets/images/home'); /* Replace with your background image */
 }
