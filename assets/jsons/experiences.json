@@ -1,0 +1,171 @@
+[
+    {
+        "company": "OpenText",
+        "role": "Associate Software Engineer",
+        "duration": "Apr 2024 - Present",
+        "description": [
+            "Managing Helm deployments for cloud-based applications within the <span class='focus'>Documentum</span> team.",
+            "Monitoring cloud environments using DevOps best practices to ensure stability and performance.",
+            "Working with clusters such as <span class='focus'>CFCR, Anthos</span>, and <span class='focus'>Hyperscalers</span> to maintain and optimize cloud infrastructure.",
+            "Assisting in developing and deploying cloud solutions to support business needs.",
+            "Tech Stacks :- Helm, Docker, Git, GitLab, Kubernetes, GCP, Linux"
+        ]
+    },
+    {
+        "company": "OpenText",
+        "role": "Engineering Intern",
+        "duration": "Oct 2023 - Mar 2024",
+        "description": [
+            "Developed a user-centric front-end UI to improve <span class='focus'>XML rule file management</span> for complex structures.",
+            "Implemented Groovy validation, ensuring <span class='focus'>100% syntax integrity</span> and faster testing.",
+            "Maintained consistent code updates and progress tracking via <span class='focus'>GitLab commits</span>.",
+            "Created comprehensive user documentation for easy project execution, boosting efficiency.",
+            "Tech Stacks :- HTML, CSS, JavaScript, XML, Node.js, Groovy, GitLab, Linux"
+        ]
+    },
+    {
+        "company": "Social Winter of Code",
+        "role": "Project Admin",
+        "duration": "Jan 2024 - Feb 2024",
+        "description": [
+            "Mentor of my 3 Projects <a href='https://github.com/Rakesh9100/Beautiify' target='_blank'>Beautiify</a>, <a href='https://github.com/Rakesh9100/CalcDiverse' target='_blank'>CalcDiverse</a>, and <a href='https://github.com/Rakesh9100/Click-The-Edible-Game' target='_blank'>Click-The-Edible-Game</a>.",
+            "Successfully merged 250+ quality Pull Requests.",
+            "Collaborated closely with contributors to ensure their continual growth and development.",
+            "Provided guidance to numerous contributors, helping them create successful issues and Pull Requests.",
+            "Tech Stacks :- HTML, CSS, JavaScript, Git, GitHub"
+        ]
+    },
+    {
+        "company": "Innogeeks",
+        "role": "Project Maintainer",
+        "duration": "Jan 2024 - Feb 2024",
+        "description": [
+            "Mentor of my 3 Projects <a href='https://github.com/Rakesh9100/Beautiify' target='_blank'>Beautiify</a>, <a href='https://github.com/Rakesh9100/CalcDiverse' target='_blank'>CalcDiverse</a>, and <a href='https://github.com/Rakesh9100/Click-The-Edible-Game' target='_blank'>Click-The-Edible-Game</a>.",
+            "Effectively merged <span class='focus'>125+</span> quality Pull Requests.",
+            "Collaborated closely with contributors to cultivate a conducive learning atmosphere.",
+            "Provided assistance to numerous new contributors, guiding them in crafting impactful issues and Pull Requests.",
+            "Tech Stacks :- HTML, CSS, JavaScript, Git, GitHub"
+        ]
+    },
+    {
+        "company": "JGEC Winter of Code",
+        "role": "Mentor",
+        "duration": "Jan 2024 - Feb 2024",
+        "description": [
+            "Mentor of my 3 Projects <a href='https://github.com/Rakesh9100/Beautiify' target='_blank'>Beautiify</a>, <a href='https://github.com/Rakesh9100/CalcDiverse' target='_blank'>CalcDiverse</a>, and <a href='https://github.com/Rakesh9100/Click-The-Edible-Game' target='_blank'>Click-The-Edible-Game</a>.",
+            "Successfully merged <span class='focus'>80+</span> quality Pull Requests.",
+            "Worked closely with mentees to foster a productive and inclusive learning environment.",
+            "Offered guidance to numerous new contributors, aiding them in creating effective issues and Pull Requests.",
+            "Tech Stacks :- HTML, CSS, JavaScript, Git, GitHub"
+        ]
+    },
+    {
+        "company": "SLoP",
+        "role": "Project Mentor",
+        "duration": "Oct 2023 - Dec 2023",
+        "description": [
+            "Mentor of my 2 Projects <a href='https://github.com/Rakesh9100/Click-The-Edible-Game' target='_blank'>Click-The-Edible-Game</a> and <a href='https://github.com/Rakesh9100/Greeting-Time' target='_blank'>Greeting-Time</a>.",
+            "Successfully merged <span class='focus'>16</span> quality Pull Requests.",
+            "Provided guidance to numerous contributors, helping them create successful issues and Pull Requests.",
+            "Mentored many new beginners to the world of open source and solved their queries.",
+            "Tech Stacks :- HTML, CSS, JavaScript, Git, GitHub"
+        ]
+    },
+    {
+        "company": "Hacktoberfest",
+        "role": "Contributor",
+        "duration": "Oct 2023",
+        "description": [
+            "Contributed to various projects.",
+            "Successfully merged and got accepted 4 PRs celebrating the <span class='focus'>10th anniversary</span> of Hacktoberfest.",
+            "Recognized for contributions with a Tree and a Tree Planting Certificate by Tree-Nation.",
+            "Received a <span class='focus'>Digital Reward Kit and Holopin Badges</span> in appreciation.",
+            "Tech Stacks :- HTML, CSS, JavaScript, C++, Git, GitHub"
+        ]
+    },
+    {
+        "company": "GirlScript Summer of Code",
+        "role": "Project Admin, Mentor & Community Expert",
+        "duration": "May 2023 - Aug 2023",
+        "description": [
+            "Project Admin of my Project <a href='https://github.com/Rakesh9100/ML-Project-Drug-Review-Dataset' target='_blank'>ML-Project-Drug-Review-Dataset</a>.",
+            "Successfully merged <span class='focus'>25+</span> quality Pull Requests.",
+            "Mentor of the Project <a href='https://github.com/akshitagupta15june/Moksh' target='_blank'>Moksh</a>.",
+            "Mentored a group of enthusiastic and new participants.",
+            "Served as a Community Expert, actively engaged with the GSSoC community.",
+            "Tech Stacks :- HTML, CSS, JavaScript, Python, Machine Learning, GitHub"
+        ]
+    },
+    {
+        "company": "JGEC Winter of Code",
+        "role": "Project Mentor",
+        "duration": "Feb 2023 - Mar 2023",
+        "description": [
+            "Mentor of my Project <a href='https://github.com/Rakesh9100/Click-The-Edible-Game' target='_blank'>Click-The-Edible-Game</a>.",
+            "Successfully merged <span class='focus'>32+</span> quality Pull Requests.",
+            "Provided guidance to numerous contributors, helping them create successful issues and Pull Requests.",
+            "Mentored many new beginners to the world of open source and solved their queries.",
+            "Tech Stacks :- HTML, CSS, JavaScript, Git, GitHub"
+        ]
+    },
+    {
+        "company": "LetsGrowMore",
+        "role": "Web Developer Internship",
+        "duration": "Dec 2022",
+        "description": [
+            "Completed 4 tasks during this internship.",
+            "Made a To-Do List, Create React App, Enrollment Form, and Calculator.",
+            "Hosted the websites using GitHub pages.",
+            "Awarded with <span class='focus'>LOR (Letter Of Recommendation)</span> for exemplary performance during the Internship.",
+            "Tech Stacks :- HTML, CSS, JavaScript"
+        ]
+    },
+    {
+        "company": "Hacktoberfest",
+        "role": "Contributor & Project Maintainer",
+        "duration": "Oct 2022",
+        "description": [
+            "Contributed to various projects.",
+            "Successfully merged and got accepted 9 PRs.",
+            "Mentored my Project <a href='https://github.com/Rakesh9100/Click-The-Edible-Game' target='_blank'>Click-The-Edible-Game</a>.",
+            "Awarded with <span class='focus'>T-Shirt and Lovely Stickers</span>.",
+            "Tech Stacks :- HTML, CSS, JavaScript, C++, Git, GitHub"
+        ]
+    },
+    {
+        "company": "The Sparks Foundation",
+        "role": "Web Development Intern",
+        "duration": "Oct 2022",
+        "description": [
+            "Made a dynamic basic banking website that has dummy data for up to ten customers.",
+            "Made a donation website by integrating a payment gateway, using PayPal.",
+            "Hosted the websites using GitHub pages.",
+            "Awarded with <span class='focus'>LOR (Letter Of Recommendation)</span> for exemplary performance during the Internship.",
+            "Tech Stacks :- HTML, CSS, JavaScript, SQL"
+        ]
+    },
+    {
+        "company": "HackClub RAIT Summer of Code",
+        "role": "Contributor & Project Admin",
+        "duration": "Jul 2022 - Aug 2022",
+        "description": [
+            "Among <span class='focus'>Top 10</span> Performers, Secured <span class='focus'>6th Rank</span> Globally.",
+            "Contributed to 5+ Amazing Projects.",
+            "Project Admin of my Project <a href='https://github.com/Rakesh9100/InstaStore' target='_blank'>InstaStore</a>.",
+            "Mentored many new beginners to the world of open source and solved their queries.",
+            "Tech Stacks :- HTML, CSS, JavaScript, C++, Java, Git, GitHub"
+        ]
+    },
+    {
+        "company": "GirlScript Summer of Code",
+        "role": "Open Source Contributor",
+        "duration": "Mar 2022 - May 2022",
+        "description": [
+            "Among <span class='focus'>Top 50</span> Performers, Secured <span class='focus'>46th Rank</span> Globally.",
+            "Contributed to 5+ Amazing Projects.",
+            "Awarded with <span class='focus'>LOR (Letter Of Recommendation)</span> for exemplary performance.",
+            "Received cool <span class='focus'>T-shirt and sticker</span> as a Top Performer swag.",
+            "Tech Stacks :- HTML, CSS, JavaScript, Git, GitHub"
+        ]
+    }
+]

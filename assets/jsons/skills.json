@@ -1,0 +1,62 @@
+[
+    {
+        "image": "assets/images/skills/C++.png",
+        "title": "C++"
+    },
+    {
+        "image": "assets/images/skills/DSA.png",
+        "title": "DSA"
+    },
+    {
+        "image": "assets/images/skills/C.png",
+        "title": "C"
+    },
+    {
+        "image": "assets/images/skills/Html.png",
+        "title": "HTML"
+    },
+    {
+        "image": "assets/images/skills/Css.png",
+        "title": "CSS"
+    },
+    {
+        "image": "assets/images/skills/JS.png",
+        "title": "JavaScript"
+    },
+    {
+        "image": "assets/images/skills/Python.png",
+        "title": "Python (Basic)"
+    },
+    {
+        "image": "assets/images/skills/Java.png",
+        "title": "Java (Basic)"
+    },
+    {
+        "image": "assets/images/skills/Git.png",
+        "title": "Git VCS"
+    },
+    {
+        "image": "assets/images/skills/Docker.png",
+        "title": "Docker"
+    },
+    {
+        "image": "assets/images/skills/Kubernetes.png",
+        "title": "Kubernetes"
+    },
+    {
+        "image": "assets/images/skills/GCP.png",
+        "title": "Google Cloud Platform"
+    },
+    {
+        "image": "assets/images/skills/Problem-Solving.png",
+        "title": "Problem Solving"
+    },
+    {
+        "image": "assets/images/skills/Leadership.png",
+        "title": "Leadership"
+    },
+    {
+        "image": "assets/images/skills/Team.png",
+        "title": "Team Work"
+    }
+]
