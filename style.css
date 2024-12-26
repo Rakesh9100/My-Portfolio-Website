@@ -1400,15 +1400,3 @@ footer a:hover {
         display: flex;
     }
 }
-
-
-.parallax {
-    background-attachment: fixed;
-    background-size: cover;
-    background-position: center;
-}
-
-/* Example specific parallax backgrounds */
-.home.parallax {
-    background-image: url('assets/images/home'); /* Replace with your background image */
-}

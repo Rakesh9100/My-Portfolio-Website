@@ -430,13 +430,3 @@ document.addEventListener("keydown", function (e) {
         }
     }
 });
-
-
-
-document.addEventListener('scroll', function () {
-    const parallaxElements = document.querySelectorAll('.parallax');
-    parallaxElements.forEach(function (element) {
-        let scrollPosition = window.pageYOffset;
-        element.style.backgroundPositionY = scrollPosition * 0.5 + 'px';
-    });
-});
