@@ -1,3 +1,18 @@
+/* ----- Parallax Effect ----- */
+
+{
+    document.addEventListener("scroll", () => {
+        const scrollPosition = window.scrollY;
+
+        // Apply parallax for each section
+        document.querySelectorAll(".parallax-section").forEach((section) => {
+            const speed = section.getAttribute("data-speed") || 0.5;
+            const offset = scrollPosition * speed;
+            section.style.backgroundPosition = `center ${offset}px`;
+        });
+    });
+}
+
 /* ----- Home Page Background ----- */
 {
     const canvas = document.getElementById('canvas');
@@ -385,7 +400,7 @@ document.addEventListener('visibilitychange', function () {
         document.title = "Portfolio | Rakesh Roshan";
         favicon.setAttribute("href", "assets/images/favicon.png");
     } else {
-        document.title = "Come Back To Portfolio";
+        document.title = "Come Back To My Portfolio";
         favicon.setAttribute("href", "assets/images/favhand.png");
     }
 });

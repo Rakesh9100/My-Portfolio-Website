@@ -272,21 +272,30 @@ section .text span {
 
 /* ----- Home Section Styling ----- */
 
+.home-wrapper {
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
 canvas {
-    position: absolute;
+    z-index: 1;
     width: 100vw;
     height: 100vh;
+    position: fixed;
     background-color: var(--main1);
 }
 
 .home {
+    top: 0;
+    left: 0;
+    z-index: 2;
+    width: 100%;
     height: 100%;
-    padding: 0 20px;
-    min-height: 100vh;
     display: flex;
-    background: none;
-    position: relative;
+    position: fixed;
     align-items: center;
+    justify-content: center;
     color: var(--secondary);
 }
 
@@ -300,7 +309,7 @@ canvas {
 
 .home .home-image {
     margin: 20px 0 0 20px;
-    max-width: clamp(200px, 35vw, 600px);
+    max-width: clamp(250px, 32vw, 600px);
 }
 
 .home .home-image img {
@@ -386,9 +395,11 @@ canvas {
 /* ----- About Section Styling ----- */
 
 .about {
-    background: var(--main2);
-    height: 100%;
+    z-index: 3;
     min-height: 100vh;
+    position: relative;
+    padding: 100px 20px;
+    background: var(--main2);
 }
 
 .about .title {
@@ -505,9 +516,11 @@ canvas {
 /* ----- Skills Section Styling ----- */
 
 .skills {
-    background: var(--main1);
+    z-index: 3;
     height: 100%;
     min-height: 100vh;
+    position: relative;
+    background: var(--main1);
 }
 
 .skills .skill-boxes {
@@ -560,9 +573,11 @@ canvas {
 /* ----- Education Section Styling ----- */
 
 .education {
-    background: var(--main2);
+    z-index: 3;
     height: 100%;
     min-height: 100vh;
+    position: relative;
+    background: var(--main2);
 }
 
 .education .education-boxes {
@@ -644,9 +659,11 @@ canvas {
 /* ----- Experience Section Styling ----- */
 
 .experience {
-    background: var(--main1);
+    z-index: 3;
     height: 100%;
     min-height: 100vh;
+    position: relative;
+    background: var(--main1);
 }
 
 .experience .experience-boxes {
@@ -729,9 +746,11 @@ canvas {
 /* ----- Projects Section Styling ----- */
 
 .projects {
-    background: var(--main2);
+    z-index: 3;
     height: 100%;
     min-height: 100vh;
+    position: relative;
+    background: var(--main2);
 }
 
 .projects .box {
@@ -858,9 +877,11 @@ canvas {
 /* ----- Certificates Section Styling ----- */
 
 .certificates {
-    background: var(--main1);
+    z-index: 3;
     height: 100%;
     min-height: 100vh;
+    position: relative;
+    background: var(--main1);
 }
 
 .certificates .certificate-boxes {
@@ -918,9 +939,11 @@ canvas {
 /* ----- Contact Section Styling ----- */
 
 .contact {
-    background: var(--main2);
+    z-index: 3;
     height: 100%;
     min-height: 100vh;
+    position: relative;
+    background: var(--main2);
 }
 
 .contact p {
@@ -1029,12 +1052,14 @@ canvas {
 /* ----- Footer Section Styling ----- */
 
 footer {
-    background: var(--main1);
-    padding: 14px 23px;
+    z-index: 3;
     font-weight: 900;
     margin-top: -50px;
-    color: var(--secondary);
+    padding: 14px 23px;
+    position: relative;
     text-align: center;
+    color: var(--secondary);
+    background: var(--main1);
 }
 
 footer a {
@@ -1296,7 +1321,10 @@ footer a:hover {
 
     .home .text-1 {
         margin-bottom: 20px;
-        margin-top: 50px;
+    }
+
+    .home .home-image img {
+        margin-top: -60px;
     }
 
     .home button {
