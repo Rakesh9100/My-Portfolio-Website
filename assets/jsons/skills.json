@@ -1,39 +1,7 @@
 [
     {
-        "image": "assets/images/skills/C++.png",
-        "title": "C++"
-    },
-    {
-        "image": "assets/images/skills/DSA.png",
-        "title": "DSA"
-    },
-    {
-        "image": "assets/images/skills/C.png",
-        "title": "C"
-    },
-    {
-        "image": "assets/images/skills/Html.png",
-        "title": "HTML"
-    },
-    {
-        "image": "assets/images/skills/Css.png",
-        "title": "CSS"
-    },
-    {
-        "image": "assets/images/skills/JS.png",
-        "title": "JavaScript"
-    },
-    {
-        "image": "assets/images/skills/Python.png",
-        "title": "Python (Basic)"
-    },
-    {
-        "image": "assets/images/skills/Java.png",
-        "title": "Java (Basic)"
-    },
-    {
-        "image": "assets/images/skills/Git.png",
-        "title": "Git VCS"
+        "image": "assets/images/skills/Ansible.png",
+        "title": "Ansible"
     },
     {
         "image": "assets/images/skills/Docker.png",
@@ -44,8 +12,80 @@
         "title": "Kubernetes"
     },
     {
-        "image": "assets/images/skills/GCP.png",
+        "image": "assets/images/skills/Linux.png",
+        "title": "Linux"
+    },
+    {
+        "image": "assets/images/skills/Git.png",
+        "title": "Git VCS"
+    },
+    {
+        "image": "assets/images/skills/Github.png",
+        "title": "Github"
+    },
+    {
+        "image": "assets/images/skills/Gitlab.png",
+        "title": "Gitlab"
+    },
+    {
+        "image": "assets/images/skills/Aws.png",
+        "title": "Amazon Web Services"
+    },
+    {
+        "image": "assets/images/skills/Gcp.png",
         "title": "Google Cloud Platform"
+    },
+    {
+        "image": "assets/images/skills/Vscode.png",
+        "title": "Visual Studio Code"
+    },
+    {
+        "image": "assets/images/skills/Terraform.png",
+        "title": "Terraform"
+    },
+    {
+        "image": "assets/images/skills/Javascript.png",
+        "title": "JavaScript"
+    },
+    {
+        "image": "assets/images/skills/Html.png",
+        "title": "HTML"
+    },
+    {
+        "image": "assets/images/skills/Css.png",
+        "title": "CSS"
+    },
+    {
+        "image": "assets/images/skills/React.png",
+        "title": "React"
+    },
+    {
+        "image": "assets/images/skills/Nodejs.png",
+        "title": "Node.js"
+    },
+    {
+        "image": "assets/images/skills/Xml.png",
+        "title": "XML"
+    },
+    {
+        "image": "assets/images/skills/C.png",
+        "title": "C"
+    },
+    {
+        "image": "assets/images/skills/C++.png",
+        "title": "C++"
+    },
+    {
+        "image": "assets/images/skills/DSA.png",
+        "title": "DSA"
+    },
+    {
+        "image": "assets/images/skills/Java.png",
+        "title": "Java (Basic)"
+    },
+    {
+        "image": "assets/images/skills/Python.png",
+        "title": "Python (Basic)"
     },
     {
         "image": "assets/images/skills/Problem-Solving.png",

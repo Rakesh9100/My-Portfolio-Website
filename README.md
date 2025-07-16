@@ -39,7 +39,7 @@ A fully responsive Portfolio website which is a unique way to showcase my works 
 
 <h2>Snap of Main Page⭐</h2>
 
-![Main](https://user-images.githubusercontent.com/73993775/217278377-78e996cc-7805-4e91-a1d3-fa7e1ee50ebe.png)
+![Main](https://github.com/user-attachments/assets/fd4fb8a2-3c28-436b-8512-d3978addf92e)
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 <!-- --------------------------------------------------------------------------------------------------------------------------------------------------------- -->

@@ -351,7 +351,7 @@ document.addEventListener('DOMContentLoaded', function () {
 /* ----- Typing Animation ----- */
 {
     var typed = new Typed(".typing", {
-        strings: ["", "A C++ Coder", "Web Developer", "Open Source Enthusiast", "into Machine Learning"],
+        strings: ["", "A DevOps Engineer", "Open Source Enthusiast", "A Frontend Developer", "into Software Engineering"],
         typeSpeed: 100,
         BackSpeed: 60,
         loop: true

@@ -6,7 +6,8 @@
         "techs": [
             "HTML",
             "CSS",
-            "JavaScript"
+            "JavaScript",
+            "jQuery"
         ],
         "sourceCode": "https://github.com/Rakesh9100/My-Portfolio-Website",
         "liveProject": "https://rakeshroshan.netlify.app/"
@@ -18,7 +19,8 @@
         "techs": [
             "HTML",
             "CSS",
-            "JavaScript"
+            "JavaScript",
+            "JSON"
         ],
         "sourceCode": "https://github.com/Rakesh9100/Beautiify",
         "liveProject": "https://beautiify.netlify.app/"
@@ -30,7 +32,21 @@
         "techs": [
             "HTML",
             "CSS",
-            "JavaScript"
+            "JavaScript",
+            "JSON"
+        ],
+        "sourceCode": "https://github.com/Rakesh9100/CalcDiverse",
+        "liveProject": "https://calcdiverse.netlify.app/"
+    },
+    {
+        "title": "Eventica",
+        "description": "Eventica is an ultimate guide to the dynamic and diverse events in Bangalore.",
+        "image": "assets/images/projects/project4.webp",
+        "techs": [
+            "HTML",
+            "CSS",
+            "JavaScript",
+            "JSON"
         ],
         "sourceCode": "https://github.com/Rakesh9100/CalcDiverse",
         "liveProject": "https://calcdiverse.netlify.app/"
@@ -38,7 +54,7 @@
     {
         "title": "ML Project Drug Review Dataset",
         "description": "This is an innovative machine learning project that utilizes patient reviews to analyze the drugs effectiveness.",
-        "image": "assets/images/projects/project4.webp",
+        "image": "assets/images/projects/project5.webp",
         "techs": [
             "Python",
             "Machine Learning",
@@ -50,7 +66,7 @@
     {
         "title": "Click The Edible Game",
         "description": "A well-designed interesting game where you can play with your favourite edible and click it to get the most scores.",
-        "image": "assets/images/projects/project5.webp",
+        "image": "assets/images/projects/project6.webp",
         "techs": [
             "HTML",
             "CSS",
@@ -58,20 +74,6 @@
         ],
         "sourceCode": "https://github.com/Rakesh9100/Click-The-Edible-Game",
         "liveProject": "https://click-the-edible-game.netlify.app/"
-    },
-    {
-        "title": "EnlightenHeavens",
-        "description": "Welcome to the Bhakti website, where love and devotion are shared for the Divine.",
-        "image": "assets/images/projects/project6.webp",
-        "techs": [
-            "Wordpress",
-            "PHP",
-            "HTML",
-            "CSS",
-            "JavaScript"
-        ],
-        "sourceCode": "https://github.com/Rakesh9100/EnlightenHeavens",
-        "liveProject": "https://enlightenheavens.live/"
     },
     {
         "title": "Greeting Time",
