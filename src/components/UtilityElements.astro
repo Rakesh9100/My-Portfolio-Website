@@ -232,12 +232,12 @@
     .progress-percentage {
         font-size: 8px;
     }
-    
+
     .performance-metrics {
         bottom: 75px;
         right: 15px;
     }
-    
+
     .perf-toggle {
         width: 42px;
         height: 42px;
@@ -270,7 +270,7 @@
     .perf-value {
         font-size: 12px;
     }
-    
+
     .easter-egg-notification {
         top: 70px;
     }
@@ -287,7 +287,7 @@
     .easter-egg-message {
         font-size: 12px;
     }
-    
+
     .circle {
         display: none;
     }
@@ -343,12 +343,12 @@
     .progress-percentage {
         font-size: 8.5px;
     }
-    
+
     .performance-metrics {
         bottom: 78px;
         right: 18px;
     }
-    
+
     .perf-toggle {
         width: 44px;
         height: 44px;
@@ -364,11 +364,11 @@
         padding: 13px;
         bottom: 54px;
     }
-    
+
     .easter-egg-notification {
         top: 75px;
     }
-    
+
     .circle {
         display: none;
     }
@@ -433,7 +433,7 @@
     // Performance Metrics
     const perfToggle = document.getElementById('perf-toggle');
     const perfPanel = document.getElementById('perf-panel');
-    
+
     if (perfToggle && perfPanel) {
         perfToggle.addEventListener('click', function() {
             perfPanel.classList.toggle('show');
@@ -452,7 +452,7 @@
         setTimeout(function() {
             // Use modern Performance API
             const perfData = performance.getEntriesByType('navigation')[0];
-            
+
             if (perfData) {
                 // Modern API
                 const loadTime = ((perfData.loadEventEnd - perfData.fetchStart) / 1000).toFixed(2);
@@ -510,7 +510,7 @@
 
     // Detect if device is mobile/touch device
     function isMobileDevice() {
-        return (typeof window.orientation !== "undefined") || 
+        return (typeof window.orientation !== "undefined") ||
                (navigator.userAgent.indexOf('IEMobile') !== -1) ||
                ('ontouchstart' in window) ||
                (navigator.maxTouchPoints > 0);
@@ -522,15 +522,15 @@
     function showNotification(message, icon) {
         const notification = document.getElementById('easter-egg-notification');
         if (!notification) return;
-        
+
         const iconEl = notification.querySelector('.easter-egg-icon');
         const messageEl = notification.querySelector('.easter-egg-message');
-        
+
         if (iconEl) iconEl.textContent = icon;
         if (messageEl) messageEl.textContent = message;
-        
+
         notification.classList.add('show');
-        
+
         setTimeout(function() {
             notification.classList.remove('show');
         }, 3500);
@@ -541,14 +541,14 @@
         // Skip if mobile device
         if (!enableEasterEggs) return;
         typedKeys.push(e.key);
-        
+
         // Keep last 6 characters for longer patterns
         if (typedKeys.length > 6) {
             typedKeys.shift();
         }
-        
+
         const typedString = typedKeys.join('');
-        
+
         // Easter Egg 1: Type "devops" - CI/CD Pipeline Animation (check first - longest pattern)
         if (typedString.includes('devops')) {
             showCICDPipeline();
@@ -556,7 +556,7 @@
             easterEggCount++;
             return;
         }
-        
+
         // Easter Egg 3: Type "deploy" - Confetti Burst (check second)
         if (typedString.includes('deploy')) {
             createConfettiBurst();
@@ -564,7 +564,7 @@
             easterEggCount++;
             return;
         }
-        
+
         // Easter Egg 2: Type ":)" - Emoji Rain
         if (typedString.includes(':)')) {
             createEmojiRain();
@@ -572,7 +572,7 @@
             easterEggCount++;
             return;
         }
-        
+
         // Easter Egg 4: Type "dev:" - Developer Console
         if (typedString.includes('dev:')) {
             showDeveloperStats();
@@ -718,7 +718,7 @@
 
     // Add dynamic styles for Easter eggs
     const easterEggStyles = document.createElement('style');
-    easterEggStyles.textContent = 
+    easterEggStyles.textContent =
         '/* CI/CD Pipeline */' +
         '.cicd-pipeline {' +
         '    position: fixed;' +
@@ -859,7 +859,7 @@
     // Welcome message with Easter egg hints on page load (only on desktop)
     window.addEventListener('load', function() {
         if (!enableEasterEggs) return; // Skip on mobile
-        
+
         setTimeout(function() {
             console.log('%c🎮 Welcome to Rakesh\'s Portfolio! 🎮', 'font-size: 20px; color: #d946ef; font-weight: bold; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);');
             console.log('%c━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━', 'color: #3b82f6;');

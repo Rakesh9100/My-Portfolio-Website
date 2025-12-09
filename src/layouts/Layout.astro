@@ -40,13 +40,17 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || url);
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
 
     <!-- Fonts -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Ubuntu:wght@300;400;500;700&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Ubuntu:wght@300;400;500;700&display=swap" rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript>
+      <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet" />
+    </noscript>
 
-    <link rel="stylesheet" href="/assets/libs/animate.css" />
-    <script is:inline src="/assets/libs/wow.js"></script>
+    <!-- Load animate.css asynchronously -->
+    <link rel="preload" href="/assets/libs/animate.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript><link rel="stylesheet" href="/assets/libs/animate.css" /></noscript>
+
+    <!-- Defer wow.js to prevent render blocking -->
+    <script is:inline src="/assets/libs/wow.js" defer></script>
 
     <meta name="generator" content={Astro.generator} />
   </head>

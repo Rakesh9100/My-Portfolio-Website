@@ -5,17 +5,17 @@
 <section class="projects z-[3] min-h-screen relative overflow-hidden pt-24 pb-20 px-5" id="projects" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);">
   <!-- Floating Background -->
   <div class="absolute top-[10%] -right-[10%] w-[500px] h-[500px] rounded-full pointer-events-none animate-float-bg" style="background: radial-gradient(circle, rgba(217, 70, 239, 0.1) 0%, transparent 70%);"></div>
-  
+
   <!-- Title -->
   <div class="title relative text-center font-bold mb-6">
     <span class="projects-title uppercase" style="background: var(--gradient2); background-size: cover; color: transparent; background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 0 20px rgba(240, 147, 251, 0.5)); animation: titleGlow 3s ease-in-out infinite;">My Projects</span>
   </div>
-  
+
   <!-- Subtitle -->
   <div class="text text-center mb-16">
     <span class="projects-subtitle px-5 py-1.5 inline-block text-center transition-all duration-300" style="color: var(--secondary); background: rgba(26, 15, 62, 0.3); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(59, 130, 246, 0.4); border-radius: 25px; box-shadow: 0 8px 32px rgba(59, 130, 246, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);">A creative project is a moving target. You never end up where you start.</span>
   </div>
-    
+
     <!-- View Toggle -->
     <div class="view-toggle-container">
         <button class="view-toggle-btn active" data-view="carousel" aria-label="Switch to carousel view">
@@ -35,7 +35,7 @@
             <span>Grid View</span>
         </button>
     </div>
-    
+
     <!-- Project Count -->
     <div class="project-count-container">
         <span id="project-count-text">Showing all projects</span>
@@ -48,7 +48,7 @@
                 <!-- Projects will be loaded here dynamically -->
             </div>
         </div>
-        
+
         <!-- Carousel Controls -->
         <button class="carousel-btn carousel-prev" id="carousel-prev" aria-label="Previous project">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
@@ -60,7 +60,7 @@
                 <polyline points="9 18 15 12 9 6"></polyline>
             </svg>
         </button>
-        
+
         <!-- Carousel Indicators -->
         <div class="carousel-indicators" id="carousel-indicators"></div>
     </div>
@@ -634,7 +634,7 @@
     .carousel-wrapper {
         height: 420px;
     }
-    
+
     .carousel-item .project-image-container {
         height: 180px;
     }
@@ -662,7 +662,7 @@
         padding: 5px 10px;
         font-size: 11px;
     }
-    
+
     .carousel-btn {
         width: 45px;
         height: 45px;
@@ -672,11 +672,11 @@
         width: 20px;
         height: 20px;
     }
-    
+
     .carousel-prev {
         left: 5px;
     }
-    
+
     .carousel-next {
         right: 5px;
     }
@@ -704,7 +704,7 @@
         gap: 20px;
         margin-top: 30px;
     }
-    
+
     .projects .box {
         width: 100%;
         margin-bottom: 20px;
@@ -771,7 +771,7 @@
     .carousel-wrapper {
         height: 480px;
     }
-    
+
     .carousel-item {
         width: 340px;
     }
@@ -791,16 +791,16 @@
     .carousel-item p {
         font-size: 13.5px;
     }
-    
+
     .carousel-btn {
         width: 52px;
         height: 52px;
     }
-    
+
     .carousel-prev {
         left: 12px;
     }
-    
+
     .carousel-next {
         right: 12px;
     }
@@ -809,7 +809,7 @@
     .project-content {
         gap: 25px;
     }
-    
+
     .projects .box {
         flex: 1 1 50%;
     }
@@ -889,12 +889,12 @@
             const response = await fetch('/assets/jsons/projects.json');
             projectsData = await response.json();
             totalSlides = projectsData.length;
-            
+
             initCarouselView();
             initGridView();
             initViewToggle();
             initCarouselControls();
-            
+
             const countText = document.getElementById('project-count-text');
             if (countText) {
                 countText.textContent = 'Showing all ' + projectsData.length + ' projects';
@@ -918,7 +918,7 @@
             item.classList.add('carousel-item');
             if (index === 0) item.classList.add('active');
 
-            const liveLink = project.liveProject ? 
+            const liveLink = project.liveProject ?
                 '<a href="' + project.liveProject + '" target="_blank" rel="noopener noreferrer" class="project-link-btn" title="Live Demo"><img src="assets/images/projects/link.png" alt="Live"></a>' : '';
 
             const techsHtml = project.techs.map(function(tech) {
@@ -964,7 +964,7 @@
             const box = document.createElement('div');
             box.classList.add('box', 'show');
 
-            const liveLink = project.liveProject ? 
+            const liveLink = project.liveProject ?
                 '<a href="' + project.liveProject + '" target="_blank" rel="noopener noreferrer" class="project-link-btn" title="Live Demo"><img src="assets/images/projects/link.png" alt="Live"></a>' : '';
 
             const techsHtml = project.techs.map(function(tech) {

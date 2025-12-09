@@ -3,6 +3,7 @@
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: geolocation=(), microphone=(), camera=()
+  Link: </assets/images/home.webp>; rel=preload; as=image; fetchpriority=high
 
 # Cache static assets
 /assets/*

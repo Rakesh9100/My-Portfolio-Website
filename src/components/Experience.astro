@@ -7,15 +7,15 @@ const experiences = experiencesData;
   <!-- Floating Background -->
   <div class="absolute top-[10%] -left-[15%] w-[500px] h-[500px] rounded-full animate-float-bg" style="background: radial-gradient(circle, rgba(59, 130, 246, 0.12) 0%, transparent 70%);"></div>
   <div class="absolute bottom-[20%] -right-[10%] w-[600px] h-[600px] rounded-full animate-float-bg-reverse" style="background: radial-gradient(circle, rgba(217, 70, 239, 0.12) 0%, transparent 70%);"></div>
-  
+
   <div class="title relative text-center font-bold mb-6">
     <span class="experience-title uppercase" style="background: var(--gradient2); background-size: cover; color: transparent; background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 0 20px rgba(240, 147, 251, 0.5)); animation: titleGlow 3s ease-in-out infinite;">My Experience</span>
   </div>
-  
+
   <div class="text text-center mb-16">
     <span class="experience-subtitle px-4 py-1 inline-block text-center" style="color: var(--secondary); background: rgba(26, 15, 62, 0.3); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(59, 130, 246, 0.4); border-radius: 25px; box-shadow: 0 8px 32px rgba(59, 130, 246, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);">Experience is the teacher of all things.</span>
   </div>
-  
+
   <!-- Experience Filter -->
   <div class="experience-filter flex justify-center gap-4 flex-wrap my-10 mx-auto px-5 relative z-10">
     <button class="exp-filter-btn active flex items-center gap-2 px-6 py-3 rounded-full text-white text-[15px] font-semibold cursor-pointer relative overflow-hidden transition-all duration-400" data-filter="all" style="background: rgba(26, 15, 62, 0.3); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 2px solid rgba(255, 255, 255, 0.15); box-shadow: 0 5px 20px rgba(59, 130, 246, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1);">
@@ -43,14 +43,14 @@ const experiences = experiencesData;
   <!-- Experience Timeline -->
   <div class="experience-timeline-container relative max-w-[1000px] mx-auto px-5">
     <div class="experience-timeline-line absolute top-0 bottom-0 w-1" style="background: linear-gradient(180deg, transparent 0%, var(--primary) 5%, var(--primary) 95%, transparent 100%); box-shadow: 0 0 15px var(--primary);"></div>
-    
+
     <div class="experience-boxes flex flex-col gap-8 relative" id="experience-boxes">
       {experiences.slice(0, 6).map((exp, index) => (
         <div class="exp-box relative exp-card-ready" data-category={exp.category}>
           <div class="timeline-dot absolute w-5 h-5 rounded-full z-10 animate-pulse-dot" style="background: var(--gradient2); box-shadow: 0 0 0 6px rgba(26, 15, 62, 0.9), 0 0 20px var(--primary);">
             <div class="dot-inner w-2.5 h-2.5 rounded-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 animate-dot-pulse" style="background: var(--secondary);"></div>
           </div>
-          
+
           <div class="exp-content rounded-[20px] p-6 transition-all duration-500" style="background: rgba(26, 15, 62, 0.3); backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px); border: 2px solid rgba(255, 255, 255, 0.15); box-shadow: 0 10px 40px rgba(95, 39, 205, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);">
             <div class="exp-header flex items-start justify-between gap-4 mb-4 flex-wrap">
               <div class="company-info flex-1">
@@ -67,7 +67,7 @@ const experiences = experiencesData;
                 <span class="text-sm font-semibold text-white">{exp.duration}</span>
               </div>
             </div>
-            
+
             <ul class="exp-description list-none p-0 m-0 flex flex-col gap-2.5">
               {exp.description.map((desc) => (
                 <li class="flex items-start gap-3 text-sm leading-relaxed" style="color: rgba(255, 255, 255, 0.9);">
@@ -79,13 +79,13 @@ const experiences = experiencesData;
           </div>
         </div>
       ))}
-      
+
       {experiences.slice(6).map((exp, index) => (
         <div class="exp-box hidden-exp relative exp-card-ready" data-category={exp.category} style="display: none;">
           <div class="timeline-dot absolute w-5 h-5 rounded-full z-10 animate-pulse-dot" style="background: var(--gradient2); box-shadow: 0 0 0 6px rgba(26, 15, 62, 0.9), 0 0 20px var(--primary);">
             <div class="dot-inner w-2.5 h-2.5 rounded-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 animate-dot-pulse" style="background: var(--secondary);"></div>
           </div>
-          
+
           <div class="exp-content rounded-[20px] p-6 transition-all duration-500" style="background: rgba(26, 15, 62, 0.3); backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px); border: 2px solid rgba(255, 255, 255, 0.15); box-shadow: 0 10px 40px rgba(95, 39, 205, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);">
             <div class="exp-header flex items-start justify-between gap-4 mb-4 flex-wrap">
               <div class="company-info flex-1">
@@ -102,7 +102,7 @@ const experiences = experiencesData;
                 <span class="text-sm font-semibold text-white">{exp.duration}</span>
               </div>
             </div>
-            
+
             <ul class="exp-description list-none p-0 m-0 flex flex-col gap-2.5">
               {exp.description.map((desc) => (
                 <li class="flex items-start gap-3 text-sm leading-relaxed" style="color: rgba(255, 255, 255, 0.9);">
@@ -116,7 +116,7 @@ const experiences = experiencesData;
       ))}
     </div>
   </div>
-  
+
   <!-- Load More Button -->
   <div class="load-more-container flex justify-center mt-12" id="load-more-container">
     <button class="load-more-btn flex items-center gap-3 px-8 py-4 rounded-full text-white text-base font-bold cursor-pointer transition-all duration-400" id="load-more-btn" style="background: rgba(59, 130, 246, 0.3); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 2px solid rgba(59, 130, 246, 0.5); box-shadow: 0 8px 32px rgba(59, 130, 246, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.15);">
@@ -133,19 +133,19 @@ const experiences = experiencesData;
   // Filter functionality
   const filterBtns = document.querySelectorAll('.exp-filter-btn');
   const expBoxes = document.querySelectorAll('.exp-box');
-  
+
   filterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
       const filter = btn.getAttribute('data-filter');
-      
+
       // Update active button
       filterBtns.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
-      
+
       // Filter experiences
       expBoxes.forEach(box => {
         const category = box.getAttribute('data-category');
-        
+
         if (filter === 'all' || category === filter) {
           box.style.display = 'block';
           setTimeout(() => {
@@ -162,16 +162,16 @@ const experiences = experiencesData;
       });
     });
   });
-  
+
   // Load More functionality
   const loadMoreBtn = document.getElementById('load-more-btn');
   const hiddenExps = document.querySelectorAll('.hidden-exp');
-  
+
   if (hiddenExps.length === 0) {
     const container = document.getElementById('load-more-container');
     if (container) container.style.display = 'none';
   }
-  
+
   loadMoreBtn?.addEventListener('click', () => {
     hiddenExps.forEach((exp, index) => {
       setTimeout(() => {
@@ -183,7 +183,7 @@ const experiences = experiencesData;
         }, 10);
       }, index * 100);
     });
-    
+
     const container = document.getElementById('load-more-container');
     if (container) {
       container.style.opacity = '0';
@@ -192,24 +192,24 @@ const experiences = experiencesData;
       }, 300);
     }
   });
-  
+
   // Hover effects for filter buttons
   filterBtns.forEach(btn => {
     btn.addEventListener('mouseenter', () => {
       const icon = btn.querySelector('.filter-icon');
       if (icon) icon.style.transform = 'scale(1.2) rotate(10deg)';
     });
-    
+
     btn.addEventListener('mouseleave', () => {
       const icon = btn.querySelector('.filter-icon');
       if (icon) icon.style.transform = 'scale(1) rotate(0deg)';
     });
   });
-  
+
   // Hover effects for experience boxes
   expBoxes.forEach(box => {
     const content = box.querySelector('.exp-content');
-    
+
     box.addEventListener('mouseenter', () => {
       if (content) {
         content.style.background = 'rgba(59, 130, 246, 0.2)';
@@ -219,7 +219,7 @@ const experiences = experiencesData;
         content.style.transform = 'translateX(10px)';
       }
     });
-    
+
     box.addEventListener('mouseleave', () => {
       if (content) {
         content.style.background = 'rgba(26, 15, 62, 0.3)';
@@ -230,7 +230,7 @@ const experiences = experiencesData;
       }
     });
   });
-  
+
   // Load More button hover
   loadMoreBtn?.addEventListener('mouseenter', () => {
     loadMoreBtn.style.background = 'rgba(59, 130, 246, 0.5)';
@@ -240,7 +240,7 @@ const experiences = experiencesData;
     const svg = loadMoreBtn.querySelector('svg');
     if (svg) svg.style.transform = 'translateY(3px)';
   });
-  
+
   loadMoreBtn?.addEventListener('mouseleave', () => {
     loadMoreBtn.style.background = 'rgba(59, 130, 246, 0.3)';
     loadMoreBtn.style.border = '2px solid rgba(59, 130, 246, 0.5)';
@@ -249,10 +249,10 @@ const experiences = experiencesData;
     const svg = loadMoreBtn.querySelector('svg');
     if (svg) svg.style.transform = 'translateY(0)';
   });
-  
+
   // Intersection Observer for animations
   const observerOptions = { threshold: 0.1, rootMargin: '0px' };
-  
+
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -267,10 +267,10 @@ const experiences = experiencesData;
       }
     });
   }, observerOptions);
-  
+
   const expSection = document.querySelector('.experience');
   if (expSection) observer.observe(expSection);
-  
+
   // Style for focus class in descriptions
   const focusElements = document.querySelectorAll('.focus');
   focusElements.forEach(el => {
@@ -287,27 +287,27 @@ const experiences = experiencesData;
     0%, 100% { filter: drop-shadow(0 0 20px rgba(240, 147, 251, 0.5)); }
     50% { filter: drop-shadow(0 0 30px rgba(240, 147, 251, 0.8)); }
   }
-  
+
   @keyframes float-bg {
     0%, 100% { transform: translate(0, 0); }
     50% { transform: translate(50px, 50px); }
   }
-  
+
   @keyframes float-bg-reverse {
     0%, 100% { transform: translate(0, 0); }
     50% { transform: translate(-50px, -50px); }
   }
-  
+
   @keyframes dot-pulse {
     0%, 100% { transform: translate(-50%, -50%) scale(1); }
     50% { transform: translate(-50%, -50%) scale(1.3); }
   }
-  
+
   .animate-float-bg { animation: float-bg 20s ease-in-out infinite; }
   .animate-float-bg-reverse { animation: float-bg-reverse 25s ease-in-out infinite; }
   .animate-pulse-dot { animation: pulse 2s ease-in-out infinite; }
   .animate-dot-pulse { animation: dot-pulse 2s ease-in-out infinite; }
-  
+
   .exp-filter-btn::before {
     content: '';
     position: absolute;
@@ -319,12 +319,12 @@ const experiences = experiencesData;
     transition: left 0.4s ease;
     z-index: -1;
   }
-  
+
   .exp-filter-btn:hover::before,
   .exp-filter-btn.active::before {
     left: 0;
   }
-  
+
   .exp-filter-btn:hover,
   .exp-filter-btn.active {
     background: rgba(59, 130, 246, 0.3);
@@ -332,31 +332,31 @@ const experiences = experiencesData;
     transform: translateY(-3px) scale(1.05);
     box-shadow: 0 10px 35px rgba(59, 130, 246, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.2);
   }
-  
+
   .exp-filter-btn.active {
     background: rgba(59, 130, 246, 0.4);
     border: 2px solid rgba(59, 130, 246, 0.7);
   }
-  
+
   .filter-icon {
     transition: transform 0.3s ease;
   }
-  
+
   .exp-box {
     opacity: 0;
     transform: translateY(20px);
     transition: all 0.3s ease;
   }
-  
+
   .exp-card-animated {
     animation: expCardFadeIn 0.6s ease-out forwards;
   }
-  
+
   @keyframes expCardFadeIn {
     0% { opacity: 0; transform: translateY(20px); }
     100% { opacity: 1; transform: translateY(0); }
   }
-  
+
   .text span:hover {
     background: rgba(59, 130, 246, 0.25);
     backdrop-filter: blur(25px);
@@ -367,12 +367,12 @@ const experiences = experiencesData;
   }
 
   /* Responsive Styles */
-  
+
   /* Title and Subtitle Responsive Sizing */
   .experience-title {
     font-size: clamp(2rem, 8vw, 3.5vw);
   }
-  
+
   .experience-subtitle {
     font-size: clamp(0.875rem, 3.5vw, 1.3vw);
   }
@@ -387,7 +387,7 @@ const experiences = experiencesData;
     .filter-text-full {
       display: none;
     }
-    
+
     .filter-text-short {
       display: inline;
     }
@@ -395,7 +395,7 @@ const experiences = experiencesData;
     .load-more-text-full {
       display: none;
     }
-    
+
     .load-more-text-short {
       display: inline;
     }

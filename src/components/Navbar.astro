@@ -13,14 +13,14 @@ const navItems = [
 
 <nav class="navbar fixed w-full z-[999] transition-all duration-300 px-4 sm:px-6 md:px-8 py-2">
   <div class="max-width max-w-full mx-auto flex items-center justify-between px-3 sm:px-4 py-1.5 rounded-[20px] sm:rounded-[25px] relative" style="background: rgba(10, 10, 30, 0.5); backdrop-filter: blur(35px); -webkit-backdrop-filter: blur(35px); border: 2px solid transparent; box-shadow: 0 10px 40px rgba(16, 185, 129, 0.25), 0 5px 20px rgba(59, 130, 246, 0.25), inset 0 2px 0 rgba(255, 255, 255, 0.1), inset 0 -2px 10px rgba(16, 185, 129, 0.1);">
-    
+
     <!-- Animated Border -->
     <div class="absolute inset-0 rounded-[20px] sm:rounded-[25px] p-[2px] pointer-events-none -z-[1] animate-border-rotate" style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.7), rgba(59, 130, 246, 0.7), rgba(139, 92, 246, 0.7)); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); mask-composite: exclude;"></div>
-    
+
     <!-- Logo -->
-    <img 
-      src="/assets/images/logo.webp" 
-      alt="Logo" 
+    <img
+      src="/assets/images/logo.webp"
+      alt="Logo"
       class="img-logo h-auto"
       style="width: 16vw; max-width: 100%; margin-top: -20px; margin-bottom: -20px;"
     />
@@ -35,12 +35,12 @@ const navItems = [
         .img-logo { width: 7vw !important; }
       }
     </style>
-    
+
     <!-- Desktop Menu -->
     <ul class="menu hidden lg:flex list-none items-center">
       {navItems.map((item, index) => (
         <li class="inline-flex items-center">
-          <a 
+          <a
             href={item.href}
             class={`nav-link relative inline-flex items-center justify-center text-white/90 font-bold px-2 lg:px-3 xl:px-4 py-2.5 rounded-[15px] overflow-hidden transition-all duration-400 hover:text-white hover:-translate-y-1${index === 0 ? ' active' : ''}`}
             style="font-size: clamp(10px, 1.2vw, 16px); line-height: 1;"
@@ -50,12 +50,12 @@ const navItems = [
         </li>
       ))}
     </ul>
-    
+
     <!-- Right Section -->
     <div class="navbar-right flex items-center gap-3 sm:gap-4 md:gap-5">
       <!-- Resume Button -->
-      <a 
-        href="/assets/Rakesh_Roshan_Resume.pdf" 
+      <a
+        href="/assets/Rakesh_Roshan_Resume.pdf"
         download
         class="resume-btn flex items-center gap-2 px-3 sm:px-4 md:px-5 py-2 sm:py-2.5 rounded-full text-white font-bold text-xs sm:text-sm transition-all duration-400 relative overflow-hidden hover:-translate-y-1"
         style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.3), rgba(59, 130, 246, 0.3)); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 2px solid rgba(16, 185, 129, 0.5); box-shadow: 0 5px 20px rgba(16, 185, 129, 0.3);"
@@ -67,7 +67,7 @@ const navItems = [
         </svg>
         <span class="relative z-[1]">Resume</span>
       </a>
-      
+
       <!-- Theme Switcher -->
       <div class="theme-switcher relative z-[9999]" id="theme-switcher">
         <button class="theme-toggle-btn w-9 h-9 sm:w-10 sm:h-10 rounded-full cursor-pointer flex items-center justify-center transition-all duration-300 text-white" id="theme-toggle-btn" aria-label="Toggle Theme Switcher" style="background: rgba(217, 70, 239, 0.2); backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px); border: 1px solid rgba(217, 70, 239, 0.6); box-shadow: 0 8px 32px rgba(217, 70, 239, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1);">
@@ -102,7 +102,7 @@ const navItems = [
           </button>
         </div>
       </div>
-      
+
       <!-- Mobile Menu Button -->
       <button class="menu-btn lg:hidden text-white text-2xl cursor-pointer" id="menu-toggle" aria-label="Toggle Menu">
         <svg class="hamburger w-6 h-6" fill="currentColor" viewBox="0 0 448 512">
@@ -114,14 +114,14 @@ const navItems = [
       </button>
     </div>
   </div>
-  
+
   <!-- Mobile Menu -->
   <div class="mobile-menu lg:hidden fixed top-[70px] left-0 right-0 opacity-0 invisible translate-y-[-20px] transition-all duration-300 z-[998] px-4" id="mobile-menu">
     <div class="mobile-menu-content rounded-[20px] overflow-hidden" style="background: rgba(10, 10, 30, 0.95); backdrop-filter: blur(35px); -webkit-backdrop-filter: blur(35px); border: 2px solid rgba(16, 185, 129, 0.3); box-shadow: 0 10px 40px rgba(16, 185, 129, 0.25), 0 5px 20px rgba(59, 130, 246, 0.25);">
       <ul class="list-none p-4">
         {navItems.map((item, index) => (
           <li class="mb-2">
-            <a 
+            <a
               href={item.href}
               class={`mobile-nav-link block text-center text-white/90 font-bold px-4 py-3 rounded-[12px] transition-all duration-300 hover:text-white${index === 0 ? ' active' : ''}`}
               style="font-size: 14px; background: rgba(255, 255, 255, 0.05);"
@@ -142,10 +142,10 @@ const navItems = [
   const hamburgerIcon = menuToggle?.querySelector('.hamburger');
   const closeIcon = menuToggle?.querySelector('.close');
   const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
-  
+
   menuToggle?.addEventListener('click', () => {
     const isOpen = mobileMenu?.classList.contains('active');
-    
+
     if (isOpen) {
       // Close menu
       mobileMenu?.classList.remove('active');
@@ -170,7 +170,7 @@ const navItems = [
       document.body.style.overflow = 'hidden';
     }
   });
-  
+
   // Close mobile menu when clicking a link
   mobileNavLinks.forEach(link => {
     link.addEventListener('click', () => {
@@ -185,12 +185,12 @@ const navItems = [
       document.body.style.overflow = '';
     });
   });
-  
+
   // Close mobile menu when clicking outside
   document.addEventListener('click', (e) => {
     const target = e.target as Node;
-    if (mobileMenu?.classList.contains('active') && 
-        !mobileMenu.contains(target) && 
+    if (mobileMenu?.classList.contains('active') &&
+        !mobileMenu.contains(target) &&
         !menuToggle?.contains(target)) {
       mobileMenu.classList.remove('active');
       mobileMenu.style.opacity = '0';
@@ -201,16 +201,16 @@ const navItems = [
       document.body.style.overflow = '';
     }
   });
-  
+
   // Theme Switcher
   const themeToggleBtn = document.getElementById('theme-toggle-btn');
   const themeOptions = document.getElementById('theme-options');
   const themeButtons = document.querySelectorAll('.theme-btn');
-  
+
   // Load saved theme
   const savedTheme = localStorage.getItem('theme') || 'sunset';
   document.documentElement.setAttribute('data-theme', savedTheme);
-  
+
   // Update active theme button
   themeButtons.forEach(btn => {
     if (btn.getAttribute('data-theme') === savedTheme) {
@@ -219,7 +219,7 @@ const navItems = [
       btn.classList.remove('active');
     }
   });
-  
+
   // Toggle theme options with rotation animation
   themeToggleBtn?.addEventListener('click', () => {
     themeOptions?.classList.toggle('active');
@@ -237,7 +237,7 @@ const navItems = [
       themeToggleBtn.style.transform = 'scale(1) rotate(0deg)';
     }
   });
-  
+
   // Close theme options when clicking outside
   document.addEventListener('click', (e) => {
     const themeSwitcher = document.getElementById('theme-switcher');
@@ -250,7 +250,7 @@ const navItems = [
       }
     }
   });
-  
+
   // Change theme
   themeButtons.forEach(btn => {
     btn.addEventListener('click', () => {
@@ -258,14 +258,14 @@ const navItems = [
       if (theme) {
         document.documentElement.setAttribute('data-theme', theme);
         localStorage.setItem('theme', theme);
-        
+
         // Update active state
         themeButtons.forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
       }
     });
   });
-  
+
   // Remove focus outline when clicking nav links
   const navLinks = document.querySelectorAll('.nav-link, .mobile-nav-link');
   navLinks.forEach(link => {
@@ -276,11 +276,11 @@ const navItems = [
       }, 100);
     });
   });
-  
+
   // Active menu highlighting
   const sections = document.querySelectorAll('section[id]');
   const allNavLinks = document.querySelectorAll('.nav-link, .mobile-nav-link');
-  
+
   // Set HOME as active by default on page load
   function setDefaultActive() {
     const scrollY = window.pageYOffset;
@@ -293,35 +293,35 @@ const navItems = [
       });
     }
   }
-  
+
   let scrollTimeout: ReturnType<typeof setTimeout>;
-  
+
   function highlightNav() {
     // Debounce scroll events to reduce flickering during smooth scroll
     clearTimeout(scrollTimeout);
     scrollTimeout = setTimeout(() => {
       const scrollY = window.pageYOffset;
-      
+
       // If at top of page, activate HOME
       if (scrollY < 100) {
         setDefaultActive();
         return;
       }
-      
+
       let activeSection: string | null = null;
-      
+
       // Find the section that's most visible in viewport
       sections.forEach(section => {
         const htmlSection = section as HTMLElement;
         const sectionHeight = htmlSection.offsetHeight;
         const sectionTop = htmlSection.offsetTop - 150;
         const sectionId = section.getAttribute('id');
-        
+
         if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
           activeSection = sectionId;
         }
       });
-      
+
       // Only update if we found an active section
       if (activeSection) {
         allNavLinks.forEach(link => {
@@ -333,14 +333,14 @@ const navItems = [
       }
     }, 50);
   }
-  
+
   // Handle hash navigation on page load
   function handleHashNavigation() {
     const hash = window.location.hash;
     if (hash) {
       // Remove active from all links
       allNavLinks.forEach(link => link.classList.remove('active'));
-      
+
       // Find and activate the link matching the hash
       const targetLink = Array.from(allNavLinks).find(link => link.getAttribute('href') === hash);
       if (targetLink) {
@@ -351,15 +351,15 @@ const navItems = [
       setDefaultActive();
     }
   }
-  
+
   // Set active based on hash or default to HOME on page load
   handleHashNavigation();
-  
+
   // Also handle hash changes (browser back/forward)
   window.addEventListener('hashchange', handleHashNavigation);
-  
+
   window.addEventListener('scroll', highlightNav, { passive: true });
-  
+
   // Resume button hover effect
   const resumeBtn = document.querySelector('.resume-btn');
   resumeBtn?.addEventListener('mouseenter', () => {
@@ -368,7 +368,7 @@ const navItems = [
       svg.style.animation = 'bounceDown 0.6s ease infinite';
     }
   });
-  
+
   resumeBtn?.addEventListener('mouseleave', () => {
     const svg = resumeBtn.querySelector('svg');
     if (svg) {
@@ -382,39 +382,39 @@ const navItems = [
     0% { filter: hue-rotate(0deg); }
     100% { filter: hue-rotate(360deg); }
   }
-  
+
   @keyframes bounceDown {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(5px); }
   }
-  
+
   .animate-border-rotate {
     animation: border-rotate 4s linear infinite;
   }
-  
+
   .nav-link {
     transition: all 0.4s ease;
     outline: none !important;
     border: none !important;
   }
-  
+
   .nav-link:focus {
     outline: none !important;
     border: none !important;
     box-shadow: none !important;
   }
-  
+
   .nav-link:focus-visible {
     outline: none !important;
     border: none !important;
     box-shadow: none !important;
   }
-  
+
   .nav-link:active {
     outline: none !important;
     border: none !important;
   }
-  
+
   .nav-link::before {
     content: '';
     position: absolute;
@@ -424,16 +424,16 @@ const navItems = [
     transition: opacity 0.5s ease;
     border-radius: 15px;
   }
-  
+
   .nav-link:hover::before {
     opacity: 1;
   }
-  
+
   .nav-link:hover {
     box-shadow: 0 5px 20px rgba(16, 185, 129, 0.25), 0 0 25px rgba(59, 130, 246, 0.2);
     transform: translateY(-2px);
   }
-  
+
   .navbar .menu li a.active {
     background: linear-gradient(135deg,
             rgba(16, 185, 129, 0.4),
@@ -481,7 +481,7 @@ const navItems = [
         0 12px 40px rgba(16, 185, 129, 0.6),
         0 0 50px rgba(59, 130, 246, 0.5);
 }
-  
+
   .resume-btn::before {
     content: '';
     position: absolute;
@@ -496,21 +496,21 @@ const navItems = [
     z-index: 0;
     pointer-events: none;
   }
-  
+
   .resume-btn:hover::before {
     width: 300px;
     height: 300px;
   }
-  
+
   .resume-btn:hover {
     box-shadow: 0 10px 30px rgba(16, 185, 129, 0.6);
     border-color: rgba(16, 185, 129, 0.8);
   }
-  
+
   .theme-toggle-btn {
     transition: all 0.3s ease;
   }
-  
+
   .theme-toggle-btn:hover {
     background: rgba(217, 70, 239, 0.35);
     backdrop-filter: blur(30px);
@@ -518,7 +518,7 @@ const navItems = [
     border: 1px solid rgba(217, 70, 239, 0.8);
     box-shadow: 0 12px 48px rgba(217, 70, 239, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.2);
   }
-  
+
   .theme-options::before {
     content: '';
     position: absolute;
@@ -530,7 +530,7 @@ const navItems = [
     border-right: 8px solid transparent;
     border-bottom: 8px solid rgba(26, 15, 62, 0.4);
   }
-  
+
   .theme-btn:hover {
     background: rgba(255, 255, 255, 0.12);
     backdrop-filter: blur(25px);
@@ -539,7 +539,7 @@ const navItems = [
     transform: translateX(-5px);
     box-shadow: 0 8px 32px rgba(59, 130, 246, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1);
   }
-  
+
   .theme-btn.active {
     background: rgba(217, 70, 239, 0.25);
     backdrop-filter: blur(25px);
@@ -547,54 +547,54 @@ const navItems = [
     border: 1px solid rgba(217, 70, 239, 0.7);
     box-shadow: 0 8px 32px rgba(217, 70, 239, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.15);
   }
-  
+
   /* Mobile Menu Styles */
   .menu-btn {
     transition: all 0.3s ease;
     position: relative;
     z-index: 1000;
   }
-  
+
   .menu-btn:hover {
     transform: scale(1.1);
   }
-  
+
   .mobile-menu {
     max-height: calc(100vh - 90px);
     overflow-y: auto;
   }
-  
+
   .mobile-menu::-webkit-scrollbar {
     width: 6px;
   }
-  
+
   .mobile-menu::-webkit-scrollbar-track {
     background: rgba(26, 15, 62, 0.3);
     border-radius: 10px;
   }
-  
+
   .mobile-menu::-webkit-scrollbar-thumb {
     background: var(--gradient1);
     border-radius: 10px;
   }
-  
+
   .mobile-nav-link {
     transition: all 0.3s ease;
   }
-  
+
   .mobile-nav-link:hover {
     background: rgba(16, 185, 129, 0.15);
     transform: translateX(5px);
     box-shadow: 0 4px 15px rgba(16, 185, 129, 0.2);
   }
-  
+
   .mobile-nav-link.active {
     background: linear-gradient(135deg, rgba(16, 185, 129, 0.3), rgba(59, 130, 246, 0.3));
     border: 1px solid rgba(16, 185, 129, 0.5);
     box-shadow: 0 5px 20px rgba(16, 185, 129, 0.4);
     color: #ffffff;
   }
-  
+
   /* Responsive adjustments */
   @media (max-width: 1023px) {
     .navbar {
@@ -602,7 +602,7 @@ const navItems = [
       padding-bottom: 0.5rem;
     }
   }
-  
+
   @media (max-width: 640px) {
     .mobile-menu {
       top: 65px;
