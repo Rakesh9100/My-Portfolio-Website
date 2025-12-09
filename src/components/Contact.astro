@@ -53,7 +53,11 @@
     <div class="max-width">
         <div class="contact-content">
             <div class="column right">
-                <form name="Contact Submission" autocomplete="off" id="contact-form">
+                <form name="Contact Submission" method="POST" data-netlify="true" netlify-honeypot="bot-field" autocomplete="off" id="contact-form">
+                    <input type="hidden" name="form-name" value="Contact Submission">
+                    <p style="display: none;">
+                        <label>Don't fill this out if you're human: <input name="bot-field"></label>
+                    </p>
                     <div class="fields">
                         <div class="field name">
                             <div class="input-wrapper">
@@ -71,7 +75,7 @@
                                     <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                                     <polyline points="22,6 12,13 2,6"></polyline>
                                 </svg>
-                                <input type="email" id="email" name="Email" autocomplete="email" placeholder="Email" required>
+                                <input type="email" id="email" name="Email" autocomplete="email" placeholder="Email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" title="Please enter a valid email address (e.g., user@example.com)" required>
                                 <label for="email" class="floating-label">Email</label>
                             </div>
                         </div>
@@ -81,7 +85,7 @@
                             <svg class="input-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
                             </svg>
-                            <input type="text" id="subject" name="Subject" placeholder="Subject" required>
+                            <input type="text" id="subject" name="Subject" placeholder="Subject" minlength="10" title="Subject must be at least 10 characters" required>
                             <label for="subject" class="floating-label">Subject</label>
                         </div>
                     </div>
@@ -90,9 +94,9 @@
                             <svg class="input-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
                             </svg>
-                            <textarea id="message" cols="30" rows="10" name="Message" placeholder="Your Message. . . . ." required maxlength="500"></textarea>
+                            <textarea id="message" cols="30" rows="10" name="Message" placeholder="Your Message. . . . ." minlength="25" title="Message must be at least 25 characters" required maxlength="500"></textarea>
                             <label for="message" class="floating-label">Message</label>
-                            <span class="char-counter"><span id="char-count">0</span>/500</span>
+                            <span class="char-counter"><span id="char-count">0</span>/500 (min: 25)</span>
                         </div>
                     </div>
                     <div class="button-area">
@@ -815,12 +819,14 @@
             const count = messageTextarea.value.length;
             charCount.textContent = count;
 
-            if (count > 450) {
-                charCount.style.color = '#ef4444';
+            if (count < 25) {
+                charCount.style.color = '#ef4444'; // Red - below minimum
+            } else if (count > 450) {
+                charCount.style.color = '#ef4444'; // Red - near maximum
             } else if (count > 400) {
-                charCount.style.color = '#f59e0b';
+                charCount.style.color = '#f59e0b'; // Orange - warning
             } else {
-                charCount.style.color = 'rgba(255, 255, 255, 0.5)';
+                charCount.style.color = '#10b981'; // Green - good
             }
         });
     }
@@ -832,6 +838,42 @@
         contactForm.addEventListener('submit', async function(e) {
             e.preventDefault();
 
+            // Additional validation
+            const emailInput = document.getElementById('email');
+            const subjectInput = document.getElementById('subject');
+            const messageInput = document.getElementById('message');
+
+            // Validate email format
+            const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            if (!emailRegex.test(emailInput.value)) {
+                formMessage.textContent = '✗ Please enter a valid email address (e.g., user@example.com)';
+                formMessage.className = 'form-message error';
+                setTimeout(function() {
+                    formMessage.style.display = 'none';
+                }, 5000);
+                return;
+            }
+
+            // Validate subject length
+            if (subjectInput.value.trim().length < 10) {
+                formMessage.textContent = '✗ Subject must be at least 10 characters long';
+                formMessage.className = 'form-message error';
+                setTimeout(function() {
+                    formMessage.style.display = 'none';
+                }, 5000);
+                return;
+            }
+
+            // Validate message length
+            if (messageInput.value.trim().length < 25) {
+                formMessage.textContent = '✗ Message must be at least 25 characters long';
+                formMessage.className = 'form-message error';
+                setTimeout(function() {
+                    formMessage.style.display = 'none';
+                }, 5000);
+                return;
+            }
+
             const submitBtn = contactForm.querySelector('button[type="submit"]');
             const btnText = submitBtn.querySelector('.btn-text');
             const originalText = btnText.textContent;
@@ -841,17 +883,27 @@
             submitBtn.style.opacity = '0.7';
 
             try {
-                await new Promise(function(resolve) { setTimeout(resolve, 1500); });
+                const formData = new FormData(contactForm);
+                
+                const response = await fetch('/', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: new URLSearchParams(formData).toString()
+                });
 
-                formMessage.textContent = '✓ Message sent successfully! I\'ll get back to you soon.';
-                formMessage.className = 'form-message success';
+                if (response.ok) {
+                    formMessage.textContent = '✓ Message sent successfully! I\'ll get back to you soon.';
+                    formMessage.className = 'form-message success';
 
-                contactForm.reset();
-                if (charCount) charCount.textContent = '0';
+                    contactForm.reset();
+                    if (charCount) charCount.textContent = '0';
 
-                setTimeout(function() {
-                    formMessage.style.display = 'none';
-                }, 5000);
+                    setTimeout(function() {
+                        formMessage.style.display = 'none';
+                    }, 5000);
+                } else {
+                    throw new Error('Form submission failed');
+                }
 
             } catch (error) {
                 formMessage.textContent = '✗ Oops! Something went wrong. Please try again.';
