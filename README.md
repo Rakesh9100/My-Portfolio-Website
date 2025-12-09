@@ -23,11 +23,7 @@
 - [Technology Stack](#-technology-stack)
 - [Screenshots](#-screenshots)
 - [Quick Start](#-quick-start)
-- [Project Structure](#-project-structure)
-- [Customization](#-customization)
 - [Easter Eggs](#-easter-eggs)
-- [Deployment](#-deployment)
-- [Troubleshooting](#-troubleshooting)
 - [Contact](#-contact)
 
 ---
@@ -113,17 +109,6 @@ Hidden interactive features! Try typing these anywhere on the page **(desktop on
 **Hint:** Check the footer for a clue! 👀
 
 **Note:** Easter eggs are disabled on mobile for better performance.
-
----
-
-## 📱 Responsive Breakpoints
-
-| Device | Breakpoint | Layout |
-|--------|-----------|--------|
-| **Mobile** | < 640px | 1 column, reduced animations |
-| **Tablet** | 640px - 1023px | 2 columns, medium animations |
-| **Laptop** | 1024px - 1200px | 3 columns, optimized spacing |
-| **Desktop** | 1200px+ | Full layout, all animations |
 
 ---
 
