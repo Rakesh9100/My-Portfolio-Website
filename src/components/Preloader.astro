@@ -1,0 +1,175 @@
+---
+---
+
+<div class="premium-loader fixed top-0 left-0 w-full h-screen z-[99999] flex items-center justify-center overflow-hidden" id="loading" style="background: linear-gradient(135deg, #0a0118 0%, #1a0f3e 50%, #0f0c29 100%);">
+  <div class="loader-background absolute w-full h-full overflow-hidden">
+    <div class="animated-gradient absolute w-[200%] h-[200%] -top-1/2 -left-1/2 opacity-40 animate-gradient-rotate"></div>
+  </div>
+  
+  <div class="loader-content relative z-[2] flex flex-col items-center gap-8">
+    <!-- Logo Animation -->
+    <div class="logo-container relative w-[150px] h-[150px]">
+      <div class="logo-text absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[56px] font-black z-[2] animate-logo-float" style="background: linear-gradient(135deg, #10b981, #3b82f6, #d946ef); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+        RR
+      </div>
+      <svg class="logo-circle w-[150px] h-[150px] fill-none -rotate-90" viewBox="0 0 100 100">
+        <defs>
+          <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#10b981;stop-opacity:1" />
+            <stop offset="50%" style="stop-color:#3b82f6;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#d946ef;stop-opacity:1" />
+          </linearGradient>
+        </defs>
+        <circle cx="50" cy="50" r="48" class="circle-bg stroke-white/10 stroke-[2]"/>
+        <circle cx="50" cy="50" r="48" class="circle-progress stroke-[3] rounded-full animate-circle-progress" id="circle-progress" style="stroke: url(#gradient); stroke-dasharray: 301.59; stroke-dashoffset: 301.59; filter: drop-shadow(0 0 10px rgba(16, 185, 129, 0.8));"/>
+      </svg>
+    </div>
+    
+    <!-- Loading Text -->
+    <div class="loading-text flex items-center gap-1">
+      <span class="loading-word text-[28px] font-bold text-white tracking-[3px]">Loading</span>
+      <span class="loading-dots flex gap-1">
+        <span class="dot w-2 h-2 rounded-full animate-dot-pulse-1" style="background: linear-gradient(135deg, #10b981, #3b82f6);"></span>
+        <span class="dot w-2 h-2 rounded-full animate-dot-pulse-2" style="background: linear-gradient(135deg, #10b981, #3b82f6);"></span>
+        <span class="dot w-2 h-2 rounded-full animate-dot-pulse-3" style="background: linear-gradient(135deg, #10b981, #3b82f6);"></span>
+      </span>
+    </div>
+    
+    <!-- Progress Bar -->
+    <div class="progress-wrapper flex flex-col items-center gap-3 w-[400px]">
+      <div class="progress-bar-container w-full h-1.5 bg-white/10 rounded-[10px] overflow-hidden relative">
+        <div class="progress-bar h-full w-0 rounded-[10px] transition-[width] duration-300 animate-progress-shine" id="progress-bar" style="background: linear-gradient(90deg, #10b981, #3b82f6, #d946ef); background-size: 200% 100%; box-shadow: 0 0 20px rgba(16, 185, 129, 0.6);"></div>
+      </div>
+      <span class="progress-percentage text-xl font-bold text-white/90 tracking-[2px]" id="progress-percentage">0%</span>
+    </div>
+    
+    <!-- Tagline -->
+    <p class="loader-tagline text-sm font-medium text-white/60 tracking-[2px] uppercase m-0">Automating The Future</p>
+  </div>
+  
+  <!-- Particles -->
+  <div class="particles absolute w-full h-full overflow-hidden">
+    {[1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
+      <span class={`particle absolute w-1 h-1 rounded-full opacity-60 animate-particle-float-${i}`} style="background: linear-gradient(135deg, #10b981, #3b82f6);"></span>
+    ))}
+  </div>
+</div>
+
+<script>
+  // Preloader logic
+  const loader = document.getElementById('loading');
+  const progressBar = document.getElementById('progress-bar');
+  const progressPercentage = document.getElementById('progress-percentage');
+  const circleProgress = document.getElementById('circle-progress');
+  
+  let progress = 0;
+  const circumference = 301.59;
+  
+  // Check if there's a hash in URL
+  const hasHash = window.location.hash;
+  if (hasHash) {
+    progress = 70; // Start at 70% if hash exists
+  }
+  
+  const interval = setInterval(() => {
+    if (progress < 100) {
+      progress += progress < 70 ? 20 : 10;
+      if (progress > 100) progress = 100;
+      
+      // Update progress bar
+      if (progressBar) progressBar.style.width = progress + '%';
+      if (progressPercentage) progressPercentage.textContent = progress + '%';
+      
+      // Update circle
+      if (circleProgress) {
+        const offset = circumference - (progress / 100) * circumference;
+        circleProgress.style.strokeDashoffset = offset.toString();
+      }
+    } else {
+      clearInterval(interval);
+      
+      // Hide preloader
+      if (loader) {
+        loader.style.opacity = '0';
+        loader.style.transition = 'opacity 0.5s ease';
+        
+        setTimeout(() => {
+          if (loader) loader.style.display = 'none';
+          document.body.classList.add('loaded');
+          
+          // Handle hash navigation
+          if (hasHash) {
+            setTimeout(() => {
+              const target = document.querySelector(hasHash);
+              if (target) {
+                const navbarHeight = 80;
+                const targetPosition = target.offsetTop - navbarHeight;
+                window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+              }
+            }, 100);
+          }
+          
+          // Initialize WOW.js if available
+          if (typeof WOW !== 'undefined') {
+            new WOW({
+              boxClass: 'wow',
+              animateClass: 'animate__animated',
+              offset: 0,
+              mobile: true,
+              live: true
+            }).init();
+          }
+        }, 500);
+      }
+    }
+  }, 50);
+</script>
+
+<style>
+  @keyframes gradient-rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  @keyframes logo-float {
+    0%, 100% { transform: translate(-50%, -50%) scale(1); }
+    50% { transform: translate(-50%, -50%) scale(1.1); }
+  }
+  
+  @keyframes circle-progress {
+    0% { stroke-dashoffset: 301.59; }
+    100% { stroke-dashoffset: 0; }
+  }
+  
+  @keyframes dot-pulse {
+    0%, 80%, 100% { transform: scale(0); opacity: 0; }
+    40% { transform: scale(1); opacity: 1; }
+  }
+  
+  @keyframes progress-shine {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 200% 50%; }
+  }
+  
+  @keyframes particle-float {
+    0%, 100% { transform: translateY(0) scale(1); opacity: 0.6; }
+    50% { transform: translateY(-50px) scale(1.5); opacity: 1; }
+  }
+  
+  .animate-gradient-rotate { animation: gradient-rotate 20s linear infinite; }
+  .animate-logo-float { animation: logo-float 3s ease-in-out infinite; }
+  .animate-circle-progress { animation: circle-progress 2s ease-in-out infinite; }
+  .animate-dot-pulse-1 { animation: dot-pulse 1.4s ease-in-out infinite 0s; }
+  .animate-dot-pulse-2 { animation: dot-pulse 1.4s ease-in-out infinite 0.2s; }
+  .animate-dot-pulse-3 { animation: dot-pulse 1.4s ease-in-out infinite 0.4s; }
+  .animate-progress-shine { animation: progress-shine 2s linear infinite; }
+  
+  .animate-particle-float-1 { top: 20%; left: 10%; animation: particle-float 8s ease-in-out infinite 0s; }
+  .animate-particle-float-2 { top: 40%; left: 80%; animation: particle-float 8s ease-in-out infinite 1s; }
+  .animate-particle-float-3 { top: 60%; left: 20%; animation: particle-float 8s ease-in-out infinite 2s; }
+  .animate-particle-float-4 { top: 80%; left: 70%; animation: particle-float 8s ease-in-out infinite 3s; }
+  .animate-particle-float-5 { top: 30%; left: 50%; animation: particle-float 8s ease-in-out infinite 4s; }
+  .animate-particle-float-6 { top: 70%; left: 40%; animation: particle-float 8s ease-in-out infinite 5s; }
+  .animate-particle-float-7 { top: 50%; left: 90%; animation: particle-float 8s ease-in-out infinite 6s; }
+  .animate-particle-float-8 { top: 10%; left: 60%; animation: particle-float 8s ease-in-out infinite 7s; }
+</style>

@@ -1,102 +1,127 @@
 [
     {
         "image": "assets/images/skills/Ansible.png",
-        "title": "Ansible"
+        "title": "Ansible",
+        "category": "devops"
     },
     {
         "image": "assets/images/skills/Docker.png",
-        "title": "Docker"
+        "title": "Docker",
+        "category": "devops"
     },
     {
         "image": "assets/images/skills/Kubernetes.png",
-        "title": "Kubernetes"
+        "title": "Kubernetes",
+        "category": "devops"
     },
     {
         "image": "assets/images/skills/Linux.png",
-        "title": "Linux"
+        "title": "Linux",
+        "category": "devops"
     },
     {
         "image": "assets/images/skills/Git.png",
-        "title": "Git VCS"
+        "title": "Git VCS",
+        "category": "tools"
     },
     {
         "image": "assets/images/skills/Github.png",
-        "title": "Github"
+        "title": "Github",
+        "category": "tools"
     },
     {
         "image": "assets/images/skills/Gitlab.png",
-        "title": "Gitlab"
+        "title": "Gitlab",
+        "category": "tools"
     },
     {
         "image": "assets/images/skills/Aws.png",
-        "title": "Amazon Web Services"
+        "title": "Amazon Web Services",
+        "category": "cloud"
     },
     {
         "image": "assets/images/skills/Gcp.png",
-        "title": "Google Cloud Platform"
+        "title": "Google Cloud Platform",
+        "category": "cloud"
     },
     {
         "image": "assets/images/skills/Vscode.png",
-        "title": "Visual Studio Code"
+        "title": "Visual Studio Code",
+        "category": "tools"
     },
     {
         "image": "assets/images/skills/Terraform.png",
-        "title": "Terraform"
+        "title": "Terraform",
+        "category": "devops"
     },
     {
         "image": "assets/images/skills/Javascript.png",
-        "title": "JavaScript"
+        "title": "JavaScript",
+        "category": "programming"
     },
     {
         "image": "assets/images/skills/Html.png",
-        "title": "HTML"
+        "title": "HTML",
+        "category": "programming"
     },
     {
         "image": "assets/images/skills/Css.png",
-        "title": "CSS"
+        "title": "CSS",
+        "category": "programming"
     },
     {
         "image": "assets/images/skills/React.png",
-        "title": "React"
+        "title": "React",
+        "category": "programming"
     },
     {
         "image": "assets/images/skills/Nodejs.png",
-        "title": "Node.js"
+        "title": "Node.js",
+        "category": "programming"
     },
     {
         "image": "assets/images/skills/Xml.png",
-        "title": "XML"
+        "title": "XML",
+        "category": "programming"
     },
     {
         "image": "assets/images/skills/C.png",
-        "title": "C"
+        "title": "C",
+        "category": "programming"
     },
     {
         "image": "assets/images/skills/C++.png",
-        "title": "C++"
+        "title": "C++",
+        "category": "programming"
     },
     {
         "image": "assets/images/skills/DSA.png",
-        "title": "DSA"
+        "title": "DSA",
+        "category": "programming"
     },
     {
         "image": "assets/images/skills/Java.png",
-        "title": "Java (Basic)"
+        "title": "Java (Basic)",
+        "category": "programming"
     },
     {
         "image": "assets/images/skills/Python.png",
-        "title": "Python (Basic)"
+        "title": "Python (Basic)",
+        "category": "programming"
     },
     {
         "image": "assets/images/skills/Problem-Solving.png",
-        "title": "Problem Solving"
+        "title": "Problem Solving",
+        "category": "tools"
     },
     {
         "image": "assets/images/skills/Leadership.png",
-        "title": "Leadership"
+        "title": "Leadership",
+        "category": "tools"
     },
     {
         "image": "assets/images/skills/Team.png",
-        "title": "Team Work"
+        "title": "Team Work",
+        "category": "tools"
     }
 ]

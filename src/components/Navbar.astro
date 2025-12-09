@@ -1,0 +1,611 @@
+---
+const navItems = [
+  { href: '#home', label: 'HOME' },
+  { href: '#about', label: 'ABOUT ME' },
+  { href: '#skills', label: 'SKILLS' },
+  { href: '#education', label: 'EDUCATION' },
+  { href: '#experience', label: 'EXPERIENCE' },
+  { href: '#projects', label: 'PROJECTS' },
+  { href: '#certificates', label: 'CERTIFICATES' },
+  { href: '#contact', label: 'CONTACT' },
+];
+---
+
+<nav class="navbar fixed w-full z-[999] transition-all duration-300 px-4 sm:px-6 md:px-8 py-2">
+  <div class="max-width max-w-full mx-auto flex items-center justify-between px-3 sm:px-4 py-1.5 rounded-[20px] sm:rounded-[25px] relative" style="background: rgba(10, 10, 30, 0.5); backdrop-filter: blur(35px); -webkit-backdrop-filter: blur(35px); border: 2px solid transparent; box-shadow: 0 10px 40px rgba(16, 185, 129, 0.25), 0 5px 20px rgba(59, 130, 246, 0.25), inset 0 2px 0 rgba(255, 255, 255, 0.1), inset 0 -2px 10px rgba(16, 185, 129, 0.1);">
+    
+    <!-- Animated Border -->
+    <div class="absolute inset-0 rounded-[20px] sm:rounded-[25px] p-[2px] pointer-events-none -z-[1] animate-border-rotate" style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.7), rgba(59, 130, 246, 0.7), rgba(139, 92, 246, 0.7)); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); mask-composite: exclude;"></div>
+    
+    <!-- Logo -->
+    <img 
+      src="/assets/images/logo.webp" 
+      alt="Logo" 
+      class="img-logo h-auto"
+      style="width: 16vw; max-width: 100%; margin-top: -20px; margin-bottom: -20px;"
+    />
+    <style>
+      @media (min-width: 640px) {
+        .img-logo { width: 15vw !important; }
+      }
+      @media (min-width: 768px) {
+        .img-logo { width: 10vw !important; }
+      }
+      @media (min-width: 1024px) {
+        .img-logo { width: 7vw !important; }
+      }
+    </style>
+    
+    <!-- Desktop Menu -->
+    <ul class="menu hidden lg:flex list-none items-center">
+      {navItems.map((item, index) => (
+        <li class="inline-flex items-center">
+          <a 
+            href={item.href}
+            class={`nav-link relative inline-flex items-center justify-center text-white/90 font-bold px-2 lg:px-3 xl:px-4 py-2.5 rounded-[15px] overflow-hidden transition-all duration-400 hover:text-white hover:-translate-y-1${index === 0 ? ' active' : ''}`}
+            style="font-size: clamp(10px, 1.2vw, 16px); line-height: 1;"
+          >
+            {item.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+    
+    <!-- Right Section -->
+    <div class="navbar-right flex items-center gap-3 sm:gap-4 md:gap-5">
+      <!-- Resume Button -->
+      <a 
+        href="/assets/Rakesh_Roshan_Resume.pdf" 
+        download
+        class="resume-btn flex items-center gap-2 px-3 sm:px-4 md:px-5 py-2 sm:py-2.5 rounded-full text-white font-bold text-xs sm:text-sm transition-all duration-400 relative overflow-hidden hover:-translate-y-1"
+        style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.3), rgba(59, 130, 246, 0.3)); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 2px solid rgba(16, 185, 129, 0.5); box-shadow: 0 5px 20px rgba(16, 185, 129, 0.3);"
+      >
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="relative z-[1] transition-transform duration-300 sm:w-[18px] sm:h-[18px]">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+          <polyline points="7 10 12 15 17 10"></polyline>
+          <line x1="12" y1="15" x2="12" y2="3"></line>
+        </svg>
+        <span class="relative z-[1]">Resume</span>
+      </a>
+      
+      <!-- Theme Switcher -->
+      <div class="theme-switcher relative z-[9999]" id="theme-switcher">
+        <button class="theme-toggle-btn w-9 h-9 sm:w-10 sm:h-10 rounded-full cursor-pointer flex items-center justify-center transition-all duration-300 text-white" id="theme-toggle-btn" aria-label="Toggle Theme Switcher" style="background: rgba(217, 70, 239, 0.2); backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px); border: 1px solid rgba(217, 70, 239, 0.6); box-shadow: 0 8px 32px rgba(217, 70, 239, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1);">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="20" height="20" fill="currentColor">
+            <path d="M512 256c0 .9 0 1.8 0 2.7c-.4 36.5-33.6 61.3-70.1 61.3H344c-26.5 0-48 21.5-48 48c0 3.4 .4 6.7 1 9.9c2.1 10.2 6.5 20 10.8 29.9c6.1 13.8 12.1 27.5 12.1 42c0 31.8-21.6 60.7-53.4 62c-3.5 .1-7 .2-10.6 .2C114.6 512 0 397.4 0 256S114.6 0 256 0S512 114.6 512 256zM128 288a32 32 0 1 0 -64 0 32 32 0 1 0 64 0zm0-96a32 32 0 1 0 0-64 32 32 0 1 0 0 64zM288 96a32 32 0 1 0 -64 0 32 32 0 1 0 64 0zm96 96a32 32 0 1 0 0-64 32 32 0 1 0 0 64z"/>
+          </svg>
+        </button>
+        <div class="theme-options absolute top-[55px] right-0 rounded-[15px] px-4 py-4 opacity-0 invisible -translate-y-2.5 transition-all duration-300 min-w-[180px]" id="theme-options" style="background: rgba(26, 15, 62, 0.4); backdrop-filter: blur(30px); -webkit-backdrop-filter: blur(30px); box-shadow: 0 12px 60px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2);">
+          <button class="theme-btn active w-full flex items-center gap-3 px-4 py-2.5 mb-2 rounded-[10px] cursor-pointer transition-all duration-300 text-white text-sm font-semibold" data-theme="sunset" style="background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.15); box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.05);">
+            <span class="theme-color w-[30px] h-[30px] rounded-full block" style="background: linear-gradient(135deg, #FF512F 0%, #F09819 100%); box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);"></span>
+            <span class="theme-name flex-1 text-left">Sunset</span>
+          </button>
+          <button class="theme-btn w-full flex items-center gap-3 px-4 py-2.5 mb-2 rounded-[10px] cursor-pointer transition-all duration-300 text-white text-sm font-semibold" data-theme="purple" style="background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.15); box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.05);">
+            <span class="theme-color w-[30px] h-[30px] rounded-full block" style="background: linear-gradient(135deg, #5f27cd 0%, #341f97 100%); box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);"></span>
+            <span class="theme-name flex-1 text-left">Purple</span>
+          </button>
+          <button class="theme-btn w-full flex items-center gap-3 px-4 py-2.5 mb-2 rounded-[10px] cursor-pointer transition-all duration-300 text-white text-sm font-semibold" data-theme="ocean" style="background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.15); box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.05);">
+            <span class="theme-color w-[30px] h-[30px] rounded-full block" style="background: linear-gradient(135deg, #2E3192 0%, #1BFFFF 100%); box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);"></span>
+            <span class="theme-name flex-1 text-left">Ocean</span>
+          </button>
+          <button class="theme-btn w-full flex items-center gap-3 px-4 py-2.5 mb-2 rounded-[10px] cursor-pointer transition-all duration-300 text-white text-sm font-semibold" data-theme="forest" style="background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.15); box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.05);">
+            <span class="theme-color w-[30px] h-[30px] rounded-full block" style="background: linear-gradient(135deg, #134E5E 0%, #71B280 100%); box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);"></span>
+            <span class="theme-name flex-1 text-left">Forest</span>
+          </button>
+          <button class="theme-btn w-full flex items-center gap-3 px-4 py-2.5 mb-2 rounded-[10px] cursor-pointer transition-all duration-300 text-white text-sm font-semibold" data-theme="rose" style="background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.15); box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.05);">
+            <span class="theme-color w-[30px] h-[30px] rounded-full block" style="background: linear-gradient(135deg, #EC008C 0%, #FC6767 100%); box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);"></span>
+            <span class="theme-name flex-1 text-left">Rose</span>
+          </button>
+          <button class="theme-btn w-full flex items-center gap-3 px-4 py-2.5 rounded-[10px] cursor-pointer transition-all duration-300 text-white text-sm font-semibold" data-theme="midnight" style="background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.15); box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.05);">
+            <span class="theme-color w-[30px] h-[30px] rounded-full block" style="background: linear-gradient(135deg, #2C3E50 0%, #4CA1AF 100%); box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);"></span>
+            <span class="theme-name flex-1 text-left">Midnight</span>
+          </button>
+        </div>
+      </div>
+      
+      <!-- Mobile Menu Button -->
+      <button class="menu-btn lg:hidden text-white text-2xl cursor-pointer" id="menu-toggle" aria-label="Toggle Menu">
+        <svg class="hamburger w-6 h-6" fill="currentColor" viewBox="0 0 448 512">
+          <path d="M0 96C0 78.3 14.3 64 32 64l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 128C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 288c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32L32 448c-17.7 0-32-14.3-32-32s14.3-32 32-32l384 0c17.7 0 32 14.3 32 32z"/>
+        </svg>
+        <svg class="close hidden w-6 h-6" fill="currentColor" viewBox="0 0 384 512">
+          <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+  
+  <!-- Mobile Menu -->
+  <div class="mobile-menu lg:hidden fixed top-[70px] left-0 right-0 opacity-0 invisible translate-y-[-20px] transition-all duration-300 z-[998] px-4" id="mobile-menu">
+    <div class="mobile-menu-content rounded-[20px] overflow-hidden" style="background: rgba(10, 10, 30, 0.95); backdrop-filter: blur(35px); -webkit-backdrop-filter: blur(35px); border: 2px solid rgba(16, 185, 129, 0.3); box-shadow: 0 10px 40px rgba(16, 185, 129, 0.25), 0 5px 20px rgba(59, 130, 246, 0.25);">
+      <ul class="list-none p-4">
+        {navItems.map((item, index) => (
+          <li class="mb-2">
+            <a 
+              href={item.href}
+              class={`mobile-nav-link block text-center text-white/90 font-bold px-4 py-3 rounded-[12px] transition-all duration-300 hover:text-white${index === 0 ? ' active' : ''}`}
+              style="font-size: 14px; background: rgba(255, 255, 255, 0.05);"
+            >
+              {item.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<script>
+  // Mobile Menu Toggle
+  const menuToggle = document.getElementById('menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const hamburgerIcon = menuToggle?.querySelector('.hamburger');
+  const closeIcon = menuToggle?.querySelector('.close');
+  const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+  
+  menuToggle?.addEventListener('click', () => {
+    const isOpen = mobileMenu?.classList.contains('active');
+    
+    if (isOpen) {
+      // Close menu
+      mobileMenu?.classList.remove('active');
+      if (mobileMenu) {
+        mobileMenu.style.opacity = '0';
+        mobileMenu.style.visibility = 'hidden';
+        mobileMenu.style.transform = 'translateY(-20px)';
+      }
+      hamburgerIcon?.classList.remove('hidden');
+      closeIcon?.classList.add('hidden');
+      document.body.style.overflow = '';
+    } else {
+      // Open menu
+      mobileMenu?.classList.add('active');
+      if (mobileMenu) {
+        mobileMenu.style.opacity = '1';
+        mobileMenu.style.visibility = 'visible';
+        mobileMenu.style.transform = 'translateY(0)';
+      }
+      hamburgerIcon?.classList.add('hidden');
+      closeIcon?.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+  });
+  
+  // Close mobile menu when clicking a link
+  mobileNavLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu?.classList.remove('active');
+      if (mobileMenu) {
+        mobileMenu.style.opacity = '0';
+        mobileMenu.style.visibility = 'hidden';
+        mobileMenu.style.transform = 'translateY(-20px)';
+      }
+      hamburgerIcon?.classList.remove('hidden');
+      closeIcon?.classList.add('hidden');
+      document.body.style.overflow = '';
+    });
+  });
+  
+  // Close mobile menu when clicking outside
+  document.addEventListener('click', (e) => {
+    const target = e.target as Node;
+    if (mobileMenu?.classList.contains('active') && 
+        !mobileMenu.contains(target) && 
+        !menuToggle?.contains(target)) {
+      mobileMenu.classList.remove('active');
+      mobileMenu.style.opacity = '0';
+      mobileMenu.style.visibility = 'hidden';
+      mobileMenu.style.transform = 'translateY(-20px)';
+      hamburgerIcon?.classList.remove('hidden');
+      closeIcon?.classList.add('hidden');
+      document.body.style.overflow = '';
+    }
+  });
+  
+  // Theme Switcher
+  const themeToggleBtn = document.getElementById('theme-toggle-btn');
+  const themeOptions = document.getElementById('theme-options');
+  const themeButtons = document.querySelectorAll('.theme-btn');
+  
+  // Load saved theme
+  const savedTheme = localStorage.getItem('theme') || 'sunset';
+  document.documentElement.setAttribute('data-theme', savedTheme);
+  
+  // Update active theme button
+  themeButtons.forEach(btn => {
+    if (btn.getAttribute('data-theme') === savedTheme) {
+      btn.classList.add('active');
+    } else {
+      btn.classList.remove('active');
+    }
+  });
+  
+  // Toggle theme options with rotation animation
+  themeToggleBtn?.addEventListener('click', () => {
+    themeOptions?.classList.toggle('active');
+    if (themeOptions?.classList.contains('active')) {
+      themeOptions.style.opacity = '1';
+      themeOptions.style.visibility = 'visible';
+      themeOptions.style.transform = 'translateY(0)';
+      // Rotate button when opening
+      themeToggleBtn.style.transform = 'scale(1.1) rotate(180deg)';
+    } else {
+      themeOptions.style.opacity = '0';
+      themeOptions.style.visibility = 'hidden';
+      themeOptions.style.transform = 'translateY(-10px)';
+      // Reverse rotation when closing
+      themeToggleBtn.style.transform = 'scale(1) rotate(0deg)';
+    }
+  });
+  
+  // Close theme options when clicking outside
+  document.addEventListener('click', (e) => {
+    const themeSwitcher = document.getElementById('theme-switcher');
+    if (themeSwitcher && !themeSwitcher.contains(e.target as Node)) {
+      themeOptions?.classList.remove('active');
+      if (themeOptions) {
+        (themeOptions as HTMLElement).style.opacity = '0';
+        (themeOptions as HTMLElement).style.visibility = 'hidden';
+        (themeOptions as HTMLElement).style.transform = 'translateY(-10px)';
+      }
+    }
+  });
+  
+  // Change theme
+  themeButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const theme = btn.getAttribute('data-theme');
+      if (theme) {
+        document.documentElement.setAttribute('data-theme', theme);
+        localStorage.setItem('theme', theme);
+        
+        // Update active state
+        themeButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+      }
+    });
+  });
+  
+  // Remove focus outline when clicking nav links
+  const navLinks = document.querySelectorAll('.nav-link, .mobile-nav-link');
+  navLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      // Remove focus from the clicked link to prevent outline
+      setTimeout(() => {
+        (e.target as HTMLElement).blur();
+      }, 100);
+    });
+  });
+  
+  // Active menu highlighting
+  const sections = document.querySelectorAll('section[id]');
+  const allNavLinks = document.querySelectorAll('.nav-link, .mobile-nav-link');
+  
+  // Set HOME as active by default on page load
+  function setDefaultActive() {
+    const scrollY = window.pageYOffset;
+    if (scrollY < 100) {
+      allNavLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#home') {
+          link.classList.add('active');
+        }
+      });
+    }
+  }
+  
+  let scrollTimeout: ReturnType<typeof setTimeout>;
+  
+  function highlightNav() {
+    // Debounce scroll events to reduce flickering during smooth scroll
+    clearTimeout(scrollTimeout);
+    scrollTimeout = setTimeout(() => {
+      const scrollY = window.pageYOffset;
+      
+      // If at top of page, activate HOME
+      if (scrollY < 100) {
+        setDefaultActive();
+        return;
+      }
+      
+      let activeSection: string | null = null;
+      
+      // Find the section that's most visible in viewport
+      sections.forEach(section => {
+        const htmlSection = section as HTMLElement;
+        const sectionHeight = htmlSection.offsetHeight;
+        const sectionTop = htmlSection.offsetTop - 150;
+        const sectionId = section.getAttribute('id');
+        
+        if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+          activeSection = sectionId;
+        }
+      });
+      
+      // Only update if we found an active section
+      if (activeSection) {
+        allNavLinks.forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === `#${activeSection}`) {
+            link.classList.add('active');
+          }
+        });
+      }
+    }, 50);
+  }
+  
+  // Handle hash navigation on page load
+  function handleHashNavigation() {
+    const hash = window.location.hash;
+    if (hash) {
+      // Remove active from all links
+      allNavLinks.forEach(link => link.classList.remove('active'));
+      
+      // Find and activate the link matching the hash
+      const targetLink = Array.from(allNavLinks).find(link => link.getAttribute('href') === hash);
+      if (targetLink) {
+        targetLink.classList.add('active');
+      }
+    } else {
+      // No hash, set HOME as active
+      setDefaultActive();
+    }
+  }
+  
+  // Set active based on hash or default to HOME on page load
+  handleHashNavigation();
+  
+  // Also handle hash changes (browser back/forward)
+  window.addEventListener('hashchange', handleHashNavigation);
+  
+  window.addEventListener('scroll', highlightNav, { passive: true });
+  
+  // Resume button hover effect
+  const resumeBtn = document.querySelector('.resume-btn');
+  resumeBtn?.addEventListener('mouseenter', () => {
+    const svg = resumeBtn.querySelector('svg');
+    if (svg) {
+      svg.style.animation = 'bounceDown 0.6s ease infinite';
+    }
+  });
+  
+  resumeBtn?.addEventListener('mouseleave', () => {
+    const svg = resumeBtn.querySelector('svg');
+    if (svg) {
+      svg.style.animation = '';
+    }
+  });
+</script>
+
+<style>
+  @keyframes border-rotate {
+    0% { filter: hue-rotate(0deg); }
+    100% { filter: hue-rotate(360deg); }
+  }
+  
+  @keyframes bounceDown {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(5px); }
+  }
+  
+  .animate-border-rotate {
+    animation: border-rotate 4s linear infinite;
+  }
+  
+  .nav-link {
+    transition: all 0.4s ease;
+    outline: none !important;
+    border: none !important;
+  }
+  
+  .nav-link:focus {
+    outline: none !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+  
+  .nav-link:focus-visible {
+    outline: none !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+  
+  .nav-link:active {
+    outline: none !important;
+    border: none !important;
+  }
+  
+  .nav-link::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(59, 130, 246, 0.15));
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    border-radius: 15px;
+  }
+  
+  .nav-link:hover::before {
+    opacity: 1;
+  }
+  
+  .nav-link:hover {
+    box-shadow: 0 5px 20px rgba(16, 185, 129, 0.25), 0 0 25px rgba(59, 130, 246, 0.2);
+    transform: translateY(-2px);
+  }
+  
+  .navbar .menu li a.active {
+    background: linear-gradient(135deg,
+            rgba(16, 185, 129, 0.4),
+            rgba(59, 130, 246, 0.4));
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    color: #ffffff;
+    border-radius: 15px;
+    border: 2px solid rgba(16, 185, 129, 0.7) !important;
+    box-shadow:
+        0 8px 30px rgba(16, 185, 129, 0.5),
+        0 0 40px rgba(59, 130, 246, 0.4),
+        inset 0 2px 0 rgba(255, 255, 255, 0.2),
+        inset 0 -2px 10px rgba(16, 185, 129, 0.3);
+    position: relative;
+    outline: none !important;
+  }
+
+.navbar .menu li a.active::after {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: 15px;
+    background: linear-gradient(45deg,
+            transparent 30%,
+            rgba(255, 255, 255, 0.3) 50%,
+            transparent 70%);
+    background-size: 200% 200%;
+    animation: activeGlow 3s linear infinite;
+}
+
+@keyframes activeGlow {
+    0% {
+        background-position: 200% 0;
+    }
+
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+.navbar .menu li a.active:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow:
+        0 12px 40px rgba(16, 185, 129, 0.6),
+        0 0 50px rgba(59, 130, 246, 0.5);
+}
+  
+  .resume-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+    z-index: 0;
+    pointer-events: none;
+  }
+  
+  .resume-btn:hover::before {
+    width: 300px;
+    height: 300px;
+  }
+  
+  .resume-btn:hover {
+    box-shadow: 0 10px 30px rgba(16, 185, 129, 0.6);
+    border-color: rgba(16, 185, 129, 0.8);
+  }
+  
+  .theme-toggle-btn {
+    transition: all 0.3s ease;
+  }
+  
+  .theme-toggle-btn:hover {
+    background: rgba(217, 70, 239, 0.35);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    border: 1px solid rgba(217, 70, 239, 0.8);
+    box-shadow: 0 12px 48px rgba(217, 70, 239, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  }
+  
+  .theme-options::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    right: 15px;
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 8px solid rgba(26, 15, 62, 0.4);
+  }
+  
+  .theme-btn:hover {
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border: 1px solid rgba(59, 130, 246, 0.6);
+    transform: translateX(-5px);
+    box-shadow: 0 8px 32px rgba(59, 130, 246, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+  
+  .theme-btn.active {
+    background: rgba(217, 70, 239, 0.25);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border: 1px solid rgba(217, 70, 239, 0.7);
+    box-shadow: 0 8px 32px rgba(217, 70, 239, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  }
+  
+  /* Mobile Menu Styles */
+  .menu-btn {
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 1000;
+  }
+  
+  .menu-btn:hover {
+    transform: scale(1.1);
+  }
+  
+  .mobile-menu {
+    max-height: calc(100vh - 90px);
+    overflow-y: auto;
+  }
+  
+  .mobile-menu::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  .mobile-menu::-webkit-scrollbar-track {
+    background: rgba(26, 15, 62, 0.3);
+    border-radius: 10px;
+  }
+  
+  .mobile-menu::-webkit-scrollbar-thumb {
+    background: var(--gradient1);
+    border-radius: 10px;
+  }
+  
+  .mobile-nav-link {
+    transition: all 0.3s ease;
+  }
+  
+  .mobile-nav-link:hover {
+    background: rgba(16, 185, 129, 0.15);
+    transform: translateX(5px);
+    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.2);
+  }
+  
+  .mobile-nav-link.active {
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.3), rgba(59, 130, 246, 0.3));
+    border: 1px solid rgba(16, 185, 129, 0.5);
+    box-shadow: 0 5px 20px rgba(16, 185, 129, 0.4);
+    color: #ffffff;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 1023px) {
+    .navbar {
+      padding-top: 0.5rem;
+      padding-bottom: 0.5rem;
+    }
+  }
+  
+  @media (max-width: 640px) {
+    .mobile-menu {
+      top: 65px;
+    }
+  }
+</style>
