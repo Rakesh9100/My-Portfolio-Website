@@ -446,17 +446,27 @@
     text-align: center;
     font-weight: 600;
     display: none;
+    animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .form-message.success {
-    display: block;
     background: rgba(16, 185, 129, 0.2);
     border: 2px solid var(--hover);
     color: var(--hover);
 }
 
 .form-message.error {
-    display: block;
     background: rgba(239, 68, 68, 0.2);
     border: 2px solid #ef4444;
     color: #ef4444;
@@ -838,6 +848,10 @@
         contactForm.addEventListener('submit', async function(e) {
             e.preventDefault();
 
+            // Clear any previous messages
+            formMessage.className = 'form-message';
+            formMessage.style.display = 'none';
+
             // Additional validation
             const emailInput = document.getElementById('email');
             const subjectInput = document.getElementById('subject');
@@ -848,9 +862,7 @@
             if (!emailRegex.test(emailInput.value)) {
                 formMessage.textContent = '✗ Please enter a valid email address (e.g., user@example.com)';
                 formMessage.className = 'form-message error';
-                setTimeout(function() {
-                    formMessage.style.display = 'none';
-                }, 5000);
+                formMessage.style.display = 'block';
                 return;
             }
 
@@ -858,9 +870,7 @@
             if (subjectInput.value.trim().length < 10) {
                 formMessage.textContent = '✗ Subject must be at least 10 characters long';
                 formMessage.className = 'form-message error';
-                setTimeout(function() {
-                    formMessage.style.display = 'none';
-                }, 5000);
+                formMessage.style.display = 'block';
                 return;
             }
 
@@ -868,9 +878,7 @@
             if (messageInput.value.trim().length < 25) {
                 formMessage.textContent = '✗ Message must be at least 25 characters long';
                 formMessage.className = 'form-message error';
-                setTimeout(function() {
-                    formMessage.style.display = 'none';
-                }, 5000);
+                formMessage.style.display = 'block';
                 return;
             }
 
@@ -894,6 +902,7 @@
                 if (response.ok) {
                     formMessage.textContent = '✓ Message sent successfully! I\'ll get back to you soon.';
                     formMessage.className = 'form-message success';
+                    formMessage.style.display = 'block';
 
                     contactForm.reset();
                     if (charCount) charCount.textContent = '0';
@@ -908,6 +917,7 @@
             } catch (error) {
                 formMessage.textContent = '✗ Oops! Something went wrong. Please try again.';
                 formMessage.className = 'form-message error';
+                formMessage.style.display = 'block';
 
                 setTimeout(function() {
                     formMessage.style.display = 'none';
