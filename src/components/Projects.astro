@@ -1,6 +1,12 @@
 ---
 // Projects Section - Exact Original Design
+// Import JSON at build time to avoid runtime fetch
+import projectsDataImport from '../../public/assets/jsons/projects.json';
+const projectsDataJSON = JSON.stringify(projectsDataImport);
 ---
+
+<!-- Inject projects data at build time -->
+<script is:inline set:html={`window.__PROJECTS_DATA__ = ${projectsDataJSON};`}></script>
 
 <section class="projects z-[3] min-h-screen relative overflow-hidden pt-24 pb-20 px-5" id="projects" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);">
   <!-- Floating Background -->
@@ -877,6 +883,7 @@
 <script is:inline>
 // Projects functionality - EXACT ORIGINAL
 (function() {
+    // Load projects data from imported JSON (no runtime fetch needed)
     let projectsData = [];
     let currentSlide = 0;
     let totalSlides = 0;
@@ -886,8 +893,8 @@
 
     async function loadProjects() {
         try {
-            const response = await fetch('/assets/jsons/projects.json');
-            projectsData = await response.json();
+            // Use imported data instead of fetch
+            projectsData = window.__PROJECTS_DATA__;
             totalSlides = projectsData.length;
 
             initCarouselView();

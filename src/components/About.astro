@@ -132,17 +132,30 @@
   </div>
 </section>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js" defer></script>
 <script>
-  // Vanilla Tilt
-  const tiltElements = document.querySelectorAll('[data-tilt]');
-  if (tiltElements.length > 0 && typeof VanillaTilt !== 'undefined') {
-    VanillaTilt.init(tiltElements, {
-      max: 15,
-      speed: 400,
-      glare: true,
-      'max-glare': 0.3,
-    });
+  // Vanilla Tilt - Initialize after DOM is ready
+  function initVanillaTilt() {
+    if (typeof VanillaTilt !== 'undefined') {
+      const tiltElements = document.querySelectorAll('[data-tilt]');
+      if (tiltElements.length > 0) {
+        VanillaTilt.init(tiltElements, {
+          max: 15,
+          speed: 400,
+          glare: true,
+          'max-glare': 0.3,
+        });
+      }
+    } else {
+      // Retry if VanillaTilt not loaded yet
+      setTimeout(initVanillaTilt, 50);
+    }
+  }
+  
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initVanillaTilt);
+  } else {
+    initVanillaTilt();
   }
 
   // Counter animation

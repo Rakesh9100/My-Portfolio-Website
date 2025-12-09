@@ -1,6 +1,12 @@
 ---
 // Certificates Section
+// Import JSON at build time to avoid runtime fetch
+import certificatesDataImport from '../../public/assets/jsons/certificates.json';
+const certificatesDataJSON = JSON.stringify(certificatesDataImport);
 ---
+
+<!-- Inject certificates data at build time -->
+<script is:inline set:html={`window.__CERTIFICATES_DATA__ = ${certificatesDataJSON};`}></script>
 
 <section class="certificates z-[3] h-full min-h-screen relative overflow-hidden py-24 px-5 pb-20" id="certificates" style="background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);">
   <!-- Floating Background -->
@@ -759,6 +765,7 @@
 <script is:inline>
 // Certificates functionality - EXACT ORIGINAL
 (function() {
+    // Load certificates data from imported JSON (no runtime fetch needed)
     let allCertificatesOriginal = [];
     let filteredCertificates = [];
     let currentCertIndex = 0;
@@ -766,8 +773,8 @@
 
     async function loadCertificates() {
         try {
-            const response = await fetch('/assets/jsons/certificates.json');
-            const certificates = await response.json();
+            // Use imported data instead of fetch
+            const certificates = window.__CERTIFICATES_DATA__;
             allCertificatesOriginal = certificates;
             filteredCertificates = certificates;
             loadMoreCertificates();
