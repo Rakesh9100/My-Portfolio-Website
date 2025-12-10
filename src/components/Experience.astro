@@ -1,6 +1,14 @@
 ---
 import experiencesData from '../../public/assets/jsons/experiences.json';
 const experiences = experiencesData;
+
+// Tech stack icons mapping for visualization
+const techIcons = {
+  "HTML": "🌐", "CSS": "🎨", "JavaScript": "⚡", "React": "⚛️", "Node.js": "🟢",
+  "Python": "🐍", "Java": "☕", "C++": "⚙️", "SQL": "🗄️", "Git": "📝", "GitHub": "🐙",
+  "GitLab": "🦊", "Docker": "🐳", "Kubernetes": "☸️", "Helm": "⛵", "Linux": "🐧",
+  "GCP": "☁️", "AWS": "🟠", "XML": "📄", "Groovy": "🔧", "Machine Learning": "🤖"
+};
 ---
 
 <section class="experience z-[3] h-full min-h-screen relative overflow-hidden py-24 px-5 pb-20" id="experience" style="background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);">
@@ -54,7 +62,20 @@ const experiences = experiencesData;
           <div class="exp-content rounded-[20px] p-6 transition-all duration-500" style="background: rgba(26, 15, 62, 0.3); backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px); border: 2px solid rgba(255, 255, 255, 0.15); box-shadow: 0 10px 40px rgba(95, 39, 205, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);">
             <div class="exp-header flex items-start justify-between gap-4 mb-4 flex-wrap">
               <div class="company-info flex-1">
-                <div class="company-badge inline-flex items-center gap-2 px-4 py-2 rounded-full mb-3" style="background: rgba(59, 130, 246, 0.2); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border: 1px solid rgba(59, 130, 246, 0.4); box-shadow: 0 5px 15px rgba(59, 130, 246, 0.3); width: fit-content;">
+                <div class="company-badge inline-flex items-center gap-3 px-4 py-2 rounded-full mb-3" style="background: rgba(59, 130, 246, 0.2); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border: 1px solid rgba(59, 130, 246, 0.4); box-shadow: 0 5px 15px rgba(59, 130, 246, 0.3); width: fit-content;">
+                  {exp.logo && (
+                    <div class="company-logo-container w-9 h-9 rounded-full overflow-hidden bg-white/20 flex items-center justify-center p-0.5">
+                      <img 
+                        src={exp.logo} 
+                        alt={`${exp.company} logo`}
+                        class="w-full h-full object-contain rounded-full filter brightness-125 contrast-125"
+                        loading="lazy"
+                        width="36"
+                        height="36"
+                        decoding="async"
+                      />
+                    </div>
+                  )}
                   <span class="text-sm font-bold text-white uppercase tracking-wide" style="word-break: break-word; line-height: 1.3;">{exp.company}</span>
                 </div>
                 <h3 class="text-xl font-bold m-0 mb-2" style="background: var(--gradient2); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;">{exp.role}</h3>
@@ -69,13 +90,37 @@ const experiences = experiencesData;
             </div>
 
             <ul class="exp-description list-none p-0 m-0 flex flex-col gap-2.5">
-              {exp.description.map((desc) => (
+              {exp.description.filter(desc => !desc.includes('Tech Stacks')).map((desc) => (
                 <li class="flex items-start gap-3 text-sm leading-relaxed" style="color: rgba(255, 255, 255, 0.9);">
                   <span class="text-base flex-shrink-0 mt-0.5" style="color: var(--primary);">▹</span>
                   <span set:html={desc}></span>
                 </li>
               ))}
             </ul>
+
+            <!-- Tech Stack Visualization -->
+            {(() => {
+              const techStackDesc = exp.description.find(desc => desc.includes('Tech Stacks'));
+              return techStackDesc && (
+                <div class="tech-stack-section mt-4 pt-4 border-t border-white/10">
+                  <h4 class="text-sm font-semibold text-white/80 mb-3 flex items-center gap-2">
+                    <span class="tech-icon">🛠️</span>
+                    Tech Stack
+                  </h4>
+                  <div class="tech-stack-grid flex flex-wrap gap-2">
+                    {techStackDesc.split(':-')[1]?.split(',').map((tech) => {
+                      const cleanTech = tech.trim();
+                      return (
+                        <div class="tech-item flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium transition-all duration-300 hover:scale-110 hover:rotate-3" style="background: rgba(59, 130, 246, 0.15); border: 1px solid rgba(59, 130, 246, 0.3); color: #60a5fa;">
+                          <span class="tech-emoji text-sm">{techIcons[cleanTech] || '⚡'}</span>
+                          <span>{cleanTech}</span>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+              );
+            })()}
           </div>
         </div>
       ))}
@@ -89,7 +134,20 @@ const experiences = experiencesData;
           <div class="exp-content rounded-[20px] p-6 transition-all duration-500" style="background: rgba(26, 15, 62, 0.3); backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px); border: 2px solid rgba(255, 255, 255, 0.15); box-shadow: 0 10px 40px rgba(95, 39, 205, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);">
             <div class="exp-header flex items-start justify-between gap-4 mb-4 flex-wrap">
               <div class="company-info flex-1">
-                <div class="company-badge inline-flex items-center gap-2 px-4 py-2 rounded-full mb-3" style="background: rgba(59, 130, 246, 0.2); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border: 1px solid rgba(59, 130, 246, 0.4); box-shadow: 0 5px 15px rgba(59, 130, 246, 0.3); width: fit-content;">
+                <div class="company-badge inline-flex items-center gap-3 px-4 py-2 rounded-full mb-3" style="background: rgba(59, 130, 246, 0.2); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border: 1px solid rgba(59, 130, 246, 0.4); box-shadow: 0 5px 15px rgba(59, 130, 246, 0.3); width: fit-content;">
+                  {exp.logo && (
+                    <div class="company-logo-container w-9 h-9 rounded-full overflow-hidden bg-white/20 flex items-center justify-center p-0.5">
+                      <img 
+                        src={exp.logo} 
+                        alt={`${exp.company} logo`}
+                        class="w-full h-full object-contain rounded-full filter brightness-125 contrast-125"
+                        loading="lazy"
+                        width="36"
+                        height="36"
+                        decoding="async"
+                      />
+                    </div>
+                  )}
                   <span class="text-sm font-bold text-white uppercase tracking-wide" style="word-break: break-word; line-height: 1.3;">{exp.company}</span>
                 </div>
                 <h3 class="text-xl font-bold m-0 mb-2" style="background: var(--gradient2); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;">{exp.role}</h3>
@@ -104,13 +162,37 @@ const experiences = experiencesData;
             </div>
 
             <ul class="exp-description list-none p-0 m-0 flex flex-col gap-2.5">
-              {exp.description.map((desc) => (
+              {exp.description.filter(desc => !desc.includes('Tech Stacks')).map((desc) => (
                 <li class="flex items-start gap-3 text-sm leading-relaxed" style="color: rgba(255, 255, 255, 0.9);">
                   <span class="text-base flex-shrink-0 mt-0.5" style="color: var(--primary);">▹</span>
                   <span set:html={desc}></span>
                 </li>
               ))}
             </ul>
+
+            <!-- Tech Stack Visualization -->
+            {(() => {
+              const techStackDesc = exp.description.find(desc => desc.includes('Tech Stacks'));
+              return techStackDesc && (
+                <div class="tech-stack-section mt-4 pt-4 border-t border-white/10">
+                  <h4 class="text-sm font-semibold text-white/80 mb-3 flex items-center gap-2">
+                    <span class="tech-icon">🛠️</span>
+                    Tech Stack
+                  </h4>
+                  <div class="tech-stack-grid flex flex-wrap gap-2">
+                    {techStackDesc.split(':-')[1]?.split(',').map((tech) => {
+                      const cleanTech = tech.trim();
+                      return (
+                        <div class="tech-item flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium transition-all duration-300 hover:scale-110 hover:rotate-3" style="background: rgba(59, 130, 246, 0.15); border: 1px solid rgba(59, 130, 246, 0.3); color: #60a5fa;">
+                          <span class="tech-emoji text-sm">{techIcons[cleanTech] || '⚡'}</span>
+                          <span>{cleanTech}</span>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+              );
+            })()}
           </div>
         </div>
       ))}
@@ -303,6 +385,11 @@ const experiences = experiencesData;
     50% { transform: translate(-50%, -50%) scale(1.3); }
   }
 
+  @keyframes tech-float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-5px); }
+  }
+
   .animate-float-bg { animation: float-bg 20s ease-in-out infinite; }
   .animate-float-bg-reverse { animation: float-bg-reverse 25s ease-in-out infinite; }
   .animate-pulse-dot { animation: pulse 2s ease-in-out infinite; }
@@ -364,6 +451,90 @@ const experiences = experiencesData;
     border: 1px solid rgba(59, 130, 246, 0.6);
     box-shadow: 0 12px 40px rgba(59, 130, 246, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.2);
     transform: translateY(-2px);
+  }
+
+  .tech-stack-section {
+    position: relative;
+  }
+
+  .tech-item {
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .tech-item:hover {
+    background: rgba(59, 130, 246, 0.3) !important;
+    border-color: rgba(59, 130, 246, 0.6) !important;
+    box-shadow: 0 5px 15px rgba(59, 130, 246, 0.4);
+    animation: tech-float 2s ease-in-out infinite;
+  }
+
+  .tech-emoji {
+    transition: transform 0.3s ease;
+  }
+
+  .tech-item:hover .tech-emoji {
+    transform: scale(1.2) rotate(10deg);
+  }
+
+  .exp-content:hover .tech-item {
+    animation: tech-float 2s ease-in-out infinite;
+  }
+
+  .company-logo-container {
+    transition: all 0.3s ease;
+    position: relative;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  }
+
+  .company-logo-container::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: linear-gradient(45deg, rgba(59, 130, 246, 0.2), rgba(217, 70, 239, 0.2));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .company-badge:hover .company-logo-container {
+    transform: scale(1.15) rotate(5deg);
+    box-shadow: 0 8px 25px rgba(59, 130, 246, 0.5);
+    border-color: rgba(59, 130, 246, 0.8);
+  }
+
+  .company-badge:hover .company-logo-container::before {
+    opacity: 1;
+  }
+
+  .company-logo-container img {
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 1;
+    object-position: center;
+    /* Enhanced clarity settings */
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+  }
+
+  .company-badge:hover .company-logo-container img {
+    transform: scale(1.05) translateZ(0);
+    filter: brightness(130%) contrast(120%) saturate(1.2) drop-shadow(0 0 3px rgba(255, 255, 255, 0.3));
+  }
+
+  .exp-content:hover .company-logo-container {
+    animation: logoFloat 2s ease-in-out infinite;
+  }
+
+  @keyframes logoFloat {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-3px) rotate(2deg); }
   }
 
   /* Responsive Styles */

@@ -1,6 +1,7 @@
 [
     {
         "company": "OpenText",
+        "logo": "/assets/images/experience/opentext.png",
         "role": "Associate Software Engineer",
         "duration": "Apr 2024 - Present",
         "category": "work",
@@ -14,6 +15,7 @@
     },
     {
         "company": "OpenText",
+        "logo": "/assets/images/experience/opentext.png",
         "role": "Engineering Intern",
         "duration": "Oct 2023 - Mar 2024",
         "category": "internship",
@@ -27,32 +29,21 @@
     },
     {
         "company": "Social Winter of Code",
+        "logo": "/assets/images/experience/swoc.png",
         "role": "Project Admin",
         "duration": "Jan 2024 - Feb 2024",
         "category": "opensource",
         "description": [
             "Mentor of my 3 Projects <a href='https://github.com/Rakesh9100/Beautiify' target='_blank'>Beautiify</a>, <a href='https://github.com/Rakesh9100/CalcDiverse' target='_blank'>CalcDiverse</a>, and <a href='https://github.com/Rakesh9100/Click-The-Edible-Game' target='_blank'>Click-The-Edible-Game</a>.",
-            "Successfully merged 250+ quality Pull Requests.",
+            "Successfully merged <span class='focus'>250+</span> quality Pull Requests.",
             "Collaborated closely with contributors to ensure their continual growth and development.",
             "Provided guidance to numerous contributors, helping them create successful issues and Pull Requests.",
             "Tech Stacks :- HTML, CSS, JavaScript, Git, GitHub"
         ]
     },
     {
-        "company": "Innogeeks",
-        "role": "Project Maintainer",
-        "duration": "Jan 2024 - Feb 2024",
-        "category": "opensource",
-        "description": [
-            "Mentor of my 3 Projects <a href='https://github.com/Rakesh9100/Beautiify' target='_blank'>Beautiify</a>, <a href='https://github.com/Rakesh9100/CalcDiverse' target='_blank'>CalcDiverse</a>, and <a href='https://github.com/Rakesh9100/Click-The-Edible-Game' target='_blank'>Click-The-Edible-Game</a>.",
-            "Effectively merged <span class='focus'>125+</span> quality Pull Requests.",
-            "Collaborated closely with contributors to cultivate a conducive learning atmosphere.",
-            "Provided assistance to numerous new contributors, guiding them in crafting impactful issues and Pull Requests.",
-            "Tech Stacks :- HTML, CSS, JavaScript, Git, GitHub"
-        ]
-    },
-    {
         "company": "JGEC Winter of Code",
+        "logo": "/assets/images/experience/jwoc.png",
         "role": "Mentor",
         "duration": "Jan 2024 - Feb 2024",
         "category": "opensource",
@@ -65,20 +56,8 @@
         ]
     },
     {
-        "company": "SLoP",
-        "role": "Project Mentor",
-        "duration": "Oct 2023 - Dec 2023",
-        "category": "opensource",
-        "description": [
-            "Mentor of my 2 Projects <a href='https://github.com/Rakesh9100/Click-The-Edible-Game' target='_blank'>Click-The-Edible-Game</a> and <a href='https://github.com/Rakesh9100/Greeting-Time' target='_blank'>Greeting-Time</a>.",
-            "Successfully merged <span class='focus'>16</span> quality Pull Requests.",
-            "Provided guidance to numerous contributors, helping them create successful issues and Pull Requests.",
-            "Mentored many new beginners to the world of open source and solved their queries.",
-            "Tech Stacks :- HTML, CSS, JavaScript, Git, GitHub"
-        ]
-    },
-    {
         "company": "Hacktoberfest",
+        "logo": "/assets/images/experience/hacktoberfest.png",
         "role": "Contributor",
         "duration": "Oct 2023",
         "category": "opensource",
@@ -92,6 +71,7 @@
     },
     {
         "company": "GirlScript Summer of Code",
+        "logo": "/assets/images/experience/gssoc.png",
         "role": "Project Admin, Mentor & Community Expert",
         "duration": "May 2023 - Aug 2023",
         "category": "opensource",
@@ -106,6 +86,7 @@
     },
     {
         "company": "JGEC Winter of Code",
+        "logo": "/assets/images/experience/jwoc.png",
         "role": "Project Mentor",
         "duration": "Feb 2023 - Mar 2023",
         "category": "opensource",
@@ -118,20 +99,8 @@
         ]
     },
     {
-        "company": "LetsGrowMore",
-        "role": "Web Developer Internship",
-        "duration": "Dec 2022",
-        "category": "internship",
-        "description": [
-            "Completed 4 tasks during this internship.",
-            "Made a To-Do List, Create React App, Enrollment Form, and Calculator.",
-            "Hosted the websites using GitHub pages.",
-            "Awarded with <span class='focus'>LOR (Letter Of Recommendation)</span> for exemplary performance during the Internship.",
-            "Tech Stacks :- HTML, CSS, JavaScript"
-        ]
-    },
-    {
         "company": "Hacktoberfest",
+        "logo": "/assets/images/experience/hacktoberfest.png",
         "role": "Contributor & Project Maintainer",
         "duration": "Oct 2022",
         "category": "opensource",
@@ -145,6 +114,7 @@
     },
     {
         "company": "The Sparks Foundation",
+        "logo": "/assets/images/experience/tsf.png",
         "role": "Web Development Intern",
         "duration": "Oct 2022",
         "category": "internship",
@@ -158,6 +128,7 @@
     },
     {
         "company": "HackClub RAIT Summer of Code",
+        "logo": "/assets/images/experience/hackclub.png",
         "role": "Contributor & Project Admin",
         "duration": "Jul 2022 - Aug 2022",
         "category": "opensource",
@@ -171,6 +142,7 @@
     },
     {
         "company": "GirlScript Summer of Code",
+        "logo": "/assets/images/experience/gssoc.png",
         "role": "Open Source Contributor",
         "duration": "Mar 2022 - May 2022",
         "category": "opensource",
