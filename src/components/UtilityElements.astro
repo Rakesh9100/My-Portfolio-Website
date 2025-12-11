@@ -78,801 +78,794 @@
 <div class="circle h-[22px] w-[22px] rounded-full fixed top-0 left-0 pointer-events-none z-[99999999] transition-opacity duration-300"></div>
 
 <style is:global>
-/* Utility Elements - Remaining Custom Styles */
-
-/* Scroll To Top Button */
-.scroll-to-top {
-    transform: scale(0) rotate(-180deg);
-    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-    will-change: transform;
-}
-
-.scroll-to-top.show {
-    display: block !important;
-    opacity: 1 !important;
-    transform: scale(1) rotate(0deg);
-}
-
-.scroll-to-top:hover {
-    transform: scale(1.15) translateY(-8px) rotate(360deg);
-    filter: drop-shadow(0 15px 40px rgba(217, 70, 239, 0.8));
-}
-
-.scroll-to-top:active {
-    transform: scale(0.95) translateY(-5px);
-}
-
-.scroll-to-top:hover .progress-content {
-    background: rgba(217, 70, 239, 0.3);
-    border: 2px solid rgba(217, 70, 239, 0.6);
-    box-shadow: 0 12px 48px rgba(217, 70, 239, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.2);
-}
-
-.scroll-to-top:hover .progress-content svg {
-    transform: translateY(-3px);
-    animation: bounceUpArrow 0.8s ease-in-out infinite;
-}
-
-@keyframes bounceUpArrow {
-    0%, 100% { transform: translateY(-3px); }
-    50% { transform: translateY(-8px); }
-}
-
-/* Easter Egg Notification */
-.easter-egg-notification.show {
-    opacity: 1 !important;
-    transform: translate(-50%, 0);
-}
-
-@keyframes notificationPulse {
-    0%, 100% { box-shadow: 0 10px 40px rgba(217, 70, 239, 0.6); }
-    50% { box-shadow: 0 15px 50px rgba(217, 70, 239, 0.9); }
-}
-
-@keyframes iconBounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-5px); }
-}
-
-/* Performance Metrics */
-.perf-toggle:hover {
-    transform: scale(1.1);
-    border-color: rgba(59, 130, 246, 0.6);
-    box-shadow: 0 8px 30px rgba(59, 130, 246, 0.5);
-}
-
-.perf-panel.show {
-    opacity: 1 !important;
-    transform: translateY(0) !important;
-    pointer-events: all !important;
-}
-
-/* Custom Cursor Trail */
-.circle {
-    will-change: transform;
-}
-
-.circle:nth-child(1) {
-    height: 14px;
-    width: 14px;
-    background: radial-gradient(circle, #ffffff, var(--primary));
-    border: 2px solid rgba(255, 255, 255, 0.95);
-    z-index: 100000000;
-    opacity: 1;
-    animation: mainCursorPulse 2s ease-in-out infinite;
-    transition: background 0.3s ease, box-shadow 0.3s ease;
-}
-
-@keyframes mainCursorPulse {
-    0%, 100% { box-shadow: 0 0 15px var(--primary), 0 0 30px var(--primary), 0 0 45px var(--primary); }
-    50% { box-shadow: 0 0 20px var(--hover), 0 0 40px var(--hover), 0 0 60px var(--hover); }
-}
-
-.circle:nth-child(2) {
-    background: var(--primary);
-    opacity: 0.6;
-    backdrop-filter: blur(10px);
-    border: 1.5px solid var(--primary);
-    box-shadow: 0 0 15px var(--primary), inset 0 0 8px rgba(255, 255, 255, 0.3);
-    transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.circle:nth-child(3) {
-    background: var(--ternary);
-    opacity: 0.6;
-    backdrop-filter: blur(10px);
-    border: 1.5px solid var(--ternary);
-    box-shadow: 0 0 12px var(--ternary);
-    transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.circle:nth-child(n+4) {
-    background: var(--hover);
-    opacity: 0.4;
-    backdrop-filter: blur(8px);
-    border: 1px solid var(--hover);
-    box-shadow: 0 0 10px var(--hover);
-    transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-/* Responsive Styles */
-
-/* Mobile Styles (< 640px) */
-@media (max-width: 639px) {
+    /* Scroll To Top Button */
     .scroll-to-top {
-        width: 50px;
-        height: 50px;
-        right: 15px;
-        bottom: 15px;
+        transform: scale(0) rotate(-180deg);
+        transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        will-change: transform;
     }
 
-    .progress-ring {
-        width: 50px;
-        height: 50px;
+    .scroll-to-top.show {
+        display: block !important;
+        opacity: 1 !important;
+        transform: scale(1) rotate(0deg);
     }
 
-    .progress-ring-circle {
-        r: 22;
-        cx: 25;
-        cy: 25;
-        stroke-dasharray: 138.23;
-        stroke-dashoffset: 138.23;
+    .scroll-to-top:hover {
+        transform: scale(1.15) translateY(-8px) rotate(360deg);
+        filter: drop-shadow(0 15px 40px rgba(217, 70, 239, 0.8));
     }
 
-    .progress-content {
-        width: 42px;
-        height: 42px;
+    .scroll-to-top:active {
+        transform: scale(0.95) translateY(-5px);
     }
 
-    .progress-content svg {
-        width: 20px;
-        height: 20px;
+    .scroll-to-top:hover .progress-content {
+        background: rgba(217, 70, 239, 0.3);
+        border: 2px solid rgba(217, 70, 239, 0.6);
+        box-shadow: 0 12px 48px rgba(217, 70, 239, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.2);
     }
 
-    .progress-percentage {
-        font-size: 8px;
+    .scroll-to-top:hover .progress-content svg {
+        transform: translateY(-3px);
+        animation: bounceUpArrow 0.8s ease-in-out infinite;
     }
 
-    .performance-metrics {
-        bottom: 75px;
-        right: 15px;
+    @keyframes bounceUpArrow {
+        0%, 100% { transform: translateY(-3px); }
+        50% { transform: translateY(-8px); }
     }
 
-    .perf-toggle {
-        width: 42px;
-        height: 42px;
+    /* Easter Egg Notification */
+    .easter-egg-notification.show {
+        opacity: 1 !important;
+        transform: translate(-50%, 0);
     }
 
-    .perf-toggle svg {
-        width: 18px;
-        height: 18px;
+    @keyframes notificationPulse {
+        0%, 100% { box-shadow: 0 10px 40px rgba(217, 70, 239, 0.6); }
+        50% { box-shadow: 0 15px 50px rgba(217, 70, 239, 0.9); }
     }
 
-    .perf-panel {
-        width: 220px;
-        padding: 12px;
-        bottom: 52px;
+    @keyframes iconBounce {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-5px); }
     }
 
-    .perf-title {
-        font-size: 14px;
-        margin-bottom: 10px;
+    /* Performance Metrics */
+    .perf-toggle:hover {
+        transform: scale(1.1);
+        border-color: rgba(59, 130, 246, 0.6);
+        box-shadow: 0 8px 30px rgba(59, 130, 246, 0.5);
     }
 
-    .perf-stat {
-        padding: 8px 10px;
+    .perf-panel.show {
+        opacity: 1 !important;
+        transform: translateY(0) !important;
+        pointer-events: all !important;
     }
 
-    .perf-label {
-        font-size: 12px;
-    }
-
-    .perf-value {
-        font-size: 12px;
-    }
-
-    .easter-egg-notification {
-        top: 70px;
-    }
-
-    .easter-egg-content {
-        padding: 12px 18px;
-        gap: 10px;
-    }
-
-    .easter-egg-icon {
-        font-size: 22px;
-    }
-
-    .easter-egg-message {
-        font-size: 12px;
-    }
-
+    /* Custom Cursor Trail */
     .circle {
-        display: none;
+        will-change: transform;
     }
 
-    .cicd-pipeline {
-        flex-direction: column;
-        padding: 20px;
-        gap: 10px;
-        max-width: 90%;
+    .circle:nth-child(1) {
+        height: 14px;
+        width: 14px;
+        background: radial-gradient(circle, #ffffff, var(--primary));
+        border: 2px solid rgba(255, 255, 255, 0.95);
+        z-index: 100000000;
+        opacity: 1;
+        animation: mainCursorPulse 2s ease-in-out infinite;
+        transition: background 0.3s ease, box-shadow 0.3s ease;
     }
 
-    .pipeline-arrow {
-        transform: rotate(90deg);
+    @keyframes mainCursorPulse {
+        0%, 100% { box-shadow: 0 0 15px var(--primary), 0 0 30px var(--primary), 0 0 45px var(--primary); }
+        50% { box-shadow: 0 0 20px var(--hover), 0 0 40px var(--hover), 0 0 60px var(--hover); }
     }
 
-    .pipeline-stage {
-        min-width: 100%;
-    }
-}
-
-/* Tablet Styles (640px - 768px) */
-@media (min-width: 640px) and (max-width: 768px) {
-    .scroll-to-top {
-        width: 52px;
-        height: 52px;
-        right: 18px;
-        bottom: 18px;
+    .circle:nth-child(2) {
+        background: var(--primary);
+        opacity: 0.6;
+        backdrop-filter: blur(10px);
+        border: 1.5px solid var(--primary);
+        box-shadow: 0 0 15px var(--primary), inset 0 0 8px rgba(255, 255, 255, 0.3);
+        transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
     }
 
-    .progress-ring {
-        width: 52px;
-        height: 52px;
+    .circle:nth-child(3) {
+        background: var(--ternary);
+        opacity: 0.6;
+        backdrop-filter: blur(10px);
+        border: 1.5px solid var(--ternary);
+        box-shadow: 0 0 12px var(--ternary);
+        transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
     }
 
-    .progress-ring-circle {
-        r: 23;
-        cx: 26;
-        cy: 26;
-        stroke-dasharray: 144.51;
-        stroke-dashoffset: 144.51;
+    .circle:nth-child(n+4) {
+        background: var(--hover);
+        opacity: 0.4;
+        backdrop-filter: blur(8px);
+        border: 1px solid var(--hover);
+        box-shadow: 0 0 10px var(--hover);
+        transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
     }
 
-    .progress-content {
-        width: 44px;
-        height: 44px;
+    @media (max-width: 639px) {
+        .scroll-to-top {
+            width: 50px;
+            height: 50px;
+            right: 15px;
+            bottom: 15px;
+        }
+
+        .progress-ring {
+            width: 50px;
+            height: 50px;
+        }
+
+        .progress-ring-circle {
+            r: 22;
+            cx: 25;
+            cy: 25;
+            stroke-dasharray: 138.23;
+            stroke-dashoffset: 138.23;
+        }
+
+        .progress-content {
+            width: 42px;
+            height: 42px;
+        }
+
+        .progress-content svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .progress-percentage {
+            font-size: 8px;
+        }
+
+        .performance-metrics {
+            bottom: 75px;
+            right: 15px;
+        }
+
+        .perf-toggle {
+            width: 42px;
+            height: 42px;
+        }
+
+        .perf-toggle svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        .perf-panel {
+            width: 220px;
+            padding: 12px;
+            bottom: 52px;
+        }
+
+        .perf-title {
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .perf-stat {
+            padding: 8px 10px;
+        }
+
+        .perf-label {
+            font-size: 12px;
+        }
+
+        .perf-value {
+            font-size: 12px;
+        }
+
+        .easter-egg-notification {
+            top: 70px;
+        }
+
+        .easter-egg-content {
+            padding: 12px 18px;
+            gap: 10px;
+        }
+
+        .easter-egg-icon {
+            font-size: 22px;
+        }
+
+        .easter-egg-message {
+            font-size: 12px;
+        }
+
+        .circle {
+            display: none;
+        }
+
+        .cicd-pipeline {
+            flex-direction: column;
+            padding: 20px;
+            gap: 10px;
+            max-width: 90%;
+        }
+
+        .pipeline-arrow {
+            transform: rotate(90deg);
+        }
+
+        .pipeline-stage {
+            min-width: 100%;
+        }
     }
 
-    .progress-content svg {
-        width: 21px;
-        height: 21px;
-    }
+    @media (min-width: 640px) and (max-width: 768px) {
+        .scroll-to-top {
+            width: 52px;
+            height: 52px;
+            right: 18px;
+            bottom: 18px;
+        }
 
-    .progress-percentage {
-        font-size: 8.5px;
-    }
+        .progress-ring {
+            width: 52px;
+            height: 52px;
+        }
 
-    .performance-metrics {
-        bottom: 78px;
-        right: 18px;
-    }
+        .progress-ring-circle {
+            r: 23;
+            cx: 26;
+            cy: 26;
+            stroke-dasharray: 144.51;
+            stroke-dashoffset: 144.51;
+        }
 
-    .perf-toggle {
-        width: 44px;
-        height: 44px;
-    }
+        .progress-content {
+            width: 44px;
+            height: 44px;
+        }
 
-    .perf-toggle svg {
-        width: 19px;
-        height: 19px;
-    }
+        .progress-content svg {
+            width: 21px;
+            height: 21px;
+        }
 
-    .perf-panel {
-        width: 235px;
-        padding: 13px;
-        bottom: 54px;
-    }
+        .progress-percentage {
+            font-size: 8.5px;
+        }
 
-    .easter-egg-notification {
-        top: 75px;
-    }
+        .performance-metrics {
+            bottom: 78px;
+            right: 18px;
+        }
 
-    .circle {
-        display: none;
+        .perf-toggle {
+            width: 44px;
+            height: 44px;
+        }
+
+        .perf-toggle svg {
+            width: 19px;
+            height: 19px;
+        }
+
+        .perf-panel {
+            width: 235px;
+            padding: 13px;
+            bottom: 54px;
+        }
+
+        .easter-egg-notification {
+            top: 75px;
+        }
+
+        .circle {
+            display: none;
+        }
     }
-}
 </style>
 
 <script is:inline>
-// Utility Elements JavaScript
-(function() {
-    // Scroll to Top Button with Progress
-    let calcScrollValue = function() {
-        let scrollProg = document.getElementById("progress");
-        let progressCircle = document.querySelector('.progress-ring-circle');
-        let progressPercentage = document.querySelector('#progress .progress-percentage');
+    (function() {
+        // Scroll to Top Button with Progress
+        let calcScrollValue = function() {
+            let scrollProg = document.getElementById("progress");
+            let progressCircle = document.querySelector('.progress-ring-circle');
+            let progressPercentage = document.querySelector('#progress .progress-percentage');
 
-        if (!scrollProg || !progressCircle || !progressPercentage) return;
+            if (!scrollProg || !progressCircle || !progressPercentage) return;
 
-        let pos = document.documentElement.scrollTop;
-        let calcHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-        let scrollValue = Math.round((pos * 100) / calcHeight);
+            let pos = document.documentElement.scrollTop;
+            let calcHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            let scrollValue = Math.round((pos * 100) / calcHeight);
 
-        // Show/hide button with smooth transition
-        if (pos > 100) {
-            scrollProg.classList.add('show');
-        } else {
-            scrollProg.classList.remove('show');
-        }
-
-        // Update circular progress ring
-        const circumference = 163.36;
-        progressCircle.style.strokeDasharray = circumference.toString();
-        const offset = circumference - (scrollValue / 100) * circumference;
-        progressCircle.style.strokeDashoffset = offset.toString();
-
-        // Update percentage text
-        progressPercentage.textContent = scrollValue + '%';
-    };
-
-    window.addEventListener('scroll', calcScrollValue);
-    window.addEventListener('load', calcScrollValue);
-    document.addEventListener('DOMContentLoaded', calcScrollValue);
-
-    // Smooth scroll to top with easing and animation
-    const scrollTopBtn = document.getElementById('progress');
-    if (scrollTopBtn) {
-        scrollTopBtn.addEventListener("click", function() {
-            // Add click animation
-            scrollTopBtn.style.transform = 'scale(0.9) rotate(360deg)';
-
-            setTimeout(function() {
-                scrollTopBtn.style.transform = '';
-            }, 300);
-
-            // Smooth scroll to top
-            window.scrollTo({
-                top: 0,
-                behavior: "smooth"
-            });
-        });
-    }
-
-    // Performance Metrics
-    const perfToggle = document.getElementById('perf-toggle');
-    const perfPanel = document.getElementById('perf-panel');
-
-    if (perfToggle && perfPanel) {
-        perfToggle.addEventListener('click', function() {
-            perfPanel.classList.toggle('show');
-        });
-
-        // Close panel when clicking outside
-        document.addEventListener('click', function(e) {
-            if (!e.target.closest('.performance-metrics')) {
-                perfPanel.classList.remove('show');
-            }
-        });
-    }
-
-    // Calculate and display performance metrics
-    window.addEventListener('load', function() {
-        setTimeout(function() {
-            // Use modern Performance API
-            const perfData = performance.getEntriesByType('navigation')[0];
-
-            if (perfData) {
-                // Modern API
-                const loadTime = ((perfData.loadEventEnd - perfData.fetchStart) / 1000).toFixed(2);
-                const domReady = ((perfData.domContentLoadedEventEnd - perfData.fetchStart) / 1000).toFixed(2);
-
-                // Calculate performance score (0-100)
-                let score = 100;
-                if (loadTime > 3) score -= 30;
-                else if (loadTime > 2) score -= 15;
-                if (domReady > 2) score -= 20;
-                else if (domReady > 1) score -= 10;
-
-                // Update display
-                const loadTimeEl = document.getElementById('load-time');
-                const domReadyEl = document.getElementById('dom-ready');
-                const perfScoreEl = document.getElementById('perf-score');
-
-                if (loadTimeEl) loadTimeEl.textContent = loadTime + 's';
-                if (domReadyEl) domReadyEl.textContent = domReady + 's';
-                if (perfScoreEl) {
-                    perfScoreEl.textContent = score + '/100';
-
-                    // Add color class based on score
-                    if (score >= 80) {
-                        perfScoreEl.style.color = '#10b981';
-                        perfScoreEl.style.background = 'rgba(16, 185, 129, 0.2)';
-                    } else if (score >= 60) {
-                        perfScoreEl.style.color = '#f59e0b';
-                        perfScoreEl.style.background = 'rgba(245, 158, 11, 0.2)';
-                    } else {
-                        perfScoreEl.style.color = '#ef4444';
-                        perfScoreEl.style.background = 'rgba(239, 68, 68, 0.2)';
-                    }
-                }
+            // Show/hide button with smooth transition
+            if (pos > 100) {
+                scrollProg.classList.add('show');
             } else {
-                // Fallback for older browsers
-                const perfTiming = performance.timing;
-                if (perfTiming && perfTiming.loadEventEnd > 0) {
-                    const loadTime = ((perfTiming.loadEventEnd - perfTiming.navigationStart) / 1000).toFixed(2);
-                    const domReady = ((perfTiming.domContentLoadedEventEnd - perfTiming.navigationStart) / 1000).toFixed(2);
-
-                    document.getElementById('load-time').textContent = loadTime + 's';
-                    document.getElementById('dom-ready').textContent = domReady + 's';
-
-                    const score = loadTime < 2 ? 'Excellent' : loadTime < 4 ? 'Good' : 'Fair';
-                    document.getElementById('perf-score').textContent = score;
-                }
+                scrollProg.classList.remove('show');
             }
-        }, 100);
-    });
 
-    // Easter Eggs
-    let typedKeys = [];
-    let easterEggCount = 0;
+            // Update circular progress ring
+            const circumference = 163.36;
+            progressCircle.style.strokeDasharray = circumference.toString();
+            const offset = circumference - (scrollValue / 100) * circumference;
+            progressCircle.style.strokeDashoffset = offset.toString();
 
-    // Detect if device is mobile/touch device
-    function isMobileDevice() {
-        return (typeof window.orientation !== "undefined") ||
-               (navigator.userAgent.indexOf('IEMobile') !== -1) ||
-               ('ontouchstart' in window) ||
-               (navigator.maxTouchPoints > 0);
-    }
+            // Update percentage text
+            progressPercentage.textContent = scrollValue + '%';
+        };
 
-    // Skip Easter eggs on mobile devices
-    const enableEasterEggs = !isMobileDevice();
+        window.addEventListener('scroll', calcScrollValue);
+        window.addEventListener('load', calcScrollValue);
+        document.addEventListener('DOMContentLoaded', calcScrollValue);
 
-    function showNotification(message, icon) {
-        const notification = document.getElementById('easter-egg-notification');
-        if (!notification) return;
-
-        const iconEl = notification.querySelector('.easter-egg-icon');
-        const messageEl = notification.querySelector('.easter-egg-message');
-
-        if (iconEl) iconEl.textContent = icon;
-        if (messageEl) messageEl.textContent = message;
-
-        notification.classList.add('show');
-
-        setTimeout(function() {
-            notification.classList.remove('show');
-        }, 3500);
-    }
-
-    // Typing detection (only on desktop)
-    document.addEventListener('keypress', function(e) {
-        // Skip if mobile device
-        if (!enableEasterEggs) return;
-        typedKeys.push(e.key);
-
-        // Keep last 6 characters for longer patterns
-        if (typedKeys.length > 6) {
-            typedKeys.shift();
-        }
-
-        const typedString = typedKeys.join('');
-
-        // Easter Egg 1: Type "devops" - CI/CD Pipeline Animation (check first - longest pattern)
-        if (typedString.includes('devops')) {
-            showCICDPipeline();
-            typedKeys = [];
-            easterEggCount++;
-            return;
-        }
-
-        // Easter Egg 3: Type "deploy" - Confetti Burst (check second)
-        if (typedString.includes('deploy')) {
-            createConfettiBurst();
-            typedKeys = [];
-            easterEggCount++;
-            return;
-        }
-
-        // Easter Egg 2: Type ":)" - Emoji Rain
-        if (typedString.includes(':)')) {
-            createEmojiRain();
-            typedKeys = [];
-            easterEggCount++;
-            return;
-        }
-
-        // Easter Egg 4: Type "dev:" - Developer Console
-        if (typedString.includes('dev:')) {
-            showDeveloperStats();
-            typedKeys = [];
-            easterEggCount++;
-            return;
-        }
-    });
-
-    // Easter Egg 1: CI/CD Pipeline Animation
-    function showCICDPipeline() {
-        showNotification('🔧 CI/CD Pipeline Running... 🚀', '⚙️');
-
-        const pipeline = document.createElement('div');
-        pipeline.className = 'cicd-pipeline';
-        pipeline.innerHTML = '<div class="pipeline-stage" data-stage="1">' +
-            '<div class="stage-icon">🔨</div>' +
-            '<div class="stage-name">Build</div>' +
-            '<div class="stage-status">⏳</div>' +
-            '</div>' +
-            '<div class="pipeline-arrow">→</div>' +
-            '<div class="pipeline-stage" data-stage="2">' +
-            '<div class="stage-icon">🧪</div>' +
-            '<div class="stage-name">Test</div>' +
-            '<div class="stage-status">⏳</div>' +
-            '</div>' +
-            '<div class="pipeline-arrow">→</div>' +
-            '<div class="pipeline-stage" data-stage="3">' +
-            '<div class="stage-icon">🚀</div>' +
-            '<div class="stage-name">Deploy</div>' +
-            '<div class="stage-status">⏳</div>' +
-            '</div>' +
-            '<div class="pipeline-arrow">→</div>' +
-            '<div class="pipeline-stage" data-stage="4">' +
-            '<div class="stage-icon">✅</div>' +
-            '<div class="stage-name">Success</div>' +
-            '<div class="stage-status">⏳</div>' +
-            '</div>';
-
-        document.body.appendChild(pipeline);
-
-        // Animate stages
-        const stages = pipeline.querySelectorAll('.pipeline-stage');
-        stages.forEach(function(stage, index) {
-            setTimeout(function() {
-                stage.classList.add('active');
-                const status = stage.querySelector('.stage-status');
-                if (status) status.textContent = '✓';
-            }, (index + 1) * 800);
-        });
-
-        // Remove after animation
-        setTimeout(function() {
-            pipeline.style.opacity = '0';
-            pipeline.style.transform = 'translate(-50%, -50%) scale(0.8)';
-            setTimeout(function() {
-                pipeline.remove();
-            }, 500);
-        }, 4500);
-    }
-
-    // Easter Egg 2: Emoji Rain
-    function createEmojiRain() {
-        showNotification('Emoji Rain Activated! ✨', '😊');
-
-        const emojis = ['✨', '⭐', '🌟', '💫', '🎉', '🎊', '🎈', '🎁', '💝', '🌈'];
-        const emojiCount = 30;
-
-        for (let i = 0; i < emojiCount; i++) {
-            setTimeout(function() {
-                const emoji = document.createElement('div');
-                emoji.className = 'falling-emoji';
-                emoji.textContent = emojis[Math.floor(Math.random() * emojis.length)];
-                emoji.style.left = Math.random() * 100 + '%';
-                emoji.style.animationDuration = (2 + Math.random() * 2) + 's';
-                emoji.style.fontSize = (20 + Math.random() * 20) + 'px';
-
-                document.body.appendChild(emoji);
+        // Smooth scroll to top with easing and animation
+        const scrollTopBtn = document.getElementById('progress');
+        if (scrollTopBtn) {
+            scrollTopBtn.addEventListener("click", function() {
+                // Add click animation
+                scrollTopBtn.style.transform = 'scale(0.9) rotate(360deg)';
 
                 setTimeout(function() {
-                    emoji.remove();
-                }, 4000);
-            }, i * 100);
+                    scrollTopBtn.style.transform = '';
+                }, 300);
+
+                // Smooth scroll to top
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth"
+                });
+            });
         }
-    }
 
-    // Easter Egg 3: Confetti Burst
-    function createConfettiBurst() {
-        showNotification('🚀 Deployment Successful! 🎉', '🎊');
+        // Performance Metrics
+        const perfToggle = document.getElementById('perf-toggle');
+        const perfPanel = document.getElementById('perf-panel');
 
-        const colors = ['#d946ef', '#3b82f6', '#10b981', '#f59e0b', '#ec4899', '#8b5cf6'];
-        const confettiCount = 80;
+        if (perfToggle && perfPanel) {
+            perfToggle.addEventListener('click', function() {
+                perfPanel.classList.toggle('show');
+            });
 
-        for (let i = 0; i < confettiCount; i++) {
-            const confetti = document.createElement('div');
-            confetti.className = 'confetti-particle';
-            confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-            confetti.style.left = '50%';
-            confetti.style.top = '50%';
+            // Close panel when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!e.target.closest('.performance-metrics')) {
+                    perfPanel.classList.remove('show');
+                }
+            });
+        }
 
-            const angle = (Math.PI * 2 * i) / confettiCount;
-            const velocity = 200 + Math.random() * 200;
-            const tx = Math.cos(angle) * velocity;
-            const ty = Math.sin(angle) * velocity;
+        // Calculate and display performance metrics
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                // Use modern Performance API
+                const perfData = performance.getEntriesByType('navigation')[0];
 
-            confetti.style.setProperty('--tx', tx + 'px');
-            confetti.style.setProperty('--ty', ty + 'px');
+                if (perfData) {
+                    // Modern API
+                    const loadTime = ((perfData.loadEventEnd - perfData.fetchStart) / 1000).toFixed(2);
+                    const domReady = ((perfData.domContentLoadedEventEnd - perfData.fetchStart) / 1000).toFixed(2);
 
-            document.body.appendChild(confetti);
+                    // Calculate performance score (0-100)
+                    let score = 100;
+                    if (loadTime > 3) score -= 30;
+                    else if (loadTime > 2) score -= 15;
+                    if (domReady > 2) score -= 20;
+                    else if (domReady > 1) score -= 10;
+
+                    // Update display
+                    const loadTimeEl = document.getElementById('load-time');
+                    const domReadyEl = document.getElementById('dom-ready');
+                    const perfScoreEl = document.getElementById('perf-score');
+
+                    if (loadTimeEl) loadTimeEl.textContent = loadTime + 's';
+                    if (domReadyEl) domReadyEl.textContent = domReady + 's';
+                    if (perfScoreEl) {
+                        perfScoreEl.textContent = score + '/100';
+
+                        // Add color class based on score
+                        if (score >= 80) {
+                            perfScoreEl.style.color = '#10b981';
+                            perfScoreEl.style.background = 'rgba(16, 185, 129, 0.2)';
+                        } else if (score >= 60) {
+                            perfScoreEl.style.color = '#f59e0b';
+                            perfScoreEl.style.background = 'rgba(245, 158, 11, 0.2)';
+                        } else {
+                            perfScoreEl.style.color = '#ef4444';
+                            perfScoreEl.style.background = 'rgba(239, 68, 68, 0.2)';
+                        }
+                    }
+                } else {
+                    // Fallback for older browsers
+                    const perfTiming = performance.timing;
+                    if (perfTiming && perfTiming.loadEventEnd > 0) {
+                        const loadTime = ((perfTiming.loadEventEnd - perfTiming.navigationStart) / 1000).toFixed(2);
+                        const domReady = ((perfTiming.domContentLoadedEventEnd - perfTiming.navigationStart) / 1000).toFixed(2);
+
+                        document.getElementById('load-time').textContent = loadTime + 's';
+                        document.getElementById('dom-ready').textContent = domReady + 's';
+
+                        const score = loadTime < 2 ? 'Excellent' : loadTime < 4 ? 'Good' : 'Fair';
+                        document.getElementById('perf-score').textContent = score;
+                    }
+                }
+            }, 100);
+        });
+
+        // Easter Eggs
+        let typedKeys = [];
+        let easterEggCount = 0;
+
+        // Detect if device is mobile/touch device
+        function isMobileDevice() {
+            return (typeof window.orientation !== "undefined") ||
+                (navigator.userAgent.indexOf('IEMobile') !== -1) ||
+                ('ontouchstart' in window) ||
+                (navigator.maxTouchPoints > 0);
+        }
+
+        // Skip Easter eggs on mobile devices
+        const enableEasterEggs = !isMobileDevice();
+
+        function showNotification(message, icon) {
+            const notification = document.getElementById('easter-egg-notification');
+            if (!notification) return;
+
+            const iconEl = notification.querySelector('.easter-egg-icon');
+            const messageEl = notification.querySelector('.easter-egg-message');
+
+            if (iconEl) iconEl.textContent = icon;
+            if (messageEl) messageEl.textContent = message;
+
+            notification.classList.add('show');
 
             setTimeout(function() {
-                confetti.remove();
-            }, 2000);
+                notification.classList.remove('show');
+            }, 3500);
         }
-    }
 
-    // Easter Egg 4: Developer Console Stats
-    function showDeveloperStats() {
-        showNotification('Developer Mode Unlocked! Check Console 🔍', '💻');
+        // Typing detection (only on desktop)
+        document.addEventListener('keypress', function(e) {
+            // Skip if mobile device
+            if (!enableEasterEggs) return;
+            typedKeys.push(e.key);
 
-        const sections = document.querySelectorAll('section').length;
-        const images = document.querySelectorAll('img').length;
-        const links = document.querySelectorAll('a').length;
+            // Keep last 6 characters for longer patterns
+            if (typedKeys.length > 6) {
+                typedKeys.shift();
+            }
 
-        console.clear();
-        console.log('%c🔍 Developer Mode Unlocked! 🔍', 'font-size: 24px; color: #d946ef; font-weight: bold; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);');
-        console.log('%c━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━', 'color: #3b82f6;');
-        console.log('%c📊 Portfolio Statistics:', 'font-size: 18px; color: #10b981; font-weight: bold;');
-        console.log('%c━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━', 'color: #3b82f6;');
-        console.log('%c📄 Total Sections: ' + sections, 'font-size: 14px; color: #3b82f6;');
-        console.log('%c🖼️  Total Images: ' + images, 'font-size: 14px; color: #3b82f6;');
-        console.log('%c🔗 Total Links: ' + links, 'font-size: 14px; color: #3b82f6;');
-        console.log('%c🎮 Easter Eggs Found: ' + easterEggCount, 'font-size: 14px; color: #f59e0b;');
-        console.log('%c━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━', 'color: #3b82f6;');
-        console.log('%c💡 Easter Egg Hints:', 'font-size: 16px; color: #ec4899; font-weight: bold;');
-        console.log('%c  1. Type "devops" - CI/CD Pipeline Animation', 'color: #8b5cf6;');
-        console.log('%c  2. Type ":)" - Emoji Rain', 'color: #8b5cf6;');
-        console.log('%c  3. Type "deploy" - Confetti Burst', 'color: #8b5cf6;');
-        console.log('%c  4. Type "dev:" - Developer Console (You just found this!)', 'color: #10b981; font-weight: bold;');
-        console.log('%c━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━', 'color: #3b82f6;');
-        console.log('%c🚀 Happy Exploring!', 'font-size: 16px; color: #10b981; font-weight: bold;');
-    }
+            const typedString = typedKeys.join('');
 
-    // Add dynamic styles for Easter eggs
-    const easterEggStyles = document.createElement('style');
-    easterEggStyles.textContent =
-        '/* CI/CD Pipeline */' +
-        '.cicd-pipeline {' +
-        '    position: fixed;' +
-        '    top: 50%;' +
-        '    left: 50%;' +
-        '    transform: translate(-50%, -50%);' +
-        '    display: flex;' +
-        '    align-items: center;' +
-        '    gap: 15px;' +
-        '    background: rgba(26, 15, 62, 0.95);' +
-        '    backdrop-filter: blur(30px);' +
-        '    padding: 30px;' +
-        '    border-radius: 20px;' +
-        '    border: 2px solid rgba(16, 185, 129, 0.6);' +
-        '    box-shadow: 0 20px 60px rgba(16, 185, 129, 0.6);' +
-        '    z-index: 99998;' +
-        '    transition: all 0.5s ease;' +
-        '    animation: slideInPipeline 0.5s ease;' +
-        '}' +
-        '@keyframes slideInPipeline {' +
-        '    from { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }' +
-        '    to { opacity: 1; transform: translate(-50%, -50%) scale(1); }' +
-        '}' +
-        '.pipeline-stage {' +
-        '    display: flex;' +
-        '    flex-direction: column;' +
-        '    align-items: center;' +
-        '    gap: 8px;' +
-        '    padding: 15px;' +
-        '    background: rgba(255, 255, 255, 0.05);' +
-        '    border-radius: 12px;' +
-        '    border: 2px solid rgba(255, 255, 255, 0.1);' +
-        '    min-width: 80px;' +
-        '    opacity: 0.3;' +
-        '    transition: all 0.5s ease;' +
-        '}' +
-        '.pipeline-stage.active {' +
-        '    opacity: 1;' +
-        '    background: rgba(16, 185, 129, 0.2);' +
-        '    border-color: rgba(16, 185, 129, 0.6);' +
-        '    transform: scale(1.1);' +
-        '}' +
-        '.stage-icon { font-size: 28px; }' +
-        '.stage-name { font-size: 13px; font-weight: 700; color: white; }' +
-        '.stage-status { font-size: 16px; }' +
-        '.pipeline-arrow { font-size: 24px; color: rgba(255, 255, 255, 0.5); font-weight: bold; }' +
-        '/* Falling Emoji */' +
-        '.falling-emoji {' +
-        '    position: fixed;' +
-        '    top: -50px;' +
-        '    z-index: 99999;' +
-        '    pointer-events: none;' +
-        '    animation: emojifall linear forwards;' +
-        '}' +
-        '@keyframes emojifall {' +
-        '    to { top: 100vh; transform: rotate(360deg); opacity: 0; }' +
-        '}' +
-        '/* Confetti Particle */' +
-        '.confetti-particle {' +
-        '    position: fixed;' +
-        '    width: 10px;' +
-        '    height: 10px;' +
-        '    border-radius: 50%;' +
-        '    z-index: 99999;' +
-        '    pointer-events: none;' +
-        '    animation: confettiBurst 2s ease-out forwards;' +
-        '}' +
-        '@keyframes confettiBurst {' +
-        '    0% { transform: translate(0, 0) rotate(0deg); opacity: 1; }' +
-        '    100% { transform: translate(var(--tx), var(--ty)) rotate(720deg); opacity: 0; }' +
-        '}';
-    document.head.appendChild(easterEggStyles);
+            // Easter Egg 1: Type "devops" - CI/CD Pipeline Animation (check first - longest pattern)
+            if (typedString.includes('devops')) {
+                showCICDPipeline();
+                typedKeys = [];
+                easterEggCount++;
+                return;
+            }
 
-    // Custom Cursor Trail Animation
-    const coords = { x: 0, y: 0 };
-    const circles = document.querySelectorAll(".circle");
+            // Easter Egg 3: Type "deploy" - Confetti Burst (check second)
+            if (typedString.includes('deploy')) {
+                createConfettiBurst();
+                typedKeys = [];
+                easterEggCount++;
+                return;
+            }
 
-    circles.forEach(function(circle, index) {
-        circle.x = 0;
-        circle.y = 0;
-    });
+            // Easter Egg 2: Type ":)" - Emoji Rain
+            if (typedString.includes(':)')) {
+                createEmojiRain();
+                typedKeys = [];
+                easterEggCount++;
+                return;
+            }
 
-    // Track mouse movement
-    window.addEventListener("mousemove", function(e) {
-        coords.x = e.clientX;
-        coords.y = e.clientY;
-    });
-
-    // Hide cursor when leaving window
-    document.body.addEventListener('mouseleave', function() {
-        circles.forEach(function(circle) {
-            circle.style.opacity = '0';
+            // Easter Egg 4: Type "dev:" - Developer Console
+            if (typedString.includes('dev:')) {
+                showDeveloperStats();
+                typedKeys = [];
+                easterEggCount++;
+                return;
+            }
         });
-    });
 
-    document.body.addEventListener('mouseenter', function() {
-        circles.forEach(function(circle) {
-            circle.style.opacity = '0.8';
-        });
-    });
+        // Easter Egg 1: CI/CD Pipeline Animation
+        function showCICDPipeline() {
+            showNotification('🔧 CI/CD Pipeline Running... 🚀', '⚙️');
 
-    // Animate circles
-    function animateCircles() {
-        let x = coords.x;
-        let y = coords.y;
+            const pipeline = document.createElement('div');
+            pipeline.className = 'cicd-pipeline';
+            pipeline.innerHTML = '<div class="pipeline-stage" data-stage="1">' +
+                '<div class="stage-icon">🔨</div>' +
+                '<div class="stage-name">Build</div>' +
+                '<div class="stage-status">⏳</div>' +
+                '</div>' +
+                '<div class="pipeline-arrow">→</div>' +
+                '<div class="pipeline-stage" data-stage="2">' +
+                '<div class="stage-icon">🧪</div>' +
+                '<div class="stage-name">Test</div>' +
+                '<div class="stage-status">⏳</div>' +
+                '</div>' +
+                '<div class="pipeline-arrow">→</div>' +
+                '<div class="pipeline-stage" data-stage="3">' +
+                '<div class="stage-icon">🚀</div>' +
+                '<div class="stage-name">Deploy</div>' +
+                '<div class="stage-status">⏳</div>' +
+                '</div>' +
+                '<div class="pipeline-arrow">→</div>' +
+                '<div class="pipeline-stage" data-stage="4">' +
+                '<div class="stage-icon">✅</div>' +
+                '<div class="stage-name">Success</div>' +
+                '<div class="stage-status">⏳</div>' +
+                '</div>';
+
+            document.body.appendChild(pipeline);
+
+            // Animate stages
+            const stages = pipeline.querySelectorAll('.pipeline-stage');
+            stages.forEach(function(stage, index) {
+                setTimeout(function() {
+                    stage.classList.add('active');
+                    const status = stage.querySelector('.stage-status');
+                    if (status) status.textContent = '✓';
+                }, (index + 1) * 800);
+            });
+
+            // Remove after animation
+            setTimeout(function() {
+                pipeline.style.opacity = '0';
+                pipeline.style.transform = 'translate(-50%, -50%) scale(0.8)';
+                setTimeout(function() {
+                    pipeline.remove();
+                }, 500);
+            }, 4500);
+        }
+
+        // Easter Egg 2: Emoji Rain
+        function createEmojiRain() {
+            showNotification('Emoji Rain Activated! ✨', '😊');
+
+            const emojis = ['✨', '⭐', '🌟', '💫', '🎉', '🎊', '🎈', '🎁', '💝', '🌈'];
+            const emojiCount = 30;
+
+            for (let i = 0; i < emojiCount; i++) {
+                setTimeout(function() {
+                    const emoji = document.createElement('div');
+                    emoji.className = 'falling-emoji';
+                    emoji.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+                    emoji.style.left = Math.random() * 100 + '%';
+                    emoji.style.animationDuration = (2 + Math.random() * 2) + 's';
+                    emoji.style.fontSize = (20 + Math.random() * 20) + 'px';
+
+                    document.body.appendChild(emoji);
+
+                    setTimeout(function() {
+                        emoji.remove();
+                    }, 4000);
+                }, i * 100);
+            }
+        }
+
+        // Easter Egg 3: Confetti Burst
+        function createConfettiBurst() {
+            showNotification('🚀 Deployment Successful! 🎉', '🎊');
+
+            const colors = ['#d946ef', '#3b82f6', '#10b981', '#f59e0b', '#ec4899', '#8b5cf6'];
+            const confettiCount = 80;
+
+            for (let i = 0; i < confettiCount; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti-particle';
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.left = '50%';
+                confetti.style.top = '50%';
+
+                const angle = (Math.PI * 2 * i) / confettiCount;
+                const velocity = 200 + Math.random() * 200;
+                const tx = Math.cos(angle) * velocity;
+                const ty = Math.sin(angle) * velocity;
+
+                confetti.style.setProperty('--tx', tx + 'px');
+                confetti.style.setProperty('--ty', ty + 'px');
+
+                document.body.appendChild(confetti);
+
+                setTimeout(function() {
+                    confetti.remove();
+                }, 2000);
+            }
+        }
+
+        // Easter Egg 4: Developer Console Stats
+        function showDeveloperStats() {
+            showNotification('Developer Mode Unlocked! Check Console 🔍', '💻');
+
+            const sections = document.querySelectorAll('section').length;
+            const images = document.querySelectorAll('img').length;
+            const links = document.querySelectorAll('a').length;
+
+            console.clear();
+            console.log('%c🔍 Developer Mode Unlocked! 🔍', 'font-size: 24px; color: #d946ef; font-weight: bold; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);');
+            console.log('%c━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━', 'color: #3b82f6;');
+            console.log('%c📊 Portfolio Statistics:', 'font-size: 18px; color: #10b981; font-weight: bold;');
+            console.log('%c━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━', 'color: #3b82f6;');
+            console.log('%c📄 Total Sections: ' + sections, 'font-size: 14px; color: #3b82f6;');
+            console.log('%c🖼️  Total Images: ' + images, 'font-size: 14px; color: #3b82f6;');
+            console.log('%c🔗 Total Links: ' + links, 'font-size: 14px; color: #3b82f6;');
+            console.log('%c🎮 Easter Eggs Found: ' + easterEggCount, 'font-size: 14px; color: #f59e0b;');
+            console.log('%c━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━', 'color: #3b82f6;');
+            console.log('%c💡 Easter Egg Hints:', 'font-size: 16px; color: #ec4899; font-weight: bold;');
+            console.log('%c  1. Type "devops" - CI/CD Pipeline Animation', 'color: #8b5cf6;');
+            console.log('%c  2. Type ":)" - Emoji Rain', 'color: #8b5cf6;');
+            console.log('%c  3. Type "deploy" - Confetti Burst', 'color: #8b5cf6;');
+            console.log('%c  4. Type "dev:" - Developer Console (You just found this!)', 'color: #10b981; font-weight: bold;');
+            console.log('%c━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━', 'color: #3b82f6;');
+            console.log('%c🚀 Happy Exploring!', 'font-size: 16px; color: #10b981; font-weight: bold;');
+        }
+
+        // Add dynamic styles for Easter eggs
+        const easterEggStyles = document.createElement('style');
+        easterEggStyles.textContent =
+            '/* CI/CD Pipeline */' +
+            '.cicd-pipeline {' +
+            '    position: fixed;' +
+            '    top: 50%;' +
+            '    left: 50%;' +
+            '    transform: translate(-50%, -50%);' +
+            '    display: flex;' +
+            '    align-items: center;' +
+            '    gap: 15px;' +
+            '    background: rgba(26, 15, 62, 0.95);' +
+            '    backdrop-filter: blur(30px);' +
+            '    padding: 30px;' +
+            '    border-radius: 20px;' +
+            '    border: 2px solid rgba(16, 185, 129, 0.6);' +
+            '    box-shadow: 0 20px 60px rgba(16, 185, 129, 0.6);' +
+            '    z-index: 99998;' +
+            '    transition: all 0.5s ease;' +
+            '    animation: slideInPipeline 0.5s ease;' +
+            '}' +
+            '@keyframes slideInPipeline {' +
+            '    from { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }' +
+            '    to { opacity: 1; transform: translate(-50%, -50%) scale(1); }' +
+            '}' +
+            '.pipeline-stage {' +
+            '    display: flex;' +
+            '    flex-direction: column;' +
+            '    align-items: center;' +
+            '    gap: 8px;' +
+            '    padding: 15px;' +
+            '    background: rgba(255, 255, 255, 0.05);' +
+            '    border-radius: 12px;' +
+            '    border: 2px solid rgba(255, 255, 255, 0.1);' +
+            '    min-width: 80px;' +
+            '    opacity: 0.3;' +
+            '    transition: all 0.5s ease;' +
+            '}' +
+            '.pipeline-stage.active {' +
+            '    opacity: 1;' +
+            '    background: rgba(16, 185, 129, 0.2);' +
+            '    border-color: rgba(16, 185, 129, 0.6);' +
+            '    transform: scale(1.1);' +
+            '}' +
+            '.stage-icon { font-size: 28px; }' +
+            '.stage-name { font-size: 13px; font-weight: 700; color: white; }' +
+            '.stage-status { font-size: 16px; }' +
+            '.pipeline-arrow { font-size: 24px; color: rgba(255, 255, 255, 0.5); font-weight: bold; }' +
+            '/* Falling Emoji */' +
+            '.falling-emoji {' +
+            '    position: fixed;' +
+            '    top: -50px;' +
+            '    z-index: 99999;' +
+            '    pointer-events: none;' +
+            '    animation: emojifall linear forwards;' +
+            '}' +
+            '@keyframes emojifall {' +
+            '    to { top: 100vh; transform: rotate(360deg); opacity: 0; }' +
+            '}' +
+            '/* Confetti Particle */' +
+            '.confetti-particle {' +
+            '    position: fixed;' +
+            '    width: 10px;' +
+            '    height: 10px;' +
+            '    border-radius: 50%;' +
+            '    z-index: 99999;' +
+            '    pointer-events: none;' +
+            '    animation: confettiBurst 2s ease-out forwards;' +
+            '}' +
+            '@keyframes confettiBurst {' +
+            '    0% { transform: translate(0, 0) rotate(0deg); opacity: 1; }' +
+            '    100% { transform: translate(var(--tx), var(--ty)) rotate(720deg); opacity: 0; }' +
+            '}';
+        document.head.appendChild(easterEggStyles);
+
+        // Custom Cursor Trail Animation
+        const coords = { x: 0, y: 0 };
+        const circles = document.querySelectorAll(".circle");
 
         circles.forEach(function(circle, index) {
-            circle.style.left = (x - 10) + "px";
-            circle.style.top = (y - 10) + "px";
-
-            circle.style.scale = (circles.length - index) / circles.length;
-
-            circle.x = x;
-            circle.y = y;
-
-            const nextCircle = circles[index + 1] || circles[0];
-            x += (nextCircle.x - x) * 0.3;
-            y += (nextCircle.y - y) * 0.3;
+            circle.x = 0;
+            circle.y = 0;
         });
 
-        requestAnimationFrame(animateCircles);
-    }
-
-    // Initialize cursor
-    window.addEventListener("load", function() {
-        circles.forEach(function(circle) {
-            circle.style.opacity = '0';
+        // Track mouse movement
+        window.addEventListener("mousemove", function(e) {
+            coords.x = e.clientX;
+            coords.y = e.clientY;
         });
-        setTimeout(function() {
+
+        // Hide cursor when leaving window
+        document.body.addEventListener('mouseleave', function() {
+            circles.forEach(function(circle) {
+                circle.style.opacity = '0';
+            });
+        });
+
+        document.body.addEventListener('mouseenter', function() {
             circles.forEach(function(circle) {
                 circle.style.opacity = '0.8';
             });
-        }, 500);
-    });
+        });
 
-    animateCircles();
+        // Animate circles
+        function animateCircles() {
+            let x = coords.x;
+            let y = coords.y;
 
-    // Welcome message with Easter egg hints on page load (only on desktop)
-    window.addEventListener('load', function() {
-        if (!enableEasterEggs) return; // Skip on mobile
+            circles.forEach(function(circle, index) {
+                circle.style.left = (x - 10) + "px";
+                circle.style.top = (y - 10) + "px";
 
-        setTimeout(function() {
-            console.log('%c🎮 Welcome to Rakesh\'s Portfolio! 🎮', 'font-size: 20px; color: #d946ef; font-weight: bold; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);');
-            console.log('%c━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━', 'color: #3b82f6;');
-            console.log('%c� Did you know? This portfolio has hidden Easter eggs!', 'font-size: 14px; color: #10b981; font-weight: bold;');
-            console.log('%c━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━', 'color: #3b82f6;');
-            console.log('%c🔍 Try typing these anywhere on the page:', 'font-size: 13px; color: #f59e0b;');
-            console.log('%c  • ":)" - Spread some joy', 'color: #8b5cf6;');
-            console.log('%c  • "deploy" - Celebrate success', 'color: #8b5cf6;');
-            console.log('%c  • "dev:" - Unlock developer stats', 'color: #8b5cf6;');
-            console.log('%c  • "devops" - See my CI/CD expertise in action', 'color: #8b5cf6;');
-            console.log('%c━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━', 'color: #3b82f6;');
-            console.log('%c🚀 Happy exploring!', 'font-size: 14px; color: #10b981; font-weight: bold;');
-        }, 1000);
-    });
-})();
+                circle.style.scale = (circles.length - index) / circles.length;
+
+                circle.x = x;
+                circle.y = y;
+
+                const nextCircle = circles[index + 1] || circles[0];
+                x += (nextCircle.x - x) * 0.3;
+                y += (nextCircle.y - y) * 0.3;
+            });
+
+            requestAnimationFrame(animateCircles);
+        }
+
+        // Initialize cursor
+        window.addEventListener("load", function() {
+            circles.forEach(function(circle) {
+                circle.style.opacity = '0';
+            });
+            setTimeout(function() {
+                circles.forEach(function(circle) {
+                    circle.style.opacity = '0.8';
+                });
+            }, 500);
+        });
+
+        animateCircles();
+
+        // Welcome message with Easter egg hints on page load (only on desktop)
+        window.addEventListener('load', function() {
+            if (!enableEasterEggs) return; // Skip on mobile
+
+            setTimeout(function() {
+                console.log('%c🎮 Welcome to Rakesh\'s Portfolio! 🎮', 'font-size: 20px; color: #d946ef; font-weight: bold; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);');
+                console.log('%c━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━', 'color: #3b82f6;');
+                console.log('%c� Did you know? This portfolio has hidden Easter eggs!', 'font-size: 14px; color: #10b981; font-weight: bold;');
+                console.log('%c━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━', 'color: #3b82f6;');
+                console.log('%c🔍 Try typing these anywhere on the page:', 'font-size: 13px; color: #f59e0b;');
+                console.log('%c  • ":)" - Spread some joy', 'color: #8b5cf6;');
+                console.log('%c  • "deploy" - Celebrate success', 'color: #8b5cf6;');
+                console.log('%c  • "dev:" - Unlock developer stats', 'color: #8b5cf6;');
+                console.log('%c  • "devops" - See my CI/CD expertise in action', 'color: #8b5cf6;');
+                console.log('%c━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━', 'color: #3b82f6;');
+                console.log('%c🚀 Happy exploring!', 'font-size: 14px; color: #10b981; font-weight: bold;');
+            }, 1000);
+        });
+    })();
 </script>

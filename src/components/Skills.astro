@@ -4,437 +4,483 @@ const skills = skillsData;
 ---
 
 <section class="skills z-[3] h-full min-h-screen relative overflow-hidden py-24 px-5" id="skills" style="background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);">
-  <!-- Floating Background Elements -->
-  <div class="absolute top-[20%] -left-[10%] w-[400px] h-[400px] rounded-full animate-float-bg" style="background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, transparent 70%);"></div>
-  <div class="absolute bottom-[10%] -right-[10%] w-[500px] h-[500px] rounded-full animate-float-bg-reverse" style="background: radial-gradient(circle, rgba(217, 70, 239, 0.15) 0%, transparent 70%);"></div>
+    <!-- Floating Background Elements -->
+    <div class="absolute top-[20%] -left-[10%] w-[400px] h-[400px] rounded-full animate-float-bg" style="background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, transparent 70%);"></div>
+    <div class="absolute bottom-[10%] -right-[10%] w-[500px] h-[500px] rounded-full animate-float-bg-reverse" style="background: radial-gradient(circle, rgba(217, 70, 239, 0.15) 0%, transparent 70%);"></div>
 
-  <div class="title relative text-center font-bold mb-4 md:mb-6">
-    <span class="skills-title text-[8vw] sm:text-[6vw] md:text-[5vw] lg:text-[3.5vw] uppercase">My Skills</span>
-  </div>
+    <div class="title relative text-center font-bold mb-4 md:mb-6">
+        <span class="skills-title text-[8vw] sm:text-[6vw] md:text-[5vw] lg:text-[3.5vw] uppercase">My Skills</span>
+    </div>
 
-  <div class="text text-center mb-8 md:mb-12 lg:mb-16 px-4">
-    <span class="text-[3.5vw] sm:text-[2.5vw] md:text-[2vw] lg:text-[1.3vw] px-3 sm:px-4 py-1 inline-block text-center text-[var(--secondary)] bg-[rgba(26,15,62,0.3)] backdrop-blur-[20px] border border-[rgba(59,130,246,0.4)] rounded-[25px] shadow-[0_8px_32px_rgba(59,130,246,0.3),_inset_0_1px_0_rgba(255,255,255,0.1)] transition-all duration-300">Learning how to learn is life's most important skill.</span>
-  </div>
+    <div class="text text-center mb-8 md:mb-12 lg:mb-16 px-4">
+        <span class="text-[3.5vw] sm:text-[2.5vw] md:text-[2vw] lg:text-[1.3vw] px-3 sm:px-4 py-1 inline-block text-center text-[var(--secondary)] bg-[rgba(26,15,62,0.3)] backdrop-blur-[20px] border border-[rgba(59,130,246,0.4)] rounded-[25px] shadow-[0_8px_32px_rgba(59,130,246,0.3),_inset_0_1px_0_rgba(255,255,255,0.1)] transition-all duration-300">Learning how to learn is life's most important skill.</span>
+    </div>
 
-  <!-- Skill Categories Filter -->
-  <div class="skill-filter flex justify-center gap-2 sm:gap-3 lg:gap-4 flex-wrap my-6 md:my-8 lg:my-10 mx-auto px-3 sm:px-5 relative z-10">
-    <button class="filter-btn active flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 lg:px-6 py-2 sm:py-2.5 lg:py-3 rounded-full text-white text-[12px] sm:text-[13px] lg:text-[15px] font-semibold cursor-pointer relative overflow-hidden transition-all duration-400 bg-[rgba(26,15,62,0.3)] backdrop-blur-[20px] border-2 border-[rgba(255,255,255,0.15)] shadow-[0_5px_20px_rgba(59,130,246,0.2),_inset_0_1px_0_rgba(255,255,255,0.1)]" data-filter="all">
-      <span class="filter-icon text-base sm:text-lg lg:text-xl inline-block transition-transform duration-300">🌟</span>
-      <span class="hidden sm:inline">All Skills</span>
-      <span class="sm:hidden">All</span>
-    </button>
-    <button class="filter-btn flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 lg:px-6 py-2 sm:py-2.5 lg:py-3 rounded-full text-white text-[12px] sm:text-[13px] lg:text-[15px] font-semibold cursor-pointer relative overflow-hidden transition-all duration-400 bg-[rgba(26,15,62,0.3)] backdrop-blur-[20px] border-2 border-[rgba(255,255,255,0.15)] shadow-[0_5px_20px_rgba(59,130,246,0.2),_inset_0_1px_0_rgba(255,255,255,0.1)]" data-filter="devops">
-      <span class="filter-icon text-base sm:text-lg lg:text-xl inline-block transition-transform duration-300">⚙️</span>
-      DevOps
-    </button>
-    <button class="filter-btn flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 lg:px-6 py-2 sm:py-2.5 lg:py-3 rounded-full text-white text-[12px] sm:text-[13px] lg:text-[15px] font-semibold cursor-pointer relative overflow-hidden transition-all duration-400 bg-[rgba(26,15,62,0.3)] backdrop-blur-[20px] border-2 border-[rgba(255,255,255,0.15)] shadow-[0_5px_20px_rgba(59,130,246,0.2),_inset_0_1px_0_rgba(255,255,255,0.1)]" data-filter="cloud">
-      <span class="filter-icon text-base sm:text-lg lg:text-xl inline-block transition-transform duration-300">☁️</span>
-      Cloud
-    </button>
-    <button class="filter-btn flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 lg:px-6 py-2 sm:py-2.5 lg:py-3 rounded-full text-white text-[12px] sm:text-[13px] lg:text-[15px] font-semibold cursor-pointer relative overflow-hidden transition-all duration-400 bg-[rgba(26,15,62,0.3)] backdrop-blur-[20px] border-2 border-[rgba(255,255,255,0.15)] shadow-[0_5px_20px_rgba(59,130,246,0.2),_inset_0_1px_0_rgba(255,255,255,0.1)]" data-filter="programming">
-      <span class="filter-icon text-base sm:text-lg lg:text-xl inline-block transition-transform duration-300">💻</span>
-      <span class="hidden sm:inline">Programming</span>
-      <span class="sm:hidden">Code</span>
-    </button>
-    <button class="filter-btn flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 lg:px-6 py-2 sm:py-2.5 lg:py-3 rounded-full text-white text-[12px] sm:text-[13px] lg:text-[15px] font-semibold cursor-pointer relative overflow-hidden transition-all duration-400 bg-[rgba(26,15,62,0.3)] backdrop-blur-[20px] border-2 border-[rgba(255,255,255,0.15)] shadow-[0_5px_20px_rgba(59,130,246,0.2),_inset_0_1px_0_rgba(255,255,255,0.1)]" data-filter="tools">
-      <span class="filter-icon text-base sm:text-lg lg:text-xl inline-block transition-transform duration-300">🛠️</span>
-      Tools
-    </button>
-  </div>
+    <!-- Skill Categories Filter -->
+    <div class="skill-filter flex justify-center gap-2 sm:gap-3 lg:gap-4 flex-wrap my-6 md:my-8 lg:my-10 mx-auto px-3 sm:px-5 relative z-10">
+        <button class="filter-btn active flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 lg:px-6 py-2 sm:py-2.5 lg:py-3 rounded-full text-white text-[12px] sm:text-[13px] lg:text-[15px] font-semibold cursor-pointer relative overflow-hidden transition-all duration-400 bg-[rgba(26,15,62,0.3)] backdrop-blur-[20px] border-2 border-[rgba(255,255,255,0.15)] shadow-[0_5px_20px_rgba(59,130,246,0.2),_inset_0_1px_0_rgba(255,255,255,0.1)]" data-filter="all">
+        <span class="filter-icon text-base sm:text-lg lg:text-xl inline-block transition-transform duration-300">🌟</span>
+        <span class="hidden sm:inline">All Skills</span>
+        <span class="sm:hidden">All</span>
+        </button>
+        <button class="filter-btn flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 lg:px-6 py-2 sm:py-2.5 lg:py-3 rounded-full text-white text-[12px] sm:text-[13px] lg:text-[15px] font-semibold cursor-pointer relative overflow-hidden transition-all duration-400 bg-[rgba(26,15,62,0.3)] backdrop-blur-[20px] border-2 border-[rgba(255,255,255,0.15)] shadow-[0_5px_20px_rgba(59,130,246,0.2),_inset_0_1px_0_rgba(255,255,255,0.1)]" data-filter="devops">
+        <span class="filter-icon text-base sm:text-lg lg:text-xl inline-block transition-transform duration-300">⚙️</span>
+        DevOps
+        </button>
+        <button class="filter-btn flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 lg:px-6 py-2 sm:py-2.5 lg:py-3 rounded-full text-white text-[12px] sm:text-[13px] lg:text-[15px] font-semibold cursor-pointer relative overflow-hidden transition-all duration-400 bg-[rgba(26,15,62,0.3)] backdrop-blur-[20px] border-2 border-[rgba(255,255,255,0.15)] shadow-[0_5px_20px_rgba(59,130,246,0.2),_inset_0_1px_0_rgba(255,255,255,0.1)]" data-filter="cloud">
+        <span class="filter-icon text-base sm:text-lg lg:text-xl inline-block transition-transform duration-300">☁️</span>
+        Cloud
+        </button>
+        <button class="filter-btn flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 lg:px-6 py-2 sm:py-2.5 lg:py-3 rounded-full text-white text-[12px] sm:text-[13px] lg:text-[15px] font-semibold cursor-pointer relative overflow-hidden transition-all duration-400 bg-[rgba(26,15,62,0.3)] backdrop-blur-[20px] border-2 border-[rgba(255,255,255,0.15)] shadow-[0_5px_20px_rgba(59,130,246,0.2),_inset_0_1px_0_rgba(255,255,255,0.1)]" data-filter="programming">
+        <span class="filter-icon text-base sm:text-lg lg:text-xl inline-block transition-transform duration-300">💻</span>
+        <span class="hidden sm:inline">Programming</span>
+        <span class="sm:hidden">Code</span>
+        </button>
+        <button class="filter-btn flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 lg:px-6 py-2 sm:py-2.5 lg:py-3 rounded-full text-white text-[12px] sm:text-[13px] lg:text-[15px] font-semibold cursor-pointer relative overflow-hidden transition-all duration-400 bg-[rgba(26,15,62,0.3)] backdrop-blur-[20px] border-2 border-[rgba(255,255,255,0.15)] shadow-[0_5px_20px_rgba(59,130,246,0.2),_inset_0_1px_0_rgba(255,255,255,0.1)]" data-filter="tools">
+        <span class="filter-icon text-base sm:text-lg lg:text-xl inline-block transition-transform duration-300">🛠️</span>
+        Tools
+        </button>
+    </div>
 
-  <div class="skill-boxes flex flex-wrap mx-auto items-center justify-center gap-x-4 gap-y-6 sm:gap-x-6 sm:gap-y-8 lg:gap-x-8 lg:gap-y-10 relative z-10 px-4 lg:px-0" id="skill-boxes">
-    {skills.map((skill) => (
-      <div class="box skill-card-ready justify-center rounded-[15px] sm:rounded-[18px] lg:rounded-[20px] relative overflow-hidden cursor-pointer transition-all duration-500 mb-[-15px] sm:mb-[-18px] lg:mb-[-21px] bg-[rgba(26,15,62,0.25)] backdrop-blur-[25px] border border-[rgba(255,255,255,0.15)] shadow-[0_8px_32px_rgba(95,39,205,0.3),_inset_0_1px_0_rgba(255,255,255,0.1)]" data-category={skill.category}>
-        <div class="skill-card-inner relative z-[3]">
-          <img
-            src={`/${skill.image}`}
-            alt={skill.title}
-            class="block mx-auto p-2.5 sm:p-3 lg:p-3.5 w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 object-cover relative z-[3] transition-all duration-400 drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]"
-          />
-          <div class="topic text-center font-bold my-2 mx-2 mb-4 sm:my-2.5 sm:mx-2.5 sm:mb-5 lg:mb-6 relative z-[3] transition-all duration-300 w-[100px] sm:w-[120px] lg:w-[140px] text-[var(--secondary)]" style="font-size: clamp(13px, 3.5vw, 17px);">
-            {skill.title}
-          </div>
+    <div class="skill-boxes flex flex-wrap mx-auto items-center justify-center gap-x-4 gap-y-6 sm:gap-x-6 sm:gap-y-8 lg:gap-x-8 lg:gap-y-10 relative z-10 px-4 lg:px-0" id="skill-boxes">
+        {skills.map((skill) => (
+        <div class="box skill-card-ready justify-center rounded-[15px] sm:rounded-[18px] lg:rounded-[20px] relative overflow-hidden cursor-pointer transition-all duration-500 mb-[-15px] sm:mb-[-18px] lg:mb-[-21px] bg-[rgba(26,15,62,0.25)] backdrop-blur-[25px] border border-[rgba(255,255,255,0.15)] shadow-[0_8px_32px_rgba(95,39,205,0.3),_inset_0_1px_0_rgba(255,255,255,0.1)]" data-category={skill.category}>
+            <div class="skill-card-inner relative z-[3]">
+                <img
+                    src={`/${skill.image}`}
+                    alt={skill.title}
+                    class="block mx-auto p-2.5 sm:p-3 lg:p-3.5 w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 object-cover relative z-[3] transition-all duration-400 drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]"
+                    />
+                <div class="topic text-center font-bold my-2 mx-2 mb-4 sm:my-2.5 sm:mx-2.5 sm:mb-5 lg:mb-6 relative z-[3] transition-all duration-300 w-[100px] sm:w-[120px] lg:w-[140px] text-[var(--secondary)]" style="font-size: clamp(13px, 3.5vw, 17px);">
+                    {skill.title}
+                </div>
+            </div>
         </div>
-      </div>
-    ))}
-  </div>
+        ))}
+    </div>
 </section>
 
 <script>
-  // Filter functionality
-  const filterBtns = document.querySelectorAll('.filter-btn');
-  const skillBoxes = document.querySelectorAll('.box');
+    // Filter functionality
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const skillBoxes = document.querySelectorAll('.box');
 
-  filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const filter = btn.getAttribute('data-filter');
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const filter = btn.getAttribute('data-filter');
 
-      // Update active button
-      filterBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
+            // Update active button
+            filterBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
 
-      // Filter skills
-      skillBoxes.forEach(box => {
-        const category = box.getAttribute('data-category');
+            // Filter skills
+            skillBoxes.forEach(box => {
+                const category = box.getAttribute('data-category');
 
-        if (filter === 'all' || category === filter) {
-          box.classList.remove('hide');
-          box.classList.add('show');
-        } else {
-          box.classList.add('hide');
-          box.classList.remove('show');
-        }
-      });
-    });
-  });
-
-  // Intersection Observer for animations
-  const observerOptions = { threshold: 0.1, rootMargin: '0px' };
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const skillCards = entry.target.querySelectorAll('.skill-card-ready');
-        skillCards.forEach((card, index) => {
-          setTimeout(() => {
-            card.classList.add('skill-card-animated');
-            card.classList.remove('skill-card-ready');
-          }, index * 50);
+                if (filter === 'all' || category === filter) {
+                    box.classList.remove('hide');
+                    box.classList.add('show');
+                } else {
+                    box.classList.add('hide');
+                    box.classList.remove('show');
+                }
+            });
         });
-        observer.unobserve(entry.target);
-      }
-    });
-  }, observerOptions);
-
-  const skillsSection = document.querySelector('.skills');
-  if (skillsSection) observer.observe(skillsSection);
-
-  // Hover effects for filter buttons
-  filterBtns.forEach(btn => {
-    btn.addEventListener('mouseenter', () => {
-      const icon = btn.querySelector('.filter-icon');
-      if (icon) icon.style.transform = 'scale(1.2) rotate(10deg)';
     });
 
-    btn.addEventListener('mouseleave', () => {
-      const icon = btn.querySelector('.filter-icon');
-      if (icon) icon.style.transform = 'scale(1) rotate(0deg)';
+    // Intersection Observer for animations
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const skillCards = entry.target.querySelectorAll('.skill-card-ready');
+                skillCards.forEach((card, index) => {
+                    setTimeout(() => {
+                        card.classList.add('skill-card-animated');
+                        card.classList.remove('skill-card-ready');
+                    }, index * 50);
+                });
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    const skillsSection = document.querySelector('.skills');
+    if (skillsSection) observer.observe(skillsSection);
+
+    // Hover effects for filter buttons
+    filterBtns.forEach(btn => {
+        btn.addEventListener('mouseenter', () => {
+            const icon = btn.querySelector('.filter-icon');
+            if (icon) icon.style.transform = 'scale(1.2) rotate(10deg)';
+        });
+
+        btn.addEventListener('mouseleave', () => {
+            const icon = btn.querySelector('.filter-icon');
+            if (icon) icon.style.transform = 'scale(1) rotate(0deg)';
+        });
     });
-  });
 
-  // Hover effects for skill boxes
-  skillBoxes.forEach(box => {
-    box.addEventListener('mouseenter', () => {
-      const img = box.querySelector('img');
-      const topic = box.querySelector('.topic');
+    // Hover effects for skill boxes
+    skillBoxes.forEach(box => {
+        box.addEventListener('mouseenter', () => {
+            const img = box.querySelector('img');
+            const topic = box.querySelector('.topic');
 
-      if (img) {
-        img.style.transform = 'scale(1.1) rotateY(360deg)';
-        img.style.filter = 'drop-shadow(0 0 20px var(--primary))';
-      }
+            if (img) {
+                img.style.transform = 'scale(1.1) rotateY(360deg)';
+                img.style.filter = 'drop-shadow(0 0 20px var(--primary))';
+            }
 
-      if (topic) {
-        topic.style.background = 'var(--gradient2)';
-        topic.style.backgroundClip = 'text';
-        topic.style.webkitBackgroundClip = 'text';
-        topic.style.webkitTextFillColor = 'transparent';
-        topic.style.transform = 'scale(1.05)';
-      }
+            if (topic) {
+                topic.style.background = 'var(--gradient2)';
+                topic.style.backgroundClip = 'text';
+                topic.style.webkitBackgroundClip = 'text';
+                topic.style.webkitTextFillColor = 'transparent';
+                topic.style.transform = 'scale(1.05)';
+            }
+        });
+
+        box.addEventListener('mouseleave', () => {
+            const img = box.querySelector('img');
+            const topic = box.querySelector('.topic');
+
+            if (img) {
+                img.style.transform = 'scale(1) rotateY(0deg)';
+                img.style.filter = 'drop-shadow(0 0 10px rgba(255, 255, 255, 0.3))';
+            }
+
+            if (topic) {
+                topic.style.background = 'none';
+                topic.style.webkitTextFillColor = 'var(--secondary)';
+                topic.style.transform = 'scale(1)';
+            }
+        });
     });
-
-    box.addEventListener('mouseleave', () => {
-      const img = box.querySelector('img');
-      const topic = box.querySelector('.topic');
-
-      if (img) {
-        img.style.transform = 'scale(1) rotateY(0deg)';
-        img.style.filter = 'drop-shadow(0 0 10px rgba(255, 255, 255, 0.3))';
-      }
-
-      if (topic) {
-        topic.style.background = 'none';
-        topic.style.webkitTextFillColor = 'var(--secondary)';
-        topic.style.transform = 'scale(1)';
-      }
-    });
-  });
 </script>
 
 <style>
-  .skills-title {
-    background: var(--gradient2);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    filter: drop-shadow(0 0 20px rgba(240, 147, 251, 0.5));
-    animation: titleGlow 3s ease-in-out infinite;
-  }
-
-  @keyframes titleGlow {
-    0%, 100% { filter: drop-shadow(0 0 20px rgba(240, 147, 251, 0.5)); }
-    50% { filter: drop-shadow(0 0 30px rgba(240, 147, 251, 0.8)); }
-  }
-
-  @keyframes float-bg {
-    0%, 100% { transform: translate(0, 0); }
-    50% { transform: translate(50px, 50px); }
-  }
-
-  @keyframes float-bg-reverse {
-    0%, 100% { transform: translate(0, 0); }
-    50% { transform: translate(-50px, -50px); }
-  }
-
-  @keyframes rotateBorder {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-  }
-
-  @keyframes pulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.1); }
-  }
-
-  @keyframes skillCardFadeIn {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
-  }
-
-  @keyframes skillContentSlideUp {
-    0% { opacity: 0; transform: translateY(30px); }
-    100% { opacity: 1; transform: translateY(0); }
-  }
-
-  .animate-float-bg { animation: float-bg 20s ease-in-out infinite; }
-  .animate-float-bg-reverse { animation: float-bg-reverse 25s ease-in-out infinite; }
-
-  .filter-btn::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: var(--gradient3);
-    transition: left 0.4s ease;
-    z-index: -1;
-  }
-
-  .filter-btn:hover::before,
-  .filter-btn.active::before {
-    left: 0;
-  }
-
-  .filter-btn:hover,
-  .filter-btn.active {
-    background: rgba(59, 130, 246, 0.3);
-    border: 2px solid rgba(59, 130, 246, 0.6);
-    transform: translateY(-3px) scale(1.05);
-    box-shadow: 0 10px 35px rgba(59, 130, 246, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.2);
-  }
-
-  .filter-btn.active {
-    background: rgba(59, 130, 246, 0.4);
-    border: 2px solid rgba(59, 130, 246, 0.7);
-  }
-
-  .box::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: conic-gradient(transparent, transparent, transparent, var(--primary));
-    animation: rotateBorder 4s linear infinite;
-    opacity: 0;
-    transition: opacity 0.4s ease;
-    z-index: 0;
-    pointer-events: none;
-  }
-
-  .box:hover::before {
-    opacity: 0.5;
-  }
-
-  .box::after {
-    content: '';
-    position: absolute;
-    inset: 2px;
-    background: rgba(26, 15, 62, 0.9);
-    backdrop-filter: blur(25px);
-    -webkit-backdrop-filter: blur(25px);
-    border-radius: 18px;
-    z-index: 0;
-  }
-
-  .box:hover {
-    background: rgba(217, 70, 239, 0.2);
-    backdrop-filter: blur(30px);
-    -webkit-backdrop-filter: blur(30px);
-    border: 1px solid rgba(217, 70, 239, 0.6);
-    box-shadow: 0 20px 60px var(--primary), inset 0 1px 0 rgba(255, 255, 255, 0.2);
-    transform: translateY(-15px) scale(1.08);
-  }
-
-  .box.hide {
-    opacity: 0;
-    transform: scale(0.8);
-    pointer-events: none;
-    transition: all 0.4s ease;
-  }
-
-  .box.show {
-    opacity: 1;
-    transform: scale(1);
-    transition: all 0.4s ease;
-  }
-
-  .skill-card-ready {
-    opacity: 0;
-  }
-
-  .skill-card-ready .skill-card-inner {
-    transform: translateY(30px);
-    opacity: 0;
-  }
-
-  .skill-card-animated {
-    animation: skillCardFadeIn 0.6s ease-out forwards;
-  }
-
-  .skill-card-animated .skill-card-inner {
-    animation: skillContentSlideUp 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-  }
-
-  .text span:hover {
-    background: rgba(59, 130, 246, 0.25);
-    backdrop-filter: blur(25px);
-    -webkit-backdrop-filter: blur(25px);
-    border: 1px solid rgba(59, 130, 246, 0.6);
-    box-shadow: 0 12px 40px rgba(59, 130, 246, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.2);
-    transform: translateY(-2px);
-  }
-
-  /* Responsive Adjustments */
-  @media (max-width: 1023px) {
-    .skills {
-      padding-top: 5rem;
-      padding-bottom: 5rem;
+    .skills-title {
+        background: var(--gradient2);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        filter: drop-shadow(0 0 20px rgba(240, 147, 251, 0.5));
+        animation: titleGlow 3s ease-in-out infinite;
     }
 
-    .skill-boxes {
-      max-width: 90%;
-    }
-  }
+    @keyframes titleGlow {
+        0%,
+        100% {
+            filter: drop-shadow(0 0 20px rgba(240, 147, 251, 0.5));
+        }
 
-  @media (max-width: 768px) {
-    .skills {
-      padding-top: 4rem;
-      padding-bottom: 4rem;
-    }
-
-    .text {
-      margin-bottom: 2rem;
+        50% {
+            filter: drop-shadow(0 0 30px rgba(240, 147, 251, 0.8));
+        }
     }
 
-    .text span {
-      padding: 0.5rem 0.75rem;
-      font-size: 12px !important;
+    @keyframes float-bg {
+        0%,
+        100% {
+            transform: translate(0, 0);
+        }
+
+        50% {
+            transform: translate(50px, 50px);
+        }
     }
 
-    .skill-filter {
-      margin-top: 1.5rem;
-      margin-bottom: 1.5rem;
-      gap: 0.5rem;
+    @keyframes float-bg-reverse {
+        0%,
+        100% {
+            transform: translate(0, 0);
+        }
+
+        50% {
+            transform: translate(-50px, -50px);
+        }
     }
 
-    .filter-btn {
-      padding: 0.5rem 0.75rem;
-      font-size: 11px !important;
+    @keyframes rotateBorder {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(360deg);
+        }
     }
 
-    .skill-boxes {
-      gap: 1rem;
-      max-width: 95%;
+    @keyframes pulse {
+        0%,
+        100% {
+            transform: scale(1);
+        }
+
+        50% {
+            transform: scale(1.1);
+        }
     }
 
-    .box {
-      margin-bottom: -12px;
+    @keyframes skillCardFadeIn {
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    @keyframes skillContentSlideUp {
+        0% {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .animate-float-bg {
+        animation: float-bg 20s ease-in-out infinite;
+    }
+
+    .animate-float-bg-reverse {
+        animation: float-bg-reverse 25s ease-in-out infinite;
+    }
+
+    .filter-btn::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: var(--gradient3);
+        transition: left 0.4s ease;
+        z-index: -1;
+    }
+
+    .filter-btn:hover::before,
+    .filter-btn.active::before {
+        left: 0;
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+        background: rgba(59, 130, 246, 0.3);
+        border: 2px solid rgba(59, 130, 246, 0.6);
+        transform: translateY(-3px) scale(1.05);
+        box-shadow: 0 10px 35px rgba(59, 130, 246, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    }
+
+    .filter-btn.active {
+        background: rgba(59, 130, 246, 0.4);
+        border: 2px solid rgba(59, 130, 246, 0.7);
+    }
+
+    .box::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: conic-gradient(transparent, transparent, transparent, var(--primary));
+        animation: rotateBorder 4s linear infinite;
+        opacity: 0;
+        transition: opacity 0.4s ease;
+        z-index: 0;
+        pointer-events: none;
+    }
+
+    .box:hover::before {
+        opacity: 0.5;
+    }
+
+    .box::after {
+        content: '';
+        position: absolute;
+        inset: 2px;
+        background: rgba(26, 15, 62, 0.9);
+        backdrop-filter: blur(25px);
+        -webkit-backdrop-filter: blur(25px);
+        border-radius: 18px;
+        z-index: 0;
     }
 
     .box:hover {
-      transform: translateY(-10px) scale(1.05);
-    }
-  }
-
-  @media (max-width: 640px) {
-    .skills {
-      padding-top: 3.5rem;
-      padding-bottom: 3.5rem;
+        background: rgba(217, 70, 239, 0.2);
+        backdrop-filter: blur(30px);
+        -webkit-backdrop-filter: blur(30px);
+        border: 1px solid rgba(217, 70, 239, 0.6);
+        box-shadow: 0 20px 60px var(--primary), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        transform: translateY(-15px) scale(1.08);
     }
 
-    .title {
-      margin-bottom: 1rem;
+    .box.hide {
+        opacity: 0;
+        transform: scale(0.8);
+        pointer-events: none;
+        transition: all 0.4s ease;
     }
 
-    .text {
-      margin-bottom: 1.5rem;
+    .box.show {
+        opacity: 1;
+        transform: scale(1);
+        transition: all 0.4s ease;
     }
 
-    .skill-filter {
-      margin-top: 1rem;
-      margin-bottom: 1rem;
+    .skill-card-ready {
+        opacity: 0;
     }
 
-    .skill-boxes {
-      gap: 0.75rem;
-      justify-content: center;
+    .skill-card-ready .skill-card-inner {
+        transform: translateY(30px);
+        opacity: 0;
     }
 
-    .box {
-      margin-bottom: -10px;
-    }
-  }
-
-  /* Keep original flex layout for desktop - no grid */
-  @media (min-width: 1024px) {
-    .skill-boxes {
-      gap: 2rem 2rem;
-      padding: 0;
+    .skill-card-animated {
+        animation: skillCardFadeIn 0.6s ease-out forwards;
     }
 
-    .box {
-      margin-bottom: -21px;
-    }
-  }
-
-  /* Landscape mobile optimization */
-  @media (max-width: 1023px) and (max-height: 600px) {
-    .skills {
-      padding-top: 3rem;
-      padding-bottom: 3rem;
+    .skill-card-animated .skill-card-inner {
+        animation: skillContentSlideUp 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
     }
 
-    .title {
-      margin-bottom: 0.75rem;
+    .text span:hover {
+        background: rgba(59, 130, 246, 0.25);
+        backdrop-filter: blur(25px);
+        -webkit-backdrop-filter: blur(25px);
+        border: 1px solid rgba(59, 130, 246, 0.6);
+        box-shadow: 0 12px 40px rgba(59, 130, 246, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        transform: translateY(-2px);
     }
 
-    .text {
-      margin-bottom: 1rem;
+    @media (max-width: 1023px) {
+        .skills {
+            padding-top: 5rem;
+            padding-bottom: 5rem;
+        }
+
+        .skill-boxes {
+            max-width: 90%;
+        }
     }
 
-    .skill-filter {
-      margin-top: 0.75rem;
-      margin-bottom: 0.75rem;
+    @media (max-width: 768px) {
+        .skills {
+            padding-top: 4rem;
+            padding-bottom: 4rem;
+        }
+
+        .text {
+            margin-bottom: 2rem;
+        }
+
+        .text span {
+            padding: 0.5rem 0.75rem;
+            font-size: 12px !important;
+        }
+
+        .skill-filter {
+            margin-top: 1.5rem;
+            margin-bottom: 1.5rem;
+            gap: 0.5rem;
+        }
+
+        .filter-btn {
+            padding: 0.5rem 0.75rem;
+            font-size: 11px !important;
+        }
+
+        .skill-boxes {
+            gap: 1rem;
+            max-width: 95%;
+        }
+
+        .box {
+            margin-bottom: -12px;
+        }
+
+        .box:hover {
+            transform: translateY(-10px) scale(1.05);
+        }
     }
 
-    .skill-boxes {
-      gap: 0.75rem;
+    @media (max-width: 640px) {
+        .skills {
+            padding-top: 3.5rem;
+            padding-bottom: 3.5rem;
+        }
+
+        .title {
+            margin-bottom: 1rem;
+        }
+
+        .text {
+            margin-bottom: 1.5rem;
+        }
+
+        .skill-filter {
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .skill-boxes {
+            gap: 0.75rem;
+            justify-content: center;
+        }
+
+        .box {
+            margin-bottom: -10px;
+        }
     }
 
-    .box {
-      margin-bottom: -8px;
+    @media (min-width: 1024px) {
+        .skill-boxes {
+            gap: 2rem 2rem;
+            padding: 0;
+        }
+
+        .box {
+            margin-bottom: -21px;
+        }
     }
-  }
+
+    @media (max-width: 1023px) and (max-height: 600px) {
+        .skills {
+            padding-top: 3rem;
+            padding-bottom: 3rem;
+        }
+
+        .title {
+            margin-bottom: 0.75rem;
+        }
+
+        .text {
+            margin-bottom: 1rem;
+        }
+
+        .skill-filter {
+            margin-top: 0.75rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .skill-boxes {
+            gap: 0.75rem;
+        }
+
+        .box {
+            margin-bottom: -8px;
+        }
+    }
 </style>

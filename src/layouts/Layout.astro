@@ -1,14 +1,14 @@
 ---
 interface Props {
-  title: string;
-  description?: string;
-  url?: string;
+    title: string;
+    description?: string;
+    url?: string;
 }
 
 const {
-  title,
-  description = "Portfolio of Rakesh Roshan - DevOps Engineer, Cloud Enthusiast, and Open Source Contributor. Explore my projects, skills, and experience in DevOps, Cloud, CI/CD, and Kubernetes.",
-  url = "https://rakeshroshan.netlify.app"
+    title,
+    description = "Portfolio of Rakesh Roshan - DevOps Engineer, Cloud Enthusiast, and Open Source Contributor. Explore my projects, skills, and experience in DevOps, Cloud, CI/CD, and Kubernetes.",
+    url = "https://rakeshroshan.netlify.app"
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site || url);
@@ -16,51 +16,52 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || url);
 
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Required SEO Meta Tags -->
-    <title>{title}</title>
-    <meta name="description" content={description} />
-    <meta name="robots" content="index, follow" />
+        <!-- Required SEO Meta Tags -->
+        <title>{title}</title>
+        <meta name="description" content={description} />
+        <meta name="robots" content="index, follow" />
 
-    <!-- Canonical URL -->
-    <link rel="canonical" href={canonicalURL} />
+        <!-- Canonical URL -->
+        <link rel="canonical" href={canonicalURL} />
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="/assets/images/favicon.png" />
+        <!-- Favicon -->
+        <link rel="icon" type="image/png" href="/assets/images/favicon.png" />
 
-    <!-- PWA Manifest -->
-    <link rel="manifest" href="/manifest.json" />
+        <!-- PWA Manifest -->
+        <link rel="manifest" href="/manifest.json" />
 
-    <!-- Preconnects for Performance -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
-    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
+        <!-- Preconnects for Performance -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+        <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
 
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Ubuntu:wght@300;400;500;700&display=swap" rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" />
-    <noscript>
-      <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet" />
-    </noscript>
+        <!-- Fonts -->
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Ubuntu:wght@300;400;500;700&display=swap" rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+        <noscript>
+            <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet" />
+        </noscript>
 
-    <!-- Load animate.css asynchronously -->
-    <link rel="preload" href="/assets/libs/animate.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
-    <noscript><link rel="stylesheet" href="/assets/libs/animate.css" /></noscript>
+        <!-- Load animate.css asynchronously -->
+        <link rel="preload" href="/assets/libs/animate.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+        <noscript><link rel="stylesheet" href="/assets/libs/animate.css" /></noscript>
 
-    <!-- Defer wow.js to prevent render blocking -->
-    <script is:inline src="/assets/libs/wow.js" defer></script>
+        <!-- Defer wow.js to prevent render blocking -->
+        <script is:inline src="/assets/libs/wow.js" defer></script>
 
-    <meta name="generator" content={Astro.generator} />
-  </head>
-  <body class="bg-main1" oncontextmenu="return false">
-    <slot />
-  </body>
+        <meta name="generator" content={Astro.generator} />
+    </head>
+
+    <body class="bg-main1" oncontextmenu="return false">
+        <slot />
+    </body>
 </html>
 
 <style is:global>
-  @import "../styles/global.css";
+    @import "../styles/global.css";
 </style>

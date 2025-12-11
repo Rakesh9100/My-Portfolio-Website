@@ -2,14 +2,14 @@ import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
 
 export default defineConfig({
-  site: 'https://rakeshroshan.netlify.app',
-  integrations: [tailwind()],
-  output: 'static',
-  devToolbar: {
-    enabled: false
-  },
-  typescript: {
-    strict: false,
-    typeCheck: false
-  }
+    site: 'https://rakeshroshan.netlify.app',
+    integrations: [tailwind()],
+    output: 'static',
+    devToolbar: {
+        enabled: false
+    },
+    typescript: {
+        strict: false,
+        typeCheck: false
+    }
 });
