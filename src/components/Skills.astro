@@ -44,7 +44,7 @@ const skills = skillsData;
 
     <div class="skill-boxes flex flex-wrap mx-auto items-center justify-center gap-x-4 gap-y-6 sm:gap-x-6 sm:gap-y-8 lg:gap-x-8 lg:gap-y-10 relative z-10 px-4 lg:px-0" id="skill-boxes">
         {skills.map((skill) => (
-        <div class="box skill-card-ready" data-category={skill.category}>
+        <div class="box skill-card-ready show" data-category={skill.category}>
             <div class="skill-card-inner relative z-[3]">
                 <img
                     src={`/${skill.image}`}
@@ -295,16 +295,11 @@ const skills = skillsData;
     }
 
     .box.hide {
-        opacity: 0;
-        transform: scale(0.8);
-        pointer-events: none;
-        transition: all 0.4s ease;
+        display: none;
     }
 
     .box.show {
-        opacity: 1;
-        transform: scale(1);
-        transition: all 0.4s ease;
+        display: flex;
     }
 
     .skill-card-ready {
@@ -592,8 +587,8 @@ const skills = skillsData;
                     box.classList.remove('hide');
                     box.classList.add('show');
                 } else {
-                    box.classList.add('hide');
                     box.classList.remove('show');
+                    box.classList.add('hide');
                 }
             });
         });
