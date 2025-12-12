@@ -80,7 +80,7 @@ const educationData = [{
     </div>
 
     <div class="text text-center mb-8 md:mb-12 lg:mb-16 px-4">
-        <span class="text-[3.5vw] sm:text-[2.5vw] md:text-[2vw] lg:text-[1.3vw] px-3 sm:px-4 py-1 inline-block text-center" style="color: var(--secondary); background: rgba(26, 15, 62, 0.3); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(59, 130, 246, 0.4); border-radius: 25px; box-shadow: 0 8px 32px rgba(59, 130, 246, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);">Education is the most powerful weapon which we can use to change the world.</span>
+        <span class="quote-text">Education is the most powerful weapon which we can use to change the world.</span>
     </div>
 
     <!-- Education Timeline -->
@@ -89,9 +89,9 @@ const educationData = [{
 
         <div class="education-boxes flex flex-col gap-8 lg:gap-15 relative">
             {educationData.map((edu, index) => (
-            <div class={`box relative rounded-[15px] sm:rounded-[18px] lg:rounded-[20px] overflow-hidden transition-all duration-500 ml-12 sm:ml-16 lg:ml-0 ${index % 2 === 0 ? 'lg:mr-auto lg:ml-0' : 'lg:ml-auto lg:mr-0'} wow animate__animated ${index % 2 === 0 ? 'animate__fadeInLeft' : 'animate__fadeInRight'}`} data-wow-offset="100" style="background: rgba(26, 15, 62, 0.3); backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px); width: calc(100% - 3rem); box-shadow: 0 10px 40px rgba(217, 70, 239, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1); border: 2px solid rgba(255, 255, 255, 0.15);">
-                <div class={`timeline-dot absolute top-8 sm:top-10 lg:top-1/2 w-5 h-5 sm:w-6 sm:h-6 rounded-full -translate-y-1/2 z-10 animate-pulse-dot -left-[42px] sm:-left-[50px] ${index % 2 === 0 ? 'lg:-right-[52px] lg:left-auto' : 'lg:-left-[52px]'}`} style="background: var(--gradient2); box-shadow: 0 0 0 8px rgba(26, 15, 62, 0.8), 0 0 30px var(--primary);">
-                    <div class="dot-inner w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 animate-dot-pulse" style="background: var(--secondary);"></div>
+            <div class={`box education-box ${index % 2 === 0 ? 'lg:mr-auto lg:ml-0 animate-slide-in-left' : 'lg:ml-auto lg:mr-0 animate-slide-in-right'}`} style="animation-delay: ${index * 0.2}s;">
+                <div class={`timeline-dot ${index % 2 === 0 ? 'lg:-right-[52px] lg:left-auto' : 'lg:-left-[52px]'}`}>
+                    <div class="dot-inner"></div>
                 </div>
 
                 <div class="box-content flex flex-col lg:flex-row gap-4 sm:gap-5 lg:gap-6 p-4 sm:p-5 lg:p-6">
@@ -107,16 +107,16 @@ const educationData = [{
                                     class="w-full h-[150px] sm:h-[180px] lg:h-[200px] object-cover block transition-all duration-400"
                                     style="filter: brightness(100%);"
                                     />
-                                <div class="image-overlay absolute inset-0 flex items-center justify-center opacity-0 transition-all duration-400 rounded-[12px] sm:rounded-[15px]" style="background: rgba(0, 0, 0, 0.8); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); border: 2px solid rgba(255, 255, 255, 0.2);">
-                                    <span class="visit-link text-white text-[12px] sm:text-[14px] lg:text-[15px] font-bold uppercase tracking-wider px-4 py-2.5 sm:px-6 sm:py-3 lg:px-7 lg:py-3.5 rounded-full transition-all duration-300 pointer-events-none" style="background: rgba(59, 130, 246, 0.3); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 2px solid rgba(59, 130, 246, 0.6); box-shadow: 0 8px 32px rgba(59, 130, 246, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.2);">Visit Website →</span>
+                                <div class="image-overlay">
+                                    <span class="visit-link">Visit Website →</span>
                                 </div>
                             </a>
                         </div>
 
                         <div class="achievements flex flex-row lg:flex-col gap-2 sm:gap-2.5 flex-wrap">
                             {edu.achievements.map((achievement) => (
-                            <div class="achievement-item flex items-center gap-2 sm:gap-2.5 px-3 py-2 sm:px-4 sm:py-2.5 rounded-[10px] sm:rounded-[12px] text-[11px] sm:text-[12px] lg:text-[13px] font-semibold text-white transition-all duration-300" style="background: rgba(217, 70, 239, 0.15); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border: 1px solid rgba(217, 70, 239, 0.3);">
-                                <span class="achievement-icon text-base sm:text-lg flex-shrink-0">{achievement.icon}</span>
+                            <div class="achievement-item">
+                                <span class="achievement-icon">{achievement.icon}</span>
                                 <span>{achievement.text}</span>
                             </div>
                             ))}
@@ -124,9 +124,9 @@ const educationData = [{
                     </div>
 
                     <div class="content flex-1 flex flex-col gap-2 sm:gap-2.5 lg:gap-3 py-0 lg:py-2.5">
-                        <div class="degree-badge inline-flex items-center gap-1.5 sm:gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full w-fit" style="background: rgba(59, 130, 246, 0.2); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border: 1px solid rgba(59, 130, 246, 0.4); box-shadow: 0 5px 15px rgba(59, 130, 246, 0.3);">
-                            <span class="badge-icon text-base sm:text-lg">{edu.badge.icon}</span>
-                            <span class="badge-text text-[10px] sm:text-xs font-bold text-white uppercase tracking-wide">{edu.badge.text}</span>
+                        <div class="degree-badge">
+                            <span class="badge-icon">{edu.badge.icon}</span>
+                            <span class="badge-text">{edu.badge.text}</span>
                         </div>
 
                         <h3 class="font-bold m-0" style="font-size: clamp(18px, 4vw, 28px); background: var(--gradient2); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
@@ -150,6 +150,520 @@ const educationData = [{
         </div>
     </div>
 </section>
+
+<style>
+    .quote-text {
+        font-size: clamp(12px, 3.5vw, 18px);
+        padding: 0.25rem 0.75rem;
+        display: inline-block;
+        text-align: center;
+        color: var(--secondary);
+        background: rgba(26, 15, 62, 0.3);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid rgba(59, 130, 246, 0.4);
+        border-radius: 25px;
+        box-shadow: 0 8px 32px rgba(59, 130, 246, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    }
+
+    .education-box {
+        position: relative;
+        border-radius: 15px;
+        overflow: hidden;
+        transition: all 0.5s ease;
+        margin-left: 3rem;
+        width: calc(100% - 3rem);
+        background: rgba(26, 15, 62, 0.3);
+        backdrop-filter: blur(25px);
+        -webkit-backdrop-filter: blur(25px);
+        box-shadow: 0 10px 40px rgba(217, 70, 239, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        border: 2px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .timeline-dot {
+        position: absolute;
+        top: 2rem;
+        width: 1.25rem;
+        height: 1.25rem;
+        border-radius: 50%;
+        transform: translateY(-50%);
+        z-index: 10;
+        left: -2.625rem;
+        background: var(--gradient2);
+        box-shadow: 0 0 0 8px rgba(26, 15, 62, 0.8), 0 0 30px var(--primary);
+    }
+
+    .dot-inner {
+        width: 0.625rem;
+        height: 0.625rem;
+        border-radius: 50%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: var(--secondary);
+    }
+
+    .image-overlay {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: all 0.4s ease;
+        border-radius: 12px;
+        background: rgba(0, 0, 0, 0.8);
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        border: 2px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .visit-link {
+        color: white;
+        font-size: 0.75rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        padding: 0.625rem 1rem;
+        border-radius: 9999px;
+        transition: all 0.3s ease;
+        pointer-events: none;
+        background: rgba(59, 130, 246, 0.3);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 2px solid rgba(59, 130, 246, 0.6);
+        box-shadow: 0 8px 32px rgba(59, 130, 246, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    }
+
+    .achievement-item {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.5rem 0.75rem;
+        border-radius: 10px;
+        font-size: 0.6875rem;
+        font-weight: 600;
+        color: white;
+        transition: all 0.3s ease;
+        background: rgba(217, 70, 239, 0.15);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 1px solid rgba(217, 70, 239, 0.3);
+    }
+
+    .achievement-icon {
+        font-size: 1rem;
+        flex-shrink: 0;
+    }
+
+    .degree-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.375rem;
+        padding: 0.375rem 0.75rem;
+        border-radius: 9999px;
+        width: fit-content;
+        background: rgba(59, 130, 246, 0.2);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 1px solid rgba(59, 130, 246, 0.4);
+        box-shadow: 0 5px 15px rgba(59, 130, 246, 0.3);
+    }
+
+    .badge-icon {
+        font-size: 1rem;
+    }
+
+    .badge-text {
+        font-size: 0.625rem;
+        font-weight: bold;
+        color: white;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+    }
+
+    @keyframes titleGlow {
+
+        0%,
+        100% {
+            filter: drop-shadow(0 0 20px rgba(240, 147, 251, 0.5));
+        }
+
+        50% {
+            filter: drop-shadow(0 0 30px rgba(240, 147, 251, 0.8));
+        }
+    }
+
+    @keyframes slideInLeft {
+        from {
+            opacity: 0;
+            transform: translateX(-50px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+    @keyframes slideInRight {
+        from {
+            opacity: 0;
+            transform: translateX(50px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+    @keyframes float-bg {
+
+        0%,
+        100% {
+            transform: translate(0, 0);
+        }
+
+        50% {
+            transform: translate(50px, 50px);
+        }
+    }
+
+    @keyframes pulse-dot {
+
+        0%,
+        100% {
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        50% {
+            transform: translate(-50%, -50%) scale(1.3);
+        }
+    }
+
+    .animate-float-bg {
+        animation: float-bg 25s ease-in-out infinite;
+    }
+
+    .animate-pulse-dot {
+        animation: pulse-dot 2s ease-in-out infinite;
+    }
+
+    .animate-dot-pulse {
+        animation: pulse-dot 2s ease-in-out infinite;
+    }
+
+    @media (min-width: 1024px) {
+
+        .education-box {
+            border-radius: 20px;
+            margin-left: 0;
+            width: calc(50% - 20px) !important;
+        }
+
+        .education-box:nth-child(odd) {
+            margin-right: auto !important;
+            margin-left: 0 !important;
+        }
+
+        .education-box:nth-child(even) {
+            margin-left: auto !important;
+            margin-right: 0 !important;
+        }
+
+        .timeline-dot {
+            top: 50%;
+        }
+
+        .timeline-line {
+            left: 50% !important;
+            transform: translateX(-50%);
+        }
+
+        .visit-link {
+            font-size: 0.9375rem;
+            padding: 0.875rem 1.75rem;
+        }
+
+        .achievement-item {
+            font-size: 0.8125rem;
+        }
+    }
+
+    @media (min-width: 1024px) and (max-width: 1200px) {
+
+        .image-section {
+            flex: 0 0 220px !important;
+        }
+
+        .box-content {
+            gap: 1.25rem;
+            padding: 1.25rem;
+        }
+
+        .content {
+            gap: 0.625rem;
+        }
+
+        .content h3 {
+            font-size: clamp(18px, 3.5vw, 24px) !important;
+        }
+
+        .content h4 {
+            font-size: clamp(13px, 2.5vw, 16px) !important;
+        }
+
+        .content p {
+            font-size: clamp(13px, 2vw, 15px) !important;
+        }
+    }
+
+    @media (min-width: 769px) {
+        .animate-slide-in-left {
+            animation: slideInLeft 0.8s ease-out forwards;
+            animation-play-state: paused;
+            opacity: 0;
+        }
+
+        .animate-slide-in-right {
+            animation: slideInRight 0.8s ease-out forwards;
+            animation-play-state: paused;
+            opacity: 0;
+        }
+
+        .animate-in-view {
+            animation-play-state: running !important;
+        }
+    }
+
+    @media (min-width: 640px) {
+        .quote-text {
+            padding: 0.25rem 1rem;
+        }
+
+        .education-box {
+            border-radius: 18px;
+            margin-left: 4rem;
+        }
+
+        .timeline-dot {
+            top: 2.5rem;
+            width: 1.5rem;
+            height: 1.5rem;
+            left: -3.125rem;
+        }
+
+        .dot-inner {
+            width: 0.75rem;
+            height: 0.75rem;
+        }
+
+        .image-overlay {
+            border-radius: 15px;
+        }
+
+        .visit-link {
+            font-size: 0.875rem;
+            padding: 0.75rem 1.5rem;
+        }
+
+        .achievement-item {
+            gap: 0.625rem;
+            padding: 0.625rem 1rem;
+            border-radius: 12px;
+            font-size: 0.75rem;
+        }
+
+        .achievement-icon {
+            font-size: 1.125rem;
+        }
+
+        .degree-badge {
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+        }
+
+        .badge-icon {
+            font-size: 1.125rem;
+        }
+
+        .badge-text {
+            font-size: 0.75rem;
+        }
+    }
+
+    @media (max-width: 1023px) {
+
+        .education {
+            padding-top: 5rem;
+            padding-bottom: 5rem;
+        }
+
+        .education-timeline {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        .education-box {
+            width: calc(100% - 3rem) !important;
+            margin-left: 3rem !important;
+            margin-right: 0 !important;
+        }
+
+        .timeline-dot {
+            left: -2.625rem !important;
+            right: auto !important;
+        }
+    }
+
+    @media (max-width: 1023px) and (max-height: 600px) {
+
+        .education {
+            padding-top: 3rem;
+            padding-bottom: 3rem;
+        }
+
+        .title {
+            margin-bottom: 0.75rem;
+        }
+
+        .text {
+            margin-bottom: 1rem;
+        }
+
+        .education-boxes {
+            gap: 1.25rem;
+        }
+
+        .box-content {
+            padding: 1rem;
+        }
+    }
+
+    @media (max-width: 768px) {
+
+        .education {
+            padding-top: 4rem;
+            padding-bottom: 4rem;
+        }
+
+        .text {
+            margin-bottom: 2rem;
+        }
+
+        .quote-text {
+            font-size: 12px !important;
+            padding: 0.5rem 0.75rem;
+        }
+
+        .education-boxes {
+            gap: 2rem;
+        }
+
+        .box-content {
+            flex-direction: column;
+        }
+
+        .image-section {
+            width: 100%;
+            flex: none;
+        }
+
+        .achievements {
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+
+        .animate-float-bg,
+        .title span,
+        .animate-slide-in-left,
+        .animate-slide-in-right,
+        .animate-pulse-dot,
+        .animate-dot-pulse {
+            animation: none !important;
+            transform: none !important;
+        }
+
+        .animate-float-bg {
+            opacity: 0.25 !important;
+            width: 250px !important;
+            height: 250px !important;
+        }
+
+        .education-box,
+        .quote-text {
+            backdrop-filter: none !important;
+            background: rgba(26, 15, 62, 0.5) !important;
+            box-shadow: none !important;
+        }
+
+        .timeline-line {
+            box-shadow: none !important;
+            background: rgba(255, 255, 255, 0.1) !important;
+        }
+
+        .education-box:hover {
+            transform: none !important;
+            box-shadow: none !important;
+            border-color: rgba(255, 255, 255, 0.15) !important;
+            background: rgba(26, 15, 62, 0.4) !important;
+        }
+
+        .image img,
+        .image-overlay,
+        .visit-link {
+            transition: none !important;
+            transform: none !important;
+            filter: none !important;
+            opacity: 1 !important;
+            backdrop-filter: none !important;
+        }
+
+        .achievement-item {
+            backdrop-filter: none !important;
+            background: rgba(217, 70, 239, 0.25) !important;
+            border: none !important;
+            box-shadow: none !important;
+        }
+    }
+
+    @media (max-width: 640px) {
+
+        .education {
+            padding-top: 3.5rem;
+            padding-bottom: 3.5rem;
+        }
+
+        .title {
+            margin-bottom: 1rem;
+        }
+
+        .text {
+            margin-bottom: 1.5rem;
+        }
+
+        .education-boxes {
+            gap: 1.5rem;
+        }
+
+        .education-box {
+            width: calc(100% - 2.5rem) !important;
+            margin-left: 2.5rem !important;
+        }
+
+        .timeline-dot {
+            left: -2.125rem !important;
+            width: 1.25rem !important;
+            height: 1.25rem !important;
+        }
+
+        .timeline-line {
+            left: 1rem !important;
+        }
+    }
+</style>
 
 <script>
     // Hover effects for education boxes
@@ -228,213 +742,25 @@ const educationData = [{
             item.style.boxShadow = 'none';
         });
     });
+
+    // Initialize intersection observer for scroll animations (desktop only)
+    if (window.innerWidth > 768) {
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-in-view');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Observe animated elements
+        const animatedElements = document.querySelectorAll('.animate-slide-in-left, .animate-slide-in-right');
+        animatedElements.forEach(el => observer.observe(el));
+    }
 </script>
-
-<style>
-    @keyframes titleGlow {
-        0%,
-        100% {
-            filter: drop-shadow(0 0 20px rgba(240, 147, 251, 0.5));
-        }
-
-        50% {
-            filter: drop-shadow(0 0 30px rgba(240, 147, 251, 0.8));
-        }
-    }
-
-    @keyframes float-bg {
-        0%,
-        100% {
-            transform: translate(0, 0);
-        }
-
-        50% {
-            transform: translate(50px, 50px);
-        }
-    }
-
-    @keyframes pulse-dot {
-        0%,
-        100% {
-            transform: translate(-50%, -50%) scale(1);
-        }
-
-        50% {
-            transform: translate(-50%, -50%) scale(1.3);
-        }
-    }
-
-    .animate-float-bg {
-        animation: float-bg 25s ease-in-out infinite;
-    }
-
-    .animate-pulse-dot {
-        animation: pulse 2s ease-in-out infinite;
-    }
-
-    .animate-dot-pulse {
-        animation: pulse-dot 2s ease-in-out infinite;
-    }
-
-    @media (max-width: 1023px) {
-        .education {
-            padding-top: 5rem;
-            padding-bottom: 5rem;
-        }
-
-        .education-timeline {
-            padding-left: 1rem;
-            padding-right: 1rem;
-        }
-
-        .box {
-            width: calc(100% - 3rem) !important;
-            margin-left: 3rem !important;
-            margin-right: 0 !important;
-        }
-
-        .timeline-dot {
-            left: -2.625rem !important;
-            right: auto !important;
-        }
-    }
-
-    @media (max-width: 768px) {
-        .education {
-            padding-top: 4rem;
-            padding-bottom: 4rem;
-        }
-
-        .text {
-            margin-bottom: 2rem;
-        }
-
-        .text span {
-            font-size: 12px !important;
-            padding: 0.5rem 0.75rem;
-        }
-
-        .education-boxes {
-            gap: 2rem;
-        }
-
-        .box-content {
-            flex-direction: column;
-        }
-
-        .image-section {
-            width: 100%;
-            flex: none;
-        }
-
-        .achievements {
-            flex-direction: row;
-            flex-wrap: wrap;
-        }
-    }
-
-    @media (max-width: 640px) {
-        .education {
-            padding-top: 3.5rem;
-            padding-bottom: 3.5rem;
-        }
-
-        .title {
-            margin-bottom: 1rem;
-        }
-
-        .text {
-            margin-bottom: 1.5rem;
-        }
-
-        .education-boxes {
-            gap: 1.5rem;
-        }
-
-        .box {
-            width: calc(100% - 2.5rem) !important;
-            margin-left: 2.5rem !important;
-        }
-
-        .timeline-dot {
-            left: -2.125rem !important;
-            width: 1.25rem !important;
-            height: 1.25rem !important;
-        }
-
-        .timeline-line {
-            left: 1rem !important;
-        }
-    }
-
-    @media (min-width: 1024px) and (max-width: 1200px) {
-        .image-section {
-            flex: 0 0 220px !important;
-        }
-
-        .box-content {
-            gap: 1.25rem;
-            padding: 1.25rem;
-        }
-
-        .content {
-            gap: 0.625rem;
-        }
-
-        .content h3 {
-            font-size: clamp(18px, 3.5vw, 24px) !important;
-        }
-
-        .content h4 {
-            font-size: clamp(13px, 2.5vw, 16px) !important;
-        }
-
-        .content p {
-            font-size: clamp(13px, 2vw, 15px) !important;
-        }
-    }
-
-    @media (min-width: 1024px) {
-        .box {
-            width: calc(50% - 20px) !important;
-        }
-
-        .box:nth-child(odd) {
-            margin-right: auto !important;
-            margin-left: 0 !important;
-        }
-
-        .box:nth-child(even) {
-            margin-left: auto !important;
-            margin-right: 0 !important;
-        }
-
-        .timeline-line {
-            left: 50% !important;
-            transform: translateX(-50%);
-        }
-    }
-
-    @media (max-width: 1023px) and (max-height: 600px) {
-        .education {
-            padding-top: 3rem;
-            padding-bottom: 3rem;
-        }
-
-        .title {
-            margin-bottom: 0.75rem;
-        }
-
-        .text {
-            margin-bottom: 1rem;
-        }
-
-        .education-boxes {
-            gap: 1.25rem;
-        }
-
-        .box-content {
-            padding: 1rem;
-        }
-    }
-</style>

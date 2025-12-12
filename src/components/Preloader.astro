@@ -98,7 +98,7 @@
                     if (hasHash) {
                         setTimeout(() => {
                             const target = document.querySelector(hasHash);
-                            if (target) {
+                            if (target && target instanceof HTMLElement) {
                                 const navbarHeight = 80;
                                 const targetPosition = target.offsetTop - navbarHeight;
                                 window.scrollTo({
@@ -109,16 +109,24 @@
                         }, 100);
                     }
 
-                    // Initialize WOW.js if available
-                    if (typeof WOW !== 'undefined') {
-                        new WOW({
-                            boxClass: 'wow',
-                            animateClass: 'animate__animated',
-                            offset: 0,
-                            mobile: true,
-                            live: true
-                        }).init();
-                    }
+                    // Initialize intersection observer for scroll animations
+                    const observerOptions = {
+                        threshold: 0.1,
+                        rootMargin: '0px 0px -50px 0px'
+                    };
+
+                    const observer = new IntersectionObserver((entries) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                entry.target.classList.add('animate-in-view');
+                                observer.unobserve(entry.target);
+                            }
+                        });
+                    }, observerOptions);
+
+                    // Observe elements with animation classes
+                    const animatedElements = document.querySelectorAll('.animate-slide-up, .animate-slide-in-left, .animate-slide-in-right, .animate-zoom-in, .animate-pulse-glow');
+                    animatedElements.forEach(el => observer.observe(el));
                 }, 500);
             }
         }
@@ -268,5 +276,10 @@
         top: 10%;
         left: 60%;
         animation: particle-float 8s ease-in-out infinite 7s;
+    }
+
+    /* Global animation trigger class */
+    .animate-in-view {
+        animation-play-state: running !important;
     }
 </style>

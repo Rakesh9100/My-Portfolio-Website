@@ -37,28 +37,28 @@ const techIcons = {
     </div>
 
     <div class="text text-center mb-16">
-        <span class="experience-subtitle px-4 py-1 inline-block text-center" style="color: var(--secondary); background: rgba(26, 15, 62, 0.3); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(59, 130, 246, 0.4); border-radius: 25px; box-shadow: 0 8px 32px rgba(59, 130, 246, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);">Experience is the teacher of all things.</span>
+        <span class="quote-text">Experience is the teacher of all things.</span>
     </div>
 
     <!-- Experience Filter -->
     <div class="experience-filter flex justify-center gap-4 flex-wrap my-10 mx-auto px-5 relative z-10">
-        <button class="exp-filter-btn active flex items-center gap-2 px-6 py-3 rounded-full text-white text-[15px] font-semibold cursor-pointer relative overflow-hidden transition-all duration-400" data-filter="all" style="background: rgba(26, 15, 62, 0.3); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 2px solid rgba(255, 255, 255, 0.15); box-shadow: 0 5px 20px rgba(59, 130, 246, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1);">
-        <span class="filter-icon text-xl">🌟</span>
+        <button class="exp-filter-btn active" data-filter="all">
+        <span class="filter-icon">🌟</span>
         <span class="filter-text-full">All</span>
         <span class="filter-text-short hidden">All</span>
         </button>
-        <button class="exp-filter-btn flex items-center gap-2 px-6 py-3 rounded-full text-white text-[15px] font-semibold cursor-pointer relative overflow-hidden transition-all duration-400" data-filter="work" style="background: rgba(26, 15, 62, 0.3); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 2px solid rgba(255, 255, 255, 0.15); box-shadow: 0 5px 20px rgba(59, 130, 246, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1);">
-        <span class="filter-icon text-xl">💼</span>
+        <button class="exp-filter-btn" data-filter="work">
+        <span class="filter-icon">💼</span>
         <span class="filter-text-full">Work</span>
         <span class="filter-text-short hidden">Work</span>
         </button>
-        <button class="exp-filter-btn flex items-center gap-2 px-6 py-3 rounded-full text-white text-[15px] font-semibold cursor-pointer relative overflow-hidden transition-all duration-400" data-filter="opensource" style="background: rgba(26, 15, 62, 0.3); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 2px solid rgba(255, 255, 255, 0.15); box-shadow: 0 5px 20px rgba(59, 130, 246, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1);">
-        <span class="filter-icon text-xl">🚀</span>
+        <button class="exp-filter-btn" data-filter="opensource">
+        <span class="filter-icon">🚀</span>
         <span class="filter-text-full">Open Source</span>
         <span class="filter-text-short hidden">Open</span>
         </button>
-        <button class="exp-filter-btn flex items-center gap-2 px-6 py-3 rounded-full text-white text-[15px] font-semibold cursor-pointer relative overflow-hidden transition-all duration-400" data-filter="internship" style="background: rgba(26, 15, 62, 0.3); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 2px solid rgba(255, 255, 255, 0.15); box-shadow: 0 5px 20px rgba(59, 130, 246, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1);">
-        <span class="filter-icon text-xl">🎓</span>
+        <button class="exp-filter-btn" data-filter="internship">
+        <span class="filter-icon">🎓</span>
         <span class="filter-text-full">Internship</span>
         <span class="filter-text-short hidden">Intern</span>
         </button>
@@ -71,20 +71,20 @@ const techIcons = {
         <div class="experience-boxes flex flex-col gap-8 relative" id="experience-boxes">
             {experiences.slice(0, 6).map((exp, index) => (
             <div class="exp-box relative exp-card-ready" data-category={exp.category}>
-                <div class="timeline-dot absolute w-5 h-5 rounded-full z-10 animate-pulse-dot" style="background: var(--gradient2); box-shadow: 0 0 0 6px rgba(26, 15, 62, 0.9), 0 0 20px var(--primary);">
-                    <div class="dot-inner w-2.5 h-2.5 rounded-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 animate-dot-pulse" style="background: var(--secondary);"></div>
+                <div class="timeline-dot">
+                    <div class="dot-inner"></div>
                 </div>
 
-                <div class="exp-content rounded-[20px] p-6 transition-all duration-500" style="background: rgba(26, 15, 62, 0.3); backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px); border: 2px solid rgba(255, 255, 255, 0.15); box-shadow: 0 10px 40px rgba(95, 39, 205, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);">
-                    <div class="exp-header flex items-start justify-between gap-4 mb-4 flex-wrap">
+                <div class="exp-content">
+                    <div class="exp-header">
                         <div class="company-info flex-1">
-                            <div class="company-badge inline-flex items-center gap-3 px-4 py-2 rounded-full mb-3" style="background: rgba(59, 130, 246, 0.2); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border: 1px solid rgba(59, 130, 246, 0.4); box-shadow: 0 5px 15px rgba(59, 130, 246, 0.3); width: fit-content;">
+                            <div class="company-badge">
                                 {exp.logo && (
-                                <div class="company-logo-container w-9 h-9 rounded-full overflow-hidden bg-white/20 flex items-center justify-center p-0.5">
+                                <div class="company-logo-container">
                                     <img
                                         src={exp.logo}
                                         alt={`${exp.company} logo`}
-                                        class="w-full h-full object-contain rounded-full filter brightness-125 contrast-125"
+                                        class="company-logo"
                                         loading="lazy"
                                         width="36"
                                         height="36"
@@ -92,16 +92,16 @@ const techIcons = {
                                         />
                                 </div>
                                 )}
-                                <span class="text-sm font-bold text-white uppercase tracking-wide" style="word-break: break-word; line-height: 1.3;">{exp.company}</span>
+                                <span class="company-name">{exp.company}</span>
                             </div>
-                            <h3 class="text-xl font-bold m-0 mb-2" style="background: var(--gradient2); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;">{exp.role}</h3>
+                            <h3 class="role-title">{exp.role}</h3>
                         </div>
-                        <div class="duration-badge flex items-center gap-2 px-4 py-2 rounded-full" style="background: rgba(217, 70, 239, 0.2); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border: 1px solid rgba(217, 70, 239, 0.4); box-shadow: 0 5px 15px rgba(217, 70, 239, 0.3);">
+                        <div class="duration-badge">
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <circle cx="12" cy="12" r="10"></circle>
                                 <polyline points="12 6 12 12 16 14"></polyline>
                             </svg>
-                            <span class="text-sm font-semibold text-white">{exp.duration}</span>
+                            <span class="duration-text">{exp.duration}</span>
                         </div>
                     </div>
 
@@ -141,22 +141,22 @@ const techIcons = {
             </div>
             ))}
 
-            {experiences.slice(6).map((exp, index) => (
+            {experiences.slice(6).map((exp) => (
             <div class="exp-box hidden-exp relative exp-card-ready" data-category={exp.category} style="display: none;">
-                <div class="timeline-dot absolute w-5 h-5 rounded-full z-10 animate-pulse-dot" style="background: var(--gradient2); box-shadow: 0 0 0 6px rgba(26, 15, 62, 0.9), 0 0 20px var(--primary);">
-                    <div class="dot-inner w-2.5 h-2.5 rounded-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 animate-dot-pulse" style="background: var(--secondary);"></div>
+                <div class="timeline-dot">
+                    <div class="dot-inner"></div>
                 </div>
 
-                <div class="exp-content rounded-[20px] p-6 transition-all duration-500" style="background: rgba(26, 15, 62, 0.3); backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px); border: 2px solid rgba(255, 255, 255, 0.15); box-shadow: 0 10px 40px rgba(95, 39, 205, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);">
-                    <div class="exp-header flex items-start justify-between gap-4 mb-4 flex-wrap">
+                <div class="exp-content">
+                    <div class="exp-header">
                         <div class="company-info flex-1">
-                            <div class="company-badge inline-flex items-center gap-3 px-4 py-2 rounded-full mb-3" style="background: rgba(59, 130, 246, 0.2); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border: 1px solid rgba(59, 130, 246, 0.4); box-shadow: 0 5px 15px rgba(59, 130, 246, 0.3); width: fit-content;">
+                            <div class="company-badge">
                                 {exp.logo && (
-                                <div class="company-logo-container w-9 h-9 rounded-full overflow-hidden bg-white/20 flex items-center justify-center p-0.5">
+                                <div class="company-logo-container">
                                     <img
                                         src={exp.logo}
                                         alt={`${exp.company} logo`}
-                                        class="w-full h-full object-contain rounded-full filter brightness-125 contrast-125"
+                                        class="company-logo"
                                         loading="lazy"
                                         width="36"
                                         height="36"
@@ -164,16 +164,16 @@ const techIcons = {
                                         />
                                 </div>
                                 )}
-                                <span class="text-sm font-bold text-white uppercase tracking-wide" style="word-break: break-word; line-height: 1.3;">{exp.company}</span>
+                                <span class="company-name">{exp.company}</span>
                             </div>
-                            <h3 class="text-xl font-bold m-0 mb-2" style="background: var(--gradient2); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;">{exp.role}</h3>
+                            <h3 class="role-title">{exp.role}</h3>
                         </div>
-                        <div class="duration-badge flex items-center gap-2 px-4 py-2 rounded-full" style="background: rgba(217, 70, 239, 0.2); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border: 1px solid rgba(217, 70, 239, 0.4); box-shadow: 0 5px 15px rgba(217, 70, 239, 0.3);">
+                        <div class="duration-badge">
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <circle cx="12" cy="12" r="10"></circle>
                                 <polyline points="12 6 12 12 16 14"></polyline>
                             </svg>
-                            <span class="text-sm font-semibold text-white">{exp.duration}</span>
+                            <span class="duration-text">{exp.duration}</span>
                         </div>
                     </div>
 
@@ -199,8 +199,8 @@ const techIcons = {
                             {techStackDesc.split(':-')[1]?.split(',').map((tech) => {
                             const cleanTech = tech.trim();
                             return (
-                            <div class="tech-item flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium transition-all duration-300 hover:scale-110 hover:rotate-3" style="background: rgba(59, 130, 246, 0.15); border: 1px solid rgba(59, 130, 246, 0.3); color: #60a5fa;">
-                                <span class="tech-emoji text-sm">{techIcons[cleanTech] || '⚡'}</span>
+                            <div class="tech-item">
+                                <span class="tech-emoji">{techIcons[cleanTech] || '⚡'}</span>
                                 <span>{cleanTech}</span>
                             </div>
                             );
@@ -217,7 +217,7 @@ const techIcons = {
 
     <!-- Load More Button -->
     <div class="load-more-container flex justify-center mt-12" id="load-more-container">
-        <button class="load-more-btn flex items-center gap-3 px-8 py-4 rounded-full text-white text-base font-bold cursor-pointer transition-all duration-400" id="load-more-btn" style="background: rgba(59, 130, 246, 0.3); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 2px solid rgba(59, 130, 246, 0.5); box-shadow: 0 8px 32px rgba(59, 130, 246, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.15);">
+        <button class="load-more-btn" id="load-more-btn">
             <span class="load-more-text-full">Load More Experiences</span>
             <span class="load-more-text-short hidden">Load More</span>
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="transition-transform duration-300">
@@ -226,6 +226,745 @@ const techIcons = {
         </button>
     </div>
 </section>
+
+<style>
+    .quote-text {
+        font-size: clamp(0.875rem, 3.5vw, 1.3vw);
+        padding: 0.25rem 1rem;
+        display: inline-block;
+        text-align: center;
+        color: var(--secondary);
+        background: rgba(26, 15, 62, 0.3);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid rgba(59, 130, 246, 0.4);
+        border-radius: 25px;
+        box-shadow: 0 8px 32px rgba(59, 130, 246, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    }
+
+    .exp-filter-btn {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.75rem 1.5rem;
+        border-radius: 9999px;
+        color: white;
+        font-size: 0.9375rem;
+        font-weight: 600;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+        transition: all 0.4s ease;
+        background: rgba(26, 15, 62, 0.3);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 2px solid rgba(255, 255, 255, 0.15);
+        box-shadow: 0 5px 20px rgba(59, 130, 246, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    }
+
+    .filter-icon {
+        font-size: 1.25rem;
+        transition: transform 0.3s ease;
+    }
+
+    .exp-box {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.3s ease;
+    }
+
+    .exp-content {
+        border-radius: 20px;
+        padding: 1.5rem;
+        transition: all 0.5s ease;
+        background: rgba(26, 15, 62, 0.3);
+        backdrop-filter: blur(25px);
+        -webkit-backdrop-filter: blur(25px);
+        border: 2px solid rgba(255, 255, 255, 0.15);
+        box-shadow: 0 10px 40px rgba(95, 39, 205, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    }
+
+    .exp-header {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 1rem;
+        margin-bottom: 1rem;
+        flex-wrap: wrap;
+    }
+
+    .company-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 0.5rem 1rem;
+        border-radius: 9999px;
+        margin-bottom: 0.75rem;
+        width: fit-content;
+        background: rgba(59, 130, 246, 0.2);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 1px solid rgba(59, 130, 246, 0.4);
+        box-shadow: 0 5px 15px rgba(59, 130, 246, 0.3);
+    }
+
+    .company-logo-container {
+        width: 2.25rem;
+        height: 2.25rem;
+        border-radius: 50%;
+        overflow: hidden;
+        background: rgba(255, 255, 255, 0.2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.125rem;
+        transition: all 0.3s ease;
+        position: relative;
+        border: 2px solid rgba(255, 255, 255, 0.2);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .company-logo {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        border-radius: 50%;
+        filter: brightness(125%) contrast(125%);
+        transition: all 0.3s ease;
+        position: relative;
+        z-index: 1;
+        object-position: center;
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+        backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
+        transform: translateZ(0);
+        -webkit-transform: translateZ(0);
+    }
+
+    .company-name {
+        font-size: 0.875rem;
+        font-weight: bold;
+        color: white;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        word-break: break-word;
+        line-height: 1.3;
+    }
+
+    .role-title {
+        font-size: 1.25rem;
+        font-weight: bold;
+        margin: 0 0 0.5rem 0;
+        background: var(--gradient2);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .duration-badge {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.5rem 1rem;
+        border-radius: 9999px;
+        background: rgba(217, 70, 239, 0.2);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 1px solid rgba(217, 70, 239, 0.4);
+        box-shadow: 0 5px 15px rgba(217, 70, 239, 0.3);
+    }
+
+    .duration-text {
+        font-size: 0.875rem;
+        font-weight: 600;
+        color: white;
+    }
+
+    .timeline-dot {
+        position: absolute;
+        width: 1.25rem;
+        height: 1.25rem;
+        border-radius: 50%;
+        z-index: 10;
+        background: var(--gradient2);
+        box-shadow: 0 0 0 6px rgba(26, 15, 62, 0.9), 0 0 20px var(--primary);
+    }
+
+    .dot-inner {
+        width: 0.625rem;
+        height: 0.625rem;
+        border-radius: 50%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: var(--secondary);
+    }
+
+    .tech-item {
+        display: flex;
+        align-items: center;
+        gap: 0.375rem;
+        padding: 0.375rem 0.75rem;
+        border-radius: 9999px;
+        font-size: 0.75rem;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+        background: rgba(59, 130, 246, 0.15);
+        border: 1px solid rgba(59, 130, 246, 0.3);
+        color: #60a5fa;
+    }
+
+    .tech-emoji {
+        font-size: 0.875rem;
+        transition: transform 0.3s ease;
+    }
+
+    .load-more-btn {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 1rem 2rem;
+        border-radius: 9999px;
+        color: white;
+        font-size: 1rem;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.4s ease;
+        background: rgba(59, 130, 246, 0.3);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 2px solid rgba(59, 130, 246, 0.5);
+        box-shadow: 0 8px 32px rgba(59, 130, 246, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    }
+
+    @keyframes titleGlow {
+        0%,
+        100% {
+            filter: drop-shadow(0 0 20px rgba(240, 147, 251, 0.5));
+        }
+
+        50% {
+            filter: drop-shadow(0 0 30px rgba(240, 147, 251, 0.8));
+        }
+    }
+
+    @keyframes float-bg {
+        0%,
+        100% {
+            transform: translate(0, 0);
+        }
+
+        50% {
+            transform: translate(50px, 50px);
+        }
+    }
+
+    @keyframes float-bg-reverse {
+        0%,
+        100% {
+            transform: translate(0, 0);
+        }
+
+        50% {
+            transform: translate(-50px, -50px);
+        }
+    }
+
+    @keyframes dot-pulse {
+        0%,
+        100% {
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        50% {
+            transform: translate(-50%, -50%) scale(1.3);
+        }
+    }
+
+    @keyframes tech-float {
+        0%,
+        100% {
+            transform: translateY(0px);
+        }
+
+        50% {
+            transform: translateY(-5px);
+        }
+    }
+
+    .animate-float-bg {
+        animation: float-bg 20s ease-in-out infinite;
+    }
+
+    .animate-float-bg-reverse {
+        animation: float-bg-reverse 25s ease-in-out infinite;
+    }
+
+    .animate-pulse-dot {
+        animation: dot-pulse 2s ease-in-out infinite;
+    }
+
+    .animate-dot-pulse {
+        animation: dot-pulse 2s ease-in-out infinite;
+    }
+
+    .exp-filter-btn::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: var(--gradient3);
+        transition: left 0.4s ease;
+        z-index: -1;
+    }
+
+    .exp-filter-btn:hover::before,
+    .exp-filter-btn.active::before {
+        left: 0;
+    }
+
+    .exp-filter-btn:hover,
+    .exp-filter-btn.active {
+        background: rgba(59, 130, 246, 0.3);
+        border: 2px solid rgba(59, 130, 246, 0.6);
+        transform: translateY(-3px) scale(1.05);
+        box-shadow: 0 10px 35px rgba(59, 130, 246, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    }
+
+    .exp-filter-btn.active {
+        background: rgba(59, 130, 246, 0.4);
+        border: 2px solid rgba(59, 130, 246, 0.7);
+    }
+
+    .filter-icon {
+        transition: transform 0.3s ease;
+    }
+
+    .exp-box {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.3s ease;
+    }
+
+    .exp-card-animated {
+        animation: expCardFadeIn 0.6s ease-out forwards;
+    }
+
+    @keyframes expCardFadeIn {
+        0% {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .text span:hover {
+        background: rgba(59, 130, 246, 0.25);
+        backdrop-filter: blur(25px);
+        -webkit-backdrop-filter: blur(25px);
+        border: 1px solid rgba(59, 130, 246, 0.6);
+        box-shadow: 0 12px 40px rgba(59, 130, 246, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        transform: translateY(-2px);
+    }
+
+    .tech-stack-section {
+        position: relative;
+    }
+
+    .tech-item {
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .tech-item:hover {
+        background: rgba(59, 130, 246, 0.3) !important;
+        border-color: rgba(59, 130, 246, 0.6) !important;
+        box-shadow: 0 5px 15px rgba(59, 130, 246, 0.4);
+        animation: tech-float 2s ease-in-out infinite;
+    }
+
+    .tech-emoji {
+        transition: transform 0.3s ease;
+    }
+
+    .tech-item:hover .tech-emoji {
+        transform: scale(1.2) rotate(10deg);
+    }
+
+    .exp-content:hover .tech-item {
+        animation: tech-float 2s ease-in-out infinite;
+    }
+
+    .company-logo-container {
+        transition: all 0.3s ease;
+        position: relative;
+        border: 2px solid rgba(255, 255, 255, 0.2);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .company-logo-container::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        border-radius: 50%;
+        background: linear-gradient(45deg, rgba(59, 130, 246, 0.2), rgba(217, 70, 239, 0.2));
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .company-badge:hover .company-logo-container {
+        transform: scale(1.15) rotate(5deg);
+        box-shadow: 0 8px 25px rgba(59, 130, 246, 0.5);
+        border-color: rgba(59, 130, 246, 0.8);
+    }
+
+    .company-badge:hover .company-logo-container::before {
+        opacity: 1;
+    }
+
+    .company-logo-container img {
+        transition: all 0.3s ease;
+        position: relative;
+        z-index: 1;
+        object-position: center;
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+        backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
+        transform: translateZ(0);
+        -webkit-transform: translateZ(0);
+    }
+
+    .company-badge:hover .company-logo-container img {
+        transform: scale(1.05) translateZ(0);
+        filter: brightness(130%) contrast(120%) saturate(1.2) drop-shadow(0 0 3px rgba(255, 255, 255, 0.3));
+    }
+
+    .exp-content:hover .company-logo-container {
+        animation: logoFloat 2s ease-in-out infinite;
+    }
+
+    @keyframes logoFloat {
+        0%,
+        100% {
+            transform: translateY(0px) rotate(0deg);
+        }
+
+        50% {
+            transform: translateY(-3px) rotate(2deg);
+        }
+    }
+
+    .experience-title {
+        font-size: clamp(2rem, 8vw, 3.5vw);
+    }
+
+    .experience-subtitle {
+        font-size: clamp(0.875rem, 3.5vw, 1.3vw);
+    }
+
+    /* Large Desktop (min-width: 1024px) */
+    @media (min-width: 1024px) {
+        .experience-timeline-line {
+            left: 30px;
+        }
+
+        .exp-box {
+            padding-left: 60px;
+        }
+
+        .timeline-dot {
+            left: 22px;
+            top: 2rem;
+        }
+    }
+
+    /* Medium Desktop (1024px - 1200px) */
+    @media (min-width: 1024px) and (max-width: 1200px) {
+        .exp-content {
+            padding: 1.25rem;
+        }
+
+        .company-badge {
+            padding: 0.625rem 1rem;
+            font-size: 0.8125rem;
+        }
+
+        .role-title {
+            font-size: 1.125rem;
+        }
+
+        .duration-badge {
+            padding: 0.625rem 1rem;
+            font-size: 0.8125rem;
+        }
+
+        .duration-badge svg {
+            width: 14px;
+            height: 14px;
+        }
+
+        .exp-description li {
+            font-size: 0.8125rem;
+            gap: 0.625rem;
+        }
+    }
+
+    /* Tablet (640px - 1023px) */
+    @media (min-width: 640px) and (max-width: 1023px) {
+        .experience {
+            padding: 5rem 2rem 4rem;
+        }
+
+        .experience-timeline-line {
+            left: 20px;
+        }
+
+        .exp-box {
+            padding-left: 50px;
+        }
+
+        .timeline-dot {
+            left: 12px;
+            top: 2rem;
+        }
+
+        .exp-content {
+            padding: 1.25rem;
+        }
+
+        .company-badge {
+            padding: 0.625rem 1rem;
+            font-size: 0.8125rem;
+        }
+
+        .role-title {
+            font-size: 1.25rem;
+        }
+
+        .duration-badge {
+            padding: 0.625rem 1rem;
+            font-size: 0.8125rem;
+        }
+
+        .exp-description li {
+            font-size: 0.875rem;
+        }
+
+        .exp-box:hover .exp-content {
+            transform: translateX(5px) !important;
+        }
+    }
+
+    /* Mobile and small tablet (max-width: 768px) */
+    @media (max-width: 768px) {
+        .animate-float-bg,
+        .animate-float-bg-reverse {
+            animation: none !important;
+            opacity: 0.25 !important;
+            width: 220px !important;
+            height: 220px !important;
+            transform: none !important;
+        }
+
+        .experience-title {
+            animation: none !important;
+            filter: none !important;
+        }
+
+        .quote-text {
+            backdrop-filter: none !important;
+            -webkit-backdrop-filter: none !important;
+            box-shadow: none !important;
+            background: rgba(26, 15, 62, 0.5) !important;
+        }
+
+        .exp-filter-btn {
+            backdrop-filter: none !important;
+            -webkit-backdrop-filter: none !important;
+            box-shadow: none !important;
+            transform: none !important;
+        }
+
+        .exp-filter-btn:hover {
+            transform: none !important;
+            box-shadow: none !important;
+        }
+
+        .exp-filter-btn::before {
+            display: none !important;
+        }
+
+        .exp-card-ready,
+        .exp-card-animated {
+            opacity: 1 !important;
+            transform: none !important;
+            animation: none !important;
+        }
+
+        .exp-content {
+            backdrop-filter: none !important;
+            -webkit-backdrop-filter: none !important;
+            background: rgba(26, 15, 62, 0.45) !important;
+            box-shadow: none !important;
+        }
+
+        .exp-box:hover .exp-content {
+            transform: none !important;
+            box-shadow: none !important;
+            background: rgba(26, 15, 62, 0.45) !important;
+        }
+
+        .animate-pulse-dot,
+        .animate-dot-pulse {
+            animation: none !important;
+        }
+
+        .experience-timeline-line {
+            box-shadow: none !important;
+            background: rgba(255, 255, 255, 0.15) !important;
+        }
+
+        .company-badge:hover .company-logo-container,
+        .company-badge:hover .company-logo,
+        .company-logo-container::before {
+            transform: none !important;
+            box-shadow: none !important;
+            opacity: 1 !important;
+        }
+
+        .tech-item {
+            animation: none !important;
+            transform: none !important;
+            box-shadow: none !important;
+        }
+
+        .tech-item:hover {
+            animation: none !important;
+            transform: none !important;
+            box-shadow: none !important;
+        }
+
+        .load-more-btn {
+            backdrop-filter: none !important;
+            -webkit-backdrop-filter: none !important;
+            box-shadow: none !important;
+            transform: none !important;
+        }
+
+        .load-more-btn:hover {
+            transform: none !important;
+            box-shadow: none !important;
+        }
+    }
+
+    /* Small mobile (max-width: 639px) */
+    @media (max-width: 639px) {
+        .experience {
+            padding: 4rem 1rem 3rem;
+        }
+
+        .filter-text-full {
+            display: none;
+        }
+
+        .filter-text-short {
+            display: inline;
+        }
+
+        .load-more-text-full {
+            display: none;
+        }
+
+        .load-more-text-short {
+            display: inline;
+        }
+
+        .exp-filter-btn {
+            padding: 0.5rem 1rem;
+            font-size: 13px;
+            gap: 0.375rem;
+        }
+
+        .filter-icon {
+            font-size: 1rem;
+        }
+
+        .experience-timeline-line {
+            left: 10px;
+        }
+
+        .exp-box {
+            padding-left: 35px;
+        }
+
+        .timeline-dot {
+            left: 2px;
+            top: 1.5rem;
+        }
+
+        .exp-content {
+            padding: 1rem;
+        }
+
+        .exp-header {
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .company-badge {
+            padding: 0.5rem 0.75rem;
+            font-size: 0.75rem;
+        }
+
+        .role-title {
+            font-size: 1.125rem;
+        }
+
+        .duration-badge {
+            padding: 0.5rem 0.75rem;
+            font-size: 0.75rem;
+            align-self: flex-start;
+        }
+
+        .duration-badge svg {
+            width: 14px;
+            height: 14px;
+        }
+
+        .exp-description li {
+            font-size: 0.8125rem;
+            gap: 0.5rem;
+        }
+
+        .load-more-btn {
+            padding: 0.75rem 1.5rem;
+            font-size: 0.875rem;
+            gap: 0.5rem;
+        }
+
+        .load-more-btn svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        .exp-box:hover .exp-content {
+            transform: translateX(0) !important;
+        }
+    }
+</style>
 
 <script>
     // Filter functionality
@@ -382,436 +1121,3 @@ const techIcons = {
         el.style.fontWeight = '700';
     });
 </script>
-
-<style>
-    @keyframes titleGlow {
-        0%,
-        100% {
-            filter: drop-shadow(0 0 20px rgba(240, 147, 251, 0.5));
-        }
-
-        50% {
-            filter: drop-shadow(0 0 30px rgba(240, 147, 251, 0.8));
-        }
-    }
-
-    @keyframes float-bg {
-        0%,
-        100% {
-            transform: translate(0, 0);
-        }
-
-        50% {
-            transform: translate(50px, 50px);
-        }
-    }
-
-    @keyframes float-bg-reverse {
-        0%,
-        100% {
-            transform: translate(0, 0);
-        }
-
-        50% {
-            transform: translate(-50px, -50px);
-        }
-    }
-
-    @keyframes dot-pulse {
-        0%,
-        100% {
-            transform: translate(-50%, -50%) scale(1);
-        }
-
-        50% {
-            transform: translate(-50%, -50%) scale(1.3);
-        }
-    }
-
-    @keyframes tech-float {
-        0%,
-        100% {
-            transform: translateY(0px);
-        }
-
-        50% {
-            transform: translateY(-5px);
-        }
-    }
-
-    .animate-float-bg {
-        animation: float-bg 20s ease-in-out infinite;
-    }
-
-    .animate-float-bg-reverse {
-        animation: float-bg-reverse 25s ease-in-out infinite;
-    }
-
-    .animate-pulse-dot {
-        animation: pulse 2s ease-in-out infinite;
-    }
-
-    .animate-dot-pulse {
-        animation: dot-pulse 2s ease-in-out infinite;
-    }
-
-    .exp-filter-btn::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: -100%;
-        width: 100%;
-        height: 100%;
-        background: var(--gradient3);
-        transition: left 0.4s ease;
-        z-index: -1;
-    }
-
-    .exp-filter-btn:hover::before,
-    .exp-filter-btn.active::before {
-        left: 0;
-    }
-
-    .exp-filter-btn:hover,
-    .exp-filter-btn.active {
-        background: rgba(59, 130, 246, 0.3);
-        border: 2px solid rgba(59, 130, 246, 0.6);
-        transform: translateY(-3px) scale(1.05);
-        box-shadow: 0 10px 35px rgba(59, 130, 246, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.2);
-    }
-
-    .exp-filter-btn.active {
-        background: rgba(59, 130, 246, 0.4);
-        border: 2px solid rgba(59, 130, 246, 0.7);
-    }
-
-    .filter-icon {
-        transition: transform 0.3s ease;
-    }
-
-    .exp-box {
-        opacity: 0;
-        transform: translateY(20px);
-        transition: all 0.3s ease;
-    }
-
-    .exp-card-animated {
-        animation: expCardFadeIn 0.6s ease-out forwards;
-    }
-
-    @keyframes expCardFadeIn {
-        0% {
-            opacity: 0;
-            transform: translateY(20px);
-        }
-
-        100% {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-
-    .text span:hover {
-        background: rgba(59, 130, 246, 0.25);
-        backdrop-filter: blur(25px);
-        -webkit-backdrop-filter: blur(25px);
-        border: 1px solid rgba(59, 130, 246, 0.6);
-        box-shadow: 0 12px 40px rgba(59, 130, 246, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.2);
-        transform: translateY(-2px);
-    }
-
-    .tech-stack-section {
-        position: relative;
-    }
-
-    .tech-item {
-        cursor: pointer;
-        position: relative;
-        overflow: hidden;
-    }
-
-    .tech-item:hover {
-        background: rgba(59, 130, 246, 0.3) !important;
-        border-color: rgba(59, 130, 246, 0.6) !important;
-        box-shadow: 0 5px 15px rgba(59, 130, 246, 0.4);
-        animation: tech-float 2s ease-in-out infinite;
-    }
-
-    .tech-emoji {
-        transition: transform 0.3s ease;
-    }
-
-    .tech-item:hover .tech-emoji {
-        transform: scale(1.2) rotate(10deg);
-    }
-
-    .exp-content:hover .tech-item {
-        animation: tech-float 2s ease-in-out infinite;
-    }
-
-    .company-logo-container {
-        transition: all 0.3s ease;
-        position: relative;
-        border: 2px solid rgba(255, 255, 255, 0.2);
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-    }
-
-    .company-logo-container::before {
-        content: '';
-        position: absolute;
-        inset: 0;
-        border-radius: 50%;
-        background: linear-gradient(45deg, rgba(59, 130, 246, 0.2), rgba(217, 70, 239, 0.2));
-        opacity: 0;
-        transition: opacity 0.3s ease;
-    }
-
-    .company-badge:hover .company-logo-container {
-        transform: scale(1.15) rotate(5deg);
-        box-shadow: 0 8px 25px rgba(59, 130, 246, 0.5);
-        border-color: rgba(59, 130, 246, 0.8);
-    }
-
-    .company-badge:hover .company-logo-container::before {
-        opacity: 1;
-    }
-
-    .company-logo-container img {
-        transition: all 0.3s ease;
-        position: relative;
-        z-index: 1;
-        object-position: center;
-        /* Enhanced clarity settings */
-        image-rendering: -webkit-optimize-contrast;
-        image-rendering: crisp-edges;
-        backface-visibility: hidden;
-        -webkit-backface-visibility: hidden;
-        transform: translateZ(0);
-        -webkit-transform: translateZ(0);
-    }
-
-    .company-badge:hover .company-logo-container img {
-        transform: scale(1.05) translateZ(0);
-        filter: brightness(130%) contrast(120%) saturate(1.2) drop-shadow(0 0 3px rgba(255, 255, 255, 0.3));
-    }
-
-    .exp-content:hover .company-logo-container {
-        animation: logoFloat 2s ease-in-out infinite;
-    }
-
-    @keyframes logoFloat {
-        0%,
-        100% {
-            transform: translateY(0px) rotate(0deg);
-        }
-
-        50% {
-            transform: translateY(-3px) rotate(2deg);
-        }
-    }
-
-    .experience-title {
-        font-size: clamp(2rem, 8vw, 3.5vw);
-    }
-
-    .experience-subtitle {
-        font-size: clamp(0.875rem, 3.5vw, 1.3vw);
-    }
-
-    @media (max-width: 639px) {
-        .experience {
-            padding: 4rem 1rem 3rem;
-        }
-
-        .filter-text-full {
-            display: none;
-        }
-
-        .filter-text-short {
-            display: inline;
-        }
-
-        .load-more-text-full {
-            display: none;
-        }
-
-        .load-more-text-short {
-            display: inline;
-        }
-
-        .exp-filter-btn {
-            padding: 0.5rem 1rem;
-            font-size: 13px;
-            gap: 0.375rem;
-        }
-
-        .filter-icon {
-            font-size: 1rem;
-        }
-
-        .experience-timeline-line {
-            left: 10px;
-        }
-
-        .exp-box {
-            padding-left: 35px;
-        }
-
-        .timeline-dot {
-            left: 2px;
-            top: 1.5rem;
-        }
-
-        .exp-content {
-            padding: 1rem;
-        }
-
-        .exp-header {
-            flex-direction: column;
-            gap: 0.75rem;
-        }
-
-        .company-badge {
-            padding: 0.5rem 0.75rem;
-            font-size: 0.75rem;
-        }
-
-        .exp-header h3 {
-            font-size: 1.125rem;
-        }
-
-        .duration-badge {
-            padding: 0.5rem 0.75rem;
-            font-size: 0.75rem;
-            align-self: flex-start;
-        }
-
-        .duration-badge svg {
-            width: 14px;
-            height: 14px;
-        }
-
-        .exp-description li {
-            font-size: 0.8125rem;
-            gap: 0.5rem;
-        }
-
-        .load-more-btn {
-            padding: 0.75rem 1.5rem;
-            font-size: 0.875rem;
-            gap: 0.5rem;
-        }
-
-        .load-more-btn svg {
-            width: 16px;
-            height: 16px;
-        }
-
-        .exp-box:hover .exp-content {
-            transform: translateX(0) !important;
-        }
-    }
-
-    @media (min-width: 640px) and (max-width: 1023px) {
-        .experience {
-            padding: 5rem 2rem 4rem;
-        }
-
-        .experience-timeline-line {
-            left: 20px;
-        }
-
-        .exp-box {
-            padding-left: 50px;
-        }
-
-        .timeline-dot {
-            left: 12px;
-            top: 2rem;
-        }
-
-        .exp-content {
-            padding: 1.25rem;
-        }
-
-        .company-badge {
-            padding: 0.625rem 1rem;
-            font-size: 0.8125rem;
-        }
-
-        .exp-header h3 {
-            font-size: 1.25rem;
-        }
-
-        .duration-badge {
-            padding: 0.625rem 1rem;
-            font-size: 0.8125rem;
-        }
-
-        .exp-description li {
-            font-size: 0.875rem;
-        }
-
-        .exp-box:hover .exp-content {
-            transform: translateX(5px) !important;
-        }
-    }
-
-    @media (min-width: 1024px) and (max-width: 1200px) {
-        .experience-timeline-line {
-            left: 30px;
-        }
-
-        .exp-box {
-            padding-left: 60px;
-        }
-
-        .timeline-dot {
-            left: 22px;
-            top: 2rem;
-        }
-
-        .exp-content {
-            padding: 1.25rem;
-        }
-
-        .company-badge {
-            padding: 0.625rem 1rem;
-            font-size: 0.8125rem;
-        }
-
-        .exp-header h3 {
-            font-size: 1.125rem;
-        }
-
-        .duration-badge {
-            padding: 0.625rem 1rem;
-            font-size: 0.8125rem;
-        }
-
-        .duration-badge svg {
-            width: 14px;
-            height: 14px;
-        }
-
-        .exp-description li {
-            font-size: 0.8125rem;
-            gap: 0.625rem;
-        }
-    }
-
-    @media (min-width: 1024px) {
-        .experience-timeline-line {
-            left: 30px;
-        }
-
-        .exp-box {
-            padding-left: 60px;
-        }
-
-        .timeline-dot {
-            left: 22px;
-            top: 2rem;
-        }
-    }
-</style>

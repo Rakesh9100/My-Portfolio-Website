@@ -50,10 +50,9 @@ A **modern, fully responsive portfolio website** built with Astro, Tailwind CSS,
 - 🟨 **JavaScript** - Dynamic functionality
 
 **Libraries:**
-- 🎭 **WOW.js** - Scroll animations
-- 🎬 **Animate.css** - CSS animations
-- 🎯 **Vanilla Tilt** - 3D tilt effects
 - ⌨️ **Typed.js** - Typing animations
+- 🎨 **Custom CSS Animations** - Smooth scroll-triggered animations
+- 🎯 **Custom Tilt Effects** - Lightweight 3D hover effects
 
 ---
 

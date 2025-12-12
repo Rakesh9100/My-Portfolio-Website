@@ -1,21 +1,21 @@
 <section class="contact z-[3] h-full min-h-screen relative overflow-hidden py-24 px-5 pb-20" id="contact" style="background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);">
     <!-- Floating Background -->
-    <div class="absolute top-[10%] -left-[15%] w-[500px] h-[500px] rounded-full animate-float-bg" style="background: radial-gradient(circle, rgba(59, 130, 246, 0.12) 0%, transparent 70%);"></div>
-    <div class="absolute bottom-[20%] -right-[10%] w-[600px] h-[600px] rounded-full animate-float-bg-reverse" style="background: radial-gradient(circle, rgba(217, 70, 239, 0.12) 0%, transparent 70%);"></div>
+    <div class="floating-bg floating-bg-1"></div>
+    <div class="floating-bg floating-bg-2"></div>
 
     <div class="title relative text-center font-bold mb-6">
-        <span class="contact-title uppercase" style="background: var(--gradient2); background-size: cover; color: transparent; background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 0 20px rgba(240, 147, 251, 0.5)); animation: titleGlow 3s ease-in-out infinite;">Contact Me</span>
+        <span class="contact-title uppercase">Contact Me</span>
     </div>
 
     <div class="text text-center mb-16">
-        <span class="contact-subtitle px-4 py-1 inline-block text-center" style="color: var(--secondary); background: rgba(26, 15, 62, 0.3); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(59, 130, 246, 0.4); border-radius: 25px; box-shadow: 0 8px 32px rgba(59, 130, 246, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);">When we Contact each other, we Change each other. We are constantly making each other.</span>
+        <span class="contact-subtitle px-4 py-1 inline-block text-center">When we Contact each other, we Change each other. We are constantly making each other.</span>
     </div>
 
-    <p class="contact-heading wow animate__animated animate__heartBeat text-center font-black mb-10" data-wow-offset="250" style="background: var(--gradient4); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 0 10px rgba(67, 233, 123, 0.5));">Let's Get Connected!!</p>
+    <p class="contact-heading animate-pulse-glow text-center font-black mb-10">Let's Get Connected!!</p>
 
     <!-- Contact Info Cards -->
     <div class="contact-info-cards">
-        <div class="info-card" data-wow-delay="0.1s">
+        <div class="info-card animate-slide-up" style="animation-delay: 0.1s;">
             <div class="info-icon">
                 <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
@@ -25,7 +25,7 @@
             <h3>Email</h3>
             <p>roshanrakesh7362@gmail.com</p>
         </div>
-        <div class="info-card" data-wow-delay="0.2s">
+        <div class="info-card animate-slide-up" style="animation-delay: 0.2s;">
             <div class="info-icon">
                 <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
@@ -35,7 +35,7 @@
             <h3>Location</h3>
             <p>Bangalore, India</p>
         </div>
-        <div class="info-card" data-wow-delay="0.3s">
+        <div class="info-card animate-slide-up" style="animation-delay: 0.3s;">
             <div class="info-icon">
                 <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
@@ -96,7 +96,7 @@
                         </div>
                     </div>
                     <div class="button-area">
-                        <button type="submit" class="wow animate__animated animate__zoomIn" aria-label="Submit">
+                        <button type="submit" class="animate-zoom-in" aria-label="Submit">
                             <span class="btn-text">SEND MESSAGE</span>
                             <svg class="btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <line x1="22" y1="2" x2="11" y2="13"></line>
@@ -109,7 +109,7 @@
             </div>
             <div class="column left">
                 <div class="contact-image-wrapper">
-                    <img class="wow animate__animated animate__backInRight" src="/assets/images/contact.png" width="2000" height="2000" loading="lazy" alt="Contact Image">
+                    <img src="/assets/images/contact.png" width="2000" height="2000" loading="lazy" alt="Contact Image">
                 </div>
             </div>
         </div>
@@ -125,6 +125,55 @@
 
         50% {
             filter: drop-shadow(0 0 30px rgba(240, 147, 251, 0.8));
+        }
+    }
+
+    @keyframes pulseGlow {
+        0%,
+        100% {
+            transform: scale(1);
+            filter: drop-shadow(0 0 10px rgba(67, 233, 123, 0.5));
+        }
+
+        50% {
+            transform: scale(1.02);
+            filter: drop-shadow(0 0 20px rgba(67, 233, 123, 0.8));
+        }
+    }
+
+    @keyframes slideUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes zoomIn {
+        from {
+            opacity: 0;
+            transform: scale(0.8);
+        }
+
+        to {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    @keyframes slideDown {
+        from {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
         }
     }
 
@@ -150,33 +199,80 @@
         }
     }
 
-    .animate-float-bg {
+    @keyframes imageFloat {
+        0%,
+        100% {
+            transform: translateY(0);
+        }
+
+        50% {
+            transform: translateY(-20px);
+        }
+    }
+
+    .floating-bg {
+        position: absolute;
+        border-radius: 50%;
+    }
+
+    .floating-bg-1 {
+        top: 10%;
+        left: -15%;
+        width: 500px;
+        height: 500px;
+        background: radial-gradient(circle, rgba(59, 130, 246, 0.12) 0%, transparent 70%);
         animation: float-bg 20s ease-in-out infinite;
     }
 
-    .animate-float-bg-reverse {
+    .floating-bg-2 {
+        bottom: 20%;
+        right: -10%;
+        width: 600px;
+        height: 600px;
+        background: radial-gradient(circle, rgba(217, 70, 239, 0.12) 0%, transparent 70%);
         animation: float-bg-reverse 25s ease-in-out infinite;
     }
 
     .contact-title {
         font-size: clamp(2rem, 8vw, 3.5vw);
+        background: var(--gradient2);
+        background-size: cover;
+        color: transparent;
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        filter: drop-shadow(0 0 20px rgba(240, 147, 251, 0.5));
+        animation: titleGlow 3s ease-in-out infinite;
     }
 
     .contact-subtitle {
         font-size: clamp(0.875rem, 3.5vw, 1.3vw);
+        color: var(--secondary);
+        background: rgba(26, 15, 62, 0.3);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid rgba(59, 130, 246, 0.4);
+        border-radius: 25px;
+        box-shadow: 0 8px 32px rgba(59, 130, 246, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        transition: all 0.3s ease;
+    }
+
+    .contact-subtitle:hover {
+        background: rgba(59, 130, 246, 0.25);
+        backdrop-filter: blur(25px);
+        -webkit-backdrop-filter: blur(25px);
+        border-color: rgba(59, 130, 246, 0.6);
+        box-shadow: 0 12px 40px rgba(59, 130, 246, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        transform: translateY(-2px);
     }
 
     .contact-heading {
         font-size: clamp(1.5rem, 6vw, 32px);
-    }
-
-    .text span:hover {
-        background: rgba(59, 130, 246, 0.25);
-        backdrop-filter: blur(25px);
-        -webkit-backdrop-filter: blur(25px);
-        border: 1px solid rgba(59, 130, 246, 0.6);
-        box-shadow: 0 12px 40px rgba(59, 130, 246, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.2);
-        transform: translateY(-2px);
+        background: var(--gradient4);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        filter: drop-shadow(0 0 10px rgba(67, 233, 123, 0.5));
     }
 
     .contact .max-width {
@@ -251,7 +347,7 @@
     }
 
     .info-icon svg {
-        stroke: white;
+        stroke: #fff;
     }
 
     .info-card h3 {
@@ -265,7 +361,6 @@
         font-size: 16px;
         color: var(--secondary);
         margin: 0;
-        filter: none;
     }
 
     .contact .contact-content {
@@ -354,7 +449,7 @@
         font-size: 16px;
         background: rgba(26, 15, 62, 0.3);
         backdrop-filter: blur(25px);
-        color: #ffffff;
+        color: #fff;
         transition: all 0.3s ease;
         box-shadow: 0 8px 32px rgba(59, 130, 246, 0.2);
     }
@@ -412,7 +507,7 @@
         gap: 10px;
         background: var(--gradient2);
         border: 2px solid var(--hover);
-        color: white;
+        color: #fff;
         border-radius: 50px;
         font-size: 16px;
         font-weight: 700;
@@ -448,7 +543,7 @@
     }
 
     .btn-icon {
-        stroke: white;
+        stroke: #fff;
         transition: transform 0.3s ease;
     }
 
@@ -464,18 +559,6 @@
         font-weight: 600;
         display: none;
         animation: slideDown 0.3s ease;
-    }
-
-    @keyframes slideDown {
-        from {
-            opacity: 0;
-            transform: translateY(-10px);
-        }
-
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
     }
 
     .form-message.success {
@@ -520,170 +603,86 @@
         filter: drop-shadow(0 20px 50px rgba(16, 185, 129, 0.6)) brightness(1.1);
     }
 
-    @keyframes imageFloat {
-
-        0%,
-        100% {
-            transform: translateY(0px);
-        }
-
-        50% {
-            transform: translateY(-20px);
-        }
-    }
-
-    @media (max-width: 639px) {
-        .contact {
-            padding: 4rem 1rem 3rem;
-        }
-
-        .contact .text {
-            margin-bottom: 2rem;
-        }
-
-        .contact .text span {
-            padding: 8px 15px;
-            font-size: 0.875rem;
-        }
-
-        .contact-heading {
-            margin-bottom: 2rem;
-        }
-
-        .contact-info-cards {
-            gap: 20px;
-            margin-bottom: 35px;
-            padding: 0 10px;
-        }
-
-        .info-card {
-            min-width: 100%;
-            max-width: 100%;
-            padding: 25px 15px;
-            word-break: break-word;
-        }
-
-        .info-icon {
-            width: 60px;
-            height: 60px;
-            margin-bottom: 15px;
-        }
-
-        .info-icon svg {
-            width: 26px;
-            height: 26px;
-        }
-
-        .info-card h3 {
-            font-size: 18px;
-            margin-bottom: 8px;
-        }
-
-        .info-card p {
-            font-size: 14px;
-        }
-
-        .contact .max-width {
-            padding: 0 10px;
-        }
-
+    @media (min-width: 1200px) {
         .contact .contact-content {
-            flex-direction: column-reverse;
-            gap: 30px;
+            flex-direction: row;
         }
 
         .contact .contact-content .column {
-            width: 100%;
-        }
-
-        .contact .right form .fields {
-            flex-direction: column;
-            gap: 0;
-        }
-
-        .contact .right form .field input {
-            height: 48px;
-            padding: 12px 12px 12px 42px;
-            font-size: 15px;
-        }
-
-        .contact .right form .textarea {
-            height: 160px;
-        }
-
-        .contact .right form .textarea textarea {
-            height: 160px;
-            padding: 12px 12px 12px 42px;
-            font-size: 15px;
-        }
-
-        .input-icon {
-            left: 12px;
-            width: 18px;
-            height: 18px;
-        }
-
-        .floating-label {
-            left: 40px;
-            font-size: 15px;
-        }
-
-        .contact .right form .field input:focus~.floating-label,
-        .contact .right form .field input:not(:placeholder-shown)~.floating-label,
-        .contact .right form .textarea textarea:focus~.floating-label,
-        .contact .right form .textarea textarea:not(:placeholder-shown)~.floating-label {
-            left: 35px;
-            font-size: 11px;
-        }
-
-        .char-counter {
-            bottom: 8px;
-            right: 12px;
-            font-size: 11px;
-        }
-
-        .contact .right form .button-area button {
-            padding: 13px 32px;
-            font-size: 15px;
-            gap: 8px;
-        }
-
-        .btn-icon {
-            width: 18px;
-            height: 18px;
-        }
-
-        .form-message {
-            margin-top: 15px;
-            padding: 12px;
-            font-size: 14px;
+            width: calc(50% - 20px);
         }
 
         .contact .left {
-            justify-content: center;
-        }
-
-        .contact-image-wrapper {
-            margin-top: 0;
+            justify-content: flex-end;
         }
 
         .contact-image-wrapper img {
-            max-width: 100%;
-            width: 280px;
-            margin: 0 auto;
-            display: block;
+            max-width: 450px;
+        }
+    }
+
+    @media (min-width: 1024px) and (max-width: 1199px) {
+        .contact-info-cards {
+            gap: 25px;
+            max-width: 1000px;
         }
 
-        @keyframes imageFloat {
+        .info-card {
+            min-width: 230px;
+            max-width: 300px;
+            padding: 28px 18px;
+        }
 
-            0%,
-            100% {
-                transform: translateY(0px);
-            }
+        .info-icon {
+            width: 65px;
+            height: 65px;
+        }
 
-            50% {
-                transform: translateY(-10px);
-            }
+        .info-card h3 {
+            font-size: 19px;
+        }
+
+        .info-card p {
+            font-size: 15px;
+        }
+
+        .contact .contact-content {
+            flex-direction: row;
+            gap: 35px;
+        }
+
+        .contact .contact-content .column {
+            width: calc(50% - 17.5px);
+        }
+
+        .contact .left {
+            justify-content: flex-end;
+        }
+
+        .contact-image-wrapper img {
+            max-width: 380px;
+        }
+    }
+
+    @media (min-width: 769px) {
+        .animate-pulse-glow {
+            animation: pulseGlow 2s ease-in-out infinite;
+        }
+
+        .animate-slide-up {
+            animation: slideUp 0.6s ease-out forwards;
+            animation-play-state: paused;
+            opacity: 0;
+        }
+
+        .animate-zoom-in {
+            animation: zoomIn 0.5s ease-out forwards;
+            animation-play-state: paused;
+            opacity: 0;
+        }
+
+        .animate-in-view {
+            animation-play-state: running !important;
         }
     }
 
@@ -784,10 +783,9 @@
         }
 
         @keyframes imageFloat {
-
             0%,
             100% {
-                transform: translateY(0px);
+                transform: translateY(0);
             }
 
             50% {
@@ -796,51 +794,275 @@
         }
     }
 
-    @media (min-width: 1024px) and (max-width: 1200px) {
+    @media (max-width: 768px) {
+        .contact {
+            padding: 4rem 1rem 3rem;
+        }
+
+        .contact .text {
+            margin-bottom: 2rem;
+        }
+
+        .contact-subtitle {
+            padding: 8px 15px;
+            font-size: 0.875rem;
+        }
+
+        .contact-heading {
+            margin-bottom: 2rem;
+        }
+
         .contact-info-cards {
-            gap: 25px;
-            max-width: 1000px;
+            gap: 20px;
+            margin-bottom: 35px;
+            padding: 0 10px;
         }
 
         .info-card {
-            min-width: 230px;
-            max-width: 300px;
-            padding: 28px 18px;
+            min-width: 100%;
+            max-width: 100%;
+            padding: 25px 15px;
+            word-break: break-word;
         }
 
         .info-icon {
-            width: 65px;
-            height: 65px;
+            width: 60px;
+            height: 60px;
+            margin-bottom: 15px;
+        }
+
+        .info-icon svg {
+            width: 26px;
+            height: 26px;
         }
 
         .info-card h3 {
-            font-size: 19px;
+            font-size: 18px;
         }
 
         .info-card p {
-            font-size: 15px;
+            font-size: 14px;
+        }
+
+        .contact .max-width {
+            padding: 0 10px;
         }
 
         .contact .contact-content {
-            gap: 35px;
-        }
-
-        .contact-image-wrapper img {
-            max-width: 380px;
-        }
-    }
-
-    @media (min-width: 1200px) {
-        .contact .contact-content {
-            flex-direction: row;
+            flex-direction: column-reverse;
+            gap: 30px;
         }
 
         .contact .contact-content .column {
-            width: calc(50% - 20px);
+            width: 100%;
+        }
+
+        .contact .right form .fields {
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .contact .right form .field input {
+            height: 48px;
+            padding: 12px 12px 12px 42px;
+            font-size: 15px;
+        }
+
+        .contact .right form .textarea {
+            height: 160px;
+        }
+
+        .contact .right form .textarea textarea {
+            height: 160px;
+            padding: 12px 12px 12px 42px;
+            font-size: 15px;
+        }
+
+        .input-icon {
+            left: 12px;
+            width: 18px;
+            height: 18px;
+        }
+
+        .floating-label {
+            left: 40px;
+            font-size: 15px;
+        }
+
+        .contact .right form .field input:focus~.floating-label,
+        .contact .right form .field input:not(:placeholder-shown)~.floating-label,
+        .contact .right form .textarea textarea:focus~.floating-label,
+        .contact .right form .textarea textarea:not(:placeholder-shown)~.floating-label {
+            left: 35px;
+            font-size: 11px;
+        }
+
+        .char-counter {
+            bottom: 8px;
+            right: 12px;
+            font-size: 11px;
+        }
+
+        .contact .right form .button-area button {
+            padding: 13px 32px;
+            font-size: 15px;
+            gap: 8px;
+        }
+
+        .btn-icon {
+            width: 18px;
+            height: 18px;
+        }
+
+        .form-message {
+            margin-top: 15px;
+            padding: 12px;
+            font-size: 14px;
         }
 
         .contact .left {
-            justify-content: flex-end;
+            justify-content: center;
+        }
+
+        .contact-image-wrapper {
+            margin-top: 0;
+        }
+
+        .contact-image-wrapper img {
+            max-width: 100%;
+            width: 280px;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .animate-float-bg,
+        .animate-float-bg-reverse {
+            animation: none !important;
+            transform: none !important;
+            opacity: 0.18 !important;
+            width: 220px !important;
+            height: 220px !important;
+        }
+
+        .contact-title {
+            animation: none !important;
+            filter: none !important;
+        }
+
+        .contact-subtitle {
+            backdrop-filter: none !important;
+            -webkit-backdrop-filter: none !important;
+            box-shadow: none !important;
+            background: rgba(26, 15, 62, 0.5) !important;
+        }
+
+        .contact-heading {
+            animation: none !important;
+            filter: none !important;
+        }
+
+        .info-card {
+            backdrop-filter: none !important;
+            -webkit-backdrop-filter: none !important;
+            border: 1px solid rgba(255, 255, 255, 0.1) !important;
+            box-shadow: none !important;
+            transform: none !important;
+            background: rgba(26, 15, 62, 0.5) !important;
+        }
+
+        .info-card::before {
+            display: none !important;
+        }
+
+        .info-card:hover {
+            transform: none !important;
+            box-shadow: none !important;
+        }
+
+        .contact-image-wrapper img {
+            animation: none !important;
+            transform: none !important;
+            filter: none !important;
+        }
+
+        .contact .right form .field input,
+        .contact .right form .textarea textarea {
+            backdrop-filter: none !important;
+            -webkit-backdrop-filter: none !important;
+            box-shadow: none !important;
+            background: rgba(26, 15, 62, 0.5) !important;
+        }
+
+        .contact .right form .field input:focus,
+        .contact .right form .textarea textarea:focus {
+            background: rgba(26, 15, 62, 0.6) !important;
+            box-shadow: none !important;
+        }
+
+        .floating-label {
+            transition: none !important;
+        }
+
+        .contact .right form .button-area button {
+            transform: none !important;
+            box-shadow: none !important;
+        }
+
+        .contact .right form .button-area button::before {
+            display: none !important;
+        }
+
+        .contact .right form .button-area button:hover {
+            transform: none !important;
+            box-shadow: none !important;
+        }
+
+        .animate-slide-up,
+        .animate-zoom-in {
+            opacity: 1 !important;
+            animation: none !important;
+            transform: none !important;
+        }
+
+        .contact-image-wrapper:hover img {
+            transform: none !important;
+            filter: none !important;
+        }
+
+        .contact .right form .field input,
+        .contact .right form .textarea textarea {
+            padding-left: 42px !important;
+        }
+
+        @keyframes imageFloat {
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+    }
+
+    @media (max-width: 639px) {
+        .contact {
+            padding: 4rem 1rem 3rem;
+        }
+
+        .info-icon {
+            width: 60px;
+            height: 60px;
+        }
+
+        .contact-image-wrapper img {
+            width: 280px;
+        }
+
+        .form-message {
+            font-size: 14px !important;
+            padding: 12px !important;
         }
     }
 </style>
@@ -956,6 +1178,27 @@
                     submitBtn.style.opacity = '1';
                 }
             });
+        }
+
+        // Initialize intersection observer for scroll animations (desktop only)
+        if (window.innerWidth > 768) {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate-in-view');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            // Observe animated elements
+            const animatedElements = document.querySelectorAll('.animate-slide-up, .animate-zoom-in');
+            animatedElements.forEach(el => observer.observe(el));
         }
     })();
 </script>

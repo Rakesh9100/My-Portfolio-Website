@@ -9,41 +9,41 @@ const certificatesDataJSON = JSON.stringify(certificatesDataImport);
 
 <section class="certificates z-[3] h-full min-h-screen relative overflow-hidden py-24 px-5 pb-20" id="certificates" style="background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);">
     <!-- Floating Background -->
-    <div class="absolute top-[10%] -left-[15%] w-[500px] h-[500px] rounded-full animate-float-bg" style="background: radial-gradient(circle, rgba(59, 130, 246, 0.12) 0%, transparent 70%);"></div>
-    <div class="absolute bottom-[20%] -right-[10%] w-[600px] h-[600px] rounded-full animate-float-bg-reverse" style="background: radial-gradient(circle, rgba(217, 70, 239, 0.12) 0%, transparent 70%);"></div>
+    <div class="floating-bg floating-bg-1"></div>
+    <div class="floating-bg floating-bg-2"></div>
 
     <div class="title relative text-center font-bold mb-6">
-        <span class="certificates-title uppercase" style="background: var(--gradient2); background-size: cover; color: transparent; background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 0 20px rgba(240, 147, 251, 0.5)); animation: titleGlow 3s ease-in-out infinite;">My Certificates</span>
+        <span class="certificates-title uppercase">My Certificates</span>
     </div>
 
     <div class="text text-center mb-16">
-        <span class="certificates-subtitle px-4 py-1 inline-block text-center" style="color: var(--secondary); background: rgba(26, 15, 62, 0.3); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(59, 130, 246, 0.4); border-radius: 25px; box-shadow: 0 8px 32px rgba(59, 130, 246, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);">Earning a certificate or degree, or both, after high school opens the door to countless economic opportunities.</span>
+        <span class="certificates-subtitle px-4 py-1 inline-block text-center">Earning a certificate or degree, or both, after high school opens the door to countless economic opportunities.</span>
     </div>
 
     <!-- Certificate Controls -->
-    <div class="certificate-controls flex flex-col gap-5 px-[100px] mt-10 items-center">
-        <div class="certificate-search-wrapper flex items-center justify-center gap-4 w-full">
-            <div class="search-input-container relative flex-1 max-w-[500px] flex items-center">
-                <svg class="search-icon absolute left-[18px] pointer-events-none z-[1]" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" style="color: var(--hover); stroke-width: 2.5; filter: drop-shadow(0 0 5px rgba(16, 185, 129, 0.5));">
+    <div class="certificate-controls">
+        <div class="certificate-search-wrapper">
+            <div class="search-input-container">
+                <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                     <circle cx="11" cy="11" r="8"></circle>
                     <path d="m21 21-4.35-4.35"></path>
                 </svg>
-                <input type="text" id="certificate-search" class="certificate-search w-full py-[15px] px-5 pl-[50px] rounded-full text-white text-base outline-none transition-all duration-300" placeholder="Search certificates..." style="background: rgba(26, 15, 62, 0.4); backdrop-filter: blur(20px); border: 2px solid rgba(16, 185, 129, 0.3);">
+                <input type="text" id="certificate-search" class="certificate-search" placeholder="Search certificates...">
             </div>
-            <span class="certificate-count py-2.5 px-6 rounded-full text-white font-semibold text-sm whitespace-nowrap" id="certificate-count" style="background: var(--gradient2); box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);">30 certificates</span>
+            <span class="certificate-count" id="certificate-count">30 certificates</span>
         </div>
-        <div class="certificate-filters flex gap-3 flex-wrap justify-center" id="certificate-filters">
-            <button class="cert-filter-btn active py-2 px-7 rounded-full text-white text-[15px] font-semibold cursor-pointer relative transition-all duration-400" data-year="all">All Years</button>
-            <button class="cert-filter-btn py-2 px-7 rounded-full text-white text-[15px] font-semibold cursor-pointer relative transition-all duration-400" data-year="2025">2025</button>
-            <button class="cert-filter-btn py-2 px-7 rounded-full text-white text-[15px] font-semibold cursor-pointer relative transition-all duration-400" data-year="2024">2024</button>
-            <button class="cert-filter-btn py-2 px-7 rounded-full text-white text-[15px] font-semibold cursor-pointer relative transition-all duration-400" data-year="2023">2023</button>
-            <button class="cert-filter-btn py-2 px-7 rounded-full text-white text-[15px] font-semibold cursor-pointer relative transition-all duration-400" data-year="2022">2022</button>
-            <button class="cert-filter-btn py-2 px-7 rounded-full text-white text-[15px] font-semibold cursor-pointer relative transition-all duration-400" data-year="2021">2021</button>
-            <button class="cert-filter-btn py-2 px-7 rounded-full text-white text-[15px] font-semibold cursor-pointer relative transition-all duration-400" data-year="2020">2020</button>
+        <div class="certificate-filters" id="certificate-filters">
+            <button class="cert-filter-btn active" data-year="all">All Years</button>
+            <button class="cert-filter-btn" data-year="2025">2025</button>
+            <button class="cert-filter-btn" data-year="2024">2024</button>
+            <button class="cert-filter-btn" data-year="2023">2023</button>
+            <button class="cert-filter-btn" data-year="2022">2022</button>
+            <button class="cert-filter-btn" data-year="2021">2021</button>
+            <button class="cert-filter-btn" data-year="2020">2020</button>
         </div>
     </div>
 
-    <div class="certificate-boxes flex flex-wrap items-start justify-center px-[100px] pb-[25px] gap-x-[25px] gap-y-[45px] mt-10" id="certificate-boxes">
+    <div class="certificate-boxes" id="certificate-boxes">
         <!-- Certificates will be loaded here dynamically -->
     </div>
 
@@ -110,23 +110,54 @@ const certificatesDataJSON = JSON.stringify(certificatesDataImport);
         }
     }
 
-    .animate-float-bg {
+    .floating-bg {
+        position: absolute;
+        border-radius: 50%;
+    }
+
+    .floating-bg-1 {
+        top: 10%;
+        left: -15%;
+        width: 500px;
+        height: 500px;
+        background: radial-gradient(circle, rgba(59, 130, 246, 0.12) 0%, transparent 70%);
         animation: float-bg 20s ease-in-out infinite;
     }
 
-    .animate-float-bg-reverse {
+    .floating-bg-2 {
+        bottom: 20%;
+        right: -10%;
+        width: 600px;
+        height: 600px;
+        background: radial-gradient(circle, rgba(217, 70, 239, 0.12) 0%, transparent 70%);
         animation: float-bg-reverse 25s ease-in-out infinite;
     }
 
     .certificates-title {
         font-size: clamp(2rem, 8vw, 3.5vw);
+        background: var(--gradient2);
+        background-size: cover;
+        color: transparent;
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        filter: drop-shadow(0 0 20px rgba(240, 147, 251, 0.5));
+        animation: titleGlow 3s ease-in-out infinite;
     }
 
     .certificates-subtitle {
         font-size: clamp(0.875rem, 3.5vw, 1.3vw);
+        color: var(--secondary);
+        background: rgba(26, 15, 62, 0.3);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid rgba(59, 130, 246, 0.4);
+        border-radius: 25px;
+        box-shadow: 0 8px 32px rgba(59, 130, 246, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        transition: all 0.3s ease;
     }
 
-    .text span:hover {
+    .certificates-subtitle:hover {
         background: rgba(59, 130, 246, 0.25);
         backdrop-filter: blur(25px);
         -webkit-backdrop-filter: blur(25px);
@@ -160,7 +191,7 @@ const certificatesDataJSON = JSON.stringify(certificatesDataImport);
         align-items: center;
     }
 
-    .search-input-container .search-icon {
+    .search-icon {
         position: absolute;
         left: 18px;
         color: var(--hover);
@@ -212,24 +243,30 @@ const certificatesDataJSON = JSON.stringify(certificatesDataImport);
     }
 
     .cert-filter-btn {
-        background: rgba(26, 15, 62, 0.5) !important;
-        backdrop-filter: blur(20px) !important;
-        border: 2px solid rgba(255, 255, 255, 0.2) !important;
-        box-shadow: none !important;
+        padding: 8px 28px;
+        background: rgba(26, 15, 62, 0.5);
+        backdrop-filter: blur(20px);
+        border: 2px solid rgba(255, 255, 255, 0.2);
+        border-radius: 50px;
+        color: white;
+        font-size: 15px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.4s ease;
     }
 
     .cert-filter-btn:hover {
-        background: rgba(26, 15, 62, 0.6) !important;
-        border: 2px solid rgba(255, 107, 53, 0.9) !important;
+        background: rgba(26, 15, 62, 0.6);
+        border: 2px solid rgba(255, 107, 53, 0.9);
     }
 
     .cert-filter-btn.active {
-        background: var(--gradient2) !important;
-        border: 2px solid transparent !important;
-        color: white !important;
+        background: var(--gradient2);
+        border: 2px solid transparent;
+        color: white;
     }
 
-    .certificates .certificate-boxes {
+    .certificate-boxes {
         display: flex;
         flex-wrap: wrap;
         align-items: flex-start;
@@ -527,6 +564,216 @@ const certificatesDataJSON = JSON.stringify(certificatesDataImport);
         font-size: 16px;
     }
 
+    /* Tablet (641px to 1023px) */
+    @media (min-width: 641px) and (max-width: 1023px) {
+        .certificates .text {
+            margin-bottom: 3rem;
+        }
+
+        .certificate-controls {
+            padding: 0 30px;
+            margin-top: 35px;
+        }
+
+        .certificate-search-wrapper {
+            gap: 12px;
+        }
+
+        .search-input-container {
+            max-width: 400px;
+        }
+
+        .certificate-search {
+            padding: 13px 18px 13px 48px;
+            font-size: 15px;
+        }
+
+        .certificate-count {
+            padding: 9px 22px;
+            font-size: 13.5px;
+        }
+
+        .cert-filter-btn {
+            padding: 9px 22px;
+            font-size: 14px;
+        }
+
+        .certificate-boxes {
+            padding: 0 30px 22px;
+            gap: 35px;
+            margin-top: 35px;
+        }
+
+        .certificates .box {
+            min-width: 220px;
+        }
+
+        .certificates .box img {
+            height: 21vw;
+            min-width: 220px;
+        }
+
+        .certificates .box .topic {
+            width: 220px;
+            font-size: 18px;
+        }
+
+        .certificates .box .topic1 {
+            width: 220px;
+            font-size: 14px;
+        }
+
+        .cert-load-more-btn {
+            padding: 13px 28px;
+            font-size: 15px;
+        }
+    }
+
+    /* Desktop Small (1024px to 1199px) */
+    @media (min-width: 1024px) and (max-width: 1199px) {
+        .certificate-controls {
+            padding: 0 60px;
+        }
+
+        .certificate-boxes {
+            padding: 0 60px 25px;
+        }
+
+        .certificates .box {
+            min-width: 190px;
+        }
+
+        .certificates .box img {
+            height: 13vw;
+            min-width: 190px;
+        }
+
+        .certificates .box .topic {
+            width: 190px;
+            font-size: 16px;
+        }
+
+        .certificates .box .topic1 {
+            width: 190px;
+            font-size: 13px;
+        }
+    }
+
+    /* Desktop Large (1200px+) */
+    @media (min-width: 1200px) {
+        .certificate-controls {
+            padding: 0 100px;
+        }
+
+        .certificate-boxes {
+            padding: 0 100px 25px;
+        }
+    }
+
+    /* Mobile Performance Optimizations (768px and below) */
+    @media (max-width: 768px) {
+        .floating-bg-1,
+        .floating-bg-2 {
+            animation: none;
+            opacity: 0.18;
+            transform: none;
+            width: 220px;
+            height: 220px;
+        }
+
+        .certificates-title {
+            animation: none;
+            filter: none;
+        }
+
+        .certificates-subtitle {
+            backdrop-filter: none;
+            -webkit-backdrop-filter: none;
+            box-shadow: none;
+            background: rgba(26, 15, 62, 0.5);
+        }
+
+        .certificates .box {
+            backdrop-filter: none;
+            -webkit-backdrop-filter: none;
+            box-shadow: none;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(26, 15, 62, 0.5);
+            transform: none;
+        }
+
+        .certificates .box:hover {
+            transform: none;
+            box-shadow: none;
+            backdrop-filter: none;
+            -webkit-backdrop-filter: none;
+            background: rgba(26, 15, 62, 0.5);
+        }
+
+        .certificates .box::before {
+            display: none;
+        }
+
+        .certificates .box img,
+        .certificates .box:hover img {
+            transform: none;
+            filter: none;
+        }
+
+        .cert-overlay {
+            display: none;
+        }
+
+        .certificate-search {
+            backdrop-filter: none;
+            -webkit-backdrop-filter: none;
+            box-shadow: none;
+            background: rgba(26, 15, 62, 0.5);
+        }
+
+        .search-icon {
+            filter: none;
+        }
+
+        .cert-filter-btn {
+            backdrop-filter: none;
+            -webkit-backdrop-filter: none;
+            box-shadow: none;
+            background: rgba(26, 15, 62, 0.5);
+        }
+
+        .cert-load-more-btn {
+            backdrop-filter: none;
+            -webkit-backdrop-filter: none;
+            box-shadow: none;
+            background: rgba(26, 15, 62, 0.4);
+        }
+
+        .cert-load-more-btn::before {
+            display: none;
+        }
+
+        .cert-load-more-btn:hover {
+            transform: none;
+        }
+
+        .modal-backdrop {
+            backdrop-filter: none;
+            -webkit-backdrop-filter: none;
+        }
+
+        .modal-content {
+            backdrop-filter: none;
+            -webkit-backdrop-filter: none;
+            box-shadow: none;
+        }
+
+        .modal-close:hover {
+            transform: none;
+        }
+    }
+
+    /* Mobile (up to 640px) */
     @media (max-width: 640px) {
         .certificates {
             padding: 4rem 3rem 3rem;
@@ -536,7 +783,7 @@ const certificatesDataJSON = JSON.stringify(certificatesDataImport);
             margin-bottom: 2rem;
         }
 
-        .certificates .text span {
+        .certificates-subtitle {
             padding: 8px 15px;
             font-size: 0.875rem;
         }
@@ -561,7 +808,7 @@ const certificatesDataJSON = JSON.stringify(certificatesDataImport);
             font-size: 14px;
         }
 
-        .search-input-container .search-icon {
+        .search-icon {
             left: 15px;
             width: 18px;
             height: 18px;
@@ -581,7 +828,7 @@ const certificatesDataJSON = JSON.stringify(certificatesDataImport);
             font-size: 13px;
         }
 
-        .certificates .certificate-boxes {
+        .certificate-boxes {
             padding: 0 15px 20px;
             gap: 30px;
             margin-top: 30px;
@@ -668,109 +915,6 @@ const certificatesDataJSON = JSON.stringify(certificatesDataImport);
         .modal-close svg {
             width: 20px;
             height: 20px;
-        }
-    }
-
-    @media (min-width: 641px) and (max-width: 1023px) {
-        .certificates .text {
-            margin-bottom: 3rem;
-        }
-
-        .certificate-controls {
-            padding: 0 30px;
-            margin-top: 35px;
-        }
-
-        .certificate-search-wrapper {
-            gap: 12px;
-        }
-
-        .search-input-container {
-            max-width: 400px;
-        }
-
-        .certificate-search {
-            padding: 13px 18px 13px 48px;
-            font-size: 15px;
-        }
-
-        .certificate-count {
-            padding: 9px 22px;
-            font-size: 13.5px;
-        }
-
-        .cert-filter-btn {
-            padding: 9px 22px;
-            font-size: 14px;
-        }
-
-        .certificates .certificate-boxes {
-            padding: 0 30px 22px;
-            gap: 35px;
-            margin-top: 35px;
-        }
-
-        .certificates .box {
-            min-width: 220px;
-        }
-
-        .certificates .box img {
-            height: 21vw;
-            min-width: 220px;
-        }
-
-        .certificates .box .topic {
-            width: 220px;
-            font-size: 18px;
-        }
-
-        .certificates .box .topic1 {
-            width: 220px;
-            font-size: 14px;
-        }
-
-        .cert-load-more-btn {
-            padding: 13px 28px;
-            font-size: 15px;
-        }
-    }
-
-    @media (min-width: 1024px) and (max-width: 1200px) {
-        .certificate-controls {
-            padding: 0 60px;
-        }
-
-        .certificates .certificate-boxes {
-            padding: 0 60px 25px;
-        }
-
-        .certificates .box {
-            min-width: 190px;
-        }
-
-        .certificates .box img {
-            height: 13vw;
-            min-width: 190px;
-        }
-
-        .certificates .box .topic {
-            width: 190px;
-            font-size: 16px;
-        }
-
-        .certificates .box .topic1 {
-            width: 190px;
-            font-size: 13px;
-        }
-    }
-
-    @media (min-width: 1200px) {
-        .certificate-controls {
-            padding: 0 100px;
-        }
-
-        .certificates .certificate-boxes {
-            padding: 0 100px 25px;
         }
     }
 </style>

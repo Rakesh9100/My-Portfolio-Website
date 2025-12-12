@@ -12,7 +12,7 @@ const navItems = [
 ---
 
 <nav class="navbar fixed w-full z-[999] transition-all duration-300 px-4 sm:px-6 md:px-8 py-2">
-    <div class="max-width max-w-full mx-auto flex items-center justify-between px-3 sm:px-4 py-1.5 rounded-[20px] sm:rounded-[25px] relative" style="background: rgba(10, 10, 30, 0.5); backdrop-filter: blur(35px); -webkit-backdrop-filter: blur(35px); border: 2px solid transparent; box-shadow: 0 10px 40px rgba(16, 185, 129, 0.25), 0 5px 20px rgba(59, 130, 246, 0.25), inset 0 2px 0 rgba(255, 255, 255, 0.1), inset 0 -2px 10px rgba(16, 185, 129, 0.1);">
+    <div class="max-width max-w-full mx-auto flex items-center justify-between px-3 sm:px-4 py-1.5 rounded-[20px] sm:rounded-[25px] relative" style="background: rgba(10, 10, 30, 1); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); border: 2px solid transparent; box-shadow: 0 10px 40px rgba(16, 185, 129, 0.25), 0 5px 20px rgba(59, 130, 246, 0.25), inset 0 2px 0 rgba(255, 255, 255, 0.1), inset 0 -2px 10px rgba(16, 185, 129, 0.1);">
 
         <!-- Animated Border -->
         <div class="absolute inset-0 rounded-[20px] sm:rounded-[25px] p-[2px] pointer-events-none -z-[1] animate-border-rotate" style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.7), rgba(59, 130, 246, 0.7), rgba(139, 92, 246, 0.7)); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); mask-composite: exclude;"></div>
@@ -67,28 +67,28 @@ const navItems = [
                     </svg>
                 </button>
                 <div class="theme-options absolute top-[55px] right-0 rounded-[15px] px-4 py-4 opacity-0 invisible -translate-y-2.5 transition-all duration-300 min-w-[180px]" id="theme-options" style="background: rgba(26, 15, 62, 0.4); backdrop-filter: blur(30px); -webkit-backdrop-filter: blur(30px); box-shadow: 0 12px 60px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2);">
-                    <button class="theme-btn active w-full flex items-center gap-3 px-4 py-2.5 mb-2 rounded-[10px] cursor-pointer transition-all duration-300 text-white text-sm font-semibold" data-theme="sunset" style="background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.15); box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.05);">
-                    <span class="theme-color w-[30px] h-[30px] rounded-full block" style="background: linear-gradient(135deg, #FF512F 0%, #F09819 100%); box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);"></span>
+                    <button class="theme-btn theme-btn-base active w-full flex items-center gap-3 px-4 py-2.5 mb-2 rounded-[10px] cursor-pointer transition-all duration-300 text-white text-sm font-semibold" data-theme="sunset">
+                    <span class="theme-color theme-color-base w-[30px] h-[30px] rounded-full block theme-sunset"></span>
                     <span class="theme-name flex-1 text-left">Sunset</span>
                     </button>
-                    <button class="theme-btn w-full flex items-center gap-3 px-4 py-2.5 mb-2 rounded-[10px] cursor-pointer transition-all duration-300 text-white text-sm font-semibold" data-theme="purple" style="background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.15); box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.05);">
-                    <span class="theme-color w-[30px] h-[30px] rounded-full block" style="background: linear-gradient(135deg, #5f27cd 0%, #341f97 100%); box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);"></span>
+                    <button class="theme-btn theme-btn-base w-full flex items-center gap-3 px-4 py-2.5 mb-2 rounded-[10px] cursor-pointer transition-all duration-300 text-white text-sm font-semibold" data-theme="purple">
+                    <span class="theme-color theme-color-base w-[30px] h-[30px] rounded-full block theme-purple"></span>
                     <span class="theme-name flex-1 text-left">Purple</span>
                     </button>
-                    <button class="theme-btn w-full flex items-center gap-3 px-4 py-2.5 mb-2 rounded-[10px] cursor-pointer transition-all duration-300 text-white text-sm font-semibold" data-theme="ocean" style="background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.15); box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.05);">
-                    <span class="theme-color w-[30px] h-[30px] rounded-full block" style="background: linear-gradient(135deg, #2E3192 0%, #1BFFFF 100%); box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);"></span>
+                    <button class="theme-btn theme-btn-base w-full flex items-center gap-3 px-4 py-2.5 mb-2 rounded-[10px] cursor-pointer transition-all duration-300 text-white text-sm font-semibold" data-theme="ocean">
+                    <span class="theme-color theme-color-base w-[30px] h-[30px] rounded-full block theme-ocean"></span>
                     <span class="theme-name flex-1 text-left">Ocean</span>
                     </button>
-                    <button class="theme-btn w-full flex items-center gap-3 px-4 py-2.5 mb-2 rounded-[10px] cursor-pointer transition-all duration-300 text-white text-sm font-semibold" data-theme="forest" style="background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.15); box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.05);">
-                    <span class="theme-color w-[30px] h-[30px] rounded-full block" style="background: linear-gradient(135deg, #134E5E 0%, #71B280 100%); box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);"></span>
+                    <button class="theme-btn theme-btn-base w-full flex items-center gap-3 px-4 py-2.5 mb-2 rounded-[10px] cursor-pointer transition-all duration-300 text-white text-sm font-semibold" data-theme="forest">
+                    <span class="theme-color theme-color-base w-[30px] h-[30px] rounded-full block theme-forest"></span>
                     <span class="theme-name flex-1 text-left">Forest</span>
                     </button>
-                    <button class="theme-btn w-full flex items-center gap-3 px-4 py-2.5 mb-2 rounded-[10px] cursor-pointer transition-all duration-300 text-white text-sm font-semibold" data-theme="rose" style="background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.15); box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.05);">
-                    <span class="theme-color w-[30px] h-[30px] rounded-full block" style="background: linear-gradient(135deg, #EC008C 0%, #FC6767 100%); box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);"></span>
+                    <button class="theme-btn theme-btn-base w-full flex items-center gap-3 px-4 py-2.5 mb-2 rounded-[10px] cursor-pointer transition-all duration-300 text-white text-sm font-semibold" data-theme="rose">
+                    <span class="theme-color theme-color-base w-[30px] h-[30px] rounded-full block theme-rose"></span>
                     <span class="theme-name flex-1 text-left">Rose</span>
                     </button>
-                    <button class="theme-btn w-full flex items-center gap-3 px-4 py-2.5 rounded-[10px] cursor-pointer transition-all duration-300 text-white text-sm font-semibold" data-theme="midnight" style="background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.15); box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.05);">
-                    <span class="theme-color w-[30px] h-[30px] rounded-full block" style="background: linear-gradient(135deg, #2C3E50 0%, #4CA1AF 100%); box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);"></span>
+                    <button class="theme-btn theme-btn-base w-full flex items-center gap-3 px-4 py-2.5 rounded-[10px] cursor-pointer transition-all duration-300 text-white text-sm font-semibold" data-theme="midnight">
+                    <span class="theme-color theme-color-base w-[30px] h-[30px] rounded-full block theme-midnight"></span>
                     <span class="theme-name flex-1 text-left">Midnight</span>
                     </button>
                 </div>
@@ -108,14 +108,14 @@ const navItems = [
 
     <!-- Mobile Menu -->
     <div class="mobile-menu lg:hidden fixed top-[70px] left-0 right-0 opacity-0 invisible translate-y-[-20px] transition-all duration-300 z-[998] px-4" id="mobile-menu">
-        <div class="mobile-menu-content rounded-[20px] overflow-hidden" style="background: rgba(10, 10, 30, 0.95); backdrop-filter: blur(35px); -webkit-backdrop-filter: blur(35px); border: 2px solid rgba(16, 185, 129, 0.3); box-shadow: 0 10px 40px rgba(16, 185, 129, 0.25), 0 5px 20px rgba(59, 130, 246, 0.25);">
+        <div class="mobile-menu-content rounded-[20px] overflow-hidden" style="background: rgba(5, 5, 15, 0.98); backdrop-filter: blur(35px); -webkit-backdrop-filter: blur(35px); border: 2px solid rgba(16, 185, 129, 0.3); box-shadow: 0 10px 40px rgba(16, 185, 129, 0.25), 0 5px 20px rgba(59, 130, 246, 0.25);">
             <ul class="list-none p-4">
                 {navItems.map((item, index) => (
                 <li class="mb-2">
                     <a
                     href={item.href}
-                    class={`mobile-nav-link block text-center text-white/90 font-bold px-4 py-3 rounded-[12px] transition-all duration-300 hover:text-white${index === 0 ? ' active' : ''}`}
-                    style="font-size: 14px; background: rgba(255, 255, 255, 0.05);"
+                    class={`mobile-nav-link block text-center text-white font-bold px-4 py-3 rounded-[12px] transition-all duration-300 hover:text-white${index === 0 ? ' active' : ''}`}
+                    style="font-size: 14px; background: rgba(255, 255, 255, 0.08); color: #ffffff;"
                     >
                     {item.label}
                     </a>
@@ -125,250 +125,6 @@ const navItems = [
         </div>
     </div>
 </nav>
-
-<script>
-    // Mobile Menu Toggle
-    const menuToggle = document.getElementById('menu-toggle');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const hamburgerIcon = menuToggle?.querySelector('.hamburger');
-    const closeIcon = menuToggle?.querySelector('.close');
-    const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
-
-    menuToggle?.addEventListener('click', () => {
-        const isOpen = mobileMenu?.classList.contains('active');
-
-        if (isOpen) {
-            // Close menu
-            mobileMenu?.classList.remove('active');
-            if (mobileMenu) {
-                mobileMenu.style.opacity = '0';
-                mobileMenu.style.visibility = 'hidden';
-                mobileMenu.style.transform = 'translateY(-20px)';
-            }
-            hamburgerIcon?.classList.remove('hidden');
-            closeIcon?.classList.add('hidden');
-            document.body.style.overflow = '';
-        } else {
-            // Open menu
-            mobileMenu?.classList.add('active');
-            if (mobileMenu) {
-                mobileMenu.style.opacity = '1';
-                mobileMenu.style.visibility = 'visible';
-                mobileMenu.style.transform = 'translateY(0)';
-            }
-            hamburgerIcon?.classList.add('hidden');
-            closeIcon?.classList.remove('hidden');
-            document.body.style.overflow = 'hidden';
-        }
-    });
-
-    // Close mobile menu when clicking a link
-    mobileNavLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            mobileMenu?.classList.remove('active');
-            if (mobileMenu) {
-                mobileMenu.style.opacity = '0';
-                mobileMenu.style.visibility = 'hidden';
-                mobileMenu.style.transform = 'translateY(-20px)';
-            }
-            hamburgerIcon?.classList.remove('hidden');
-            closeIcon?.classList.add('hidden');
-            document.body.style.overflow = '';
-        });
-    });
-
-    // Close mobile menu when clicking outside
-    document.addEventListener('click', (e) => {
-        const target = e.target as Node;
-        if (mobileMenu?.classList.contains('active') &&
-            !mobileMenu.contains(target) &&
-            !menuToggle?.contains(target)) {
-            mobileMenu.classList.remove('active');
-            mobileMenu.style.opacity = '0';
-            mobileMenu.style.visibility = 'hidden';
-            mobileMenu.style.transform = 'translateY(-20px)';
-            hamburgerIcon?.classList.remove('hidden');
-            closeIcon?.classList.add('hidden');
-            document.body.style.overflow = '';
-        }
-    });
-
-    // Theme Switcher
-    const themeToggleBtn = document.getElementById('theme-toggle-btn');
-    const themeOptions = document.getElementById('theme-options');
-    const themeButtons = document.querySelectorAll('.theme-btn');
-
-    // Load saved theme
-    const savedTheme = localStorage.getItem('theme') || 'sunset';
-    document.documentElement.setAttribute('data-theme', savedTheme);
-
-    // Update active theme button
-    themeButtons.forEach(btn => {
-        if (btn.getAttribute('data-theme') === savedTheme) {
-            btn.classList.add('active');
-        } else {
-            btn.classList.remove('active');
-        }
-    });
-
-    // Toggle theme options with rotation animation
-    themeToggleBtn?.addEventListener('click', () => {
-        themeOptions?.classList.toggle('active');
-        if (themeOptions?.classList.contains('active')) {
-            themeOptions.style.opacity = '1';
-            themeOptions.style.visibility = 'visible';
-            themeOptions.style.transform = 'translateY(0)';
-            // Rotate button when opening
-            themeToggleBtn.style.transform = 'scale(1.1) rotate(180deg)';
-        } else {
-            themeOptions.style.opacity = '0';
-            themeOptions.style.visibility = 'hidden';
-            themeOptions.style.transform = 'translateY(-10px)';
-            // Reverse rotation when closing
-            themeToggleBtn.style.transform = 'scale(1) rotate(0deg)';
-        }
-    });
-
-    // Close theme options when clicking outside
-    document.addEventListener('click', (e) => {
-        const themeSwitcher = document.getElementById('theme-switcher');
-        if (themeSwitcher && !themeSwitcher.contains(e.target as Node)) {
-            themeOptions?.classList.remove('active');
-            if (themeOptions) {
-                (themeOptions as HTMLElement).style.opacity = '0';
-                (themeOptions as HTMLElement).style.visibility = 'hidden';
-                (themeOptions as HTMLElement).style.transform = 'translateY(-10px)';
-            }
-        }
-    });
-
-    // Change theme
-    themeButtons.forEach(btn => {
-        btn.addEventListener('click', () => {
-            const theme = btn.getAttribute('data-theme');
-            if (theme) {
-                document.documentElement.setAttribute('data-theme', theme);
-                localStorage.setItem('theme', theme);
-
-                // Update active state
-                themeButtons.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-            }
-        });
-    });
-
-    // Remove focus outline when clicking nav links
-    const navLinks = document.querySelectorAll('.nav-link, .mobile-nav-link');
-    navLinks.forEach(link => {
-        link.addEventListener('click', function (e) {
-            // Remove focus from the clicked link to prevent outline
-            setTimeout(() => {
-                (e.target as HTMLElement).blur();
-            }, 100);
-        });
-    });
-
-    // Active menu highlighting
-    const sections = document.querySelectorAll('section[id]');
-    const allNavLinks = document.querySelectorAll('.nav-link, .mobile-nav-link');
-
-    // Set HOME as active by default on page load
-    function setDefaultActive() {
-        const scrollY = window.pageYOffset;
-        if (scrollY < 100) {
-            allNavLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === '#home') {
-                    link.classList.add('active');
-                }
-            });
-        }
-    }
-
-    let scrollTimeout: ReturnType < typeof setTimeout > ;
-
-    function highlightNav() {
-        // Debounce scroll events to reduce flickering during smooth scroll
-        clearTimeout(scrollTimeout);
-        scrollTimeout = setTimeout(() => {
-            const scrollY = window.pageYOffset;
-
-            // If at top of page, activate HOME
-            if (scrollY < 100) {
-                setDefaultActive();
-                return;
-            }
-
-            let activeSection: string | null = null;
-
-            // Find the section that's most visible in viewport
-            sections.forEach(section => {
-                const htmlSection = section as HTMLElement;
-                const sectionHeight = htmlSection.offsetHeight;
-                const sectionTop = htmlSection.offsetTop - 150;
-                const sectionId = section.getAttribute('id');
-
-                if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
-                    activeSection = sectionId;
-                }
-            });
-
-            // Only update if we found an active section
-            if (activeSection) {
-                allNavLinks.forEach(link => {
-                    link.classList.remove('active');
-                    if (link.getAttribute('href') === `#${activeSection}`) {
-                        link.classList.add('active');
-                    }
-                });
-            }
-        }, 50);
-    }
-
-    // Handle hash navigation on page load
-    function handleHashNavigation() {
-        const hash = window.location.hash;
-        if (hash) {
-            // Remove active from all links
-            allNavLinks.forEach(link => link.classList.remove('active'));
-
-            // Find and activate the link matching the hash
-            const targetLink = Array.from(allNavLinks).find(link => link.getAttribute('href') === hash);
-            if (targetLink) {
-                targetLink.classList.add('active');
-            }
-        } else {
-            // No hash, set HOME as active
-            setDefaultActive();
-        }
-    }
-
-    // Set active based on hash or default to HOME on page load
-    handleHashNavigation();
-
-    // Also handle hash changes (browser back/forward)
-    window.addEventListener('hashchange', handleHashNavigation);
-
-    window.addEventListener('scroll', highlightNav, {
-        passive: true
-    });
-
-    // Resume button hover effect
-    const resumeBtn = document.querySelector('.resume-btn');
-    resumeBtn?.addEventListener('mouseenter', () => {
-        const svg = resumeBtn.querySelector('svg');
-        if (svg) {
-            svg.style.animation = 'bounceDown 0.6s ease infinite';
-        }
-    });
-
-    resumeBtn?.addEventListener('mouseleave', () => {
-        const svg = resumeBtn.querySelector('svg');
-        if (svg) {
-            svg.style.animation = '';
-        }
-    });
-</script>
 
 <style>
     @keyframes border-rotate {
@@ -398,25 +154,20 @@ const navItems = [
 
     .nav-link {
         transition: all 0.4s ease;
-        outline: none !important;
-        border: none !important;
     }
 
-    .nav-link:focus {
-        outline: none !important;
-        border: none !important;
-        box-shadow: none !important;
-    }
-
-    .nav-link:focus-visible {
-        outline: none !important;
-        border: none !important;
-        box-shadow: none !important;
-    }
-
+    .nav-link,
+    .nav-link:focus,
+    .nav-link:focus-visible,
     .nav-link:active {
         outline: none !important;
         border: none !important;
+        box-shadow: none !important;
+    }
+
+    .nav-link:focus,
+    .nav-link:focus-visible {
+        box-shadow: none !important;
     }
 
     .nav-link::before {
@@ -535,6 +286,42 @@ const navItems = [
         border-bottom: 8px solid rgba(26, 15, 62, 0.4);
     }
 
+    .theme-btn-base {
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    }
+
+    .theme-color-base {
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .theme-sunset {
+        background: linear-gradient(135deg, #FF512F 0%, #F09819 100%);
+    }
+
+    .theme-purple {
+        background: linear-gradient(135deg, #5f27cd 0%, #341f97 100%);
+    }
+
+    .theme-ocean {
+        background: linear-gradient(135deg, #2E3192 0%, #1BFFFF 100%);
+    }
+
+    .theme-forest {
+        background: linear-gradient(135deg, #134E5E 0%, #71B280 100%);
+    }
+
+    .theme-rose {
+        background: linear-gradient(135deg, #EC008C 0%, #FC6767 100%);
+    }
+
+    .theme-midnight {
+        background: linear-gradient(135deg, #2C3E50 0%, #4CA1AF 100%);
+    }
+
     .theme-btn:hover {
         background: rgba(255, 255, 255, 0.12);
         backdrop-filter: blur(25px);
@@ -586,25 +373,114 @@ const navItems = [
     }
 
     .mobile-nav-link:hover {
-        background: rgba(16, 185, 129, 0.15);
+        background: rgba(255, 255, 255, 0.15);
+        background: color-mix(in srgb, var(--primary) 15%, transparent);
         transform: translateX(5px);
-        box-shadow: 0 4px 15px rgba(16, 185, 129, 0.2);
+        box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+        box-shadow: 0 4px 15px color-mix(in srgb, var(--primary) 20%, transparent);
     }
 
     .mobile-nav-link.active {
-        background: linear-gradient(135deg, rgba(16, 185, 129, 0.3), rgba(59, 130, 246, 0.3));
-        border: 1px solid rgba(16, 185, 129, 0.5);
-        box-shadow: 0 5px 20px rgba(16, 185, 129, 0.4);
+        background: var(--gradient2);
+        border: 1px solid var(--primary);
+        box-shadow: 0 5px 20px var(--primary);
         color: #ffffff;
     }
 
+    .img-logo {
+        width: 7vw !important;
+    }
+
+    /* Medium tablets and small desktops (up to 1023px) */
     @media (max-width: 1023px) {
         .navbar {
             padding-top: 0.5rem;
             padding-bottom: 0.5rem;
         }
+
+        .img-logo {
+            width: 10vw !important;
+        }
     }
 
+    /* Mobile performance optimizations (up to 768px) */
+    @media (max-width: 768px) {
+        .navbar .max-width,
+        .resume-btn,
+        .theme-toggle-btn,
+        .theme-options,
+        .theme-btn {
+            backdrop-filter: none !important;
+            -webkit-backdrop-filter: none !important;
+            background: rgba(10, 10, 30, 0.7) !important;
+        }
+
+        .mobile-menu-content {
+            backdrop-filter: none !important;
+            -webkit-backdrop-filter: none !important;
+            background: rgba(5, 5, 15, 0.98) !important;
+            border: 2px solid rgba(16, 185, 129, 0.5) !important;
+        }
+
+        .mobile-nav-link {
+            background: rgba(255, 255, 255, 0.12) !important;
+            color: #ffffff !important;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5) !important;
+        }
+
+        .mobile-nav-link.active {
+            background: var(--primary) !important;
+            color: #ffffff !important;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.7) !important;
+        }
+
+        .animate-border-rotate {
+            animation: none !important;
+            filter: none !important;
+        }
+
+        .navbar .max-width,
+        .resume-btn,
+        .theme-toggle-btn,
+        .theme-btn,
+        .theme-btn.active {
+            box-shadow: none !important;
+        }
+
+        .navbar .max-width {
+            border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        }
+
+        .nav-link:hover,
+        .mobile-nav-link:hover,
+        .theme-btn:hover {
+            transform: translateY(0) !important;
+            box-shadow: none !important;
+            background: rgba(255, 255, 255, 0.15) !important;
+        }
+
+        .navbar .menu li a.active::after {
+            animation: none !important;
+            background: none !important;
+        }
+
+        #theme-options {
+            transition: opacity 0.2s ease, transform 0.2s ease !important;
+        }
+
+        .theme-btn,
+        .theme-btn.active {
+            backdrop-filter: none !important;
+            -webkit-backdrop-filter: none !important;
+            background: rgba(255, 255, 255, 0.08) !important;
+        }
+
+        .img-logo {
+            width: 12vw !important;
+        }
+    }
+
+    /* Mobile devices (up to 640px) */
     @media (max-width: 640px) {
         .mobile-menu {
             top: 65px;
@@ -614,16 +490,266 @@ const navItems = [
             width: 15vw !important;
         }
     }
-
-    @media (min-width: 768px) {
-        .img-logo {
-            width: 10vw !important;
-        }
-    }
-
-    @media (min-width: 1024px) {
-        .img-logo {
-            width: 7vw !important;
-        }
-    }
 </style>
+
+<script>
+    // Mobile Menu Toggle
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const hamburgerIcon = menuToggle?.querySelector('.hamburger');
+    const closeIcon = menuToggle?.querySelector('.close');
+    const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+    // Consolidated mobile menu close function
+    function closeMobileMenu() {
+        mobileMenu?.classList.remove('active');
+        if (mobileMenu) {
+            mobileMenu.style.opacity = '0';
+            mobileMenu.style.visibility = 'hidden';
+            mobileMenu.style.transform = 'translateY(-20px)';
+        }
+        hamburgerIcon?.classList.remove('hidden');
+        closeIcon?.classList.add('hidden');
+        document.body.style.overflow = '';
+    }
+
+    function openMobileMenu() {
+        mobileMenu?.classList.add('active');
+        if (mobileMenu) {
+            mobileMenu.style.opacity = '1';
+            mobileMenu.style.visibility = 'visible';
+            mobileMenu.style.transform = 'translateY(0)';
+        }
+        hamburgerIcon?.classList.add('hidden');
+        closeIcon?.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+    }
+
+    menuToggle?.addEventListener('click', () => {
+        const isOpen = mobileMenu?.classList.contains('active');
+        isOpen ? closeMobileMenu() : openMobileMenu();
+    });
+
+    // Close mobile menu when clicking a link
+    mobileNavLinks.forEach(link => {
+        link.addEventListener('click', closeMobileMenu);
+    });
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (e) => {
+        const target = e.target as Node;
+        if (mobileMenu?.classList.contains('active') &&
+            !mobileMenu.contains(target) &&
+            !menuToggle?.contains(target)) {
+            closeMobileMenu();
+        }
+    });
+
+    // Theme Switcher
+    const themeToggleBtn = document.getElementById('theme-toggle-btn');
+    const themeOptions = document.getElementById('theme-options');
+    const themeButtons = document.querySelectorAll('.theme-btn');
+
+    // Load saved theme
+    const savedTheme = localStorage.getItem('theme') || 'sunset';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+
+    // Update active theme button
+    themeButtons.forEach(btn => {
+        if (btn.getAttribute('data-theme') === savedTheme) {
+            btn.classList.add('active');
+        } else {
+            btn.classList.remove('active');
+        }
+    });
+
+    // Consolidated theme options functions
+    function closeThemeOptions() {
+        themeOptions?.classList.remove('active');
+        if (themeOptions) {
+            themeOptions.style.opacity = '0';
+            themeOptions.style.visibility = 'hidden';
+            themeOptions.style.transform = 'translateY(-10px)';
+        }
+        if (themeToggleBtn) {
+            themeToggleBtn.style.transform = 'scale(1) rotate(0deg)';
+        }
+    }
+
+    function openThemeOptions() {
+        themeOptions?.classList.add('active');
+        if (themeOptions) {
+            themeOptions.style.opacity = '1';
+            themeOptions.style.visibility = 'visible';
+            themeOptions.style.transform = 'translateY(0)';
+        }
+        if (themeToggleBtn) {
+            themeToggleBtn.style.transform = 'scale(1.1) rotate(180deg)';
+        }
+    }
+
+    // Toggle theme options with rotation animation
+    themeToggleBtn?.addEventListener('click', () => {
+        const isOpen = themeOptions?.classList.contains('active');
+        isOpen ? closeThemeOptions() : openThemeOptions();
+    });
+
+    // Close theme options when clicking outside
+    document.addEventListener('click', (e) => {
+        const themeSwitcher = document.getElementById('theme-switcher');
+        if (themeSwitcher && !themeSwitcher.contains(e.target as Node)) {
+            closeThemeOptions();
+        }
+    });
+
+    // Change theme
+    themeButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const theme = btn.getAttribute('data-theme');
+            if (theme) {
+                document.documentElement.setAttribute('data-theme', theme);
+                localStorage.setItem('theme', theme);
+
+                // Update active state
+                themeButtons.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                // Auto-close theme options after selection
+                closeThemeOptions();
+            }
+        });
+    });
+
+    // Remove focus outline when clicking nav links
+    const navLinks = document.querySelectorAll('.nav-link, .mobile-nav-link');
+    navLinks.forEach(link => {
+        link.addEventListener('click', function (e) {
+            // Remove focus from the clicked link to prevent outline
+            setTimeout(() => {
+                (e.target as HTMLElement).blur();
+            }, 100);
+        });
+    });
+
+    // Active menu highlighting
+    const sections = document.querySelectorAll('section[id]');
+    const allNavLinks = document.querySelectorAll('.nav-link, .mobile-nav-link');
+
+    // Set HOME as active by default on page load
+    function setDefaultActive() {
+        const scrollY = window.pageYOffset;
+        if (scrollY < 100) {
+            allNavLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#home') {
+                    link.classList.add('active');
+                }
+            });
+        }
+    }
+
+    let scrollTimeout: ReturnType < typeof setTimeout > ;
+
+    function highlightNav() {
+        // Debounce scroll events to reduce flickering during smooth scroll
+        clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(() => {
+            const scrollY = window.pageYOffset;
+
+            // If at top of page, activate HOME
+            if (scrollY < 100) {
+                setDefaultActive();
+                return;
+            }
+
+            let activeSection: string | null = null;
+
+            // Find the section that's most visible in viewport
+            sections.forEach(section => {
+                const htmlSection = section as HTMLElement;
+                const sectionHeight = htmlSection.offsetHeight;
+                const sectionTop = htmlSection.offsetTop - 150;
+                const sectionId = section.getAttribute('id');
+
+                if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+                    activeSection = sectionId;
+                }
+            });
+
+            // Only update if we found an active section
+            if (activeSection) {
+                allNavLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${activeSection}`) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+        }, 50);
+    }
+
+    // Handle hash navigation on page load
+    function handleHashNavigation() {
+        const hash = window.location.hash;
+        if (hash) {
+            // Remove active from all links
+            allNavLinks.forEach(link => link.classList.remove('active'));
+
+            // Find and activate the link matching the hash
+            const targetLink = Array.from(allNavLinks).find(link => link.getAttribute('href') === hash);
+            if (targetLink) {
+                targetLink.classList.add('active');
+            }
+        } else {
+            // No hash, set HOME as active
+            setDefaultActive();
+        }
+    }
+
+    // Set active based on hash or default to HOME on page load
+    handleHashNavigation();
+
+    // Also handle hash changes (browser back/forward)
+    window.addEventListener('hashchange', handleHashNavigation);
+
+    window.addEventListener('scroll', highlightNav, {
+        passive: true
+    });
+
+    // Resume button hover effect
+    const resumeBtn = document.querySelector('.resume-btn');
+    resumeBtn?.addEventListener('mouseenter', () => {
+        const svg = resumeBtn.querySelector('svg');
+        if (svg) {
+            svg.style.animation = 'bounceDown 0.6s ease infinite';
+        }
+    });
+
+    resumeBtn?.addEventListener('mouseleave', () => {
+        const svg = resumeBtn.querySelector('svg');
+        if (svg) {
+            svg.style.animation = '';
+        }
+    });
+
+    const observer = new IntersectionObserver(
+        entries => {
+            entries.forEach(entry => {
+                const id = entry.target.getAttribute('id');
+                if (entry.isIntersecting) {
+                    document.querySelectorAll('.nav-link, .mobile-nav-link').forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${id}`) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        }, {
+            threshold: 0.5,
+        }
+    );
+
+    // Observe all sections
+    document.querySelectorAll('section[id]').forEach(sec => observer.observe(sec));
+</script>

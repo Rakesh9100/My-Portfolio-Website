@@ -7,24 +7,14 @@
         @apply m-0 p-0 box-border;
     }
 
+    html,
+    body {
+        overscroll-behavior-y: auto !important;
+    }
+
     html {
         @apply overflow-x-hidden;
         scroll-padding-top: 80px;
-        overscroll-behavior: none;
-        scroll-behavior: smooth;
-    }
-
-    @media (max-width: 768px) {
-        html {
-            scroll-behavior: auto;
-        }
-
-        * {
-            scroll-behavior: auto;
-        }
-    }
-
-    * {
         scroll-behavior: smooth;
     }
 
@@ -35,22 +25,10 @@
         -moz-osx-font-smoothing: grayscale;
         -webkit-font-smoothing: antialiased;
         -webkit-overflow-scrolling: touch;
-        overscroll-behavior-y: none;
         min-width: 320px;
     }
 
-    @media (max-width: 768px) {
-        section {
-            transform: translateZ(0);
-            -webkit-transform: translateZ(0);
-            backface-visibility: hidden;
-            -webkit-backface-visibility: hidden;
-            perspective: 1000px;
-            -webkit-perspective: 1000px;
-        }
-    }
-
-    /* Custom Scrollbar */
+    /* Base scrollbar styles */
     ::-webkit-scrollbar {
         width: 12px;
     }
@@ -59,27 +37,6 @@
         background: rgba(26, 15, 62, 0.3);
         border-radius: 10px;
         margin: 5px 0;
-    }
-
-    ::-webkit-scrollbar-thumb {
-        background: var(--gradient1);
-        border-radius: 10px;
-        border: 2px solid rgba(255, 255, 255, 0.1);
-        box-shadow: 0 0 15px var(--primary), inset 0 1px 0 rgba(255, 255, 255, 0.2);
-        transition: all 0.3s ease;
-        height: 100px;
-    }
-
-    ::-webkit-scrollbar-thumb:hover {
-        background: var(--gradient2);
-        box-shadow: 0 0 25px var(--primary), 0 0 40px var(--hover), inset 0 1px 0 rgba(255, 255, 255, 0.3);
-        border-color: rgba(255, 255, 255, 0.2);
-        transform: scaleY(1.05);
-    }
-
-    ::-webkit-scrollbar-thumb:active {
-        background: var(--gradient3);
-        box-shadow: 0 0 30px var(--primary), inset 0 2px 5px rgba(0, 0, 0, 0.3);
     }
 }
 
@@ -93,6 +50,19 @@
         backdrop-filter: blur(20px);
         -webkit-backdrop-filter: blur(20px);
     }
+}
+
+/* GPU acceleration for smooth animations */
+.scroll-to-top,
+.skill-card,
+.project-card,
+.info-card,
+.navbar,
+.hero-image,
+.contact-image-wrapper img,
+.box,
+.certificate-card {
+    will-change: transform, opacity;
 }
 
 /* Theme Variables */
@@ -119,8 +89,6 @@
     --secondary: #ffffff;
     --ternary: #3b82f6;
     --hover: #06b6d4;
-    --accent1: #ec4899;
-    --accent2: #f59e0b;
     --gradient1: linear-gradient(135deg, #5f27cd 0%, #341f97 100%);
     --gradient2: linear-gradient(135deg, #d946ef 0%, #a855f7 100%);
     --gradient3: linear-gradient(135deg, #3b82f6 0%, #06b6d4 100%);
@@ -186,4 +154,54 @@
     --gradient3: linear-gradient(135deg, #5dade2 0%, #85c1e9 100%);
     --gradient4: linear-gradient(135deg, #3498db 0%, #85d8ce 100%);
     --gradient5: linear-gradient(135deg, #2C3E50 0%, #85d8ce 100%);
+}
+
+/* Desktop scrollbar styles */
+@media (min-width: 769px) {
+    ::-webkit-scrollbar-thumb {
+        background: var(--gradient1);
+        border-radius: 10px;
+        border: 2px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 0 15px var(--primary), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: var(--gradient2);
+        box-shadow: 0 0 25px var(--primary),
+            0 0 40px var(--hover),
+            inset 0 1px 0 rgba(255, 255, 255, 0.3);
+        border-color: rgba(255, 255, 255, 0.2);
+        transform: scaleY(1.05);
+    }
+
+    ::-webkit-scrollbar-thumb:active {
+        background: var(--gradient3);
+        box-shadow: 0 0 30px var(--primary),
+            inset 0 2px 5px rgba(0, 0, 0, 0.3);
+    }
+}
+
+/* Mobile Performance Optimizations */
+@media (max-width: 768px) {
+    /* Remove performance-heavy effects */
+    *,
+    .glass-effect,
+    [class*="backdrop-blur"],
+    [class*="backdrop-blur-"],
+    .backdrop-blur,
+    .blur {
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        box-shadow: none !important;
+    }
+
+    .glass-effect {
+        background: rgba(255, 255, 255, 0.1) !important;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: #444 !important;
+        box-shadow: none !important;
+        border: none !important;
+    }
 }
