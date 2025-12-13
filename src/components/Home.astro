@@ -1,3 +1,8 @@
+---
+import { Image } from "astro:assets";
+import homeImg from "../assets/images/home.png";
+---
+
 <div class="home-wrapper h-screen overflow-hidden relative">
     <!-- Animated Gradient Background -->
     <div class="absolute inset-0 z-[1] animated-gradient-bg">
@@ -50,7 +55,7 @@
 
             <div class="home-image mt-8 lg:mt-5 lg:ml-5 relative w-full lg:w-auto flex justify-center lg:justify-end" style="max-width: clamp(200px, 80vw, 450px);">
                 <div class="image-container relative animate-float-image w-full">
-                    <img src="/assets/images/home.webp" alt="Home Image" width="450" height="461" loading="eager" fetchpriority="high" class="w-full h-auto transition-all duration-300" style="filter: drop-shadow(0 0 30px rgba(217, 70, 239, 0.4));" />
+                    <Image src={homeImg} alt="Home Image" width={450} height={460} loading="eager" fetchpriority="high" class="w-full h-auto transition-all duration-300" style="filter: drop-shadow(0 0 30px rgba(217, 70, 239, 0.4));" />
                     <div class="floating-icons absolute top-0 left-0 w-full h-full pointer-events-none">
                         <div class="float-icon icon-1 absolute text-[1.8rem] sm:text-[2.2rem] lg:text-[2.5rem] opacity-80 animate-float-around-1" style="filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5)); top: 10%; left: -5%; lg:left: -10%;">💻</div>
                         <div class="float-icon icon-2 absolute text-[1.8rem] sm:text-[2.2rem] lg:text-[2.5rem] opacity-80 animate-float-around-2" style="filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5)); top: 20%; right: -5%; lg:right: -10%;">🚀</div>

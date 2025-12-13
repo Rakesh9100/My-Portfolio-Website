@@ -1,4 +1,10 @@
 ---
+import { Image } from "astro:assets";
+
+import LPU from "../assets/images/education/LPU.jpg";
+import DAV from "../assets/images/education/DAV.jpg";
+import HCS from "../assets/images/education/HCS.jpg";
+
 const educationData = [{
         degree: "B.Tech CSE",
         badge: {
@@ -10,7 +16,7 @@ const educationData = [{
         description: "I did my Bachelor of Technology in Computer Science and Engineering from",
         highlight: "Lovely Professional University",
         score: "8.48 CGPA",
-        image: "/assets/images/education/LPU.webp",
+        image: LPU,
         link: "https://www.lpu.in/",
         achievements: [{
                 icon: "🏆",
@@ -33,7 +39,7 @@ const educationData = [{
         description: "I did my Intermediate in Science stream from",
         highlight: "Dayanand Anglo Vedic Public School (CBSE)",
         score: "84%",
-        image: "/assets/images/education/DAV.webp",
+        image: DAV,
         link: "http://dav4bokaro.org/dav4_newsite/",
         achievements: [{
                 icon: "🏆",
@@ -56,7 +62,7 @@ const educationData = [{
         description: "I did my matriculation from",
         highlight: "Holy Cross School",
         score: "92%",
-        image: "/assets/images/education/HCS.webp",
+        image: HCS,
         link: "https://www.holycrossbokaro.com/",
         achievements: [{
                 icon: "🏆",
@@ -98,15 +104,7 @@ const educationData = [{
                     <div class="image-section w-full lg:flex-[0_0_280px] flex flex-col gap-3 sm:gap-4">
                         <div class="image relative rounded-[12px] sm:rounded-[15px] overflow-hidden flex-shrink-0" style="box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);">
                             <a href={edu.link} target="_blank" rel="noopener noreferrer" class="block relative cursor-pointer no-underline">
-                                <img
-                                    src={edu.image}
-                                    alt={edu.institution}
-                                    width="300"
-                                    height="200"
-                                    loading="lazy"
-                                    class="w-full h-[150px] sm:h-[180px] lg:h-[200px] object-cover block transition-all duration-400"
-                                    style="filter: brightness(100%);"
-                                    />
+                                <Image src={edu.image} alt={edu.institution} width={300} height={200} loading="lazy" class="w-full h-[150px] sm:h-[180px] lg:h-[200px] object-cover block transition-all duration-400" style="filter: brightness(100%);" />
                                 <div class="image-overlay">
                                     <span class="visit-link">Visit Website →</span>
                                 </div>

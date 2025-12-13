@@ -1,3 +1,8 @@
+--- 
+import { Image } from "astro:assets";
+import ContactImage from "../assets/images/contact.png";
+---
+
 <section class="contact z-[3] h-full min-h-screen relative overflow-hidden py-24 px-5 pb-20" id="contact" style="background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);">
     <!-- Floating Background -->
     <div class="floating-bg floating-bg-1"></div>
@@ -109,7 +114,9 @@
             </div>
             <div class="column left">
                 <div class="contact-image-wrapper">
-                    <img src="/assets/images/contact.png" width="2000" height="2000" loading="lazy" alt="Contact Image">
+                    <Image src={ContactImage} alt="Contact Image" width={450} height={450} class="contact-image" loading="lazy" />
+
+                    <!-- <img src="/assets/images/contact.png" width="2000" height="2000" loading="lazy" alt="Contact Image"> -->
                 </div>
             </div>
         </div>

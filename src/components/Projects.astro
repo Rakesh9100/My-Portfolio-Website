@@ -1,26 +1,94 @@
 ---
-// Import JSON at build time to avoid runtime fetch
-import projectsDataImport from '../../public/assets/jsons/projects.json';
-const projectsDataJSON = JSON.stringify(projectsDataImport);
----
+import { Image } from "astro:assets";
 
-<!-- Inject projects data at build time -->
-<script is:inline set:html={`window.__PROJECTS_DATA__ = ${projectsDataJSON};`}></script>
+import p1 from '../assets/images/projects/project1.png';
+import p2 from '../assets/images/projects/project2.png';
+import p3 from '../assets/images/projects/project3.png';
+import p4 from '../assets/images/projects/project4.png';
+import p5 from '../assets/images/projects/project5.png';
+import p6 from '../assets/images/projects/project6.png';
+import p7 from '../assets/images/projects/project7.png';
+import p8 from '../assets/images/projects/project8.png';
+
+const projectsData = [
+    {
+        title: "My Portfolio",
+        description: "This is my Portfolio website that help others know about me and my works.",
+        image: p1,
+        techs: ["HTML", "CSS", "JavaScript", "jQuery"],
+        sourceCode: "https://github.com/Rakesh9100/My-Portfolio-Website",
+        liveProject: "https://rakeshroshan.netlify.app/"
+    },
+    {
+        title: "Beautiify",
+        description: "Beautiify comprises a curated selection of beautifully designed components.",
+        image: p2,
+        techs: ["HTML", "CSS", "JavaScript", "JSON"],
+        sourceCode: "https://github.com/Rakesh9100/Beautiify",
+        liveProject: "https://beautiify.netlify.app/"
+    },
+    {
+        title: "CalcDiverse",
+        description: "CalcDiverse is a customized collection of calculators for various aspects of mathematics.",
+        image: p3,
+        techs: ["HTML", "CSS", "JavaScript", "JSON"],
+        sourceCode: "https://github.com/Rakesh9100/CalcDiverse",
+        liveProject: "https://calcdiverse.netlify.app/"
+    },
+    {
+        title: "Eventica",
+        description: "Eventica is an ultimate guide to the dynamic and diverse events in Bangalore.",
+        image: p4,
+        techs: ["HTML", "CSS", "JavaScript", "JSON"],
+        sourceCode: "https://github.com/Rakesh9100/Eventica",
+        liveProject: "https://eventica.netlify.app/"
+    },
+    {
+        title: "ML Project Drug Review Dataset",
+        description: "This is an innovative machine learning project that utilizes patient reviews to analyze the drugs effectiveness.",
+        image: p5,
+        techs: ["Python", "Machine Learning", "Deep Learning"],
+        sourceCode: "https://github.com/Rakesh9100/ML-Project-Drug-Review-Dataset",
+        liveProject: "https://ml-project-drug-review-dataset-main.streamlit.app/"
+    },
+    {
+        title: "Click The Edible Game",
+        description: "A well-designed interesting game where you can play with your favourite edible and click it to get the most scores.",
+        image: p6,
+        techs: ["HTML", "CSS", "JavaScript"],
+        sourceCode: "https://github.com/Rakesh9100/Click-The-Edible-Game",
+        liveProject: "https://click-the-edible-game.netlify.app/"
+    },
+    {
+        title: "Greeting Time",
+        description: "This is a project which fetch the time from the system and greet the user according to the time fetched.",
+        image: p7,
+        techs: ["C++"],
+        sourceCode: "https://github.com/Rakesh9100/Greeting-Time",
+        liveProject: ""
+    },
+    {
+        title: "InstaStore",
+        description: "InstaStore is a python coded script to download Photos & Videos from Instagram without any API access.",
+        image: p8,
+        techs: ["Python", "GUI"],
+        sourceCode: "https://github.com/Rakesh9100/InstaStore",
+        liveProject: ""
+    }
+];
+---
 
 <section class="projects z-[3] min-h-screen relative overflow-hidden pt-24 pb-20 px-5" id="projects" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);">
     <!-- Floating Background -->
     <div class="absolute top-[10%] -right-[10%] w-[500px] h-[500px] rounded-full pointer-events-none animate-float-bg" style="background: radial-gradient(circle, rgba(217, 70, 239, 0.1) 0%, transparent 70%);"></div>
-
     <!-- Title -->
     <div class="title relative text-center font-bold mb-6">
         <span class="projects-title uppercase" style="background: var(--gradient2); background-size: cover; color: transparent; background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 0 20px rgba(240, 147, 251, 0.5)); animation: titleGlow 3s ease-in-out infinite;">My Projects</span>
     </div>
-
     <!-- Subtitle -->
     <div class="text text-center mb-16">
         <span class="quote-text">A creative project is a moving target. You never end up where you start.</span>
     </div>
-
     <!-- View Toggle -->
     <div class="view-toggle-container">
         <button class="view-toggle-btn active" data-view="carousel" aria-label="Switch to carousel view">
@@ -40,20 +108,46 @@ const projectsDataJSON = JSON.stringify(projectsDataImport);
             <span>Grid View</span>
         </button>
     </div>
-
     <!-- Project Count -->
     <div class="project-count-container">
-        <span id="project-count-text">Showing all projects</span>
+        <span id="project-count-text">Showing project 1 of {projectsData.length}</span>
     </div>
-
     <!-- 3D Carousel Container -->
     <div class="carousel-container" id="carousel-container">
         <div class="carousel-wrapper">
             <div class="carousel-track" id="carousel-track">
-                <!-- Projects will be loaded here dynamically -->
+                {projectsData.map((project, index) => (
+                <div class="carousel-item {index === 0 ? 'active' : ''}">
+                    <div class="box">
+                        <div class="project-image-container">
+                            <Image src={project.image} alt={project.title} class="snapshot" format="webp" loading="lazy" />
+                            <div class="project-links">
+                                <!-- GitHub -->
+                                <a href={project.sourceCode} target="_blank" rel="noopener noreferrer" class="project-link-btn">
+                                <img src="/assets/images/projects/github.png" alt="GitHub" />
+                                </a>
+                                <!-- Live link -->
+                                {project.liveProject && (
+                                <a href={project.liveProject} target="_blank" rel="noopener noreferrer" class="project-link-btn">
+                                <img src="/assets/images/projects/link.png" alt="Live" />
+                                </a>
+                                )}
+                            </div>
+                        </div>
+                        <div class="project-content-area">
+                            <div class="topic">{project.title}</div>
+                            <p>{project.description}</p>
+                            <div class="tech-stack">
+                                {project.techs.map(tech => (
+                                <span class="techs">{tech}</span>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                ))}
             </div>
         </div>
-
         <!-- Carousel Controls -->
         <button class="carousel-btn carousel-prev" id="carousel-prev" aria-label="Previous project">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
@@ -65,15 +159,43 @@ const projectsDataJSON = JSON.stringify(projectsDataImport);
                 <polyline points="9 18 15 12 9 6"></polyline>
             </svg>
         </button>
-
         <!-- Carousel Indicators -->
-        <div class="carousel-indicators" id="carousel-indicators"></div>
+        <div class="carousel-indicators" id="carousel-indicators">
+            {projectsData.map((_, index) => (
+            <div class={`carousel-indicator ${index === 0 ? 'active' : ''}`}>
+        </div>
+        ))}
     </div>
-
+    </div>
     <!-- Grid View Container -->
     <div class="max-width grid-container" id="grid-container" style="display: none;">
         <div class="project-content" id="project-content">
-            <!-- Projects will be loaded here dynamically -->
+            {projectsData.map(project => (
+            <div class="box show">
+                <div class="project-image-container">
+                    <Image src={project.image} alt={project.title} class="snapshot" format="webp" loading="lazy" />
+                    <div class="project-links">
+                        <a href={project.sourceCode} target="_blank" rel="noopener noreferrer" class="project-link-btn">
+                        <img src="/assets/images/projects/github.png" alt="GitHub" />
+                        </a>
+                        {project.liveProject && (
+                        <a href={project.liveProject} target="_blank" rel="noopener noreferrer" class="project-link-btn">
+                        <img src="/assets/images/projects/link.png" alt="Live" />
+                        </a>
+                        )}
+                    </div>
+                </div>
+                <div class="project-content-area">
+                    <div class="topic">{project.title}</div>
+                    <p>{project.description}</p>
+                    <div class="tech-stack">
+                        {project.techs.map(tech => (
+                        <span class="techs">{tech}</span>
+                        ))}
+                    </div>
+                </div>
+            </div>
+            ))}
         </div>
     </div>
 </section>
@@ -973,274 +1095,281 @@ const projectsDataJSON = JSON.stringify(projectsDataImport);
     }
 </style>
 
-<script is:inline>
-    (function () {
-        // Load projects data from imported JSON (no runtime fetch needed)
-        let projectsData = [];
-        let currentSlide = 0;
-        let totalSlides = 0;
-        let currentView = 'carousel';
-        let autoplayInterval = null;
-        let isAutoplayPaused = false;
+<script is:inline define:vars={{ projectsData }}>
+(function () {
+    // State management
+    const state = {
+        currentSlide: 0,
+        autoplayInterval: null,
+        isAutoplayPaused: false,
+        currentView: "carousel",
+        totalProjects: projectsData.length,
+        isInitialized: false
+    };
 
-        async function loadProjects() {
-            try {
-                // Use imported data instead of fetch
-                projectsData = window.__PROJECTS_DATA__;
-                totalSlides = projectsData.length;
+    // Configuration
+    const config = {
+        autoplayDelay: 3000,
+        carouselRadius: 600,
+        angleStep: 360 / state.totalProjects,
+        scaleRange: { min: 0.6, max: 1.0 },
+        opacityRange: { min: 0.3, max: 1.0 }
+    };
 
-                initCarouselView();
-                initGridView();
-                initViewToggle();
-                initCarouselControls();
+    // Cache DOM elements
+    const elements = {
+        items: () => document.querySelectorAll('.carousel-item'),
+        indicators: () => document.querySelectorAll('.carousel-indicator'),
+        prevBtn: document.getElementById('carousel-prev'),
+        nextBtn: document.getElementById('carousel-next'),
+        carouselContainer: document.getElementById('carousel-container'),
+        gridContainer: document.getElementById('grid-container'),
+        toggleBtns: () => document.querySelectorAll('.view-toggle-btn'),
+        projectCount: document.getElementById('project-count-text')
+    };
 
-                const countText = document.getElementById('project-count-text');
-                if (countText) {
-                    countText.textContent = 'Showing all ' + projectsData.length + ' projects';
-                }
-            } catch (error) {
-                console.error('Error loading projects:', error);
-            }
-        }
+    // Optimized carousel positioning with requestAnimationFrame
+    function positionCarouselItems() {
+        const items = elements.items();
+        if (items.length === 0) return;
 
-        function initCarouselView() {
-            const carouselTrack = document.getElementById('carousel-track');
-            const carouselIndicators = document.getElementById('carousel-indicators');
+        requestAnimationFrame(() => {
+            items.forEach((item, index) => {
+                const angle = ((index - state.currentSlide) * config.angleStep) * (Math.PI / 180);
+                const cosAngle = Math.cos(angle);
+                
+                const x = Math.sin(angle) * config.carouselRadius;
+                const z = cosAngle * config.carouselRadius - config.carouselRadius;
+                const scale = config.scaleRange.min + (cosAngle * (config.scaleRange.max - config.scaleRange.min));
+                const opacity = config.opacityRange.min + (cosAngle * (config.opacityRange.max - config.opacityRange.min));
 
-            if (!carouselTrack) return;
-
-            carouselTrack.innerHTML = '';
-            carouselIndicators.innerHTML = '';
-
-            projectsData.forEach(function (project, index) {
-                const item = document.createElement('div');
-                item.classList.add('carousel-item');
-                if (index === 0) item.classList.add('active');
-
-                const liveLink = project.liveProject ?
-                    '<a href="' + project.liveProject + '" target="_blank" rel="noopener noreferrer" class="project-link-btn" title="Live Demo"><img src="assets/images/projects/link.png" alt="Live"></a>' : '';
-
-                const techsHtml = project.techs.map(function (tech) {
-                    return '<span class="techs">' + tech + '</span>';
-                }).join('');
-
-                item.innerHTML = '<div class="box">' +
-                    '<div class="project-image-container">' +
-                    '<img class="snapshot" src="' + project.image + '" loading="lazy" alt="' + project.title + '">' +
-                    '<div class="project-links">' +
-                    '<a href="' + project.sourceCode + '" target="_blank" rel="noopener noreferrer" class="project-link-btn" title="Source Code">' +
-                    '<img src="assets/images/projects/github.png" alt="GitHub">' +
-                    '</a>' +
-                    liveLink +
-                    '</div>' +
-                    '</div>' +
-                    '<div class="project-content-area">' +
-                    '<div class="topic">' + project.title + '</div>' +
-                    '<p>' + project.description + '</p>' +
-                    '<div class="tech-stack">' + techsHtml + '</div>' +
-                    '</div>' +
-                    '</div>';
-
-                carouselTrack.appendChild(item);
-
-                const indicator = document.createElement('div');
-                indicator.classList.add('carousel-indicator');
-                if (index === 0) indicator.classList.add('active');
-                indicator.addEventListener('click', function () {
-                    goToSlide(index);
-                });
-                carouselIndicators.appendChild(indicator);
+                // Batch DOM updates
+                const transform = `translateX(calc(-50% + ${x}px)) translateY(-50%) translateZ(${z}px) scale(${scale})`;
+                item.style.cssText = `
+                    transform: ${transform};
+                    opacity: ${opacity};
+                    z-index: ${Math.round(scale * 100)};
+                `;
             });
+        });
+    }
 
-            positionCarouselItems();
+    // Optimized carousel update
+    function updateCarousel() {
+        if (!state.isInitialized) return;
+
+        const items = elements.items();
+        const indicators = elements.indicators();
+
+        // Batch class updates
+        items.forEach((item, index) => {
+            item.classList.toggle('active', index === state.currentSlide);
+        });
+
+        indicators.forEach((indicator, index) => {
+            indicator.classList.toggle('active', index === state.currentSlide);
+        });
+
+        positionCarouselItems();
+        updateProjectCount();
+    }
+
+    // Slide navigation with bounds checking
+    function changeSlide(direction) {
+        state.currentSlide = (state.currentSlide + direction + state.totalProjects) % state.totalProjects;
+        updateCarousel();
+        resetAutoplay();
+    }
+
+    function goToSlide(index) {
+        if (index >= 0 && index < state.totalProjects) {
+            state.currentSlide = index;
+            updateCarousel();
+            resetAutoplay();
         }
+    }
 
-        function initGridView() {
-            const projectContent = document.getElementById('project-content');
-            if (!projectContent) return;
-
-            projectContent.innerHTML = '';
-
-            projectsData.forEach(function (project) {
-                const box = document.createElement('div');
-                box.classList.add('box', 'show');
-
-                const liveLink = project.liveProject ?
-                    '<a href="' + project.liveProject + '" target="_blank" rel="noopener noreferrer" class="project-link-btn" title="Live Demo"><img src="assets/images/projects/link.png" alt="Live"></a>' : '';
-
-                const techsHtml = project.techs.map(function (tech) {
-                    return '<span class="techs">' + tech + '</span>';
-                }).join('');
-
-                box.innerHTML = '<div class="project-image-container">' +
-                    '<img class="snapshot" src="' + project.image + '" loading="lazy" alt="' + project.title + '">' +
-                    '<div class="project-links">' +
-                    '<a href="' + project.sourceCode + '" target="_blank" rel="noopener noreferrer" class="project-link-btn" title="Source Code">' +
-                    '<img src="assets/images/projects/github.png" alt="GitHub">' +
-                    '</a>' +
-                    liveLink +
-                    '</div>' +
-                    '</div>' +
-                    '<div class="project-content-area">' +
-                    '<div class="topic">' + project.title + '</div>' +
-                    '<p>' + project.description + '</p>' +
-                    '<div class="tech-stack">' + techsHtml + '</div>' +
-                    '</div>';
-
-                projectContent.appendChild(box);
-            });
-        }
-
-        function initCarouselControls() {
-            const prevBtn = document.getElementById('carousel-prev');
-            const nextBtn = document.getElementById('carousel-next');
-            const carouselContainer = document.getElementById('carousel-container');
-
-            if (prevBtn) prevBtn.addEventListener('click', function () {
-                changeSlide(-1);
-            });
-            if (nextBtn) nextBtn.addEventListener('click', function () {
+    // Autoplay management
+    function startAutoplay() {
+        if (state.currentView !== "carousel") return;
+        
+        stopAutoplay();
+        state.autoplayInterval = setInterval(() => {
+            if (!state.isAutoplayPaused) {
                 changeSlide(1);
-            });
-
-            document.addEventListener('keydown', function (e) {
-                if (currentView !== 'carousel') return;
-                if (e.key === 'ArrowLeft') changeSlide(-1);
-                if (e.key === 'ArrowRight') changeSlide(1);
-            });
-
-            // Pause autoplay on hover
-            if (carouselContainer) {
-                carouselContainer.addEventListener('mouseenter', function () {
-                    isAutoplayPaused = true;
-                });
-
-                carouselContainer.addEventListener('mouseleave', function () {
-                    isAutoplayPaused = false;
-                });
             }
+        }, config.autoplayDelay);
+    }
 
-            // Start autoplay
-            startAutoplay();
+    function stopAutoplay() {
+        if (state.autoplayInterval) {
+            clearInterval(state.autoplayInterval);
+            state.autoplayInterval = null;
         }
+    }
 
-        function changeSlide(direction) {
-            currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
-            updateCarousel();
-            resetAutoplay(); // Reset autoplay timer when manually changing slides
-        }
-
-        function goToSlide(index) {
-            currentSlide = index;
-            updateCarousel();
-            resetAutoplay(); // Reset autoplay timer when clicking indicator
-        }
-
-        // Autoplay functions
-        function startAutoplay() {
-            if (currentView !== 'carousel') return;
-            stopAutoplay(); // Clear any existing interval
-            autoplayInterval = setInterval(function () {
-                if (!isAutoplayPaused && currentView === 'carousel') {
-                    changeSlideAuto(1);
-                }
-            }, 3000); // Change slide every 3 seconds
-        }
-
-        function stopAutoplay() {
-            if (autoplayInterval) {
-                clearInterval(autoplayInterval);
-                autoplayInterval = null;
-            }
-        }
-
-        function resetAutoplay() {
+    function resetAutoplay() {
+        if (state.currentView === "carousel") {
             stopAutoplay();
             startAutoplay();
         }
+    }
 
-        function changeSlideAuto(direction) {
-            currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
+    // View switching with proper cleanup
+    function switchView(view) {
+        if (view === state.currentView) return;
+
+        state.currentView = view;
+        
+        if (view === "carousel") {
+            elements.carouselContainer.style.display = "block";
+            elements.gridContainer.style.display = "none";
+            startAutoplay();
             updateCarousel();
-        }
-
-        function updateCarousel() {
-            const items = document.querySelectorAll('.carousel-item');
-            const indicators = document.querySelectorAll('.carousel-indicator');
-
-            items.forEach(function (item, index) {
-                item.classList.remove('active');
-                if (index === currentSlide) {
-                    item.classList.add('active');
-                }
-            });
-
-            indicators.forEach(function (indicator, index) {
-                indicator.classList.remove('active');
-                if (index === currentSlide) {
-                    indicator.classList.add('active');
-                }
-            });
-
-            positionCarouselItems();
-        }
-
-        function positionCarouselItems() {
-            const items = document.querySelectorAll('.carousel-item');
-            const totalItems = items.length;
-
-            if (totalItems === 0) return;
-
-            const angleStep = 360 / totalItems;
-            const radius = 600;
-
-            items.forEach(function (item, index) {
-                const angle = ((index - currentSlide) * angleStep) * (Math.PI / 180);
-                const x = Math.sin(angle) * radius;
-                const z = Math.cos(angle) * radius - radius;
-                const scale = 0.6 + (Math.cos(angle) * 0.4);
-                const opacity = 0.3 + (Math.cos(angle) * 0.7);
-
-                item.style.transform = 'translateX(calc(-50% + ' + x + 'px)) translateY(-50%) translateZ(' + z + 'px) scale(' + scale + ')';
-                item.style.opacity = opacity;
-                item.style.zIndex = Math.round(scale * 100);
-            });
-        }
-
-        function initViewToggle() {
-            const toggleBtns = document.querySelectorAll('.view-toggle-btn');
-            const carouselContainer = document.getElementById('carousel-container');
-            const gridContainer = document.getElementById('grid-container');
-
-            toggleBtns.forEach(function (btn) {
-                btn.addEventListener('click', function () {
-                    const view = btn.dataset.view;
-
-                    toggleBtns.forEach(function (b) {
-                        b.classList.remove('active');
-                    });
-                    btn.classList.add('active');
-
-                    if (view === 'carousel') {
-                        carouselContainer.style.display = 'block';
-                        gridContainer.style.display = 'none';
-                        currentView = 'carousel';
-                        positionCarouselItems();
-                        startAutoplay(); // Start autoplay when switching to carousel view
-                    } else {
-                        carouselContainer.style.display = 'none';
-                        gridContainer.style.display = 'block';
-                        currentView = 'grid';
-                        stopAutoplay(); // Stop autoplay when switching to grid view
-                    }
-                });
-            });
-        }
-
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', loadProjects);
         } else {
-            loadProjects();
+            elements.carouselContainer.style.display = "none";
+            elements.gridContainer.style.display = "block";
+            stopAutoplay();
         }
-    })();
+
+        // Update project count text
+        updateProjectCount();
+    }
+
+    // Event handlers with proper delegation
+    function handleKeydown(e) {
+        if (state.currentView !== 'carousel') return;
+        
+        switch(e.key) {
+            case "ArrowLeft":
+                e.preventDefault();
+                changeSlide(-1);
+                break;
+            case "ArrowRight":
+                e.preventDefault();
+                changeSlide(1);
+                break;
+        }
+    }
+
+    function handleMouseEnter() {
+        state.isAutoplayPaused = true;
+    }
+
+    function handleMouseLeave() {
+        state.isAutoplayPaused = false;
+    }
+
+    // Initialize carousel controls
+    function initCarouselControls() {
+        // Navigation buttons
+        elements.prevBtn?.addEventListener('click', () => changeSlide(-1));
+        elements.nextBtn?.addEventListener('click', () => changeSlide(1));
+
+        // Indicators with event delegation
+        const indicatorsContainer = elements.indicators()[0]?.parentElement;
+        if (indicatorsContainer) {
+            indicatorsContainer.addEventListener('click', (e) => {
+                const indicator = e.target.closest('.carousel-indicator');
+                if (indicator) {
+                    const index = Array.from(elements.indicators()).indexOf(indicator);
+                    goToSlide(index);
+                }
+            });
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', handleKeydown);
+
+        // Mouse hover controls
+        if (elements.carouselContainer) {
+            elements.carouselContainer.addEventListener('mouseenter', handleMouseEnter);
+            elements.carouselContainer.addEventListener('mouseleave', handleMouseLeave);
+        }
+    }
+
+    // Initialize view toggle
+    function initViewToggle() {
+        const toggleBtns = elements.toggleBtns();
+        
+        toggleBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Update active state
+                toggleBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                
+                // Switch view
+                switchView(btn.dataset.view);
+            });
+        });
+    }
+
+    // Update project count based on current view and device
+    function updateProjectCount() {
+        if (!elements.projectCount) return;
+
+        // Check if we're in mobile view (carousel is hidden)
+        const isMobileView = window.innerWidth <= 768 || 
+                           (elements.carouselContainer && 
+                            window.getComputedStyle(elements.carouselContainer).display === 'none');
+
+        if (isMobileView || state.currentView === "grid") {
+            elements.projectCount.textContent = `Showing all ${state.totalProjects} projects`;
+        } else {
+            elements.projectCount.textContent = `Showing project ${state.currentSlide + 1} of ${state.totalProjects}`;
+        }
+    }
+
+    // Initialize project count
+    function initProjectCount() {
+        updateProjectCount();
+        
+        // Update count on window resize
+        window.addEventListener('resize', updateProjectCount);
+    }
+
+    // Cleanup function for page unload
+    function cleanup() {
+        stopAutoplay();
+        document.removeEventListener('keydown', handleKeydown);
+        window.removeEventListener('resize', updateProjectCount);
+        if (elements.carouselContainer) {
+            elements.carouselContainer.removeEventListener('mouseenter', handleMouseEnter);
+            elements.carouselContainer.removeEventListener('mouseleave', handleMouseLeave);
+        }
+    }
+
+    // Main initialization
+    function init() {
+        if (state.isInitialized) return;
+        
+        try {
+            initCarouselControls();
+            initViewToggle();
+            initProjectCount();
+            
+            // Set initial state
+            state.isInitialized = true;
+            
+            // Initial update for mobile detection
+            updateProjectCount();
+            
+            startAutoplay();
+            updateCarousel();
+            
+            // Cleanup on page unload
+            window.addEventListener('beforeunload', cleanup);
+            
+        } catch (error) {
+            console.error('Projects carousel initialization failed:', error);
+        }
+    }
+
+    // Initialize when DOM is ready
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else {
+        init();
+    }
+})(); 
 </script>

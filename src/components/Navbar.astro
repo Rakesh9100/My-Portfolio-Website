@@ -1,4 +1,7 @@
 ---
+import { Image } from "astro:assets";
+import logo from "../assets/images/logo.png";
+
 const navItems = [
   { href: '#home', label: 'HOME' },
   { href: '#about', label: 'ABOUT ME' },
@@ -18,14 +21,7 @@ const navItems = [
         <div class="absolute inset-0 rounded-[20px] sm:rounded-[25px] p-[2px] pointer-events-none -z-[1] animate-border-rotate" style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.7), rgba(59, 130, 246, 0.7), rgba(139, 92, 246, 0.7)); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); mask-composite: exclude;"></div>
 
         <!-- Logo -->
-        <img
-            src="/assets/images/logo.webp"
-            alt="Logo"
-            width="200"
-            height="60"
-            class="img-logo h-auto"
-            style="width: 16vw; max-width: 100%; margin-top: -20px; margin-bottom: -20px;"
-            />
+        <Image src={logo} alt="Logo" width={200} height={60} class="img-logo h-auto" style="width: 16vw; max-width: 100%; margin-top: -20px; margin-bottom: -20px;" />
 
         <!-- Desktop Menu -->
         <ul class="menu hidden lg:flex list-none items-center">

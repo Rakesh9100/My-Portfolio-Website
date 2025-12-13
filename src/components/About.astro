@@ -1,3 +1,8 @@
+---
+import { Image } from "astro:assets";
+import profileImg from "../assets/images/profile.png";
+---
+
 <section class="about z-[3] min-h-screen relative py-24 px-5 overflow-hidden" id="about" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);">
     <!-- Floating Background Elements -->
     <div class="absolute -top-1/2 -right-[10%] w-[500px] h-[500px] rounded-full pointer-events-none animate-float-bg" style="background: radial-gradient(circle, rgba(217, 70, 239, 0.15) 0%, transparent 70%);"></div>
@@ -14,14 +19,7 @@
             <div class="column left w-full sm:w-[70%] md:w-[50%] lg:w-[25%] about-image-animate opacity-0" data-tilt>
                 <div class="profile-card relative rounded-[20px] overflow-hidden p-[5px] transition-all duration-500" style="background: rgba(26, 15, 62, 0.3); backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px);">
                     <div class="profile-border absolute inset-[5px] rounded-[16px] z-[1]" style="background: rgba(26, 15, 62, 0.8); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);"></div>
-                    <img
-                        src="/assets/images/about/man.webp"
-                        alt="Profile Photo"
-                        width="334"
-                        height="334"
-                        class="h-auto w-full object-cover relative z-[2] block transition-all duration-400 rounded-[16px]"
-                        style="filter: grayscale(1); animation: transition 1.4s linear infinite;"
-                        />
+                    <Image src={profileImg} alt="Profile Photo" width={334} height={334} class="h-auto w-full object-cover relative z-[2] block transition-all duration-400 rounded-[16px]" style="filter: grayscale(1); animation: transition 1.4s linear infinite;" />
                 </div>
             </div>
 
@@ -744,7 +742,7 @@
         const tiltElements = document.querySelectorAll('[data-tilt]');
 
         tiltElements.forEach(element => {
-            element.addEventListener('mousemove', (e: MouseEvent) => {
+            (element as HTMLElement).addEventListener('mousemove', (e: MouseEvent) => {
                 const htmlElement = element as HTMLElement;
                 const rect = htmlElement.getBoundingClientRect();
                 const x = e.clientX - rect.left;

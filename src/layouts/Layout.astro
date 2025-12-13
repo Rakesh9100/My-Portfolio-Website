@@ -29,10 +29,11 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || url);
         <link rel="canonical" href={canonicalURL} />
 
         <!-- Favicon -->
-        <link rel="icon" type="image/png" href="/assets/images/favicon.png" />
-
-        <!-- PWA Manifest -->
-        <link rel="manifest" href="/manifest.json" />
+        <link rel="icon" href="/favicon.ico">
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" sizes="any">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+        <meta name="apple-mobile-web-app-title" content="RR Portfolio">
 
         <!-- Preconnects for Performance -->
         <link rel="preconnect" href="https://fonts.googleapis.com" />
