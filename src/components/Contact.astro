@@ -1,4 +1,4 @@
---- 
+---
 import { Image } from "astro:assets";
 import ContactImage from "../assets/images/contact.png";
 ---
@@ -306,6 +306,7 @@ import ContactImage from "../assets/images/contact.png";
         max-width: 350px;
         background: rgba(26, 15, 62, 0.4);
         backdrop-filter: blur(25px);
+        -webkit-backdrop-filter: blur(25px);
         border: 2px solid rgba(255, 255, 255, 0.1);
         border-radius: 20px;
         padding: 30px 20px;
@@ -456,6 +457,7 @@ import ContactImage from "../assets/images/contact.png";
         font-size: 16px;
         background: rgba(26, 15, 62, 0.3);
         backdrop-filter: blur(25px);
+        -webkit-backdrop-filter: blur(25px);
         color: #fff;
         transition: all 0.3s ease;
         box-shadow: 0 8px 32px rgba(59, 130, 246, 0.2);
@@ -469,6 +471,7 @@ import ContactImage from "../assets/images/contact.png";
     .contact .right form .textarea textarea:focus {
         background: rgba(59, 130, 246, 0.15);
         backdrop-filter: blur(30px);
+        -webkit-backdrop-filter: blur(30px);
         border: 2px solid rgba(59, 130, 246, 0.6);
         box-shadow: 0 8px 32px rgba(59, 130, 246, 0.5);
     }

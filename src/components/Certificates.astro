@@ -277,6 +277,7 @@ const certificates = [
         padding: 15px 20px 15px 50px;
         background: rgba(26, 15, 62, 0.4);
         backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
         border: 2px solid rgba(16, 185, 129, 0.3);
         border-radius: 50px;
         color: #ffffff;
@@ -317,6 +318,7 @@ const certificates = [
         padding: 8px 28px;
         background: rgba(26, 15, 62, 0.5);
         backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
         border: 2px solid rgba(255, 255, 255, 0.2);
         border-radius: 50px;
         color: white;
@@ -584,6 +586,7 @@ const certificates = [
         height: 100%;
         background: rgba(0, 0, 0, 0.9);
         backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
     }
 
     .modal-content {
@@ -1061,7 +1064,7 @@ const certificates = [
                 const certIndex = allCertificatesOriginal.findIndex(cert => cert.title === certificate.title);
                 const optimizedImg = document.querySelector(`[data-cert-index="${certIndex}"]`);
                 const imageSrc = optimizedImg ? optimizedImg.src : (typeof certificate.image === 'string' ? certificate.image : certificate.image.src);
-                
+
                 box.innerHTML = '<div class="cert-image-wrapper">' +
                     '<img src="' + imageSrc + '" loading="lazy" width="600" height="600" alt="' + certificate.title + '">' +
                     '<div class="cert-overlay">' +
@@ -1148,7 +1151,7 @@ const certificates = [
                 const handleFilterClick = function (e) {
                     e.preventDefault();
                     e.stopPropagation();
-                    
+
                     certFilterBtns.forEach(function (b) {
                         b.classList.remove('active');
                     });
@@ -1160,7 +1163,7 @@ const certificates = [
 
                 btn.addEventListener('click', handleFilterClick);
                 btn.addEventListener('touchend', handleFilterClick);
-                
+
                 // Prevent double-tap zoom on mobile
                 btn.addEventListener('touchstart', function (e) {
                     e.preventDefault();

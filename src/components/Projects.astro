@@ -1096,280 +1096,280 @@ const projectsData = [
 </style>
 
 <script is:inline define:vars={{ projectsData }}>
-(function () {
-    // State management
-    const state = {
-        currentSlide: 0,
-        autoplayInterval: null,
-        isAutoplayPaused: false,
-        currentView: "carousel",
-        totalProjects: projectsData.length,
-        isInitialized: false
-    };
+    (function () {
+        // State management
+        const state = {
+            currentSlide: 0,
+            autoplayInterval: null,
+            isAutoplayPaused: false,
+            currentView: "carousel",
+            totalProjects: projectsData.length,
+            isInitialized: false
+        };
 
-    // Configuration
-    const config = {
-        autoplayDelay: 3000,
-        carouselRadius: 600,
-        angleStep: 360 / state.totalProjects,
-        scaleRange: { min: 0.6, max: 1.0 },
-        opacityRange: { min: 0.3, max: 1.0 }
-    };
+        // Configuration
+        const config = {
+            autoplayDelay: 3000,
+            carouselRadius: 600,
+            angleStep: 360 / state.totalProjects,
+            scaleRange: { min: 0.6, max: 1.0 },
+            opacityRange: { min: 0.3, max: 1.0 }
+        };
 
-    // Cache DOM elements
-    const elements = {
-        items: () => document.querySelectorAll('.carousel-item'),
-        indicators: () => document.querySelectorAll('.carousel-indicator'),
-        prevBtn: document.getElementById('carousel-prev'),
-        nextBtn: document.getElementById('carousel-next'),
-        carouselContainer: document.getElementById('carousel-container'),
-        gridContainer: document.getElementById('grid-container'),
-        toggleBtns: () => document.querySelectorAll('.view-toggle-btn'),
-        projectCount: document.getElementById('project-count-text')
-    };
+        // Cache DOM elements
+        const elements = {
+            items: () => document.querySelectorAll('.carousel-item'),
+            indicators: () => document.querySelectorAll('.carousel-indicator'),
+            prevBtn: document.getElementById('carousel-prev'),
+            nextBtn: document.getElementById('carousel-next'),
+            carouselContainer: document.getElementById('carousel-container'),
+            gridContainer: document.getElementById('grid-container'),
+            toggleBtns: () => document.querySelectorAll('.view-toggle-btn'),
+            projectCount: document.getElementById('project-count-text')
+        };
 
-    // Optimized carousel positioning with requestAnimationFrame
-    function positionCarouselItems() {
-        const items = elements.items();
-        if (items.length === 0) return;
+        // Optimized carousel positioning with requestAnimationFrame
+        function positionCarouselItems() {
+            const items = elements.items();
+            if (items.length === 0) return;
 
-        requestAnimationFrame(() => {
-            items.forEach((item, index) => {
-                const angle = ((index - state.currentSlide) * config.angleStep) * (Math.PI / 180);
-                const cosAngle = Math.cos(angle);
-                
-                const x = Math.sin(angle) * config.carouselRadius;
-                const z = cosAngle * config.carouselRadius - config.carouselRadius;
-                const scale = config.scaleRange.min + (cosAngle * (config.scaleRange.max - config.scaleRange.min));
-                const opacity = config.opacityRange.min + (cosAngle * (config.opacityRange.max - config.opacityRange.min));
+            requestAnimationFrame(() => {
+                items.forEach((item, index) => {
+                    const angle = ((index - state.currentSlide) * config.angleStep) * (Math.PI / 180);
+                    const cosAngle = Math.cos(angle);
 
-                // Batch DOM updates
-                const transform = `translateX(calc(-50% + ${x}px)) translateY(-50%) translateZ(${z}px) scale(${scale})`;
-                item.style.cssText = `
-                    transform: ${transform};
-                    opacity: ${opacity};
-                    z-index: ${Math.round(scale * 100)};
-                `;
+                    const x = Math.sin(angle) * config.carouselRadius;
+                    const z = cosAngle * config.carouselRadius - config.carouselRadius;
+                    const scale = config.scaleRange.min + (cosAngle * (config.scaleRange.max - config.scaleRange.min));
+                    const opacity = config.opacityRange.min + (cosAngle * (config.opacityRange.max - config.opacityRange.min));
+
+                    // Batch DOM updates
+                    const transform = `translateX(calc(-50% + ${x}px)) translateY(-50%) translateZ(${z}px) scale(${scale})`;
+                    item.style.cssText = `
+                        transform: ${transform};
+                        opacity: ${opacity};
+                        z-index: ${Math.round(scale * 100)};
+                    `;
+                });
             });
-        });
-    }
+        }
 
-    // Optimized carousel update
-    function updateCarousel() {
-        if (!state.isInitialized) return;
+        // Optimized carousel update
+        function updateCarousel() {
+            if (!state.isInitialized) return;
 
-        const items = elements.items();
-        const indicators = elements.indicators();
+            const items = elements.items();
+            const indicators = elements.indicators();
 
-        // Batch class updates
-        items.forEach((item, index) => {
-            item.classList.toggle('active', index === state.currentSlide);
-        });
+            // Batch class updates
+            items.forEach((item, index) => {
+                item.classList.toggle('active', index === state.currentSlide);
+            });
 
-        indicators.forEach((indicator, index) => {
-            indicator.classList.toggle('active', index === state.currentSlide);
-        });
+            indicators.forEach((indicator, index) => {
+                indicator.classList.toggle('active', index === state.currentSlide);
+            });
 
-        positionCarouselItems();
-        updateProjectCount();
-    }
+            positionCarouselItems();
+            updateProjectCount();
+        }
 
-    // Slide navigation with bounds checking
-    function changeSlide(direction) {
-        state.currentSlide = (state.currentSlide + direction + state.totalProjects) % state.totalProjects;
-        updateCarousel();
-        resetAutoplay();
-    }
-
-    function goToSlide(index) {
-        if (index >= 0 && index < state.totalProjects) {
-            state.currentSlide = index;
+        // Slide navigation with bounds checking
+        function changeSlide(direction) {
+            state.currentSlide = (state.currentSlide + direction + state.totalProjects) % state.totalProjects;
             updateCarousel();
             resetAutoplay();
         }
-    }
 
-    // Autoplay management
-    function startAutoplay() {
-        if (state.currentView !== "carousel") return;
-        
-        stopAutoplay();
-        state.autoplayInterval = setInterval(() => {
-            if (!state.isAutoplayPaused) {
-                changeSlide(1);
+        function goToSlide(index) {
+            if (index >= 0 && index < state.totalProjects) {
+                state.currentSlide = index;
+                updateCarousel();
+                resetAutoplay();
             }
-        }, config.autoplayDelay);
-    }
-
-    function stopAutoplay() {
-        if (state.autoplayInterval) {
-            clearInterval(state.autoplayInterval);
-            state.autoplayInterval = null;
         }
-    }
 
-    function resetAutoplay() {
-        if (state.currentView === "carousel") {
+        // Autoplay management
+        function startAutoplay() {
+            if (state.currentView !== "carousel") return;
+
             stopAutoplay();
-            startAutoplay();
-        }
-    }
-
-    // View switching with proper cleanup
-    function switchView(view) {
-        if (view === state.currentView) return;
-
-        state.currentView = view;
-        
-        if (view === "carousel") {
-            elements.carouselContainer.style.display = "block";
-            elements.gridContainer.style.display = "none";
-            startAutoplay();
-            updateCarousel();
-        } else {
-            elements.carouselContainer.style.display = "none";
-            elements.gridContainer.style.display = "block";
-            stopAutoplay();
-        }
-
-        // Update project count text
-        updateProjectCount();
-    }
-
-    // Event handlers with proper delegation
-    function handleKeydown(e) {
-        if (state.currentView !== 'carousel') return;
-        
-        switch(e.key) {
-            case "ArrowLeft":
-                e.preventDefault();
-                changeSlide(-1);
-                break;
-            case "ArrowRight":
-                e.preventDefault();
-                changeSlide(1);
-                break;
-        }
-    }
-
-    function handleMouseEnter() {
-        state.isAutoplayPaused = true;
-    }
-
-    function handleMouseLeave() {
-        state.isAutoplayPaused = false;
-    }
-
-    // Initialize carousel controls
-    function initCarouselControls() {
-        // Navigation buttons
-        elements.prevBtn?.addEventListener('click', () => changeSlide(-1));
-        elements.nextBtn?.addEventListener('click', () => changeSlide(1));
-
-        // Indicators with event delegation
-        const indicatorsContainer = elements.indicators()[0]?.parentElement;
-        if (indicatorsContainer) {
-            indicatorsContainer.addEventListener('click', (e) => {
-                const indicator = e.target.closest('.carousel-indicator');
-                if (indicator) {
-                    const index = Array.from(elements.indicators()).indexOf(indicator);
-                    goToSlide(index);
+            state.autoplayInterval = setInterval(() => {
+                if (!state.isAutoplayPaused) {
+                    changeSlide(1);
                 }
-            });
+            }, config.autoplayDelay);
         }
 
-        // Keyboard navigation
-        document.addEventListener('keydown', handleKeydown);
-
-        // Mouse hover controls
-        if (elements.carouselContainer) {
-            elements.carouselContainer.addEventListener('mouseenter', handleMouseEnter);
-            elements.carouselContainer.addEventListener('mouseleave', handleMouseLeave);
+        function stopAutoplay() {
+            if (state.autoplayInterval) {
+                clearInterval(state.autoplayInterval);
+                state.autoplayInterval = null;
+            }
         }
-    }
 
-    // Initialize view toggle
-    function initViewToggle() {
-        const toggleBtns = elements.toggleBtns();
-        
-        toggleBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                // Update active state
-                toggleBtns.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-                
-                // Switch view
-                switchView(btn.dataset.view);
-            });
-        });
-    }
-
-    // Update project count based on current view and device
-    function updateProjectCount() {
-        if (!elements.projectCount) return;
-
-        // Check if we're in mobile view (carousel is hidden)
-        const isMobileView = window.innerWidth <= 768 || 
-                           (elements.carouselContainer && 
-                            window.getComputedStyle(elements.carouselContainer).display === 'none');
-
-        if (isMobileView || state.currentView === "grid") {
-            elements.projectCount.textContent = `Showing all ${state.totalProjects} projects`;
-        } else {
-            elements.projectCount.textContent = `Showing project ${state.currentSlide + 1} of ${state.totalProjects}`;
+        function resetAutoplay() {
+            if (state.currentView === "carousel") {
+                stopAutoplay();
+                startAutoplay();
+            }
         }
-    }
 
-    // Initialize project count
-    function initProjectCount() {
-        updateProjectCount();
-        
-        // Update count on window resize
-        window.addEventListener('resize', updateProjectCount);
-    }
+        // View switching with proper cleanup
+        function switchView(view) {
+            if (view === state.currentView) return;
 
-    // Cleanup function for page unload
-    function cleanup() {
-        stopAutoplay();
-        document.removeEventListener('keydown', handleKeydown);
-        window.removeEventListener('resize', updateProjectCount);
-        if (elements.carouselContainer) {
-            elements.carouselContainer.removeEventListener('mouseenter', handleMouseEnter);
-            elements.carouselContainer.removeEventListener('mouseleave', handleMouseLeave);
-        }
-    }
+            state.currentView = view;
 
-    // Main initialization
-    function init() {
-        if (state.isInitialized) return;
-        
-        try {
-            initCarouselControls();
-            initViewToggle();
-            initProjectCount();
-            
-            // Set initial state
-            state.isInitialized = true;
-            
-            // Initial update for mobile detection
+            if (view === "carousel") {
+                elements.carouselContainer.style.display = "block";
+                elements.gridContainer.style.display = "none";
+                startAutoplay();
+                updateCarousel();
+            } else {
+                elements.carouselContainer.style.display = "none";
+                elements.gridContainer.style.display = "block";
+                stopAutoplay();
+            }
+
+            // Update project count text
             updateProjectCount();
-            
-            startAutoplay();
-            updateCarousel();
-            
-            // Cleanup on page unload
-            window.addEventListener('beforeunload', cleanup);
-            
-        } catch (error) {
-            console.error('Projects carousel initialization failed:', error);
         }
-    }
 
-    // Initialize when DOM is ready
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', init);
-    } else {
-        init();
-    }
-})(); 
+        // Event handlers with proper delegation
+        function handleKeydown(e) {
+            if (state.currentView !== 'carousel') return;
+
+            switch(e.key) {
+                case "ArrowLeft":
+                    e.preventDefault();
+                    changeSlide(-1);
+                    break;
+                case "ArrowRight":
+                    e.preventDefault();
+                    changeSlide(1);
+                    break;
+            }
+        }
+
+        function handleMouseEnter() {
+            state.isAutoplayPaused = true;
+        }
+
+        function handleMouseLeave() {
+            state.isAutoplayPaused = false;
+        }
+
+        // Initialize carousel controls
+        function initCarouselControls() {
+            // Navigation buttons
+            elements.prevBtn?.addEventListener('click', () => changeSlide(-1));
+            elements.nextBtn?.addEventListener('click', () => changeSlide(1));
+
+            // Indicators with event delegation
+            const indicatorsContainer = elements.indicators()[0]?.parentElement;
+            if (indicatorsContainer) {
+                indicatorsContainer.addEventListener('click', (e) => {
+                    const indicator = e.target.closest('.carousel-indicator');
+                    if (indicator) {
+                        const index = Array.from(elements.indicators()).indexOf(indicator);
+                        goToSlide(index);
+                    }
+                });
+            }
+
+            // Keyboard navigation
+            document.addEventListener('keydown', handleKeydown);
+
+            // Mouse hover controls
+            if (elements.carouselContainer) {
+                elements.carouselContainer.addEventListener('mouseenter', handleMouseEnter);
+                elements.carouselContainer.addEventListener('mouseleave', handleMouseLeave);
+            }
+        }
+
+        // Initialize view toggle
+        function initViewToggle() {
+            const toggleBtns = elements.toggleBtns();
+
+            toggleBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Update active state
+                    toggleBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+
+                    // Switch view
+                    switchView(btn.dataset.view);
+                });
+            });
+        }
+
+        // Update project count based on current view and device
+        function updateProjectCount() {
+            if (!elements.projectCount) return;
+
+            // Check if we're in mobile view (carousel is hidden)
+            const isMobileView = window.innerWidth <= 768 ||
+                            (elements.carouselContainer &&
+                                window.getComputedStyle(elements.carouselContainer).display === 'none');
+
+            if (isMobileView || state.currentView === "grid") {
+                elements.projectCount.textContent = `Showing all ${state.totalProjects} projects`;
+            } else {
+                elements.projectCount.textContent = `Showing project ${state.currentSlide + 1} of ${state.totalProjects}`;
+            }
+        }
+
+        // Initialize project count
+        function initProjectCount() {
+            updateProjectCount();
+
+            // Update count on window resize
+            window.addEventListener('resize', updateProjectCount);
+        }
+
+        // Cleanup function for page unload
+        function cleanup() {
+            stopAutoplay();
+            document.removeEventListener('keydown', handleKeydown);
+            window.removeEventListener('resize', updateProjectCount);
+            if (elements.carouselContainer) {
+                elements.carouselContainer.removeEventListener('mouseenter', handleMouseEnter);
+                elements.carouselContainer.removeEventListener('mouseleave', handleMouseLeave);
+            }
+        }
+
+        // Main initialization
+        function init() {
+            if (state.isInitialized) return;
+
+            try {
+                initCarouselControls();
+                initViewToggle();
+                initProjectCount();
+
+                // Set initial state
+                state.isInitialized = true;
+
+                // Initial update for mobile detection
+                updateProjectCount();
+
+                startAutoplay();
+                updateCarousel();
+
+                // Cleanup on page unload
+                window.addEventListener('beforeunload', cleanup);
+
+            } catch (error) {
+                console.error('Projects carousel initialization failed:', error);
+            }
+        }
+
+        // Initialize when DOM is ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', init);
+        } else {
+            init();
+        }
+    })();
 </script>
