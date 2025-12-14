@@ -33,16 +33,16 @@ import homeImg from "../assets/images/home.png";
                 </div>
 
                 <div class="home-buttons flex gap-3 sm:gap-4 lg:gap-5 flex-wrap opacity-0 translate-x-[-50px] justify-center lg:justify-start">
-                    <a href="/assets/Rakesh_Roshan_Resume.pdf" target="_blank" draggable="false">
+                    <a href="/assets/Rakesh_Roshan_Resume.pdf" target="_blank" rel="noopener noreferrer" draggable="false" aria-label="Open resume in new tab">
                         <button class="btn-primary px-4 sm:px-6 lg:px-7 py-2.5 sm:py-3 font-bold text-white rounded-full transition-all duration-400 relative overflow-hidden flex items-center gap-2 sm:gap-2.5 z-10" style="font-size: clamp(12px, 3vw, 16px); letter-spacing: 0.5px; background: rgba(59, 130, 246, 0.2); backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px); border: 2px solid rgba(59, 130, 246, 0.5); box-shadow: 0 8px 32px rgba(59, 130, 246, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.15);">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" class="sm:w-[18px] sm:h-[18px]">
-                                <path d="M288 32c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 242.7-73.4-73.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l128 128c12.5 12.5 32.8 12.5 45.3 0l128-128c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L288 274.7 288 32zM64 352c-35.3 0-64 28.7-64 64l0 32c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-32c0-35.3-28.7-64-64-64l-101.5 0-45.3 45.3c-25 25-65.5 25-90.5 0L165.5 352 64 352zm368 56a24 24 0 1 1 0 48 24 24 0 1 1 0-48z"/>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" width="16" height="16" fill="currentColor" class="sm:w-[18px] sm:h-[18px]">
+                                <path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM144 256a144 144 0 1 1 288 0 144 144 0 1 1 -288 0zm144-64c0 35.3-28.7 64-64 64c-7.1 0-13.9-1.2-20.3-3.3c-5.5-1.8-11.9 1.6-11.7 7.4c.3 6.9 1.3 13.8 3.2 20.7c13.7 51.2 66.4 81.6 117.6 67.9s81.6-66.4 67.9-117.6c-11.1-41.5-47.8-69.4-92.7-69.4z"/>
                             </svg>
-                            <span class="hidden sm:inline">DOWNLOAD RESUME</span>
+                            <span class="hidden sm:inline">VIEW RESUME</span>
                             <span class="sm:hidden">RESUME</span>
                         </button>
                     </a>
-                    <a href="#contact">
+                    <a href="#contact" draggable="false" aria-label="Go to contact page">
                         <button class="btn-secondary px-4 sm:px-6 lg:px-7 py-2.5 sm:py-3 font-bold text-white rounded-full transition-all duration-400 relative overflow-hidden flex items-center gap-2 sm:gap-2.5 z-10" style="font-size: clamp(12px, 3vw, 16px); letter-spacing: 0.5px; background: rgba(217, 70, 239, 0.2); backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px); border: 2px solid rgba(217, 70, 239, 0.5); box-shadow: 0 8px 32px rgba(217, 70, 239, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.15);">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" class="sm:w-[18px] sm:h-[18px]">
                                 <path d="M64 112c-8.8 0-16 7.2-16 16l0 22.1L220.5 291.7c20.7 17 50.4 17 71.1 0L464 150.1l0-22.1c0-8.8-7.2-16-16-16L64 112zM48 212.2L48 384c0 8.8 7.2 16 16 16l384 0c8.8 0 16-7.2 16-16l0-171.8L322 328.8c-38.4 31.5-93.7 31.5-132 0L48 212.2zM0 128C0 92.7 28.7 64 64 64l384 0c35.3 0 64 28.7 64 64l0 256c0 35.3-28.7 64-64 64L64 448c-35.3 0-64-28.7-64-64L0 128z"/>
@@ -55,7 +55,7 @@ import homeImg from "../assets/images/home.png";
 
             <div class="home-image mt-8 lg:mt-5 lg:ml-5 relative w-full lg:w-auto flex justify-center lg:justify-end" style="max-width: clamp(200px, 80vw, 450px);">
                 <div class="image-container relative animate-float-image w-full">
-                    <Image src={homeImg} alt="Home Image" width={450} height={460} loading="eager" fetchpriority="high" class="w-full h-auto transition-all duration-300" style="filter: drop-shadow(0 0 30px rgba(217, 70, 239, 0.4));" />
+                    <Image src={homeImg} alt="Home Image" width={450} height={460} loading="eager" fetchpriority="high" draggable="false" class="w-full h-auto transition-all duration-300" style="filter: drop-shadow(0 0 30px rgba(217, 70, 239, 0.4));" />
                     <div class="floating-icons absolute top-0 left-0 w-full h-full pointer-events-none">
                         <div class="float-icon icon-1 absolute text-[1.8rem] sm:text-[2.2rem] lg:text-[2.5rem] opacity-80 animate-float-around-1" style="filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5)); top: 10%; left: -5%; lg:left: -10%;">💻</div>
                         <div class="float-icon icon-2 absolute text-[1.8rem] sm:text-[2.2rem] lg:text-[2.5rem] opacity-80 animate-float-around-2" style="filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5)); top: 20%; right: -5%; lg:right: -10%;">🚀</div>

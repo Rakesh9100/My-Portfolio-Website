@@ -103,8 +103,8 @@ const educationData = [{
                 <div class="box-content flex flex-col lg:flex-row gap-4 sm:gap-5 lg:gap-6 p-4 sm:p-5 lg:p-6">
                     <div class="image-section w-full lg:flex-[0_0_280px] flex flex-col gap-3 sm:gap-4">
                         <div class="image relative rounded-[12px] sm:rounded-[15px] overflow-hidden flex-shrink-0" style="box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);">
-                            <a href={edu.link} target="_blank" rel="noopener noreferrer" class="block relative cursor-pointer no-underline">
-                                <Image src={edu.image} alt={edu.institution} width={300} height={200} loading="lazy" class="w-full h-[150px] sm:h-[180px] lg:h-[200px] object-cover block transition-all duration-400" style="filter: brightness(100%);" />
+                            <a href={edu.link} target="_blank" rel="noopener noreferrer" draggable="false" class="block relative cursor-pointer no-underline">
+                                <Image src={edu.image} alt={edu.institution} width={300} height={200} loading="lazy" draggable="false" class="w-full h-[150px] sm:h-[180px] lg:h-[200px] object-cover block transition-all duration-400" style="filter: brightness(100%);" />
                                 <div class="image-overlay">
                                     <span class="visit-link">Visit Website →</span>
                                 </div>

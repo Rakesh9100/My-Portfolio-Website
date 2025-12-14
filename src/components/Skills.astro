@@ -46,11 +46,7 @@ const skills = skillsData;
         {skills.map((skill) => (
         <div class="box skill-card-ready show" data-category={skill.category}>
             <div class="skill-card-inner relative z-[3]">
-                <img
-                    src={`/${skill.image}`}
-                    alt={skill.title}
-                    class="skill-img"
-                    />
+                <img src={`/${skill.image}`} alt={skill.title} draggable="false" class="skill-img" />
                 <div class="topic">
                     {skill.title}
                 </div>
@@ -102,7 +98,6 @@ const skills = skillsData;
         border-radius: 15px;
         position: relative;
         overflow: hidden;
-        cursor: pointer;
         transition: all 0.5s ease;
         margin-bottom: -15px;
         background: rgba(26, 15, 62, 0.25);

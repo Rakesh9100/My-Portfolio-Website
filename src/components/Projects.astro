@@ -120,16 +120,16 @@ const projectsData = [
                 <div class="carousel-item {index === 0 ? 'active' : ''}">
                     <div class="box">
                         <div class="project-image-container">
-                            <Image src={project.image} alt={project.title} class="snapshot" format="webp" loading="lazy" />
+                            <Image src={project.image} alt={project.title} loading="lazy" draggable="false" class="snapshot" />
                             <div class="project-links">
                                 <!-- GitHub -->
-                                <a href={project.sourceCode} target="_blank" rel="noopener noreferrer" class="project-link-btn">
-                                <img src="/assets/images/projects/github.png" alt="GitHub" />
+                                <a href={project.sourceCode} target="_blank" rel="noopener noreferrer" draggable="false" class="project-link-btn">
+                                    <img src="/assets/images/projects/github.png" alt="GitHub" draggable="false" />
                                 </a>
                                 <!-- Live link -->
                                 {project.liveProject && (
-                                <a href={project.liveProject} target="_blank" rel="noopener noreferrer" class="project-link-btn">
-                                <img src="/assets/images/projects/link.png" alt="Live" />
+                                <a href={project.liveProject} target="_blank" rel="noopener noreferrer" draggable="false" class="project-link-btn">
+                                    <img src="/assets/images/projects/link.png" alt="Live" draggable="false" />
                                 </a>
                                 )}
                             </div>
@@ -173,14 +173,14 @@ const projectsData = [
             {projectsData.map(project => (
             <div class="box show">
                 <div class="project-image-container">
-                    <Image src={project.image} alt={project.title} class="snapshot" format="webp" loading="lazy" />
+                    <Image src={project.image} alt={project.title} loading="lazy" draggable="false" class="snapshot" />
                     <div class="project-links">
-                        <a href={project.sourceCode} target="_blank" rel="noopener noreferrer" class="project-link-btn">
-                        <img src="/assets/images/projects/github.png" alt="GitHub" />
+                        <a href={project.sourceCode} target="_blank" rel="noopener noreferrer" draggable="false" class="project-link-btn">
+                            <img src="/assets/images/projects/github.png" alt="GitHub" draggable="false" />
                         </a>
                         {project.liveProject && (
-                        <a href={project.liveProject} target="_blank" rel="noopener noreferrer" class="project-link-btn">
-                        <img src="/assets/images/projects/link.png" alt="Live" />
+                        <a href={project.liveProject} target="_blank" rel="noopener noreferrer" draggable="false" class="project-link-btn">
+                            <img src="/assets/images/projects/link.png" alt="Live" draggable="false" />
                         </a>
                         )}
                     </div>
@@ -329,7 +329,6 @@ const projectsData = [
         width: 100%;
         height: 100%;
         object-fit: cover;
-        -webkit-user-drag: none;
         transition: all 0.4s ease;
     }
 
@@ -528,7 +527,6 @@ const projectsData = [
         top: 50%;
         transform-style: preserve-3d;
         transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-        cursor: pointer;
     }
 
     .carousel-item .box {
@@ -1239,6 +1237,11 @@ const projectsData = [
         // Event handlers with proper delegation
         function handleKeydown(e) {
             if (state.currentView !== 'carousel') return;
+
+            // Don't interfere with form inputs, textareas, or other interactive elements
+            if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA' || e.target.isContentEditable) {
+                return;
+            }
 
             switch(e.key) {
                 case "ArrowLeft":

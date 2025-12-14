@@ -43,24 +43,24 @@ const techIcons = {
     <!-- Experience Filter -->
     <div class="experience-filter flex justify-center gap-4 flex-wrap my-10 mx-auto px-5 relative z-10">
         <button class="exp-filter-btn active" data-filter="all">
-        <span class="filter-icon">🌟</span>
-        <span class="filter-text-full">All</span>
-        <span class="filter-text-short hidden">All</span>
+            <span class="filter-icon">🌟</span>
+            <span class="filter-text-full">All</span>
+            <span class="filter-text-short hidden">All</span>
         </button>
         <button class="exp-filter-btn" data-filter="work">
-        <span class="filter-icon">💼</span>
-        <span class="filter-text-full">Work</span>
-        <span class="filter-text-short hidden">Work</span>
+            <span class="filter-icon">💼</span>
+            <span class="filter-text-full">Work</span>
+            <span class="filter-text-short hidden">Work</span>
         </button>
         <button class="exp-filter-btn" data-filter="opensource">
-        <span class="filter-icon">🚀</span>
-        <span class="filter-text-full">Open Source</span>
-        <span class="filter-text-short hidden">Open</span>
+            <span class="filter-icon">🚀</span>
+            <span class="filter-text-full">Open Source</span>
+            <span class="filter-text-short hidden">Open</span>
         </button>
         <button class="exp-filter-btn" data-filter="internship">
-        <span class="filter-icon">🎓</span>
-        <span class="filter-text-full">Internship</span>
-        <span class="filter-text-short hidden">Intern</span>
+            <span class="filter-icon">🎓</span>
+            <span class="filter-text-full">Internship</span>
+            <span class="filter-text-short hidden">Intern</span>
         </button>
     </div>
 
@@ -81,15 +81,7 @@ const techIcons = {
                             <div class="company-badge">
                                 {exp.logo && (
                                 <div class="company-logo-container">
-                                    <img
-                                        src={exp.logo}
-                                        alt={`${exp.company} logo`}
-                                        class="company-logo"
-                                        loading="lazy"
-                                        width="36"
-                                        height="36"
-                                        decoding="async"
-                                        />
+                                    <img src={exp.logo} alt={`${exp.company} logo`} class="company-logo" loading="lazy" width="36" height="36" draggable="false" decoding="async" />
                                 </div>
                                 )}
                                 <span class="company-name">{exp.company}</span>
@@ -153,15 +145,7 @@ const techIcons = {
                             <div class="company-badge">
                                 {exp.logo && (
                                 <div class="company-logo-container">
-                                    <img
-                                        src={exp.logo}
-                                        alt={`${exp.company} logo`}
-                                        class="company-logo"
-                                        loading="lazy"
-                                        width="36"
-                                        height="36"
-                                        decoding="async"
-                                        />
+                                    <img src={exp.logo} alt={`${exp.company} logo`} class="company-logo" loading="lazy" width="36" height="36" draggable="false" decoding="async" />
                                 </div>
                                 )}
                                 <span class="company-name">{exp.company}</span>
