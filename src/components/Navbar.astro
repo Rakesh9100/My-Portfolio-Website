@@ -621,87 +621,74 @@ const navItems = [
     // Active menu highlighting
     const sections = document.querySelectorAll('section[id]');
     const allNavLinks = document.querySelectorAll('.nav-link, .mobile-nav-link');
+    let isUserNavigating = false;
 
-    // Set HOME as active by default on page load
-    function setDefaultActive() {
-        const scrollY = window.pageYOffset;
-        if (scrollY < 100) {
-            allNavLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === '#home') {
-                    link.classList.add('active');
+    // Function to set active link
+    function setActiveLink(targetHref: string) {
+        allNavLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === targetHref) {
+                link.classList.add('active');
+            }
+        });
+    }
+
+    // Handle direct navigation clicks
+    allNavLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            const href = link.getAttribute('href');
+            if (href) {
+                isUserNavigating = true;
+                setActiveLink(href);
+
+                // Reset flag after navigation completes
+                setTimeout(() => {
+                    isUserNavigating = false;
+                }, 1000);
+            }
+        });
+    });
+
+    // Intersection Observer for automatic highlighting during scroll
+    const observer = new IntersectionObserver(
+        entries => {
+            // Only update if user is not actively navigating
+            if (isUserNavigating) return;
+
+            let mostVisibleEntry: IntersectionObserverEntry | null = null;
+            let maxIntersectionRatio = 0;
+
+            entries.forEach(entry => {
+                if (entry.isIntersecting && entry.intersectionRatio > maxIntersectionRatio) {
+                    maxIntersectionRatio = entry.intersectionRatio;
+                    mostVisibleEntry = entry;
                 }
             });
+
+            if (mostVisibleEntry) {
+                const id = (mostVisibleEntry as IntersectionObserverEntry).target.getAttribute('id');
+                setActiveLink(`#${id}`);
+            }
+        }, {
+            threshold: [0.1, 0.3, 0.5, 0.7],
+            rootMargin: '-20% 0px -20% 0px'
         }
-    }
+    );
 
-    let scrollTimeout: ReturnType < typeof setTimeout > ;
-
-    function highlightNav() {
-        // Debounce scroll events to reduce flickering during smooth scroll
-        clearTimeout(scrollTimeout);
-        scrollTimeout = setTimeout(() => {
-            const scrollY = window.pageYOffset;
-
-            // If at top of page, activate HOME
-            if (scrollY < 100) {
-                setDefaultActive();
-                return;
-            }
-
-            let activeSection: string | null = null;
-
-            // Find the section that's most visible in viewport
-            sections.forEach(section => {
-                const htmlSection = section as HTMLElement;
-                const sectionHeight = htmlSection.offsetHeight;
-                const sectionTop = htmlSection.offsetTop - 150;
-                const sectionId = section.getAttribute('id');
-
-                if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
-                    activeSection = sectionId;
-                }
-            });
-
-            // Only update if we found an active section
-            if (activeSection) {
-                allNavLinks.forEach(link => {
-                    link.classList.remove('active');
-                    if (link.getAttribute('href') === `#${activeSection}`) {
-                        link.classList.add('active');
-                    }
-                });
-            }
-        }, 50);
-    }
-
-    // Handle hash navigation on page load
+    // Handle hash navigation on page load and hash changes
     function handleHashNavigation() {
-        const hash = window.location.hash;
-        if (hash) {
-            // Remove active from all links
-            allNavLinks.forEach(link => link.classList.remove('active'));
-
-            // Find and activate the link matching the hash
-            const targetLink = Array.from(allNavLinks).find(link => link.getAttribute('href') === hash);
-            if (targetLink) {
-                targetLink.classList.add('active');
-            }
-        } else {
-            // No hash, set HOME as active
-            setDefaultActive();
-        }
+        const hash = window.location.hash || '#home';
+        setActiveLink(hash);
     }
 
-    // Set active based on hash or default to HOME on page load
+    // Initialize on page load
     handleHashNavigation();
 
-    // Also handle hash changes (browser back/forward)
+    // Handle browser back/forward
     window.addEventListener('hashchange', handleHashNavigation);
 
-    window.addEventListener('scroll', highlightNav, {
-        passive: true
-    });
+    // Observe all sections
+    sections.forEach(section => observer.observe(section));
 
     // Resume button hover effect
     const resumeBtn = document.querySelector('.resume-btn');
@@ -718,25 +705,4 @@ const navItems = [
             svg.style.animation = '';
         }
     });
-
-    const observer = new IntersectionObserver(
-        entries => {
-            entries.forEach(entry => {
-                const id = entry.target.getAttribute('id');
-                if (entry.isIntersecting) {
-                    document.querySelectorAll('.nav-link, .mobile-nav-link').forEach(link => {
-                        link.classList.remove('active');
-                        if (link.getAttribute('href') === `#${id}`) {
-                            link.classList.add('active');
-                        }
-                    });
-                }
-            });
-        }, {
-            threshold: 0.5,
-        }
-    );
-
-    // Observe all sections
-    document.querySelectorAll('section[id]').forEach(sec => observer.observe(sec));
 </script>
