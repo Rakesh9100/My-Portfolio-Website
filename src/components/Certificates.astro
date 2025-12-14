@@ -83,12 +83,12 @@ const certificates = [
         ))}
     </div>
 
-    <div class="title relative text-center font-bold mb-6">
-        <span class="certificates-title uppercase">My Certificates</span>
+    <div class="title relative text-center font-bold mb-4 md:mb-6">
+        <span class="certificates-title text-[8vw] sm:text-[6vw] md:text-[5vw] lg:text-[3.5vw] uppercase">My Certificates</span>
     </div>
 
-    <div class="text text-center mb-16">
-        <span class="certificates-subtitle px-4 py-1 inline-block text-center">Earning a certificate or degree, or both, after high school opens the door to countless economic opportunities.</span>
+    <div class="text text-center mb-8 md:mb-12 lg:mb-16 px-4">
+        <span class="quote-text">Certificates are proof of dedication, but knowledge is the real achievement.</span>
     </div>
 
     <!-- Certificate Controls -->
@@ -205,10 +205,7 @@ const certificates = [
     }
 
     .certificates-title {
-        font-size: clamp(2rem, 8vw, 3.5vw);
         background: var(--gradient2);
-        background-size: cover;
-        color: transparent;
         background-clip: text;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
@@ -216,8 +213,11 @@ const certificates = [
         animation: titleGlow 3s ease-in-out infinite;
     }
 
-    .certificates-subtitle {
-        font-size: clamp(0.875rem, 3.5vw, 1.3vw);
+    .quote-text {
+        font-size: clamp(12px, 3.5vw, 18px);
+        padding: 0.25rem 0.75rem;
+        display: inline-block;
+        text-align: center;
         color: var(--secondary);
         background: rgba(26, 15, 62, 0.3);
         backdrop-filter: blur(20px);
@@ -228,7 +228,7 @@ const certificates = [
         transition: all 0.3s ease;
     }
 
-    .certificates-subtitle:hover {
+    .quote-text:hover {
         background: rgba(59, 130, 246, 0.25);
         backdrop-filter: blur(25px);
         -webkit-backdrop-filter: blur(25px);
@@ -328,8 +328,6 @@ const certificates = [
         transition: all 0.4s ease;
         -webkit-tap-highlight-color: transparent;
         touch-action: manipulation;
-        user-select: none;
-        -webkit-user-select: none;
         position: relative;
         z-index: 1;
     }
@@ -772,11 +770,13 @@ const certificates = [
             filter: none;
         }
 
-        .certificates-subtitle {
-            backdrop-filter: none;
-            -webkit-backdrop-filter: none;
-            box-shadow: none;
-            background: rgba(26, 15, 62, 0.5);
+        .quote-text {
+            font-size: 12px !important;
+            padding: 0.5rem 0.75rem;
+            backdrop-filter: none !important;
+            -webkit-backdrop-filter: none !important;
+            box-shadow: none !important;
+            background: rgba(26, 15, 62, 0.5) !important;
         }
 
         .certificates .box {
@@ -866,6 +866,13 @@ const certificates = [
         }
     }
 
+    /* Responsive Adjustments */
+    @media (min-width: 640px) {
+        .quote-text {
+            padding: 0.25rem 1rem;
+        }
+    }
+
     /* Mobile (up to 640px) */
     @media (max-width: 640px) {
         .certificates {
@@ -876,9 +883,9 @@ const certificates = [
             margin-bottom: 2rem;
         }
 
-        .certificates-subtitle {
-            padding: 8px 15px;
-            font-size: 0.875rem;
+        .quote-text {
+            padding: 0.5rem 0.75rem;
+            font-size: 12px !important;
         }
 
         .certificate-controls {

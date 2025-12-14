@@ -8,12 +8,12 @@ import ContactImage from "../assets/images/contact.png";
     <div class="floating-bg floating-bg-1"></div>
     <div class="floating-bg floating-bg-2"></div>
 
-    <div class="title relative text-center font-bold mb-6">
-        <span class="contact-title uppercase">Contact Me</span>
+    <div class="title relative text-center font-bold mb-4 md:mb-6">
+        <span class="contact-title text-[8vw] sm:text-[6vw] md:text-[5vw] lg:text-[3.5vw] uppercase">Contact Me</span>
     </div>
 
-    <div class="text text-center mb-16">
-        <span class="contact-subtitle px-4 py-1 inline-block text-center">When we Contact each other, we Change each other. We are constantly making each other.</span>
+    <div class="text text-center mb-8 md:mb-12 lg:mb-16 px-4">
+        <span class="quote-text">Great things happen when great minds connect. Let's build something amazing together.</span>
     </div>
 
     <p class="contact-heading animate-pulse-glow text-center font-black mb-10">Let's Get Connected!!</p>
@@ -239,10 +239,7 @@ import ContactImage from "../assets/images/contact.png";
     }
 
     .contact-title {
-        font-size: clamp(2rem, 8vw, 3.5vw);
         background: var(--gradient2);
-        background-size: cover;
-        color: transparent;
         background-clip: text;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
@@ -250,8 +247,11 @@ import ContactImage from "../assets/images/contact.png";
         animation: titleGlow 3s ease-in-out infinite;
     }
 
-    .contact-subtitle {
-        font-size: clamp(0.875rem, 3.5vw, 1.3vw);
+    .quote-text {
+        font-size: clamp(12px, 3.5vw, 18px);
+        padding: 0.25rem 0.75rem;
+        display: inline-block;
+        text-align: center;
         color: var(--secondary);
         background: rgba(26, 15, 62, 0.3);
         backdrop-filter: blur(20px);
@@ -262,11 +262,11 @@ import ContactImage from "../assets/images/contact.png";
         transition: all 0.3s ease;
     }
 
-    .contact-subtitle:hover {
+    .quote-text:hover {
         background: rgba(59, 130, 246, 0.25);
         backdrop-filter: blur(25px);
         -webkit-backdrop-filter: blur(25px);
-        border-color: rgba(59, 130, 246, 0.6);
+        border: 1px solid rgba(59, 130, 246, 0.6);
         box-shadow: 0 12px 40px rgba(59, 130, 246, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.2);
         transform: translateY(-2px);
     }
@@ -692,6 +692,13 @@ import ContactImage from "../assets/images/contact.png";
         }
     }
 
+    /* Responsive Adjustments */
+    @media (min-width: 640px) {
+        .quote-text {
+            padding: 0.25rem 1rem;
+        }
+    }
+
     @media (min-width: 640px) and (max-width: 1023px) {
         .contact {
             padding: 5rem 1.5rem 4rem;
@@ -809,9 +816,9 @@ import ContactImage from "../assets/images/contact.png";
             margin-bottom: 2rem;
         }
 
-        .contact-subtitle {
-            padding: 8px 15px;
-            font-size: 0.875rem;
+        .quote-text {
+            padding: 0.5rem 0.75rem;
+            font-size: 12px !important;
         }
 
         .contact-heading {
@@ -955,7 +962,9 @@ import ContactImage from "../assets/images/contact.png";
             filter: none !important;
         }
 
-        .contact-subtitle {
+        .quote-text {
+            font-size: 12px !important;
+            padding: 0.5rem 0.75rem;
             backdrop-filter: none !important;
             -webkit-backdrop-filter: none !important;
             box-shadow: none !important;

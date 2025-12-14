@@ -82,12 +82,12 @@ const projectsData = [
     <!-- Floating Background -->
     <div class="absolute top-[10%] -right-[10%] w-[500px] h-[500px] rounded-full pointer-events-none animate-float-bg" style="background: radial-gradient(circle, rgba(217, 70, 239, 0.1) 0%, transparent 70%);"></div>
     <!-- Title -->
-    <div class="title relative text-center font-bold mb-6">
-        <span class="projects-title uppercase" style="background: var(--gradient2); background-size: cover; color: transparent; background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 0 20px rgba(240, 147, 251, 0.5)); animation: titleGlow 3s ease-in-out infinite;">My Projects</span>
+    <div class="title relative text-center font-bold mb-4 md:mb-6">
+        <span class="projects-title text-[8vw] sm:text-[6vw] md:text-[5vw] lg:text-[3.5vw] uppercase">My Projects</span>
     </div>
     <!-- Subtitle -->
-    <div class="text text-center mb-16">
-        <span class="quote-text">A creative project is a moving target. You never end up where you start.</span>
+    <div class="text text-center mb-8 md:mb-12 lg:mb-16 px-4">
+        <span class="quote-text">Every great project starts with a simple idea and the courage to begin.</span>
     </div>
     <!-- View Toggle -->
     <div class="view-toggle-container">
@@ -202,11 +202,10 @@ const projectsData = [
 
 <style is:global>
     .quote-text {
-        font-size: clamp(0.875rem, 3.5vw, 1.3vw);
-        padding: 0.375rem 1.25rem;
+        font-size: clamp(12px, 3.5vw, 18px);
+        padding: 0.25rem 0.75rem;
         display: inline-block;
         text-align: center;
-        transition: all 0.3s ease;
         color: var(--secondary);
         background: rgba(26, 15, 62, 0.3);
         backdrop-filter: blur(20px);
@@ -214,6 +213,16 @@ const projectsData = [
         border: 1px solid rgba(59, 130, 246, 0.4);
         border-radius: 25px;
         box-shadow: 0 8px 32px rgba(59, 130, 246, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        transition: all 0.3s ease;
+    }
+
+    .quote-text:hover {
+        background: rgba(59, 130, 246, 0.25);
+        backdrop-filter: blur(25px);
+        -webkit-backdrop-filter: blur(25px);
+        border: 1px solid rgba(59, 130, 246, 0.6);
+        box-shadow: 0 12px 40px rgba(59, 130, 246, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        transform: translateY(-2px);
     }
 
     @keyframes titleGlow {
@@ -238,7 +247,12 @@ const projectsData = [
     }
 
     .projects-title {
-        font-size: clamp(2rem, 8vw, 3.5vw);
+        background: var(--gradient2);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        filter: drop-shadow(0 0 20px rgba(240, 147, 251, 0.5));
+        animation: titleGlow 3s ease-in-out infinite;
     }
 
     .project-count-container {
@@ -752,6 +766,13 @@ const projectsData = [
         }
     }
 
+    /* Responsive Adjustments */
+    @media (min-width: 640px) {
+        .quote-text {
+            padding: 0.25rem 1rem;
+        }
+    }
+
     /* Tablet (640px - 1023px) */
     @media (min-width: 640px) and (max-width: 1023px) {
         .projects {
@@ -837,6 +858,8 @@ const projectsData = [
         }
 
         .quote-text {
+            font-size: 12px !important;
+            padding: 0.5rem 0.75rem;
             backdrop-filter: none !important;
             -webkit-backdrop-filter: none !important;
             box-shadow: none !important;
@@ -932,8 +955,8 @@ const projectsData = [
         }
 
         .quote-text {
-            padding: 0.5rem 0.9375rem;
-            font-size: 0.875rem;
+            padding: 0.5rem 0.75rem;
+            font-size: 12px !important;
         }
 
         .project-count-container {
