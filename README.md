@@ -61,7 +61,7 @@ A **modern, fully responsive portfolio website** built with Astro, Tailwind CSS,
 ### Home Section
 ![Home](https://github.com/user-attachments/assets/0705bac2-1735-487d-b6a7-58d4f684bd69)
 
-### About Me Section
+### About Section
 ![About](https://github.com/user-attachments/assets/d56248a4-98f1-4aeb-9d6e-e881b1489e7d)
 
 ---
