@@ -26,7 +26,7 @@ const navItems = [
         </a>
 
         <!-- Desktop Menu -->
-        <ul class="menu hidden lg:flex list-none items-center">
+        <ul class="menu hidden lg:flex list-none items-center gap-0.5">
             {navItems.map((item, index) => (
             <li class="inline-flex items-center">
                 <a href={item.href} draggable="false" class={`nav-link relative inline-flex items-center justify-center text-white/90 font-bold px-2 lg:px-3 xl:px-4 py-2.5 rounded-[15px] overflow-hidden transition-all duration-400 hover:text-white hover:-translate-y-1${index === 0 ? ' active' : ''}`} style="font-size: clamp(10px, 1.2vw, 16px); line-height: 1;">
@@ -163,8 +163,6 @@ const navItems = [
     }
 
     .nav-link {
-        /* width: 110px; */
-        /* flex: 0 0 110px; */
         text-align: center;
         box-sizing: border-box;
         border: 2px solid transparent;
@@ -216,7 +214,7 @@ const navItems = [
         -webkit-backdrop-filter: blur(20px);
         color: #ffffff;
         border-radius: 15px;
-        border: 2px solid rgba(16, 185, 129, 0.7) !important;
+        border-color: rgba(16, 185, 129, 0.7) !important;
         box-shadow:
             0 8px 30px rgba(16, 185, 129, 0.5),
             0 0 40px rgba(59, 130, 246, 0.4),
@@ -655,6 +653,7 @@ const navItems = [
     const sections = document.querySelectorAll('section[id]');
     const allNavLinks = document.querySelectorAll('.nav-link, .mobile-nav-link');
     let isUserNavigating = false;
+    let navigationTimeout: ReturnType<typeof setTimeout> | null = null;
 
     // Function to set active link
     function setActiveLink(targetHref: string) {
@@ -671,13 +670,19 @@ const navItems = [
         link.addEventListener('click', (e) => {
             const href = link.getAttribute('href');
             if (href) {
+                // Clear any existing timeout
+                if (navigationTimeout) {
+                    clearTimeout(navigationTimeout);
+                }
+
                 isUserNavigating = true;
                 setActiveLink(href);
 
-                // Reset flag after navigation completes
-                setTimeout(() => {
+                // Reset flag after navigation completes with debouncing
+                navigationTimeout = setTimeout(() => {
                     isUserNavigating = false;
-                }, 1000);
+                    navigationTimeout = null;
+                }, 1500);
             }
         });
     });
