@@ -69,7 +69,7 @@ import homeImg from "../assets/images/home.png";
         <!-- Scroll Indicator -->
         <div class="scroll-indicator absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2.5 z-[5] opacity-0">
             <div class="mouse w-7 h-11 border-2 border-white/50 rounded-[20px] relative bg-white/5 backdrop-blur-[10px]">
-                <div class="wheel w-1 h-2.5 rounded-sm absolute top-2 left-1/2 -translate-x-1/2 animate-scroll-wheel" style="background: var(--primary); box-shadow: 0 0 10px var(--primary);"></div>
+                <div class="wheel w-1 h-2.5 rounded-sm absolute top-2 left-1/2 animate-scroll-wheel" style="background: var(--primary); box-shadow: 0 0 10px var(--primary);"></div>
             </div>
             <span class="scroll-text text-xs text-white/70 tracking-[0.2em] uppercase font-bold animate-text-pulse">SCROLL DOWN</span>
         </div>
@@ -254,17 +254,17 @@ import homeImg from "../assets/images/home.png";
 
     @keyframes scroll-wheel {
         0% {
-            transform: translateY(8px);
+            transform: translateX(-50%) translateY(0px);
             opacity: 1;
         }
 
         50% {
-            transform: translateY(20px);
+            transform: translateX(-50%) translateY(12px);
             opacity: 0.5;
         }
 
         100% {
-            top: 8px;
+            transform: translateX(-50%) translateY(0px);
             opacity: 1;
         }
     }
