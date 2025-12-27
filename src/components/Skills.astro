@@ -19,26 +19,31 @@ const skills = skillsData;
     <!-- Skill Categories Filter -->
     <div class="skill-filter flex justify-center gap-2 sm:gap-3 lg:gap-4 flex-wrap my-6 md:my-8 lg:my-10 mx-auto px-3 sm:px-5 relative z-10">
         <button class="filter-btn active" data-filter="all">
-        <span class="filter-icon">🌟</span>
-        <span class="hidden sm:inline">All Skills</span>
-        <span class="sm:hidden">All</span>
+            <span class="filter-icon">🌟</span>
+            <span class="hidden sm:inline">All Skills</span>
+            <span class="sm:hidden">All</span>
         </button>
         <button class="filter-btn" data-filter="devops">
-        <span class="filter-icon">⚙️</span>
-        DevOps
+            <span class="filter-icon">⚙️</span>
+            DevOps
         </button>
         <button class="filter-btn" data-filter="cloud">
-        <span class="filter-icon">☁️</span>
-        Cloud
+            <span class="filter-icon">☁️</span>
+            Cloud
         </button>
         <button class="filter-btn" data-filter="programming">
-        <span class="filter-icon">💻</span>
-        <span class="hidden sm:inline">Programming</span>
-        <span class="sm:hidden">Code</span>
+            <span class="filter-icon">💻</span>
+            <span class="hidden sm:inline">Programming</span>
+            <span class="sm:hidden">Code</span>
         </button>
         <button class="filter-btn" data-filter="tools">
-        <span class="filter-icon">🛠️</span>
-        Tools
+            <span class="filter-icon">🛠️</span>
+            Tools
+        </button>
+        <button class="filter-btn" data-filter="soft-skills">
+            <span class="filter-icon">🤝</span>
+            <span class="hidden sm:inline">Soft Skills</span>
+            <span class="sm:hidden">Soft</span>
         </button>
     </div>
 
@@ -113,7 +118,7 @@ const skills = skillsData;
         padding: 0.625rem;
         width: 4rem;
         height: 4rem;
-        object-fit: cover;
+        object-fit: contain;
         position: relative;
         z-index: 3;
         transition: all 0.4s ease;
