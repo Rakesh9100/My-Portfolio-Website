@@ -122,17 +122,35 @@
     const progressText = document.getElementById('progress-percentage');
 
     let progress = 0;
+    let isCompleted = false;
     const hasHash = window.location.hash;
 
-    // Asset tracking
+    // Asset tracking with better error handling
     let totalAssets = 0;
     let loadedAssets = 0;
     let assetsTracked = false;
+    let progressTimer: ReturnType<typeof setTimeout> | null = null;
 
     function updateProgress(newProgress: number) {
+        if (isCompleted) return;
+        
         progress = Math.min(100, Math.max(0, newProgress));
         if (progressBar) progressBar.style.width = progress + '%';
         if (progressText) progressText.textContent = Math.round(progress) + '%';
+
+        // Clear any existing timer
+        if (progressTimer) {
+            clearTimeout(progressTimer);
+        }
+
+        // Auto-complete if we're stuck near 100%
+        if (progress >= 95 && progress < 100) {
+            progressTimer = setTimeout(() => {
+                if (!isCompleted) {
+                    updateProgress(100);
+                }
+            }, 1000);
+        }
 
         if (progress >= 100) {
             completeLoading();
@@ -140,6 +158,13 @@
     }
 
     function completeLoading() {
+        if (isCompleted) return;
+        isCompleted = true;
+
+        if (progressTimer) {
+            clearTimeout(progressTimer);
+        }
+
         if (loader) {
             loader.style.opacity = '0';
 
@@ -164,97 +189,129 @@
     }
 
     function onAssetLoaded() {
+        if (isCompleted) return;
+        
         loadedAssets++;
-        const assetProgress = (loadedAssets / totalAssets) * 80; // 80% for assets
-        const baseProgress = hasHash ? 30 : 10;
-        updateProgress(baseProgress + assetProgress);
+        
+        // Ensure we don't exceed totalAssets
+        if (loadedAssets > totalAssets) {
+            loadedAssets = totalAssets;
+        }
+        
+        const assetProgress = totalAssets > 0 ? (loadedAssets / totalAssets) * 75 : 75; // 75% for assets
+        const baseProgress = hasHash ? 20 : 15;
+        const finalProgress = baseProgress + assetProgress;
+        
+        updateProgress(finalProgress);
     }
 
     function trackAssetLoading() {
-        if (assetsTracked) return;
+        if (assetsTracked || isCompleted) return;
         assetsTracked = true;
 
-        // Get all images
-        const images = Array.from(document.querySelectorAll('img'));
+        // Start with initial progress
+        updateProgress(hasHash ? 20 : 15);
 
-        // Get all background images from computed styles
-        const elementsWithBgImages = [];
-        document.querySelectorAll('*').forEach(el => {
+        // Get all images with better filtering
+        const images = Array.from(document.querySelectorAll('img')).filter(img => 
+            img.src && !img.src.startsWith('data:')
+        );
+
+        // Simplified background image detection - only check specific selectors
+        const bgImageElements = Array.from(document.querySelectorAll('[style*="background-image"], .bg-')).filter(el => {
             const computedStyle = window.getComputedStyle(el);
             const bgImage = computedStyle.backgroundImage;
-            if (bgImage && bgImage !== 'none' && bgImage.includes('url(')) {
-                elementsWithBgImages.push(el);
-            }
+            return bgImage && bgImage !== 'none' && bgImage.includes('url(');
         });
 
-        // Get all fonts (check if any custom fonts are loading)
-        const fontPromises = [];
-        if (document.fonts) {
-            document.fonts.forEach(font => {
-                if (font.status === 'loading') {
-                    fontPromises.push(font.loaded.then(() => {}));
-                }
-            });
-        }
+        // Calculate total assets (simplified)
+        totalAssets = images.length + bgImageElements.length;
 
-        // Calculate total assets
-        totalAssets = images.length + elementsWithBgImages.length + fontPromises.length;
-
-        // If no assets to track, complete immediately
+        // Add a minimum of 1 to prevent division by zero
         if (totalAssets === 0) {
+            totalAssets = 1;
+            loadedAssets = 1;
             updateProgress(100);
             return;
         }
 
-        // Start with hash-based progress if applicable
-        updateProgress(hasHash ? 30 : 10);
+        console.log(`Tracking ${totalAssets} assets (${images.length} images, ${bgImageElements.length} bg images)`);
 
-        // Track image loading
-        images.forEach(img => {
+        // Track image loading with timeout per image
+        images.forEach((img, index) => {
             if (img.complete && img.naturalHeight !== 0) {
                 onAssetLoaded();
             } else {
+                let imageLoaded = false;
+                
                 const handleLoad = () => {
-                    onAssetLoaded();
-                    img.removeEventListener('load', handleLoad);
-                    img.removeEventListener('error', handleLoad);
+                    if (!imageLoaded) {
+                        imageLoaded = true;
+                        onAssetLoaded();
+                    }
                 };
-                img.addEventListener('load', handleLoad);
-                img.addEventListener('error', handleLoad);
+
+                img.addEventListener('load', handleLoad, { once: true });
+                img.addEventListener('error', handleLoad, { once: true });
+
+                // Individual timeout for each image
+                setTimeout(() => {
+                    if (!imageLoaded) {
+                        imageLoaded = true;
+                        console.warn(`Image ${index} timed out:`, img.src);
+                        onAssetLoaded();
+                    }
+                }, 3000);
             }
         });
 
-        // Track background images
-        elementsWithBgImages.forEach(el => {
+        // Track background images with better error handling
+        bgImageElements.forEach((el, index) => {
             const computedStyle = window.getComputedStyle(el);
             const bgImage = computedStyle.backgroundImage;
             const urlMatch = bgImage.match(/url\(['"]?([^'"]+)['"]?\)/);
 
             if (urlMatch) {
+                let bgLoaded = false;
                 const img = new Image();
-                img.onload = img.onerror = onAssetLoaded;
+                
+                const handleBgLoad = () => {
+                    if (!bgLoaded) {
+                        bgLoaded = true;
+                        onAssetLoaded();
+                    }
+                };
+
+                img.onload = handleBgLoad;
+                img.onerror = handleBgLoad;
                 img.src = urlMatch[1];
+
+                // Timeout for background images
+                setTimeout(() => {
+                    if (!bgLoaded) {
+                        bgLoaded = true;
+                        console.warn(`Background image ${index} timed out:`, urlMatch[1]);
+                        onAssetLoaded();
+                    }
+                }, 3000);
             } else {
                 onAssetLoaded();
             }
         });
 
-        // Track font loading
-        fontPromises.forEach(fontPromise => {
-            fontPromise.then(onAssetLoaded, onAssetLoaded);
-        });
-
-        // Fallback timeout to prevent infinite loading
+        // Global fallback timeout - reduced from 8s to 5s
         setTimeout(() => {
-            if (progress < 100) {
+            if (!isCompleted && progress < 100) {
+                console.warn('Preloader timeout reached, forcing completion');
                 updateProgress(100);
             }
-        }, 8000);
+        }, 5000);
     }
 
-    // Single initialization point
+    // Initialize preloader
     function initPreloader() {
-        setTimeout(trackAssetLoading, 100);
+        // Reduced delay from 100ms to 50ms
+        setTimeout(trackAssetLoading, 50);
     }
 
     // Initialize based on document state
@@ -264,12 +321,25 @@
         initPreloader();
     }
 
-    // Backup completion trigger
+    // More aggressive backup completion
     window.addEventListener('load', () => {
         setTimeout(() => {
-            if (progress < 90) {
+            if (!isCompleted && progress < 100) {
+                console.log('Window load event - forcing completion');
                 updateProgress(100);
             }
-        }, 500);
+        }, 200);
+    });
+
+    // Additional safety net for page visibility
+    document.addEventListener('visibilitychange', () => {
+        if (!document.hidden && !isCompleted && progress > 90) {
+            setTimeout(() => {
+                if (!isCompleted) {
+                    console.log('Page became visible - forcing completion');
+                    updateProgress(100);
+                }
+            }, 500);
+        }
     });
 </script>

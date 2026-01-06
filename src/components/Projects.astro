@@ -7,47 +7,45 @@ import p3 from '../assets/images/projects/project3.png';
 import p4 from '../assets/images/projects/project4.png';
 import p5 from '../assets/images/projects/project5.png';
 import p6 from '../assets/images/projects/project6.png';
-import p7 from '../assets/images/projects/project7.png';
-import p8 from '../assets/images/projects/project8.png';
 
 const projectsData = [
     {
         title: "My Portfolio",
-        description: "This is my Portfolio website that help others know about me and my works.",
+        description: "A personal portfolio website that help you know about me and my works.",
         image: p1,
-        techs: ["HTML", "CSS", "JavaScript", "jQuery"],
+        techs: ["JavaScript", "HTML", "CSS"],
         sourceCode: "https://github.com/Rakesh9100/My-Portfolio-Website",
         liveProject: "https://rakeshroshan.netlify.app/"
     },
     {
         title: "Beautiify",
-        description: "Beautiify comprises a curated selection of beautifully designed components.",
+        description: "A curated library of reusable UI components and animations designed for modern web applications.",
         image: p2,
-        techs: ["HTML", "CSS", "JavaScript", "JSON"],
+        techs: ["JavaScript", "HTML", "CSS"],
         sourceCode: "https://github.com/Rakesh9100/Beautiify",
         liveProject: "https://beautiify.netlify.app/"
     },
     {
         title: "CalcDiverse",
-        description: "CalcDiverse is a customized collection of calculators for various aspects of mathematics.",
+        description: "A curated collection of calculators for various mathematical calculations.",
         image: p3,
-        techs: ["HTML", "CSS", "JavaScript", "JSON"],
+        techs: ["JavaScript", "HTML", "CSS"],
         sourceCode: "https://github.com/Rakesh9100/CalcDiverse",
         liveProject: "https://calcdiverse.netlify.app/"
     },
     {
         title: "Eventica",
-        description: "Eventica is an ultimate guide to the dynamic and diverse events in Bangalore.",
+        description: "A web application that aggregates and showcases upcoming tech events in Bangalore.",
         image: p4,
-        techs: ["HTML", "CSS", "JavaScript", "JSON"],
+        techs: ["JavaScript", "HTML", "CSS"],
         sourceCode: "https://github.com/Rakesh9100/Eventica",
         liveProject: "https://eventica.netlify.app/"
     },
     {
         title: "ML Project Drug Review Dataset",
-        description: "This is an innovative machine learning project that utilizes patient reviews to analyze the drugs effectiveness.",
+        description: "A machine learning project that analyzes patient drug reviews to evaluate effectiveness and sentiment.",
         image: p5,
-        techs: ["Python", "Machine Learning", "Deep Learning"],
+        techs: ["Python", "Machine Learning"],
         sourceCode: "https://github.com/Rakesh9100/ML-Project-Drug-Review-Dataset",
         liveProject: "https://ml-project-drug-review-dataset-main.streamlit.app/"
     },
@@ -55,25 +53,9 @@ const projectsData = [
         title: "Click The Edible Game",
         description: "A well-designed interesting game where you can play with your favourite edible and click it to get the most scores.",
         image: p6,
-        techs: ["HTML", "CSS", "JavaScript"],
+        techs: ["JavaScript", "HTML", "CSS"],
         sourceCode: "https://github.com/Rakesh9100/Click-The-Edible-Game",
         liveProject: "https://click-the-edible-game.netlify.app/"
-    },
-    {
-        title: "Greeting Time",
-        description: "This is a project which fetch the time from the system and greet the user according to the time fetched.",
-        image: p7,
-        techs: ["C++"],
-        sourceCode: "https://github.com/Rakesh9100/Greeting-Time",
-        liveProject: ""
-    },
-    {
-        title: "InstaStore",
-        description: "InstaStore is a python coded script to download Photos & Videos from Instagram without any API access.",
-        image: p8,
-        techs: ["Python", "GUI"],
-        sourceCode: "https://github.com/Rakesh9100/InstaStore",
-        liveProject: ""
     }
 ];
 ---
@@ -158,8 +140,8 @@ const projectsData = [
         </button>
         <!-- Carousel Indicators -->
         <div class="carousel-indicators" id="carousel-indicators">
-            {projectsData.map((_, index) => (
-            <div class={`carousel-indicator ${index === 0 ? 'active' : ''}`}>
+            {projectsData.map((_, i) => (
+            <div class={`carousel-indicator ${i === 0 ? 'active' : ''}`}>
         </div>
         ))}
     </div>
@@ -260,13 +242,13 @@ const projectsData = [
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        gap: 30px;
+        gap: 35px;
         margin-top: 40px;
     }
 
     .projects .box {
         width: 100%;
-        max-width: 380px;
+        max-width: 360px;
         background: rgba(26, 15, 62, 0.3);
         border-radius: 20px;
         margin-bottom: 28px;
@@ -390,16 +372,16 @@ const projectsData = [
     .carousel-container {
         position: relative;
         width: 100%;
-        max-width: 1400px;
+        max-width: 1200px;
         margin: 20px auto 40px;
-        padding: 20px 20px 80px;
-        perspective: 2000px;
+        padding: 20px 80px 70px;
+        perspective: 1600px;
     }
 
     .carousel-wrapper {
         position: relative;
         width: 100%;
-        height: 500px;
+        height: 480px;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -414,7 +396,7 @@ const projectsData = [
 
     .carousel-item {
         position: absolute;
-        width: 380px;
+        width: 360px;
         left: 50%;
         top: 50%;
         transform-style: preserve-3d;
@@ -516,11 +498,11 @@ const projectsData = [
     }
 
     .carousel-prev {
-        left: 20px;
+        left: -20px;
     }
 
     .carousel-next {
-        right: 20px;
+        right: -20px;
     }
 
     .carousel-indicators {
@@ -583,10 +565,10 @@ const projectsData = [
         // Configuration
         const config = {
             autoplayDelay: 3000,
-            carouselRadius: 600,
+            carouselRadius: 420,
             angleStep: 360 / state.totalProjects,
-            scaleRange: { min: 0.6, max: 1.0 },
-            opacityRange: { min: 0.3, max: 1.0 }
+            scaleRange: { min: 0.65, max: 1.0 },
+            opacityRange: { min: 0.4, max: 1.0 }
         };
 
         // Cache DOM elements

@@ -2,19 +2,12 @@
 import { Image } from "astro:assets";
 
 import LPU from "../assets/images/education/LPU.jpg";
-import DAV from "../assets/images/education/DAV.jpg";
-import HCS from "../assets/images/education/HCS.jpg";
 
 const educationData = [{
-        degree: "B.Tech CSE",
-        badge: {
-            icon: "🎓",
-            text: "Bachelor's Degree"
-        },
+        degree: "B.Tech in CSE",
         institution: "Lovely Professional University",
-        period: "2020-24",
-        description: "I did my Bachelor of Technology in Computer Science and Engineering from",
-        highlight: "Lovely Professional University",
+        period: "2020-2024",
+        description: "Bachelor of Technology in Computer Science and Engineering with a strong foundation in software engineering.",
         score: "8.48 CGPA",
         image: LPU,
         link: "https://www.lpu.in/",
@@ -25,52 +18,6 @@ const educationData = [{
             {
                 icon: "📚",
                 text: "CSE Major"
-            }
-        ]
-    },
-    {
-        degree: "Intermediate (12th)",
-        badge: {
-            icon: "📖",
-            text: "Higher Secondary"
-        },
-        institution: "Dayanand Anglo Vedic Public School (CBSE)",
-        period: "2018-20",
-        description: "I did my Intermediate in Science stream from",
-        highlight: "Dayanand Anglo Vedic Public School (CBSE)",
-        score: "84%",
-        image: DAV,
-        link: "http://dav4bokaro.org/dav4_newsite/",
-        achievements: [{
-                icon: "🏆",
-                text: "84% Score"
-            },
-            {
-                icon: "🔬",
-                text: "Science Stream"
-            }
-        ]
-    },
-    {
-        degree: "Matriculation (10th)",
-        badge: {
-            icon: "📝",
-            text: "Secondary School"
-        },
-        institution: "Holy Cross School",
-        period: "2017-18",
-        description: "I did my matriculation from",
-        highlight: "Holy Cross School",
-        score: "92%",
-        image: HCS,
-        link: "https://www.holycrossbokaro.com/",
-        achievements: [{
-                icon: "🏆",
-                text: "92% Merit"
-            },
-            {
-                icon: "⭐",
-                text: "CBSE Board"
             }
         ]
     }
@@ -87,21 +34,21 @@ const educationData = [{
     </div>
 
     <!-- Education Timeline -->
-    <div class="education-timeline relative max-w-[1200px] mx-auto my-15 px-3 sm:px-5">
-        <div class="timeline-line absolute left-4 sm:left-8 lg:left-1/2 top-0 bottom-0 w-1 lg:-translate-x-1/2" style="background: linear-gradient(180deg, transparent 0%, var(--primary) 15%, var(--primary) 85%, transparent 100%);"></div>
-
-        <div class="education-boxes flex flex-col gap-8 lg:gap-15 relative">
+    <div class="education-timeline relative max-w-[800px] mx-auto my-15 px-3 sm:px-5">
+        <div class="education-boxes flex flex-col gap-8 lg:gap-15 relative justify-center">
             {educationData.map((edu, index) => (
-            <div class={`box education-box ${index % 2 === 0 ? 'lg:mr-auto lg:ml-0 animate-slide-in-left' : 'lg:ml-auto lg:mr-0 animate-slide-in-right'}`} style="animation-delay: ${index * 0.2}s;">
+            <div class="box education-box single-entry animate-slide-in-center" style="animation-delay: ${index * 0.2}s;">
                 <div class="box-content flex flex-col lg:flex-row gap-4 sm:gap-5 lg:gap-6 p-4 sm:p-5 lg:p-6">
-                    <div class="image-section w-full lg:flex-[0_0_200px] xl:flex-[0_0_280px] flex flex-col gap-3 sm:gap-4">
+                    <div class="image-section w-full lg:flex-[0_0_280px] xl:flex-[0_0_320px] flex flex-col gap-3 sm:gap-4">
                         <div class="image relative rounded-[12px] sm:rounded-[15px] overflow-hidden flex-shrink-0">
                             <a href={edu.link} target="_blank" rel="noopener noreferrer" class="block relative cursor-pointer no-underline">
-                                <Image src={edu.image} alt={edu.institution} width={300} height={200} loading="lazy" class="w-full h-[150px] sm:h-[180px] lg:h-[200px] object-cover block transition-all duration-400" />
+                                <Image src={edu.image} alt={edu.institution} width={400} height={280} loading="lazy" class="w-full h-[180px] sm:h-[220px] lg:h-[260px] object-cover block transition-all duration-400" />
                             </a>
                         </div>
+                    </div>
 
-                        <div class="achievements flex flex-row lg:flex-col gap-2 sm:gap-2.5 flex-wrap">
+                    <div class="content flex-1 flex flex-col gap-3 sm:gap-3.5 lg:gap-4 py-0 lg:py-2.5 justify-center">
+                        <div class="achievements flex flex-row gap-2 sm:gap-2.5 flex-wrap mb-2">
                             {edu.achievements.map((achievement) => (
                             <div class="achievement-item">
                                 <span class="achievement-icon">{achievement.icon}</span>
@@ -109,27 +56,20 @@ const educationData = [{
                             </div>
                             ))}
                         </div>
-                    </div>
 
-                    <div class="content flex-1 flex flex-col gap-2 sm:gap-2.5 lg:gap-3 py-0 lg:py-2.5">
-                        <div class="degree-badge">
-                            <span class="badge-icon">{edu.badge.icon}</span>
-                            <span class="badge-text">{edu.badge.text}</span>
-                        </div>
-
-                        <h3 class="font-bold m-0" style="font-size: clamp(18px, 4vw, 28px); background: var(--gradient1); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                        <h3 class="font-bold m-0" style="font-size: clamp(20px, 4vw, 28px); background: var(--gradient1); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; line-height: 1.2;">
                             {edu.degree}
                         </h3>
 
-                        <h4 class="flex items-center gap-1.5 sm:gap-2 font-semibold m-0" style="font-size: clamp(13px, 3vw, 18px); background: var(--gradient2); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="14" height="14" class="flex-shrink-0 sm:w-4 sm:h-4" style="fill: var(--primary); opacity: 1;">
+                        <h4 class="flex items-center gap-1.5 sm:gap-2 font-semibold m-0" style="font-size: clamp(14px, 3vw, 20px); background: var(--gradient2); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="16" height="16" class="flex-shrink-0 sm:w-5 sm:h-5" style="fill: var(--primary); opacity: 1;">
                                 <path d="M152 24c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 40L64 64C28.7 64 0 92.7 0 128l0 16 0 48L0 448c0 35.3 28.7 64 64 64l320 0c35.3 0 64-28.7 64-64l0-256 0-48 0-16c0-35.3-28.7-64-64-64l-40 0 0-40c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 40L152 64l0-40zM48 192l352 0 0 256c0 8.8-7.2 16-16 16L64 464c-8.8 0-16-7.2-16-16l0-256z"/>
                             </svg>
                             {edu.period}
                         </h4>
 
-                        <p class="m-0 leading-relaxed text-sm sm:text-base" style="font-size: clamp(13px, 2.5vw, 16px); color: rgba(255, 255, 255, 0.9);">
-                            {edu.description} <span class="highlight-edu font-bold" style="background: var(--gradient3); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;">{edu.highlight}</span>{index === 0 ? ' with' : ', Bokaro and secured'} {index === 0 ? '' : 'the merit with '}<span class="cgpa font-black text-[1.1em]" style="background: var(--gradient1); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;">{edu.score}</span>{index === 0 ? '.' : '.'}
+                        <p class="m-0 leading-relaxed text-sm sm:text-base lg:text-lg" style="font-size: clamp(14px, 2.5vw, 18px); color: rgba(255, 255, 255, 0.9); line-height: 1.6;">
+                            {edu.description}
                         </p>
                     </div>
                 </div>
@@ -149,30 +89,17 @@ const educationData = [{
     .education-box {
         position: relative;
         border-radius: 20px;
-        margin-left: 0;
         overflow: hidden;
-        width: calc(50% - 20px);
+        width: 100%;
+        max-width: 800px;
+        margin: 0 auto;
         border: 3px solid rgba(255, 255, 255, 0.15);
         transition: transform 0.35s ease, border-color 0.35s ease;
     }
 
     .education-box:hover {
         border-color: var(--primary);
-    }
-
-    .education-box:nth-child(odd) {
-        margin-right: auto;
-        margin-left: 0;
-    }
-
-    .education-box:nth-child(even) {
-        margin-left: auto;
-        margin-right: 0;
-    }
-
-    .timeline-line {
-        left: 50% !important;
-        transform: translateX(-50%);
+        transform: translateY(-5px);
     }
 
     .achievement-item {
@@ -193,60 +120,20 @@ const educationData = [{
         flex-shrink: 0;
     }
 
-    .degree-badge {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.4rem;
-        padding: 0.4rem 0.8rem;
-        border-radius: 50px;
-        width: fit-content;
-        background: var(--gradient4);
-    }
-
-    .badge-icon {
-        font-size: 1rem;
-    }
-
-    .badge-text {
-        font-size: 0.625rem;
-        font-weight: bold;
-        color: white;
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
-    }
-
-    @keyframes slideInLeft {
+    @keyframes slideInCenter {
         from {
             opacity: 0;
-            transform: translateX(-50px);
+            transform: translateY(30px) scale(0.95);
         }
 
         to {
             opacity: 1;
-            transform: translateX(0);
+            transform: translateY(0) scale(1);
         }
     }
 
-    .animate-slide-in-left {
-        animation: slideInLeft 0.8s ease-out forwards;
-        animation-play-state: paused;
-        opacity: 0;
-    }
-
-    @keyframes slideInRight {
-        from {
-            opacity: 0;
-            transform: translateX(50px);
-        }
-
-        to {
-            opacity: 1;
-            transform: translateX(0);
-        }
-    }
-
-    .animate-slide-in-right {
-        animation: slideInRight 0.8s ease-out forwards;
+    .animate-slide-in-center {
+        animation: slideInCenter 0.8s ease-out forwards;
         animation-play-state: paused;
         opacity: 0;
     }
@@ -268,15 +155,6 @@ const educationData = [{
         .box-content {
             padding: 1rem;
         }
-
-        .education-box {
-            width: calc(100% - 3rem);
-            margin-left: 3rem !important;
-        }
-
-        .timeline-line {
-            left: 1rem !important;
-        }
     }
 
     @media (max-width: 768px) {
@@ -287,14 +165,6 @@ const educationData = [{
 
         .education-boxes {
             gap: 2rem;
-        }
-
-        .timeline-line {
-            left: 1rem !important;
-        }
-
-        .education-box {
-            margin-left: 2rem !important;
         }
     }
 
@@ -322,7 +192,7 @@ const educationData = [{
     }, observerOptions);
 
     // Observe animated elements
-    const animatedElements = document.querySelectorAll('.animate-slide-in-left, .animate-slide-in-right');
+    const animatedElements = document.querySelectorAll('.animate-slide-in-center');
 
     animatedElements.forEach(el => observer.observe(el));
 </script>

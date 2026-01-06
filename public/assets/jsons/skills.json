@@ -50,11 +50,6 @@
         "category": "tools"
     },
     {
-        "image": "assets/images/skills/Ubuntu.png",
-        "title": "Ubuntu",
-        "category": "tools"
-    },
-    {
         "image": "assets/images/skills/Git.png",
         "title": "Git",
         "category": "tools"
@@ -70,16 +65,6 @@
         "category": "tools"
     },
     {
-        "image": "assets/images/skills/Vscode.png",
-        "title": "VS Code",
-        "category": "tools"
-    },
-    {
-        "image": "assets/images/skills/Notion.png",
-        "title": "Notion",
-        "category": "tools"
-    },
-    {
         "image": "assets/images/skills/Python.png",
         "title": "Python",
         "category": "programming"
@@ -90,8 +75,8 @@
         "category": "programming"
     },
     {
-        "image": "assets/images/skills/Nodejs.png",
-        "title": "Node.js",
+        "image": "assets/images/skills/Yaml.png",
+        "title": "YAML",
         "category": "programming"
     },
     {
@@ -99,24 +84,9 @@
         "title": "React",
         "category": "programming"
     },
-    {
-        "image": "assets/images/skills/Html.png",
-        "title": "HTML",
-        "category": "programming"
-    },
-    {
-        "image": "assets/images/skills/Css.png",
-        "title": "CSS",
-        "category": "programming"
-    },
-    {
-        "image": "assets/images/skills/Yaml.png",
-        "title": "YAML",
-        "category": "programming"
-    },
-    {
-        "image": "assets/images/skills/Dsa.png",
-        "title": "DSA",
+        {
+        "image": "assets/images/skills/Nodejs.png",
+        "title": "Node.js",
         "category": "programming"
     },
     {
@@ -127,11 +97,6 @@
     {
         "image": "assets/images/skills/Collaboration.png",
         "title": "Collaboration",
-        "category": "soft-skills"
-    },
-    {
-        "image": "assets/images/skills/Leadership.png",
-        "title": "Leadership",
         "category": "soft-skills"
     },
     {

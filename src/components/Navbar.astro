@@ -6,10 +6,9 @@ const navItems = [
     { href: '#home', label: 'HOME' },
     { href: '#about', label: 'ABOUT' },
     { href: '#skills', label: 'SKILLS' },
-    { href: '#education', label: 'EDUCATION' },
     { href: '#experience', label: 'EXPERIENCE' },
     { href: '#projects', label: 'PROJECTS' },
-    { href: '#certificates', label: 'CERTIFICATES' },
+    { href: '#certificates', label: 'CERTIFICATIONS' },
     { href: '#contact', label: 'CONTACT' },
 ];
 ---
@@ -52,12 +51,12 @@ const navItems = [
 
             <!-- Theme Switcher -->
             <div class="theme-switcher relative z-[1000]" id="theme-switcher">
-                <button class="theme-toggle-btn w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center transition-all duration-300 text-white" id="theme-toggle-btn" aria-label="Toggle Theme Switcher" style="background: rgba(217, 70, 239, 0.2); border: 1px solid rgba(217, 70, 239, 0.6);">
+                <button class="theme-toggle-btn w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center transition-all duration-300 text-white" id="theme-toggle-btn" aria-label="Toggle Theme Switcher">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="20" height="20" fill="currentColor">
                         <path d="M512 256c0 .9 0 1.8 0 2.7c-.4 36.5-33.6 61.3-70.1 61.3H344c-26.5 0-48 21.5-48 48c0 3.4 .4 6.7 1 9.9c2.1 10.2 6.5 20 10.8 29.9c6.1 13.8 12.1 27.5 12.1 42c0 31.8-21.6 60.7-53.4 62c-3.5 .1-7 .2-10.6 .2C114.6 512 0 397.4 0 256S114.6 0 256 0S512 114.6 512 256zM128 288a32 32 0 1 0 -64 0 32 32 0 1 0 64 0zm0-96a32 32 0 1 0 0-64 32 32 0 1 0 0 64zM288 96a32 32 0 1 0 -64 0 32 32 0 1 0 64 0zm96 96a32 32 0 1 0 0-64 32 32 0 1 0 0 64z"/>
                     </svg>
                 </button>
-                <div class="theme-options absolute top-[55px] right-0 rounded-[15px] px-4 py-4 opacity-0 invisible -translate-y-2.5 transition-all duration-300 min-w-[180px]" id="theme-options" style="background: rgba(26, 15, 62, 0.4); border: 1px solid rgba(255, 255, 255, 0.2);">
+                <div class="theme-options absolute top-[55px] right-0 rounded-[15px] px-4 py-4 opacity-0 invisible -translate-y-2.5 transition-all duration-300 min-w-[180px]" id="theme-options" style="background: rgba(5, 5, 15, 0.95); border: 2px solid rgba(255, 255, 255, 0.3); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);">
                     <button class="theme-btn active w-full flex items-center gap-3 px-4 py-2.5 mb-2 rounded-[10px] transition-all duration-300 text-white text-sm font-semibold" data-theme="sunset">
                         <span class="theme-color w-[30px] h-[30px] rounded-full block theme-sunset"></span>
                         <span class="theme-name flex-1 text-left">Sunset</span>
@@ -200,11 +199,13 @@ const navItems = [
 
     .theme-toggle-btn {
         transition: transform 0.3s ease;
+        background: color-mix(in srgb, var(--primary) 20%, transparent);
+        border: 2px solid color-mix(in srgb, var(--primary) 60%, transparent);
     }
 
     .theme-btn {
-        background: rgba(255, 255, 255, 0.05);
-        border: 1px solid rgba(255, 255, 255, 0.15);
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.2);
     }
 
     .theme-sunset {
@@ -222,12 +223,12 @@ const navItems = [
     .theme-btn:hover {
         transform: translateX(-5px);
         background: rgba(255, 255, 255, 0.12);
-        border: 1px solid rgba(59, 130, 246, 0.6);
+        border: 1px solid var(--hover);
     }
 
     .theme-btn.active {
-        background: rgba(217, 70, 239, 0.25);
-        border: 1px solid rgba(217, 70, 239, 0.7);
+        background: color-mix(in srgb, var(--primary) 25%, transparent);
+        border: 1px solid var(--primary);
     }
 
     .menu-btn {
@@ -501,22 +502,24 @@ const navItems = [
 
     // Intersection Observer for scroll-based active link highlighting
     const observer = new IntersectionObserver(
-        entries => {
+        (entries: IntersectionObserverEntry[]) => {
             if (isUserNavigating) return;
 
-            let mostVisibleEntry: IntersectionObserverEntry | null = null;
-            let maxIntersectionRatio = 0;
+            let bestEntry: IntersectionObserverEntry | undefined;
+            let maxRatio = 0;
 
-            entries.forEach(entry => {
-                if (entry.isIntersecting && entry.intersectionRatio > maxIntersectionRatio) {
-                    maxIntersectionRatio = entry.intersectionRatio;
-                    mostVisibleEntry = entry;
+            for (const entry of entries) {
+                if (entry.isIntersecting && entry.intersectionRatio > maxRatio) {
+                    maxRatio = entry.intersectionRatio;
+                    bestEntry = entry;
                 }
-            });
+            }
 
-            if (mostVisibleEntry) {
-                const id = mostVisibleEntry.target.getAttribute('id');
-                setActiveLink(`#${id}`);
+            if (bestEntry) {
+                const id = bestEntry.target.getAttribute('id');
+                if (id) {
+                    setActiveLink(`#${id}`);
+                }
             }
         }, {
             threshold: [0.1, 0.3, 0.5, 0.7],

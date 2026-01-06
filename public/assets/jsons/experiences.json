@@ -2,14 +2,14 @@
     {
         "company": "OpenText",
         "logo": "/assets/images/experience/opentext.png",
-        "role": "Associate Software Engineer",
+        "role": "Associate Software Engineer (DevOps)",
         "duration": "Apr 2024 - Present",
         "category": "work",
         "description": [
-            "Managing Helm deployments for cloud-based applications within the <span class='focus'>Documentum</span> team.",
-            "Monitoring cloud environments using DevOps best practices to ensure stability and performance.",
-            "Working with clusters such as <span class='focus'>CFCR, Anthos</span>, and <span class='focus'>Hyperscalers</span> to maintain and optimize cloud infrastructure.",
-            "Assisting in developing and deploying cloud solutions to support business needs.",
+            "Manage Helm-based deployments for cloud-native <span class='focus'>Documentum</span> applications within the ECM platform.",
+            "Automate multi-environment deployments across <span class='focus'>CFCR</span>, <span class='focus'>Anthos</span>, and <span class='focus'>hyperscalers</span> using Ansible and CI/CD pipelines.",
+            "Maintain and optimize Kubernetes clusters and supporting cloud infrastructure.",
+            "Support development, patch, and release automation, reducing manual intervention and deployment risks.",
             "Tech Stacks :- Helm, Docker, Git, GitLab, Kubernetes, GCP, Linux"
         ]
     },
@@ -20,138 +20,39 @@
         "duration": "Oct 2023 - Mar 2024",
         "category": "internship",
         "description": [
-            "Developed a user-centric front-end UI to improve <span class='focus'>XML rule file management</span> for complex structures.",
-            "Implemented Groovy validation, ensuring <span class='focus'>100% syntax integrity</span> and faster testing.",
-            "Maintained consistent code updates and progress tracking via <span class='focus'>GitLab commits</span>.",
-            "Created comprehensive user documentation for easy project execution, boosting efficiency.",
+            "Developed a UI to simplify management of complex <span class='focus'>XML</span> rule structures.",
+            "Implemented Groovy-based validation to improve testing speed and accuracy.",
+            "Maintained consistent code delivery through GitLab with structured version control.",
+            "Authored technical documentation to support onboarding and system usage.",
             "Tech Stacks :- HTML, CSS, JavaScript, XML, Node.js, Groovy, GitLab, Linux"
         ]
     },
     {
-        "company": "Social Winter of Code",
-        "logo": "/assets/images/experience/swoc.png",
+        "company": "GirlScript Summer of Code",
+        "logo": "/assets/images/experience/gssoc.png",
         "role": "Project Admin",
-        "duration": "Jan 2024 - Feb 2024",
+        "duration": "May 2024 - Aug 2024",
         "category": "opensource",
         "description": [
-            "Mentor of my 3 Projects <a href='https://github.com/Rakesh9100/Beautiify' target='_blank' rel='noopener noreferrer'>Beautiify</a>, <a href='https://github.com/Rakesh9100/CalcDiverse' target='_blank' rel='noopener noreferrer'>CalcDiverse</a>, and <a href='https://github.com/Rakesh9100/Click-The-Edible-Game' target='_blank' rel='noopener noreferrer'>Click-The-Edible-Game</a>.",
-            "Successfully merged <span class='focus'>250+</span> quality Pull Requests.",
-            "Collaborated closely with contributors to ensure their continual growth and development.",
-            "Provided guidance to numerous contributors, helping them create successful issues and Pull Requests.",
+            "Served as Project Admin for multiple repositories, recognized among <span class='focus'>Top 50</span> for impact and leadership.",
+            "Reviewed and merged <span class='focus'>500+</span> pull requests, introducing new features and improving code quality.",
+            "Mentored contributors and enforced contribution and review standards across projects.",
+            "Drove strong project adoption, with <span class='focus'>700+ forks</span>, <span class='focus'>350+ stars</span>, and sustained contributor activity.",
             "Tech Stacks :- HTML, CSS, JavaScript, Git, GitHub"
         ]
     },
     {
-        "company": "JGEC Winter of Code",
-        "logo": "/assets/images/experience/jwoc.png",
-        "role": "Mentor",
-        "duration": "Jan 2024 - Feb 2024",
-        "category": "opensource",
-        "description": [
-            "Mentor of my 3 Projects <a href='https://github.com/Rakesh9100/Beautiify' target='_blank' rel='noopener noreferrer'>Beautiify</a>, <a href='https://github.com/Rakesh9100/CalcDiverse' target='_blank' rel='noopener noreferrer'>CalcDiverse</a>, and <a href='https://github.com/Rakesh9100/Click-The-Edible-Game' target='_blank' rel='noopener noreferrer'>Click-The-Edible-Game</a>.",
-            "Successfully merged <span class='focus'>80+</span> quality Pull Requests.",
-            "Worked closely with mentees to foster a productive and inclusive learning environment.",
-            "Offered guidance to numerous new contributors, aiding them in creating effective issues and Pull Requests.",
-            "Tech Stacks :- HTML, CSS, JavaScript, Git, GitHub"
-        ]
-    },
-    {
-        "company": "Hacktoberfest",
-        "logo": "/assets/images/experience/hacktoberfest.png",
-        "role": "Contributor",
-        "duration": "Oct 2023",
-        "category": "opensource",
-        "description": [
-            "Contributed to various projects.",
-            "Successfully merged and got accepted 4 PRs celebrating the <span class='focus'>10th anniversary</span> of Hacktoberfest.",
-            "Recognized for contributions with a Tree and a Tree Planting Certificate by Tree-Nation.",
-            "Received a <span class='focus'>Digital Reward Kit and Holopin Badges</span> in appreciation.",
-            "Tech Stacks :- HTML, CSS, JavaScript, C++, Git, GitHub"
-        ]
-    },
-    {
-        "company": "GirlScript Summer of Code",
-        "logo": "/assets/images/experience/gssoc.png",
-        "role": "Project Admin, Mentor & Community Expert",
-        "duration": "May 2023 - Aug 2023",
-        "category": "opensource",
-        "description": [
-            "Project Admin of my Project <a href='https://github.com/Rakesh9100/ML-Project-Drug-Review-Dataset' target='_blank' rel='noopener noreferrer'>ML-Project-Drug-Review-Dataset</a>.",
-            "Successfully merged <span class='focus'>25+</span> quality Pull Requests.",
-            "Mentor of the Project <a href='https://github.com/akshitagupta15june/Moksh' target='_blank' rel='noopener noreferrer'>Moksh</a>.",
-            "Mentored a group of enthusiastic and new participants.",
-            "Served as a Community Expert, actively engaged with the GSSoC community.",
-            "Tech Stacks :- HTML, CSS, JavaScript, Python, Machine Learning, GitHub"
-        ]
-    },
-    {
-        "company": "JGEC Winter of Code",
-        "logo": "/assets/images/experience/jwoc.png",
-        "role": "Project Mentor",
-        "duration": "Feb 2023 - Mar 2023",
-        "category": "opensource",
-        "description": [
-            "Mentor of my Project <a href='https://github.com/Rakesh9100/Click-The-Edible-Game' target='_blank' rel='noopener noreferrer'>Click-The-Edible-Game</a>.",
-            "Successfully merged <span class='focus'>32+</span> quality Pull Requests.",
-            "Provided guidance to numerous contributors, helping them create successful issues and Pull Requests.",
-            "Mentored many new beginners to the world of open source and solved their queries.",
-            "Tech Stacks :- HTML, CSS, JavaScript, Git, GitHub"
-        ]
-    },
-    {
-        "company": "Hacktoberfest",
-        "logo": "/assets/images/experience/hacktoberfest.png",
-        "role": "Contributor & Project Maintainer",
-        "duration": "Oct 2022",
-        "category": "opensource",
-        "description": [
-            "Contributed to various projects.",
-            "Successfully merged and got accepted 9 PRs.",
-            "Mentored my Project <a href='https://github.com/Rakesh9100/Click-The-Edible-Game' target='_blank' rel='noopener noreferrer'>Click-The-Edible-Game</a>.",
-            "Awarded with <span class='focus'>T-Shirt and Lovely Stickers</span>.",
-            "Tech Stacks :- HTML, CSS, JavaScript, C++, Git, GitHub"
-        ]
-    },
-    {
-        "company": "The Sparks Foundation",
-        "logo": "/assets/images/experience/tsf.png",
-        "role": "Web Development Intern",
-        "duration": "Oct 2022",
-        "category": "internship",
-        "description": [
-            "Made a dynamic basic banking website that has dummy data for up to ten customers.",
-            "Made a donation website by integrating a payment gateway, using PayPal.",
-            "Hosted the websites using GitHub pages.",
-            "Awarded with <span class='focus'>LOR (Letter Of Recommendation)</span> for exemplary performance during the Internship.",
-            "Tech Stacks :- HTML, CSS, JavaScript, SQL"
-        ]
-    },
-    {
-        "company": "HackClub RAIT Summer of Code",
-        "logo": "/assets/images/experience/hackclub.png",
-        "role": "Contributor & Project Admin",
-        "duration": "Jul 2022 - Aug 2022",
-        "category": "opensource",
-        "description": [
-            "Among <span class='focus'>Top 10</span> Performers, Secured <span class='focus'>6th Rank</span> Globally.",
-            "Contributed to 5+ Amazing Projects.",
-            "Project Admin of my Project <a href='https://github.com/Rakesh9100/InstaStore' target='_blank' rel='noopener noreferrer'>InstaStore</a>.",
-            "Mentored many new beginners to the world of open source and solved their queries.",
-            "Tech Stacks :- HTML, CSS, JavaScript, C++, Java, Git, GitHub"
-        ]
-    },
-    {
-        "company": "GirlScript Summer of Code",
-        "logo": "/assets/images/experience/gssoc.png",
+        "company": "Open Source Community",
+        "logo": "/assets/images/experience/opensource.png",
         "role": "Open Source Contributor",
-        "duration": "Mar 2022 - May 2022",
+        "duration": "Mar 2022 - Feb 2025",
         "category": "opensource",
         "description": [
-            "Among <span class='focus'>Top 50</span> Performers, Secured <span class='focus'>46th Rank</span> Globally.",
-            "Contributed to 5+ Amazing Projects.",
-            "Awarded with <span class='focus'>LOR (Letter Of Recommendation)</span> for exemplary performance.",
-            "Received cool <span class='focus'>T-shirt and sticker</span> as a Top Performer swag.",
-            "Tech Stacks :- HTML, CSS, JavaScript, Git, GitHub"
+            "Contributed to multiple open-source programs, including Hacktoberfest, SWOC, IWOC, JWOC, and other community initiatives.",
+            "Submitted, reviewed, and iterated on pull requests across web and backend repositories.",
+            "Collaborated with maintainers and contributors to improve features, documentation, and overall project stability.",
+            "Followed open-source contribution workflows, coding standards, and issue-tracking best practices.",
+            "Tech Stacks :- JavaScript, HTML, CSS, React, Node.js, Git, GitHub"
         ]
     }
 ]
