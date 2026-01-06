@@ -17,7 +17,7 @@ const navItems = [
 <nav class="navbar fixed w-full z-[999] transition-all duration-300 px-4 sm:px-6 md:px-8 py-2">
     <div class="max-width max-w-full mx-auto flex items-center justify-between px-3 sm:px-4 py-1.5 rounded-[20px] sm:rounded-[25px] relative bg-[#0b0f1a] border border-white/10">
         <!-- Logo -->
-        <a href="#home" draggable="false" aria-label="Go to home" class="logo-link">
+        <a href="#home" aria-label="Go to home" class="logo-link">
             <Image src={logo} alt="Rakesh Roshan logo" width={200} height={60} class="img-logo" />
         </a>
 
@@ -27,7 +27,7 @@ const navItems = [
                 const isActive = index === 0 ? ' active' : '';
                 return (
                     <li class="inline-flex items-center">
-                        <a href={item.href} draggable="false" class={`nav-link relative inline-flex items-center justify-center text-white/90 font-bold px-2 lg:px-3 xl:px-4 py-2.5 rounded-[15px] overflow-hidden transition-all duration-400 hover:text-white hover:-translate-y-1${isActive}`} style="font-size: clamp(10px, 1.2vw, 16px); line-height: 1;">
+                        <a href={item.href} class={`nav-link relative inline-flex items-center justify-center text-white/90 font-bold px-2 lg:px-3 xl:px-4 py-2.5 rounded-[15px] overflow-hidden transition-all duration-400 hover:text-white hover:-translate-y-1${isActive}`} style="font-size: clamp(10px, 1.2vw, 16px); line-height: 1;">
                         {item.label}
                         </a>
                     </li>
@@ -38,7 +38,7 @@ const navItems = [
         <!-- Right Section -->
         <div class="navbar-right flex items-center gap-3 sm:gap-4 md:gap-5">
             <!-- Resume Button -->
-            <a href="/assets/Rakesh_Roshan_Resume.pdf" target="_blank" rel="noopener noreferrer" draggable="false" aria-label="Open resume in new tab" class="resume-btn relative flex items-center gap-2 px-3 sm:px-4 md:px-5 py-2 sm:py-2.5 rounded-full text-white font-semibold text-xs sm:text-sm transition-colors duration-300 bg-[#0b0f1a]">
+            <a href="/assets/Rakesh_Roshan_Resume.pdf" target="_blank" rel="noopener noreferrer" aria-label="Open resume in new tab" class="resume-btn relative flex items-center gap-2 px-3 sm:px-4 md:px-5 py-2 sm:py-2.5 rounded-full text-white font-semibold text-xs sm:text-sm transition-colors duration-300 bg-[#0b0f1a]">
 
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="relative z-[1] transition-transform duration-300 sm:w-[18px] sm:h-[18px]">
                     <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
@@ -107,6 +107,13 @@ const navItems = [
 </nav>
 
 <style>
+    .logo-link,
+    .menu a,
+    .navbar-right a {
+        user-select: none;
+        -webkit-user-drag: none;
+    }
+
     .logo-link {
         display: flex;
         align-items: center;

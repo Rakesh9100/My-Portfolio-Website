@@ -112,7 +112,7 @@ import ContactImage from "../assets/images/contact.png";
             </div>
             <div class="column right">
                 <div class="contact-image-wrapper">
-                    <Image src={ContactImage} alt="Contact Image" width={450} height={450} loading="lazy" draggable="false" class="contact-image" />
+                    <Image src={ContactImage} alt="Contact Image" width={450} height={450} loading="lazy" class="contact-image" />
                 </div>
             </div>
         </div>
@@ -449,6 +449,8 @@ import ContactImage from "../assets/images/contact.png";
         max-width: 450px;
         position: relative;
         z-index: 2;
+        user-select: none;
+        -webkit-user-drag: none;
         animation: imageFloat 6s ease-in-out infinite;
     }
 

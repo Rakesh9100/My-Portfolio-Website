@@ -75,7 +75,7 @@ const certificates = [
     <!-- Hidden optimized images for Astro build optimization -->
     <div style="display: none;" id="optimized-images">
         {certificates.map((cert, index) => (
-            <Image src={cert.image} alt={cert.title} width={600} height={600} loading="lazy" draggable="false"  data-cert-index={index} class="optimized-cert-image" />
+            <Image src={cert.image} alt={cert.title} width={600} height={600} loading="lazy" data-cert-index={index} class="optimized-cert-image" />
         ))}
     </div>
 
@@ -156,7 +156,7 @@ const certificates = [
                 <line x1="6" y1="6" x2="18" y2="18"></line>
             </svg>
         </button>
-        <img id="modal-image" src="" alt="Certificate" draggable="false" />
+        <img id="modal-image" src="" alt="Certificate" />
         <div class="modal-info">
             <h3 id="modal-title"></h3>
             <p id="modal-date"></p>
@@ -497,6 +497,8 @@ const certificates = [
         border-radius: 12px;
         display: block;
         margin: 0 auto;
+        user-select: none;
+        -webkit-user-drag: none;
     }
 
     .modal-info {

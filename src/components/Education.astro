@@ -96,8 +96,8 @@ const educationData = [{
                 <div class="box-content flex flex-col lg:flex-row gap-4 sm:gap-5 lg:gap-6 p-4 sm:p-5 lg:p-6">
                     <div class="image-section w-full lg:flex-[0_0_200px] xl:flex-[0_0_280px] flex flex-col gap-3 sm:gap-4">
                         <div class="image relative rounded-[12px] sm:rounded-[15px] overflow-hidden flex-shrink-0">
-                            <a href={edu.link} target="_blank" rel="noopener noreferrer" draggable="false" class="block relative cursor-pointer no-underline">
-                                <Image src={edu.image} alt={edu.institution} width={300} height={200} loading="lazy" draggable="false" class="w-full h-[150px] sm:h-[180px] lg:h-[200px] object-cover block transition-all duration-400" />
+                            <a href={edu.link} target="_blank" rel="noopener noreferrer" class="block relative cursor-pointer no-underline">
+                                <Image src={edu.image} alt={edu.institution} width={300} height={200} loading="lazy" class="w-full h-[150px] sm:h-[180px] lg:h-[200px] object-cover block transition-all duration-400" />
                             </a>
                         </div>
 
@@ -140,6 +140,12 @@ const educationData = [{
 </section>
 
 <style>
+    .education .image a,
+    .education .image img {
+        user-select: none;
+        -webkit-user-drag: none;
+    }
+
     .education-box {
         position: relative;
         border-radius: 20px;

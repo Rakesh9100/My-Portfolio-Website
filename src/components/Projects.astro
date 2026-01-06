@@ -117,16 +117,16 @@ const projectsData = [
                 <div class="carousel-item {index === 0 ? 'active' : ''}">
                     <div class="box">
                         <div class="project-image-container">
-                            <Image src={project.image} alt={project.title} loading="lazy" draggable="false" class="snapshot" />
+                            <Image src={project.image} alt={project.title} loading="lazy" class="snapshot" />
                             <div class="project-links">
                                 <!-- GitHub -->
-                                <a href={project.sourceCode} target="_blank" rel="noopener noreferrer" draggable="false" class="project-link-btn">
-                                    <img src="/assets/images/projects/github.png" alt="GitHub" draggable="false" />
+                                <a href={project.sourceCode} target="_blank" rel="noopener noreferrer" class="project-link-btn">
+                                    <img src="/assets/images/projects/github.png" alt="GitHub" />
                                 </a>
                                 <!-- Live link -->
                                 {project.liveProject && (
-                                <a href={project.liveProject} target="_blank" rel="noopener noreferrer" draggable="false" class="project-link-btn">
-                                    <img src="/assets/images/projects/link.png" alt="Live" draggable="false" />
+                                <a href={project.liveProject} target="_blank" rel="noopener noreferrer" class="project-link-btn">
+                                    <img src="/assets/images/projects/link.png" alt="Live" />
                                 </a>
                                 )}
                             </div>
@@ -170,14 +170,14 @@ const projectsData = [
             {projectsData.map(project => (
             <div class="box show">
                 <div class="project-image-container">
-                    <Image src={project.image} alt={project.title} loading="lazy" draggable="false" class="snapshot" />
+                    <Image src={project.image} alt={project.title} loading="lazy" class="snapshot" />
                     <div class="project-links">
-                        <a href={project.sourceCode} target="_blank" rel="noopener noreferrer" draggable="false" class="project-link-btn">
-                            <img src="/assets/images/projects/github.png" alt="GitHub" draggable="false" />
+                        <a href={project.sourceCode} target="_blank" rel="noopener noreferrer" class="project-link-btn">
+                            <img src="/assets/images/projects/github.png" alt="GitHub" />
                         </a>
                         {project.liveProject && (
-                        <a href={project.liveProject} target="_blank" rel="noopener noreferrer" draggable="false" class="project-link-btn">
-                            <img src="/assets/images/projects/link.png" alt="Live" draggable="false" />
+                        <a href={project.liveProject} target="_blank" rel="noopener noreferrer" class="project-link-btn">
+                            <img src="/assets/images/projects/link.png" alt="Live" />
                         </a>
                         )}
                     </div>
@@ -198,6 +198,13 @@ const projectsData = [
 </section>
 
 <style>
+    .projects .snapshot,
+    .projects .project-link-btn,
+    .projects .project-link-btn img {
+        user-select: none;
+        -webkit-user-drag: none;
+    }
+
     .view-toggle-container {
         display: flex;
         justify-content: center;
