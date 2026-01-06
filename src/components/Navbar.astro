@@ -3,43 +3,43 @@ import { Image } from "astro:assets";
 import logo from "../assets/images/logo.png";
 
 const navItems = [
-  { href: '#home', label: 'HOME' },
-  { href: '#about', label: 'ABOUT' },
-  { href: '#skills', label: 'SKILLS' },
-  { href: '#education', label: 'EDUCATION' },
-  { href: '#experience', label: 'EXPERIENCE' },
-  { href: '#projects', label: 'PROJECTS' },
-  { href: '#certificates', label: 'CERTIFICATES' },
-  { href: '#contact', label: 'CONTACT' },
+    { href: '#home', label: 'HOME' },
+    { href: '#about', label: 'ABOUT' },
+    { href: '#skills', label: 'SKILLS' },
+    { href: '#education', label: 'EDUCATION' },
+    { href: '#experience', label: 'EXPERIENCE' },
+    { href: '#projects', label: 'PROJECTS' },
+    { href: '#certificates', label: 'CERTIFICATES' },
+    { href: '#contact', label: 'CONTACT' },
 ];
 ---
 
 <nav class="navbar fixed w-full z-[999] transition-all duration-300 px-4 sm:px-6 md:px-8 py-2">
-    <div class="max-width max-w-full mx-auto flex items-center justify-between px-3 sm:px-4 py-1.5 rounded-[20px] sm:rounded-[25px] relative" style="background: rgba(10, 10, 30, 1); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); border: 2px solid transparent; box-shadow: 0 10px 40px rgba(16, 185, 129, 0.25), 0 5px 20px rgba(59, 130, 246, 0.25), inset 0 2px 0 rgba(255, 255, 255, 0.1), inset 0 -2px 10px rgba(16, 185, 129, 0.1);">
-
-        <!-- Animated Border -->
-        <div class="absolute inset-0 rounded-[20px] sm:rounded-[25px] p-[2px] pointer-events-none -z-[1] animate-border-rotate" style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.7), rgba(59, 130, 246, 0.7), rgba(139, 92, 246, 0.7)); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); mask-composite: exclude;"></div>
-
+    <div class="max-width max-w-full mx-auto flex items-center justify-between px-3 sm:px-4 py-1.5 rounded-[20px] sm:rounded-[25px] relative bg-[#0b0f1a] border border-white/10">
         <!-- Logo -->
         <a href="#home" draggable="false" aria-label="Go to home" class="logo-link">
-            <Image src={logo} alt="Rakesh Roshan logo" width={200} height={60} draggable="false" class="img-logo" />
+            <Image src={logo} alt="Rakesh Roshan logo" width={200} height={60} class="img-logo" />
         </a>
 
         <!-- Desktop Menu -->
         <ul class="menu hidden lg:flex list-none items-center gap-0.5">
-            {navItems.map((item, index) => (
-            <li class="inline-flex items-center">
-                <a href={item.href} draggable="false" class={`nav-link relative inline-flex items-center justify-center text-white/90 font-bold px-2 lg:px-3 xl:px-4 py-2.5 rounded-[15px] overflow-hidden transition-all duration-400 hover:text-white hover:-translate-y-1${index === 0 ? ' active' : ''}`} style="font-size: clamp(10px, 1.2vw, 16px); line-height: 1;">
-                {item.label}
-                </a>
-            </li>
-            ))}
+            {navItems.map((item, index) => {
+                const isActive = index === 0 ? ' active' : '';
+                return (
+                    <li class="inline-flex items-center">
+                        <a href={item.href} draggable="false" class={`nav-link relative inline-flex items-center justify-center text-white/90 font-bold px-2 lg:px-3 xl:px-4 py-2.5 rounded-[15px] overflow-hidden transition-all duration-400 hover:text-white hover:-translate-y-1${isActive}`} style="font-size: clamp(10px, 1.2vw, 16px); line-height: 1;">
+                        {item.label}
+                        </a>
+                    </li>
+                );
+            })}
         </ul>
 
         <!-- Right Section -->
         <div class="navbar-right flex items-center gap-3 sm:gap-4 md:gap-5">
             <!-- Resume Button -->
-            <a href="/assets/Rakesh_Roshan_Resume.pdf" target="_blank" rel="noopener noreferrer" draggable="false" aria-label="Open resume in new tab" class="resume-btn flex items-center gap-2 px-3 sm:px-4 md:px-5 py-2 sm:py-2.5 rounded-full text-white font-bold text-xs sm:text-sm transition-all duration-400 relative overflow-hidden hover:-translate-y-1" style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.3), rgba(59, 130, 246, 0.3)); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 2px solid rgba(16, 185, 129, 0.5); box-shadow: 0 5px 20px rgba(16, 185, 129, 0.3);">
+            <a href="/assets/Rakesh_Roshan_Resume.pdf" target="_blank" rel="noopener noreferrer" draggable="false" aria-label="Open resume in new tab" class="resume-btn relative flex items-center gap-2 px-3 sm:px-4 md:px-5 py-2 sm:py-2.5 rounded-full text-white font-semibold text-xs sm:text-sm transition-colors duration-300 bg-[#0b0f1a]">
+
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="relative z-[1] transition-transform duration-300 sm:w-[18px] sm:h-[18px]">
                     <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
                     <polyline points="14 2 14 8 20 8"></polyline>
@@ -51,42 +51,32 @@ const navItems = [
             </a>
 
             <!-- Theme Switcher -->
-            <div class="theme-switcher relative z-[9999]" id="theme-switcher">
-                <button class="theme-toggle-btn w-9 h-9 sm:w-10 sm:h-10 rounded-full cursor-pointer flex items-center justify-center transition-all duration-300 text-white" id="theme-toggle-btn" aria-label="Toggle Theme Switcher" style="background: rgba(217, 70, 239, 0.2); backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px); border: 1px solid rgba(217, 70, 239, 0.6); box-shadow: 0 8px 32px rgba(217, 70, 239, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1);">
+            <div class="theme-switcher relative z-[1000]" id="theme-switcher">
+                <button class="theme-toggle-btn w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center transition-all duration-300 text-white" id="theme-toggle-btn" aria-label="Toggle Theme Switcher" style="background: rgba(217, 70, 239, 0.2); border: 1px solid rgba(217, 70, 239, 0.6);">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="20" height="20" fill="currentColor">
                         <path d="M512 256c0 .9 0 1.8 0 2.7c-.4 36.5-33.6 61.3-70.1 61.3H344c-26.5 0-48 21.5-48 48c0 3.4 .4 6.7 1 9.9c2.1 10.2 6.5 20 10.8 29.9c6.1 13.8 12.1 27.5 12.1 42c0 31.8-21.6 60.7-53.4 62c-3.5 .1-7 .2-10.6 .2C114.6 512 0 397.4 0 256S114.6 0 256 0S512 114.6 512 256zM128 288a32 32 0 1 0 -64 0 32 32 0 1 0 64 0zm0-96a32 32 0 1 0 0-64 32 32 0 1 0 0 64zM288 96a32 32 0 1 0 -64 0 32 32 0 1 0 64 0zm96 96a32 32 0 1 0 0-64 32 32 0 1 0 0 64z"/>
                     </svg>
                 </button>
-                <div class="theme-options absolute top-[55px] right-0 rounded-[15px] px-4 py-4 opacity-0 invisible -translate-y-2.5 transition-all duration-300 min-w-[180px]" id="theme-options" style="background: rgba(26, 15, 62, 0.4); backdrop-filter: blur(30px); -webkit-backdrop-filter: blur(30px); box-shadow: 0 12px 60px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2);">
-                    <button class="theme-btn theme-btn-base active w-full flex items-center gap-3 px-4 py-2.5 mb-2 rounded-[10px] cursor-pointer transition-all duration-300 text-white text-sm font-semibold" data-theme="sunset">
-                    <span class="theme-color theme-color-base w-[30px] h-[30px] rounded-full block theme-sunset"></span>
-                    <span class="theme-name flex-1 text-left">Sunset</span>
+                <div class="theme-options absolute top-[55px] right-0 rounded-[15px] px-4 py-4 opacity-0 invisible -translate-y-2.5 transition-all duration-300 min-w-[180px]" id="theme-options" style="background: rgba(26, 15, 62, 0.4); border: 1px solid rgba(255, 255, 255, 0.2);">
+                    <button class="theme-btn active w-full flex items-center gap-3 px-4 py-2.5 mb-2 rounded-[10px] transition-all duration-300 text-white text-sm font-semibold" data-theme="sunset">
+                        <span class="theme-color w-[30px] h-[30px] rounded-full block theme-sunset"></span>
+                        <span class="theme-name flex-1 text-left">Sunset</span>
                     </button>
-                    <button class="theme-btn theme-btn-base w-full flex items-center gap-3 px-4 py-2.5 mb-2 rounded-[10px] cursor-pointer transition-all duration-300 text-white text-sm font-semibold" data-theme="purple">
-                    <span class="theme-color theme-color-base w-[30px] h-[30px] rounded-full block theme-purple"></span>
-                    <span class="theme-name flex-1 text-left">Purple</span>
+
+                    <button class="theme-btn w-full flex items-center gap-3 px-4 py-2.5 mb-2 rounded-[10px] transition-all duration-300 text-white text-sm font-semibold" data-theme="midnight">
+                        <span class="theme-color w-[30px] h-[30px] rounded-full block theme-midnight"></span>
+                        <span class="theme-name flex-1 text-left">Midnight</span>
                     </button>
-                    <button class="theme-btn theme-btn-base w-full flex items-center gap-3 px-4 py-2.5 mb-2 rounded-[10px] cursor-pointer transition-all duration-300 text-white text-sm font-semibold" data-theme="ocean">
-                    <span class="theme-color theme-color-base w-[30px] h-[30px] rounded-full block theme-ocean"></span>
-                    <span class="theme-name flex-1 text-left">Ocean</span>
-                    </button>
-                    <button class="theme-btn theme-btn-base w-full flex items-center gap-3 px-4 py-2.5 mb-2 rounded-[10px] cursor-pointer transition-all duration-300 text-white text-sm font-semibold" data-theme="forest">
-                    <span class="theme-color theme-color-base w-[30px] h-[30px] rounded-full block theme-forest"></span>
-                    <span class="theme-name flex-1 text-left">Forest</span>
-                    </button>
-                    <button class="theme-btn theme-btn-base w-full flex items-center gap-3 px-4 py-2.5 mb-2 rounded-[10px] cursor-pointer transition-all duration-300 text-white text-sm font-semibold" data-theme="rose">
-                    <span class="theme-color theme-color-base w-[30px] h-[30px] rounded-full block theme-rose"></span>
-                    <span class="theme-name flex-1 text-left">Rose</span>
-                    </button>
-                    <button class="theme-btn theme-btn-base w-full flex items-center gap-3 px-4 py-2.5 rounded-[10px] cursor-pointer transition-all duration-300 text-white text-sm font-semibold" data-theme="midnight">
-                    <span class="theme-color theme-color-base w-[30px] h-[30px] rounded-full block theme-midnight"></span>
-                    <span class="theme-name flex-1 text-left">Midnight</span>
+
+                    <button class="theme-btn w-full flex items-center gap-3 px-4 py-2.5 rounded-[10px] transition-all duration-300 text-white text-sm font-semibold" data-theme="forest">
+                        <span class="theme-color w-[30px] h-[30px] rounded-full block theme-forest"></span>
+                        <span class="theme-name flex-1 text-left">Forest</span>
                     </button>
                 </div>
             </div>
 
-            <!-- Mobile Menu Button -->
-            <button class="menu-btn lg:hidden text-white text-2xl cursor-pointer" id="menu-toggle" aria-label="Toggle Menu">
+            <!-- Mobile menu button -->
+            <button class="menu-btn lg:hidden text-white text-2xl" id="menu-toggle" aria-label="Toggle Menu">
                 <svg class="hamburger w-6 h-6" fill="currentColor" viewBox="0 0 448 512">
                     <path d="M0 96C0 78.3 14.3 64 32 64l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 128C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 288c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32L32 448c-17.7 0-32-14.3-32-32s14.3-32 32-32l384 0c17.7 0 32 14.3 32 32z"/>
                 </svg>
@@ -98,47 +88,25 @@ const navItems = [
     </div>
 
     <!-- Mobile Menu -->
-    <div class="mobile-menu lg:hidden fixed top-[70px] left-0 right-0 opacity-0 invisible translate-y-[-20px] transition-all duration-300 z-[998] px-4" id="mobile-menu">
-        <div class="mobile-menu-content rounded-[20px] overflow-hidden" style="background: rgba(5, 5, 15, 0.98); backdrop-filter: blur(35px); -webkit-backdrop-filter: blur(35px); border: 2px solid rgba(16, 185, 129, 0.3); box-shadow: 0 10px 40px rgba(16, 185, 129, 0.25), 0 5px 20px rgba(59, 130, 246, 0.25);">
+    <div class="mobile-menu lg:hidden fixed top-[70px] left-0 right-0 opacity-0 invisible translate-y-[-20px] transition-all duration-300 z-[999] px-4" id="mobile-menu">
+        <div class="mobile-menu-content rounded-[20px] overflow-hidden" style="background: rgba(5, 5, 15, 0.98);">
             <ul class="list-none p-4">
-                {navItems.map((item, index) => (
-                <li class="mb-2">
-                    <a href={item.href} class={`mobile-nav-link block text-center text-white font-bold px-4 py-3 rounded-[12px] transition-all duration-300 hover:text-white${index === 0 ? ' active' : ''}`} style="font-size: 14px; background: rgba(255, 255, 255, 0.08); color: #ffffff;">
-                    {item.label}
-                    </a>
-                </li>
-                ))}
+                {navItems.map((item, index) => {
+                    const isActive = index === 0 ? ' active' : '';
+                    return (
+                        <li class="mb-2">
+                            <a href={item.href} class={`mobile-nav-link block text-center text-white font-bold px-4 py-3 rounded-[12px] transition-all duration-300 hover:text-white${isActive}`} style="font-size: 14px;">
+                            {item.label}
+                            </a>
+                        </li>
+                    );
+                })}
             </ul>
         </div>
     </div>
 </nav>
 
 <style>
-    @keyframes border-rotate {
-        0% {
-            filter: hue-rotate(0deg);
-        }
-
-        100% {
-            filter: hue-rotate(360deg);
-        }
-    }
-
-    @keyframes bounceDown {
-        0%,
-        100% {
-            transform: translateY(0);
-        }
-
-        50% {
-            transform: translateY(5px);
-        }
-    }
-
-    .animate-border-rotate {
-        animation: border-rotate 4s linear infinite;
-    }
-
     .logo-link {
         display: flex;
         align-items: center;
@@ -146,7 +114,6 @@ const navItems = [
         height: 45px;
         padding: 0 6px;
         overflow: hidden;
-        cursor: pointer;
         transition: transform 0.4s ease;
     }
 
@@ -165,12 +132,7 @@ const navItems = [
     .nav-link {
         text-align: center;
         box-sizing: border-box;
-        border: 2px solid transparent;
-        transition:
-            color 0.3s ease,
-            background 0.3s ease,
-            box-shadow 0.3s ease,
-            transform 0.3s ease;
+        transition: color 0.3s ease, background 0.3s ease, transform 0.3s ease;
     }
 
     .nav-link,
@@ -179,12 +141,6 @@ const navItems = [
     .nav-link:active {
         outline: none !important;
         border: none !important;
-        box-shadow: none !important;
-    }
-
-    .nav-link:focus,
-    .nav-link:focus-visible {
-        box-shadow: none !important;
     }
 
     .nav-link::before {
@@ -202,165 +158,74 @@ const navItems = [
     }
 
     .nav-link:hover {
-        box-shadow: 0 5px 20px rgba(16, 185, 129, 0.25), 0 0 25px rgba(59, 130, 246, 0.2);
         transform: translateY(-2px);
     }
 
     .navbar .menu li a.active {
-        background: linear-gradient(135deg,
-                rgba(16, 185, 129, 0.4),
-                rgba(59, 130, 246, 0.4));
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
+        background: var(--navbar);
         color: #ffffff;
         border-radius: 15px;
-        border-color: rgba(16, 185, 129, 0.7) !important;
-        box-shadow:
-            0 8px 30px rgba(16, 185, 129, 0.5),
-            0 0 40px rgba(59, 130, 246, 0.4),
-            inset 0 2px 0 rgba(255, 255, 255, 0.2),
-            inset 0 -2px 10px rgba(16, 185, 129, 0.3);
-        position: relative;
-        outline: none !important;
     }
 
-    .navbar .menu li a.active::after {
-        content: '';
-        position: absolute;
-        inset: 0;
-        pointer-events: none;
-        border-radius: 15px;
-        background: linear-gradient(45deg,
-                transparent 30%,
-                rgba(255, 255, 255, 0.3) 50%,
-                transparent 70%);
-        background-size: 200% 200%;
-        animation: activeGlow 3s linear infinite;
-    }
-
-    @keyframes activeGlow {
-        0% {
-            background-position: 200% 0;
-        }
-
-        100% {
-            background-position: -200% 0;
-        }
-    }
-
-    .navbar .menu li a.active:hover {
-        transform: translateY(-2px);
-        box-shadow:
-            0 12px 40px rgba(16, 185, 129, 0.6),
-            0 0 50px rgba(59, 130, 246, 0.5);
-    }
-
-    .resume-btn::before {
-        content: '';
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        width: 0;
-        height: 0;
-        border-radius: 50%;
-        background: rgba(255, 255, 255, 0.3);
-        transform: translate(-50%, -50%);
-        transition: width 0.6s ease, height 0.6s ease;
-        z-index: 0;
-        pointer-events: none;
-    }
-
-    .resume-btn:hover::before {
-        width: 300px;
-        height: 300px;
+    .resume-btn {
+        border: 2px solid transparent;
+        background: linear-gradient(#0b0f1a, #0b0f1a) padding-box, var(--navbar) border-box;
     }
 
     .resume-btn:hover {
-        box-shadow: 0 10px 30px rgba(16, 185, 129, 0.6);
-        border-color: rgba(16, 185, 129, 0.8);
+        background: linear-gradient(#0b0f1a, #0b0f1a) padding-box, var(--gradient1) border-box;
+    }
+
+    @keyframes bounceDown {
+        0%,
+        100% {
+            transform: translateY(0);
+        }
+
+        50% {
+            transform: translateY(5px);
+        }
+    }
+
+    .resume-btn:hover svg {
+        animation: bounceDown 0.6s ease infinite;
     }
 
     .theme-toggle-btn {
-        transition: all 0.3s ease;
+        transition: transform 0.3s ease;
     }
 
-    .theme-toggle-btn:hover {
-        background: rgba(217, 70, 239, 0.35);
-        backdrop-filter: blur(30px);
-        -webkit-backdrop-filter: blur(30px);
-        border: 1px solid rgba(217, 70, 239, 0.8);
-        box-shadow: 0 12px 48px rgba(217, 70, 239, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.2);
-    }
-
-    .theme-options::before {
-        content: '';
-        position: absolute;
-        top: -8px;
-        right: 15px;
-        width: 0;
-        height: 0;
-        border-left: 8px solid transparent;
-        border-right: 8px solid transparent;
-        border-bottom: 8px solid rgba(26, 15, 62, 0.4);
-    }
-
-    .theme-btn-base {
+    .theme-btn {
         background: rgba(255, 255, 255, 0.05);
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
         border: 1px solid rgba(255, 255, 255, 0.15);
-        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.05);
-    }
-
-    .theme-color-base {
-        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
     }
 
     .theme-sunset {
         background: linear-gradient(135deg, #FF512F 0%, #F09819 100%);
     }
 
-    .theme-purple {
-        background: linear-gradient(135deg, #5f27cd 0%, #341f97 100%);
-    }
-
-    .theme-ocean {
-        background: linear-gradient(135deg, #2E3192 0%, #1BFFFF 100%);
+    .theme-midnight {
+        background: linear-gradient(135deg, #3498db 0%, #4CA1AF 100%);
     }
 
     .theme-forest {
-        background: linear-gradient(135deg, #134E5E 0%, #71B280 100%);
-    }
-
-    .theme-rose {
-        background: linear-gradient(135deg, #EC008C 0%, #FC6767 100%);
-    }
-
-    .theme-midnight {
-        background: linear-gradient(135deg, #2C3E50 0%, #4CA1AF 100%);
+        background: linear-gradient(135deg, #3a9d5d 0%, #71B280 100%);
     }
 
     .theme-btn:hover {
-        background: rgba(255, 255, 255, 0.12);
-        backdrop-filter: blur(25px);
-        -webkit-backdrop-filter: blur(25px);
-        border: 1px solid rgba(59, 130, 246, 0.6);
         transform: translateX(-5px);
-        box-shadow: 0 8px 32px rgba(59, 130, 246, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        background: rgba(255, 255, 255, 0.12);
+        border: 1px solid rgba(59, 130, 246, 0.6);
     }
 
     .theme-btn.active {
         background: rgba(217, 70, 239, 0.25);
-        backdrop-filter: blur(25px);
-        -webkit-backdrop-filter: blur(25px);
         border: 1px solid rgba(217, 70, 239, 0.7);
-        box-shadow: 0 8px 32px rgba(217, 70, 239, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.15);
     }
 
     .menu-btn {
-        transition: all 0.3s ease;
+        transition: transform 0.3s ease;
         position: relative;
-        z-index: 1000;
     }
 
     .menu-btn:hover {
@@ -382,31 +247,27 @@ const navItems = [
     }
 
     .mobile-menu::-webkit-scrollbar-thumb {
-        background: var(--gradient1);
+        background: var(--navbar);
         border-radius: 10px;
     }
 
     .mobile-nav-link {
-        transition: all 0.3s ease;
+        transition: transform 0.3s ease, background-color 0.3s ease;
+        background: rgba(255, 255, 255, 0.08);
     }
 
     .mobile-nav-link:hover {
-        background: rgba(255, 255, 255, 0.15);
-        background: color-mix(in srgb, var(--primary) 15%, transparent);
         transform: translateX(5px);
-        box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
-        box-shadow: 0 4px 15px color-mix(in srgb, var(--primary) 20%, transparent);
+        background-color: color-mix(in srgb, var(--primary) 15%, transparent);
     }
 
     .mobile-nav-link.active {
-        background: var(--gradient2);
-        border: 1px solid var(--primary);
-        box-shadow: 0 5px 20px var(--primary);
         color: #ffffff;
+        background: var(--gradient1);
+        border: 1px solid var(--primary);
     }
 
-    /* Medium tablets and small desktops (up to 1023px) */
-    @media (max-width: 1023px) {
+    @media (max-width: 1024px) {
         .navbar {
             padding-top: 0.5rem;
             padding-bottom: 0.5rem;
@@ -419,50 +280,19 @@ const navItems = [
         .img-logo {
             max-height: 42px;
         }
-    }
-
-    /* Mobile performance optimizations (up to 768px) */
-    @media (max-width: 768px) {
-        .navbar .max-width,
-        .resume-btn,
-        .theme-toggle-btn,
-        .theme-options,
-        .theme-btn {
-            backdrop-filter: none !important;
-            -webkit-backdrop-filter: none !important;
-            background: rgba(10, 10, 30, 0.7) !important;
-        }
 
         .mobile-menu-content {
-            backdrop-filter: none !important;
-            -webkit-backdrop-filter: none !important;
-            background: rgba(5, 5, 15, 0.98) !important;
-            border: 2px solid rgba(16, 185, 129, 0.5) !important;
-        }
-
-        .mobile-nav-link {
-            background: rgba(255, 255, 255, 0.12) !important;
-            color: #ffffff !important;
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5) !important;
+            border: 2px solid var(--ternary);
         }
 
         .mobile-nav-link.active {
             background: var(--primary) !important;
-            color: #ffffff !important;
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.7) !important;
         }
+    }
 
-        .animate-border-rotate {
-            animation: none !important;
-            filter: none !important;
-        }
-
-        .navbar .max-width,
-        .resume-btn,
-        .theme-toggle-btn,
-        .theme-btn,
-        .theme-btn.active {
-            box-shadow: none !important;
+    @media (max-width: 768px) {
+        .mobile-nav-link {
+            background: rgba(255, 255, 255, 0.12) !important;
         }
 
         .navbar .max-width {
@@ -472,29 +302,10 @@ const navItems = [
         .nav-link:hover,
         .mobile-nav-link:hover,
         .theme-btn:hover {
-            transform: translateY(0) !important;
-            box-shadow: none !important;
-            background: rgba(255, 255, 255, 0.15) !important;
-        }
-
-        .navbar .menu li a.active::after {
-            animation: none !important;
-            background: none !important;
-        }
-
-        #theme-options {
-            transition: opacity 0.2s ease, transform 0.2s ease !important;
-        }
-
-        .theme-btn,
-        .theme-btn.active {
-            backdrop-filter: none !important;
-            -webkit-backdrop-filter: none !important;
-            background: rgba(255, 255, 255, 0.08) !important;
+            transform: translateY(0);
         }
     }
 
-    /* Mobile devices (up to 640px) */
     @media (max-width: 640px) {
         .mobile-menu {
             top: 65px;
@@ -511,113 +322,94 @@ const navItems = [
 </style>
 
 <script>
-    // Mobile Menu Toggle
+    // Generic toggle function for UI elements
+    function createToggleHandler(toggleBtn: HTMLElement | null, targetElement: HTMLElement | null, openTransform = '', closeTransform = '') {
+        let isOpen = false;
+
+        const open = () => {
+            if (!targetElement) return;
+            isOpen = true;
+            targetElement.classList.add('active');
+            targetElement.style.opacity = '1';
+            targetElement.style.visibility = 'visible';
+            targetElement.style.transform = 'translateY(0)';
+            if (openTransform && toggleBtn) {
+                toggleBtn.style.transform = openTransform;
+            }
+        };
+
+        const close = () => {
+            if (!targetElement) return;
+            isOpen = false;
+            targetElement.classList.remove('active');
+            targetElement.style.opacity = '0';
+            targetElement.style.visibility = 'hidden';
+            targetElement.style.transform = closeTransform || 'translateY(-20px)';
+            if (toggleBtn) {
+                toggleBtn.style.transform = '';
+            }
+        };
+
+        const toggle = () => isOpen ? close() : open();
+
+        return { open, close, toggle, isOpen: () => isOpen };
+    }
+
+    // Mobile menu setup
     const menuToggle = document.getElementById('menu-toggle');
     const mobileMenu = document.getElementById('mobile-menu');
     const hamburgerIcon = menuToggle?.querySelector('.hamburger');
     const closeIcon = menuToggle?.querySelector('.close');
     const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
 
-    // Consolidated mobile menu close function
-    function closeMobileMenu() {
-        mobileMenu?.classList.remove('active');
-        if (mobileMenu) {
-            mobileMenu.style.opacity = '0';
-            mobileMenu.style.visibility = 'hidden';
-            mobileMenu.style.transform = 'translateY(-20px)';
-        }
-        hamburgerIcon?.classList.remove('hidden');
-        closeIcon?.classList.add('hidden');
-        document.body.style.overflow = '';
-    }
+    const mobileMenuHandler = createToggleHandler(menuToggle, mobileMenu, '', 'translateY(-20px)');
 
-    function openMobileMenu() {
-        mobileMenu?.classList.add('active');
-        if (mobileMenu) {
-            mobileMenu.style.opacity = '1';
-            mobileMenu.style.visibility = 'visible';
-            mobileMenu.style.transform = 'translateY(0)';
-        }
+    // Override mobile menu functions to handle icons and body scroll
+    const originalMobileOpen = mobileMenuHandler.open;
+    const originalMobileClose = mobileMenuHandler.close;
+
+    mobileMenuHandler.open = () => {
+        originalMobileOpen();
         hamburgerIcon?.classList.add('hidden');
         closeIcon?.classList.remove('hidden');
         document.body.style.overflow = 'hidden';
-    }
+    };
 
-    menuToggle?.addEventListener('click', () => {
-        const isOpen = mobileMenu?.classList.contains('active');
-        isOpen ? closeMobileMenu() : openMobileMenu();
-    });
+    mobileMenuHandler.close = () => {
+        originalMobileClose();
+        hamburgerIcon?.classList.remove('hidden');
+        closeIcon?.classList.add('hidden');
+        document.body.style.overflow = '';
+    };
+
+    menuToggle?.addEventListener('click', mobileMenuHandler.toggle);
 
     // Close mobile menu when clicking a link
     mobileNavLinks.forEach(link => {
-        link.addEventListener('click', closeMobileMenu);
+        link.addEventListener('click', mobileMenuHandler.close);
     });
 
-    // Close mobile menu when clicking outside
-    document.addEventListener('click', (e) => {
-        const target = e.target as Node;
-        if (mobileMenu?.classList.contains('active') &&
-            !mobileMenu.contains(target) &&
-            !menuToggle?.contains(target)) {
-            closeMobileMenu();
-        }
-    });
-
-    // Theme Switcher
+    // Theme switcher setup
     const themeToggleBtn = document.getElementById('theme-toggle-btn');
     const themeOptions = document.getElementById('theme-options');
     const themeButtons = document.querySelectorAll('.theme-btn');
 
-    // Load saved theme
+    const themeHandler = createToggleHandler(
+        themeToggleBtn,
+        themeOptions,
+        'scale(1.1) rotate(180deg)',
+        'translateY(-10px)'
+    );
+
+    themeToggleBtn?.addEventListener('click', themeHandler.toggle);
+
+    // Load and apply saved theme
     const savedTheme = localStorage.getItem('theme') || 'sunset';
     document.documentElement.setAttribute('data-theme', savedTheme);
 
     // Update active theme button
     themeButtons.forEach(btn => {
-        if (btn.getAttribute('data-theme') === savedTheme) {
-            btn.classList.add('active');
-        } else {
-            btn.classList.remove('active');
-        }
-    });
-
-    // Consolidated theme options functions
-    function closeThemeOptions() {
-        themeOptions?.classList.remove('active');
-        if (themeOptions) {
-            themeOptions.style.opacity = '0';
-            themeOptions.style.visibility = 'hidden';
-            themeOptions.style.transform = 'translateY(-10px)';
-        }
-        if (themeToggleBtn) {
-            themeToggleBtn.style.transform = 'scale(1) rotate(0deg)';
-        }
-    }
-
-    function openThemeOptions() {
-        themeOptions?.classList.add('active');
-        if (themeOptions) {
-            themeOptions.style.opacity = '1';
-            themeOptions.style.visibility = 'visible';
-            themeOptions.style.transform = 'translateY(0)';
-        }
-        if (themeToggleBtn) {
-            themeToggleBtn.style.transform = 'scale(1.1) rotate(180deg)';
-        }
-    }
-
-    // Toggle theme options with rotation animation
-    themeToggleBtn?.addEventListener('click', () => {
-        const isOpen = themeOptions?.classList.contains('active');
-        isOpen ? closeThemeOptions() : openThemeOptions();
-    });
-
-    // Close theme options when clicking outside
-    document.addEventListener('click', (e) => {
-        const themeSwitcher = document.getElementById('theme-switcher');
-        if (themeSwitcher && !themeSwitcher.contains(e.target as Node)) {
-            closeThemeOptions();
-        }
+        btn.classList.toggle('active', btn.getAttribute('data-theme') === savedTheme);
     });
 
     // Change theme
@@ -632,24 +424,31 @@ const navItems = [
                 themeButtons.forEach(b => b.classList.remove('active'));
                 btn.classList.add('active');
 
-                // Auto-close theme options after selection
-                closeThemeOptions();
+                // Auto-close theme options
+                themeHandler.close();
             }
         });
     });
 
-    // Remove focus outline when clicking nav links
-    const navLinks = document.querySelectorAll('.nav-link, .mobile-nav-link');
-    navLinks.forEach(link => {
-        link.addEventListener('click', function (e) {
-            // Remove focus from the clicked link to prevent outline
-            setTimeout(() => {
-                (e.target as HTMLElement).blur();
-            }, 100);
-        });
+    // Global click handler for closing dropdowns
+    document.addEventListener('click', (e) => {
+        const target = e.target as Node;
+
+        // Close mobile menu if clicking outside
+        if (mobileMenuHandler.isOpen() &&
+            !mobileMenu?.contains(target) &&
+            !menuToggle?.contains(target)) {
+            mobileMenuHandler.close();
+        }
+
+        // Close theme options if clicking outside
+        const themeSwitcher = document.getElementById('theme-switcher');
+        if (themeHandler.isOpen() && themeSwitcher && !themeSwitcher.contains(target)) {
+            themeHandler.close();
+        }
     });
 
-    // Active menu highlighting
+    // Navigation and active link handling
     const sections = document.querySelectorAll('section[id]');
     const allNavLinks = document.querySelectorAll('.nav-link, .mobile-nav-link');
     let isUserNavigating = false;
@@ -658,19 +457,16 @@ const navItems = [
     // Function to set active link
     function setActiveLink(targetHref: string) {
         allNavLinks.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href') === targetHref) {
-                link.classList.add('active');
-            }
+            link.classList.toggle('active', link.getAttribute('href') === targetHref);
         });
     }
 
-    // Handle direct navigation clicks
+    // Handle navigation clicks with debouncing
     allNavLinks.forEach(link => {
         link.addEventListener('click', (e) => {
             const href = link.getAttribute('href');
             if (href) {
-                // Clear any existing timeout
+                // Clear existing timeout
                 if (navigationTimeout) {
                     clearTimeout(navigationTimeout);
                 }
@@ -678,19 +474,27 @@ const navItems = [
                 isUserNavigating = true;
                 setActiveLink(href);
 
-                // Reset flag after navigation completes with debouncing
+                // Reset flag after navigation with debouncing
                 navigationTimeout = setTimeout(() => {
                     isUserNavigating = false;
                     navigationTimeout = null;
                 }, 1500);
+
+                // Remove focus to prevent outline
+                setTimeout(() => (e.target as HTMLElement).blur(), 100);
             }
         });
     });
 
-    // Intersection Observer for automatic highlighting during scroll
+    // Hash navigation handler
+    function handleHashNavigation() {
+        const hash = window.location.hash || '#home';
+        setActiveLink(hash);
+    }
+
+    // Intersection Observer for scroll-based active link highlighting
     const observer = new IntersectionObserver(
         entries => {
-            // Only update if user is not actively navigating
             if (isUserNavigating) return;
 
             let mostVisibleEntry: IntersectionObserverEntry | null = null;
@@ -704,7 +508,7 @@ const navItems = [
             });
 
             if (mostVisibleEntry) {
-                const id = (mostVisibleEntry as IntersectionObserverEntry).target.getAttribute('id');
+                const id = mostVisibleEntry.target.getAttribute('id');
                 setActiveLink(`#${id}`);
             }
         }, {
@@ -713,34 +517,8 @@ const navItems = [
         }
     );
 
-    // Handle hash navigation on page load and hash changes
-    function handleHashNavigation() {
-        const hash = window.location.hash || '#home';
-        setActiveLink(hash);
-    }
-
-    // Initialize on page load
+    // Initialize navigation
     handleHashNavigation();
-
-    // Handle browser back/forward
     window.addEventListener('hashchange', handleHashNavigation);
-
-    // Observe all sections
     sections.forEach(section => observer.observe(section));
-
-    // Resume button hover effect
-    const resumeBtn = document.querySelector('.resume-btn');
-    resumeBtn?.addEventListener('mouseenter', () => {
-        const svg = resumeBtn.querySelector('svg');
-        if (svg) {
-            svg.style.animation = 'bounceDown 0.6s ease infinite';
-        }
-    });
-
-    resumeBtn?.addEventListener('mouseleave', () => {
-        const svg = resumeBtn.querySelector('svg');
-        if (svg) {
-            svg.style.animation = '';
-        }
-    });
 </script>

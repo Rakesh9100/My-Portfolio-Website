@@ -78,14 +78,11 @@ const projectsData = [
 ];
 ---
 
-<section class="projects z-[3] min-h-screen relative overflow-hidden pt-24 pb-20 px-5" id="projects" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);">
-    <!-- Floating Background -->
-    <div class="absolute top-[10%] -right-[10%] w-[500px] h-[500px] rounded-full pointer-events-none animate-float-bg" style="background: radial-gradient(circle, rgba(217, 70, 239, 0.1) 0%, transparent 70%);"></div>
-    <!-- Title -->
+<section class="projects section-common section-bg-primary" id="projects">
     <div class="title relative text-center font-bold mb-4 md:mb-6">
-        <span class="projects-title text-[8vw] sm:text-[6vw] md:text-[5vw] lg:text-[3.5vw] uppercase">My Projects</span>
+        <span class="section-title text-[8vw] sm:text-[6vw] md:text-[5vw] lg:text-[3.5vw] uppercase">My Projects</span>
     </div>
-    <!-- Subtitle -->
+
     <div class="text text-center mb-8 md:mb-12 lg:mb-16 px-4">
         <span class="quote-text">Every great project starts with a simple idea and the courage to begin.</span>
     </div>
@@ -110,7 +107,7 @@ const projectsData = [
     </div>
     <!-- Project Count -->
     <div class="project-count-container">
-        <span id="project-count-text">Showing project 1 of {projectsData.length}</span>
+        <span id="project-count-text" aria-live="polite">Showing project 1 of {projectsData.length}</span>
     </div>
     <!-- 3D Carousel Container -->
     <div class="carousel-container" id="carousel-container">
@@ -200,59 +197,39 @@ const projectsData = [
     </div>
 </section>
 
-<style is:global>
-    .quote-text {
-        font-size: clamp(12px, 3.5vw, 18px);
-        padding: 0.25rem 0.75rem;
-        display: inline-block;
-        text-align: center;
+<style>
+    .view-toggle-container {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin: 30px 0 20px;
+    }
+
+    .view-toggle-btn {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 12px 28px;
+        border: 2px solid var(--primary);
+        border-radius: 50px;
         color: var(--secondary);
-        background: rgba(26, 15, 62, 0.3);
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
-        border: 1px solid rgba(59, 130, 246, 0.4);
-        border-radius: 25px;
-        box-shadow: 0 8px 32px rgba(59, 130, 246, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
-        transition: all 0.3s ease;
+        font-size: 15px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
     }
 
-    .quote-text:hover {
-        background: rgba(59, 130, 246, 0.25);
-        backdrop-filter: blur(25px);
-        -webkit-backdrop-filter: blur(25px);
-        border: 1px solid rgba(59, 130, 246, 0.6);
-        box-shadow: 0 12px 40px rgba(59, 130, 246, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.2);
-        transform: translateY(-2px);
+    .view-toggle-btn svg {
+        stroke: var(--secondary);
     }
 
-    @keyframes titleGlow {
-        0%,
-        100% {
-            filter: drop-shadow(0 0 20px rgba(240, 147, 251, 0.5));
-        }
-
-        50% {
-            filter: drop-shadow(0 0 30px rgba(240, 147, 251, 0.8));
-        }
+    .view-toggle-btn:hover {
+        background-color: var(--hover);
     }
 
-    @keyframes rotateBorder {
-        0% {
-            transform: rotate(0deg);
-        }
-
-        100% {
-            transform: rotate(360deg);
-        }
-    }
-
-    .projects-title {
-        background: var(--gradient2);
-        background-clip: text;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        filter: drop-shadow(0 0 20px rgba(240, 147, 251, 0.5));
-        animation: titleGlow 3s ease-in-out infinite;
+    .view-toggle-btn.active {
+        background: var(--ternary);
+        border: 2px solid var(--secondary);
     }
 
     .project-count-container {
@@ -267,67 +244,41 @@ const projectsData = [
         font-weight: 600;
         padding: 10px 25px;
         background: rgba(26, 15, 62, 0.4);
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
-        border: 1px solid rgba(217, 70, 239, 0.3);
+        border: 2px solid var(--ternary);
         border-radius: 50px;
         display: inline-block;
-        box-shadow: 0 5px 20px rgba(217, 70, 239, 0.3);
+    }
+
+    .project-content {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 30px;
+        margin-top: 40px;
     }
 
     .projects .box {
         width: 100%;
         max-width: 380px;
         background: rgba(26, 15, 62, 0.3);
-        backdrop-filter: blur(25px);
-        -webkit-backdrop-filter: blur(25px);
         border-radius: 20px;
         margin-bottom: 28px;
-        box-shadow: 0 10px 40px rgba(95, 39, 205, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1);
-        border: 2px solid rgba(255, 255, 255, 0.15);
-        transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        border: 3px solid rgba(255, 255, 255, 0.15);
         position: relative;
         overflow: hidden;
         display: flex;
         flex-direction: column;
-    }
-
-    .projects .box::before {
-        content: '';
-        position: absolute;
-        top: -50%;
-        left: -50%;
-        width: 200%;
-        height: 200%;
-        background: conic-gradient(transparent, transparent, transparent, var(--primary));
-        animation: rotateBorder 4s linear infinite;
-        opacity: 0;
-        transition: opacity 0.4s ease;
-    }
-
-    .projects .box:hover::before {
-        opacity: 0.3;
+        transition: transform 0.35s ease, border-color 0.35s ease;
     }
 
     .projects .box:hover {
-        background: rgba(217, 70, 239, 0.25);
-        backdrop-filter: blur(30px);
-        -webkit-backdrop-filter: blur(30px);
-        border: 2px solid rgba(217, 70, 239, 0.6);
-        transform: translateY(-15px) scale(1.03);
-        box-shadow: 0 25px 80px var(--primary), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        background: rgba(26, 15, 62, 0.4);
+        border: 3px solid var(--hover);
+        transform: translateY(-5px);
     }
 
-    .projects .box.hide {
-        opacity: 0;
-        transform: scale(0.8);
-        pointer-events: none;
-        position: absolute;
-    }
-
-    .projects .box.show {
-        opacity: 1;
-        transform: scale(1);
+    .projects .box:hover .project-link-btn {
+        border: 1px solid var(--secondary);
     }
 
     .projects .project-image-container {
@@ -343,12 +294,6 @@ const projectsData = [
         width: 100%;
         height: 100%;
         object-fit: cover;
-        transition: all 0.4s ease;
-    }
-
-    .projects .box:hover .snapshot {
-        transform: scale(1.1);
-        filter: brightness(1.1);
     }
 
     .projects .project-links {
@@ -364,35 +309,20 @@ const projectsData = [
         width: 40px;
         height: 40px;
         background: rgba(26, 15, 62, 0.8);
-        backdrop-filter: blur(15px);
-        -webkit-backdrop-filter: blur(15px);
-        border: 2px solid rgba(255, 255, 255, 0.2);
+        border: 1px solid var(--primary);
         border-radius: 50%;
         display: flex;
         align-items: center;
         justify-content: center;
-        transition: all 0.3s ease;
+        transition: border-color 0.3s ease;
         cursor: pointer;
     }
 
-    .projects .project-link-btn:hover {
-        background: rgba(59, 130, 246, 0.8);
-        border: 2px solid rgba(59, 130, 246, 0.8);
-        transform: scale(1.1) rotate(360deg);
-        box-shadow: 0 5px 20px rgba(59, 130, 246, 0.6);
-    }
-
     .projects .project-link-btn img {
-        width: 20px;
-        height: 20px;
+        width: 28px;
+        height: 28px;
         filter: invert(1) brightness(2);
-        transition: all 0.3s ease;
         opacity: 0.9;
-    }
-
-    .projects .project-link-btn:hover img {
-        filter: invert(1) brightness(2) drop-shadow(0 0 8px rgba(255, 255, 255, 1));
-        opacity: 1;
     }
 
     .projects .project-content-area {
@@ -408,28 +338,22 @@ const projectsData = [
         font-weight: 900;
         margin: 0 0 15px 0;
         color: var(--secondary);
-        transition: all 0.3s ease;
     }
 
     .projects .box:hover .topic {
-        background: var(--gradient2);
+        background: var(--gradient1);
         background-clip: text;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
     }
 
     .projects p {
-        color: rgba(255, 255, 255, 0.8);
+        color: var(--secondary);
         margin-bottom: 15px;
         font-size: clamp(13px, 1.1vw, 15px);
         font-weight: 500;
         line-height: 1.6;
         flex: 1;
-    }
-
-    .projects .box:hover p {
-        color: var(--secondary);
-        font-weight: 600;
     }
 
     .projects .tech-stack {
@@ -446,66 +370,14 @@ const projectsData = [
         font-size: clamp(11px, 0.9vw, 13px);
         font-weight: 600;
         color: var(--secondary);
-        background: rgba(59, 130, 246, 0.2);
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
-        border: 1px solid rgba(59, 130, 246, 0.3);
-        transition: all 0.3s ease;
+        background: var(--gradient4);
+        border: 1px solid var(--primary);
+        opacity: 0.8;
+        transition: border 0.3s ease;
     }
 
     .projects .box:hover .techs {
-        background: rgba(59, 130, 246, 0.4);
-        border: 1px solid rgba(59, 130, 246, 0.6);
-        box-shadow: 0 5px 15px rgba(59, 130, 246, 0.4);
-        transform: translateY(-2px);
-    }
-
-    .view-toggle-container {
-        display: flex;
-        justify-content: center;
-        gap: 15px;
-        margin: 30px 0 20px;
-    }
-
-    .view-toggle-btn {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        padding: 12px 28px;
-        background: rgba(26, 15, 62, 0.3);
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
-        border: 2px solid rgba(255, 255, 255, 0.15);
-        border-radius: 50px;
-        color: var(--secondary);
-        font-size: 15px;
-        font-weight: 600;
-        cursor: pointer;
-        transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-        box-shadow: 0 5px 20px rgba(217, 70, 239, 0.2);
-    }
-
-    .view-toggle-btn svg {
-        stroke: var(--secondary);
-        transition: all 0.3s ease;
-    }
-
-    .view-toggle-btn:hover {
-        background: rgba(217, 70, 239, 0.3);
-        border: 2px solid rgba(217, 70, 239, 0.6);
-        transform: translateY(-3px) scale(1.05);
-        box-shadow: 0 10px 35px rgba(217, 70, 239, 0.5);
-    }
-
-    .view-toggle-btn.active {
-        background: rgba(217, 70, 239, 0.4);
-        border: 2px solid rgba(217, 70, 239, 0.7);
-        box-shadow: 0 10px 35px rgba(217, 70, 239, 0.6);
-    }
-
-    .view-toggle-btn.active svg {
-        stroke: var(--primary);
-        filter: drop-shadow(0 0 5px var(--primary));
+        border: 1px solid var(--secondary);
     }
 
     .carousel-container {
@@ -531,7 +403,6 @@ const projectsData = [
         width: 100%;
         height: 100%;
         transform-style: preserve-3d;
-        transition: transform 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
     }
 
     .carousel-item {
@@ -540,26 +411,20 @@ const projectsData = [
         left: 50%;
         top: 50%;
         transform-style: preserve-3d;
-        transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        transition: transform 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55), opacity 0.6s ease;
     }
 
     .carousel-item .box {
         width: 100%;
-        background: rgba(26, 15, 62, 0.4);
-        backdrop-filter: blur(30px);
-        -webkit-backdrop-filter: blur(30px);
         border-radius: 25px;
         overflow: hidden;
-        box-shadow: 0 20px 60px rgba(217, 70, 239, 0.4);
-        border: 2px solid rgba(255, 255, 255, 0.15);
-        transition: all 0.5s ease;
         position: relative;
+        border: 3px solid rgba(255, 255, 255, 0.15);
     }
 
     .carousel-item.active .box {
-        border: 2px solid rgba(217, 70, 239, 0.8);
-        box-shadow: 0 30px 80px rgba(217, 70, 239, 0.7);
-        transform: scale(1.05);
+        border: 3px solid var(--primary);
+        box-shadow: 0 0 30px var(--secondary);
     }
 
     .carousel-item .project-image-container {
@@ -567,19 +432,12 @@ const projectsData = [
         width: 100%;
         height: 220px;
         overflow: hidden;
-        border-radius: 23px 23px 0 0;
     }
 
     .carousel-item .snapshot {
         width: 100%;
         height: 100%;
         object-fit: cover;
-        transition: all 0.5s ease;
-    }
-
-    .carousel-item:hover .snapshot {
-        transform: scale(1.1);
-        filter: brightness(1.1);
     }
 
     .carousel-item .project-content-area {
@@ -592,11 +450,10 @@ const projectsData = [
         font-weight: 900;
         margin: 0 0 15px 0;
         color: var(--secondary);
-        transition: all 0.3s ease;
     }
 
     .carousel-item.active .topic {
-        background: var(--gradient2);
+        background: var(--gradient1);
         background-clip: text;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
@@ -623,9 +480,9 @@ const projectsData = [
         font-size: 12px;
         font-weight: 600;
         color: var(--secondary);
-        background: rgba(59, 130, 246, 0.2);
-        border: 1px solid rgba(59, 130, 246, 0.3);
-        transition: all 0.3s ease;
+        background: var(--gradient4);
+        border: 1px solid var(--primary);
+        opacity: 0.8;
     }
 
     .carousel-btn {
@@ -635,29 +492,20 @@ const projectsData = [
         width: 60px;
         height: 60px;
         border-radius: 50%;
-        background: rgba(26, 15, 62, 0.8);
-        backdrop-filter: blur(25px);
-        -webkit-backdrop-filter: blur(25px);
-        border: 2px solid rgba(217, 70, 239, 0.5);
+        border: 3px solid var(--ternary);
         cursor: pointer;
         display: flex;
         align-items: center;
         justify-content: center;
-        transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-        box-shadow: 0 10px 40px rgba(217, 70, 239, 0.4);
         z-index: 100;
+        background: var(--gradient1);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
     }
 
     .carousel-btn:hover {
-        background: rgba(217, 70, 239, 0.4);
-        border: 2px solid rgba(217, 70, 239, 0.8);
-        transform: translateY(-50%) scale(1.15);
-        box-shadow: 0 15px 50px rgba(217, 70, 239, 0.7);
-    }
-
-    .carousel-btn svg {
-        stroke: var(--secondary);
-        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+        transform: translateY(-50%) scale(1.08);
     }
 
     .carousel-prev {
@@ -685,440 +533,37 @@ const projectsData = [
         background: rgba(255, 255, 255, 0.3);
         border: 2px solid rgba(255, 255, 255, 0.5);
         cursor: pointer;
-        transition: all 0.3s ease;
-    }
-
-    .carousel-indicator:hover {
-        background: rgba(217, 70, 239, 0.5);
-        border-color: rgba(217, 70, 239, 0.8);
-        transform: scale(1.2);
+        transition: width 0.3s ease, border-radius 0.3s ease, background 0.3s ease, border-color 0.3s ease;
     }
 
     .carousel-indicator.active {
-        background: var(--gradient2);
+        background: var(--gradient1);
         border-color: var(--primary);
         width: 40px;
         border-radius: 10px;
-        box-shadow: 0 0 20px rgba(217, 70, 239, 0.8);
     }
 
     .grid-container {
         padding: 0 20px;
     }
 
-    .project-content {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 30px;
-        margin-top: 40px;
-    }
-
-    /* Medium Desktop (1024px - 1200px) */
-    @media (min-width: 1024px) and (max-width: 1200px) {
-        .carousel-item {
-            width: 350px;
-        }
-
-        .carousel-item .project-image-container {
-            height: 200px;
-        }
-
-        .carousel-item .project-content-area {
-            padding: 22px;
-        }
-
-        .carousel-item .topic {
-            font-size: 20px;
-        }
-
-        .carousel-item p {
-            font-size: 13.5px;
-        }
-
-        .carousel-item .techs {
-            font-size: 11.5px;
-        }
-
-        .projects .box {
-            max-width: 340px;
-        }
-
-        .projects .project-image-container {
-            height: 210px;
-        }
-
-        .projects .project-content-area {
-            padding: 18px;
-        }
-
-        .projects .topic {
-            font-size: 19px;
-        }
-
-        .projects p {
-            font-size: 13.5px;
-        }
-
-        .projects .techs {
-            padding: 5px 11px;
-            font-size: 11.5px;
-        }
-    }
-
-    /* Responsive Adjustments */
-    @media (min-width: 640px) {
-        .quote-text {
-            padding: 0.25rem 1rem;
-        }
-    }
-
-    /* Tablet (640px - 1023px) */
-    @media (min-width: 640px) and (max-width: 1023px) {
-        .projects {
-            padding: 5rem 1.5rem 4rem;
-        }
-
-        .text {
-            margin-bottom: 3rem;
-        }
-
-        .view-toggle-container {
-            margin: 25px 0 18px;
-        }
-
-        .view-toggle-btn {
-            padding: 11px 22px;
-            font-size: 14px;
-        }
-
-        .carousel-wrapper {
-            height: 480px;
-        }
-
-        .carousel-item {
-            width: 340px;
-        }
-
-        .carousel-item .project-image-container {
-            height: 200px;
-        }
-
-        .carousel-item .project-content-area {
-            padding: 22px;
-        }
-
-        .carousel-item .topic {
-            font-size: 20px;
-        }
-
-        .carousel-item p {
-            font-size: 13.5px;
-        }
-
-        .carousel-btn {
-            width: 52px;
-            height: 52px;
-        }
-
-        .carousel-prev {
-            left: 12px;
-        }
-
-        .carousel-next {
-            right: 12px;
-        }
-
-        .project-content {
-            gap: 25px;
-        }
-
-        .projects .box {
-            flex: 1 1 50%;
-        }
-
-        .projects .project-image-container {
-            height: 210px;
-        }
-    }
-
-    /* Mobile and small tablet (max-width: 768px) */
     @media (max-width: 768px) {
-        .animate-float-bg {
-            animation: none !important;
-            opacity: 0.15 !important;
-            width: 220px !important;
-            height: 220px !important;
-            transform: none !important;
-        }
-
-        .projects-title {
-            animation: none !important;
-            filter: none !important;
-        }
-
-        .quote-text {
-            font-size: 12px !important;
-            padding: 0.5rem 0.75rem;
-            backdrop-filter: none !important;
-            -webkit-backdrop-filter: none !important;
-            box-shadow: none !important;
-            background: rgba(26, 15, 62, 0.5) !important;
-        }
-
         .view-toggle-container {
-            display: none !important;
-        }
-
-        .projects .box,
-        .carousel-item .box {
-            backdrop-filter: none !important;
-            -webkit-backdrop-filter: none !important;
-            background: rgba(26, 15, 62, 0.5) !important;
-            box-shadow: none !important;
-            border: 1px solid rgba(255, 255, 255, 0.1) !important;
-            transform: none !important;
-        }
-
-        .projects .box:hover,
-        .carousel-item:hover .snapshot,
-        .projects .box:hover .snapshot {
-            transform: none !important;
-            box-shadow: none !important;
-            filter: none !important;
-            background: rgba(26, 15, 62, 0.5) !important;
-        }
-
-        .projects .box::before {
-            display: none !important;
-        }
-
-        .projects .techs,
-        .carousel-item .techs {
-            backdrop-filter: none !important;
-            -webkit-backdrop-filter: none !important;
-            box-shadow: none !important;
-            transform: none !important;
-        }
-
-        .projects .project-link-btn {
-            backdrop-filter: none !important;
-            -webkit-backdrop-filter: none !important;
-            transform: none !important;
-            box-shadow: none !important;
-        }
-
-        .projects .project-link-btn:hover {
-            transform: none !important;
-            box-shadow: none !important;
-            background: rgba(26, 15, 62, 0.7) !important;
+            display: none;
         }
 
         .carousel-container {
-            display: none !important;
+            display: none;
         }
 
         #grid-container {
             display: block !important;
-        }
-
-        #carousel-prev,
-        #carousel-next,
-        #carousel-indicators {
-            display: none !important;
-        }
-
-        .carousel-item {
-            transform: none !important;
-            opacity: 1 !important;
-        }
-
-        .projects .box {
-            border-radius: 16px !important;
-        }
-
-        .carousel-track,
-        .carousel-wrapper {
-            transform: none !important;
-            perspective: none !important;
-        }
-    }
-
-    /* Small mobile (max-width: 639px) */
-    @media (max-width: 639px) {
-        .projects {
-            padding: 4rem 1rem 3rem;
-        }
-
-        .text {
-            margin-bottom: 2rem;
-        }
-
-        .quote-text {
-            padding: 0.5rem 0.75rem;
-            font-size: 12px !important;
-        }
-
-        .project-count-container {
-            margin: 20px auto 30px;
-        }
-
-        .project-count-container span {
-            font-size: 14px;
-            padding: 8px 18px;
-        }
-
-        .view-toggle-container {
-            gap: 10px;
-            margin: 20px 0 15px;
-        }
-
-        .view-toggle-btn {
-            padding: 10px 16px;
-            font-size: 13px;
-            gap: 6px;
-        }
-
-        .view-toggle-btn span {
-            display: none;
-        }
-
-        .view-toggle-btn svg {
-            width: 18px;
-            height: 18px;
-        }
-
-        .carousel-container {
-            padding: 15px 10px 60px;
-        }
-
-        .carousel-wrapper {
-            height: 420px;
-        }
-
-        .carousel-item .project-image-container {
-            height: 180px;
-        }
-
-        .carousel-item .project-content-area {
-            padding: 18px;
-        }
-
-        .carousel-item .topic {
-            font-size: 18px;
-            margin-bottom: 12px;
-        }
-
-        .carousel-item p {
-            font-size: 13px;
-            margin-bottom: 12px;
-        }
-
-        .carousel-item .tech-stack {
-            gap: 6px;
-            margin-top: 12px;
-        }
-
-        .carousel-item .techs {
-            padding: 5px 10px;
-            font-size: 11px;
-        }
-
-        .carousel-btn {
-            width: 45px;
-            height: 45px;
-        }
-
-        .carousel-btn svg {
-            width: 20px;
-            height: 20px;
-        }
-
-        .carousel-prev {
-            left: 5px;
-        }
-
-        .carousel-next {
-            right: 5px;
-        }
-
-        .carousel-indicators {
-            bottom: 15px;
-            gap: 8px;
-        }
-
-        .carousel-indicator {
-            width: 10px;
-            height: 10px;
-        }
-
-        .carousel-indicator.active {
-            width: 30px;
-        }
-
-        .grid-container {
-            padding: 0 10px;
-        }
-
-        .project-content {
-            gap: 20px;
-            margin-top: 30px;
-        }
-
-        .projects .box {
-            width: 100%;
-            margin-bottom: 20px;
-        }
-
-        .projects .project-image-container {
-            height: 200px;
-        }
-
-        .projects .project-content-area {
-            padding: 16px;
-        }
-
-        .projects .topic {
-            font-size: 18px;
-            margin-bottom: 12px;
-        }
-
-        .projects p {
-            font-size: 13px;
-            margin-bottom: 12px;
-        }
-
-        .projects .tech-stack {
-            gap: 6px;
-        }
-
-        .projects .techs {
-            padding: 5px 10px;
-            font-size: 11px;
-        }
-
-        .projects .project-link-btn {
-            width: 36px;
-            height: 36px;
-        }
-
-        .projects .project-link-btn img {
-            width: 18px;
-            height: 18px;
-        }
-    }
-
-    /* Extra small mobile (max-width: 420px) */
-    @media (max-width: 420px) {
-        .carousel-item {
-            width: calc(100% - 10px);
         }
     }
 </style>
 
 <script is:inline define:vars={{ projectsData }}>
     (function () {
-        // State management
         const state = {
             currentSlide: 0,
             autoplayInterval: null,

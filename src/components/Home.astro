@@ -3,38 +3,27 @@ import { Image } from "astro:assets";
 import homeImg from "../assets/images/home.png";
 ---
 
-<div class="home-wrapper h-screen overflow-hidden relative">
+<div class="home-wrapper min-h-screen flex flex-col overflow-hidden relative">
     <!-- Animated Gradient Background -->
-    <div class="absolute inset-0 z-[1] animated-gradient-bg">
-        <!-- Animated Gradient Orbs -->
-        <div class="gradient-orb orb-1"></div>
-        <div class="gradient-orb orb-2"></div>
-        <div class="gradient-orb orb-3"></div>
-        <div class="gradient-orb orb-4"></div>
-        <div class="gradient-orb orb-5"></div>
-
-        <!-- Animated Grid Pattern -->
-        <div class="grid-pattern"></div>
-    </div>
-
-    <section class="home absolute top-0 left-0 z-[2] w-full h-full flex items-center justify-center text-white" id="home">
-        <div class="max-width w-full flex flex-col lg:flex-row text-left lg:text-left items-center justify-between relative z-10 px-4 sm:px-6 md:px-10 lg:px-20 py-8 lg:py-0">
-            <div class="home-text w-full lg:max-w-[600px] min-h-[250px] lg:min-h-[300px] relative z-10 text-center lg:text-left">
-                <div class="text-1 font-bold mb-2 tracking-wide opacity-0 translate-x-[-50px]" style="font-size: clamp(22px, 5vw, 40px); background: var(--gradient4); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; filter: drop-shadow(0 0 10px rgba(67, 233, 123, 0.5));">
+    <div class="absolute inset-0 z-[1] hero-bg"></div>
+    <section class="home flex-1 flex items-center justify-center text-white relative z-[2]" id="home">
+        <div class="max-width w-full flex flex-col lg:flex-row items-center justify-between relative z-10 px-4 sm:px-6 md:px-10 lg:px-20 py-8 lg:py-12 min-h-[calc(100vh-120px)] lg:min-h-0">
+            <div class="home-text w-full lg:max-w-[600px] min-h-[250px] lg:min-h-[300px] text-center lg:text-left">
+                <div class="text-1 font-bold mb-2 tracking-wide opacity-0 translate-x-[-50px] text-[36px] lg:text-[40px]" style="background: var(--gradient3); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 0 10px var(--primary));">
                     Hello,
                 </div>
 
                 <div class="text-2 font-normal mb-3 tracking-wide text-white opacity-0 translate-x-[-50px]" style="font-size: clamp(18px, 4vw, 32px);">
-                    My name is <span class="name-underline font-bold relative inline-block" style="background: var(--gradient2); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Rakesh Roshan</span>
+                    My name is <span class="name-underline font-bold relative inline-block" style="background: var(--gradient1); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Rakesh Roshan</span>
                 </div>
 
                 <div class="text-3 font-semibold tracking-wide my-4 text-white opacity-0 translate-x-[-50px]" style="font-size: clamp(16px, 3.5vw, 28px); min-height: 50px;">
-                    I am <span id="typing-text" class="typing font-bold" style="background: var(--gradient3); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; display: inline-block;"></span>
+                    I am <span id="typing-text" class="typing font-bold" style="background: var(--gradient2); -webkit-background-clip: text; -webkit-text-fill-color: transparent; display: inline-block;"></span>
                 </div>
 
                 <div class="home-buttons flex gap-3 sm:gap-4 lg:gap-5 flex-wrap opacity-0 translate-x-[-50px] justify-center lg:justify-start">
                     <a href="/assets/Rakesh_Roshan_Resume.pdf" target="_blank" rel="noopener noreferrer" draggable="false" aria-label="Open resume in new tab">
-                        <button class="btn-primary px-4 sm:px-6 lg:px-7 py-2.5 sm:py-3 font-bold text-white rounded-full transition-all duration-400 relative overflow-hidden flex items-center gap-2 sm:gap-2.5 z-10" style="font-size: clamp(12px, 3vw, 16px); letter-spacing: 0.5px; background: rgba(59, 130, 246, 0.2); backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px); border: 2px solid rgba(59, 130, 246, 0.5); box-shadow: 0 8px 32px rgba(59, 130, 246, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.15);">
+                        <button class="hero-btn hero-btn-primary px-4 sm:px-6 lg:px-7 py-2.5 sm:py-3 font-semibold text-white rounded-full transition-colors duration-300 relative flex items-center gap-2 sm:gap-2.5" style="font-size: clamp(12px, 3vw, 16px); letter-spacing: 0.5px;">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" width="16" height="16" fill="currentColor" class="sm:w-[18px] sm:h-[18px]">
                                 <path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM144 256a144 144 0 1 1 288 0 144 144 0 1 1 -288 0zm144-64c0 35.3-28.7 64-64 64c-7.1 0-13.9-1.2-20.3-3.3c-5.5-1.8-11.9 1.6-11.7 7.4c.3 6.9 1.3 13.8 3.2 20.7c13.7 51.2 66.4 81.6 117.6 67.9s81.6-66.4 67.9-117.6c-11.1-41.5-47.8-69.4-92.7-69.4z"/>
                             </svg>
@@ -43,7 +32,7 @@ import homeImg from "../assets/images/home.png";
                         </button>
                     </a>
                     <a href="#contact" draggable="false" aria-label="Go to contact page">
-                        <button class="btn-secondary px-4 sm:px-6 lg:px-7 py-2.5 sm:py-3 font-bold text-white rounded-full transition-all duration-400 relative overflow-hidden flex items-center gap-2 sm:gap-2.5 z-10" style="font-size: clamp(12px, 3vw, 16px); letter-spacing: 0.5px; background: rgba(217, 70, 239, 0.2); backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px); border: 2px solid rgba(217, 70, 239, 0.5); box-shadow: 0 8px 32px rgba(217, 70, 239, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.15);">
+                        <button class="hero-btn hero-btn-secondary px-4 sm:px-6 lg:px-7 py-2.5 sm:py-3 font-semibold text-white rounded-full transition-colors duration-300 relative flex items-center gap-2 sm:gap-2.5" style="font-size: clamp(12px, 3vw, 16px); letter-spacing: 0.5px;">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" class="sm:w-[18px] sm:h-[18px]">
                                 <path d="M64 112c-8.8 0-16 7.2-16 16l0 22.1L220.5 291.7c20.7 17 50.4 17 71.1 0L464 150.1l0-22.1c0-8.8-7.2-16-16-16L64 112zM48 212.2L48 384c0 8.8 7.2 16 16 16l384 0c8.8 0 16-7.2 16-16l0-171.8L322 328.8c-38.4 31.5-93.7 31.5-132 0L48 212.2zM0 128C0 92.7 28.7 64 64 64l384 0c35.3 0 64 28.7 64 64l0 256c0 35.3-28.7 64-64 64L64 448c-35.3 0-64-28.7-64-64L0 128z"/>
                             </svg>
@@ -54,22 +43,16 @@ import homeImg from "../assets/images/home.png";
             </div>
 
             <div class="home-image mt-8 lg:mt-5 lg:ml-5 relative w-full lg:w-auto flex justify-center lg:justify-end" style="max-width: clamp(200px, 80vw, 450px);">
-                <div class="image-container relative animate-float-image w-full">
-                    <Image src={homeImg} alt="Home Image" width={450} height={460} loading="eager" fetchpriority="high" draggable="false" class="w-full h-auto transition-all duration-300" style="filter: drop-shadow(0 0 30px rgba(217, 70, 239, 0.4));" />
-                    <div class="floating-icons absolute top-0 left-0 w-full h-full pointer-events-none">
-                        <div class="float-icon icon-1 absolute text-[1.8rem] sm:text-[2.2rem] lg:text-[2.5rem] opacity-80 animate-float-around-1" style="filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5)); top: 10%; left: -5%; lg:left: -10%;">💻</div>
-                        <div class="float-icon icon-2 absolute text-[1.8rem] sm:text-[2.2rem] lg:text-[2.5rem] opacity-80 animate-float-around-2" style="filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5)); top: 20%; right: -5%; lg:right: -10%;">🚀</div>
-                        <div class="float-icon icon-3 absolute text-[1.8rem] sm:text-[2.2rem] lg:text-[2.5rem] opacity-80 animate-float-around-3" style="filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5)); bottom: 30%; left: -8%; lg:left: -15%;">⚡</div>
-                        <div class="float-icon icon-4 absolute text-[1.8rem] sm:text-[2.2rem] lg:text-[2.5rem] opacity-80 animate-float-around-4" style="filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5)); bottom: 10%; right: -3%; lg:right: -5%;">🎯</div>
-                    </div>
+                <div class="image-container relative w-full hero-image-wrapper">
+                    <Image src={homeImg} alt="Home Image" width={450} height={460} loading="eager" fetchpriority="high" draggable="false" class="hero-image w-full h-auto"/>
                 </div>
             </div>
         </div>
 
         <!-- Scroll Indicator -->
-        <div class="scroll-indicator absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2.5 z-[5] opacity-0">
-            <div class="mouse w-7 h-11 border-2 border-white/50 rounded-[20px] relative bg-white/5 backdrop-blur-[10px]">
-                <div class="wheel w-1 h-2.5 rounded-sm absolute top-2 left-1/2 animate-scroll-wheel" style="background: var(--primary); box-shadow: 0 0 10px var(--primary);"></div>
+        <div class="scroll-indicator absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2.5 z-[3] opacity-0">
+            <div class="mouse w-7 h-11 border-2 border-white/50 rounded-[20px] relative bg-white/5">
+                <div class="wheel w-1 h-2.5 rounded-sm absolute top-2 animate-scroll-wheel" style="background: var(--primary); left: 50%; margin-left: -2px;"></div>
             </div>
             <span class="scroll-text text-xs text-white/70 tracking-[0.2em] uppercase font-bold animate-text-pulse">SCROLL DOWN</span>
         </div>
@@ -77,196 +60,29 @@ import homeImg from "../assets/images/home.png";
 </div>
 
 <style>
-    .animated-gradient-bg {
-        background: linear-gradient(135deg, #0f0a2e 0%, #1a1147 25%, #1e2a4f 50%, #1a1147 75%, #0f0a2e 100%);
-        background-size: 400% 400%;
-        animation: gradientShift 15s ease infinite;
-    }
-
-    @keyframes gradientShift {
-        0% {
-            background-position: 0% 50%;
-        }
-
-        50% {
-            background-position: 100% 50%;
-        }
-
-        100% {
-            background-position: 0% 50%;
-        }
-    }
-
-    .gradient-orb {
-        position: absolute;
-        border-radius: 50%;
-        filter: blur(120px);
-        opacity: 0.4;
-        animation: float 20s ease-in-out infinite;
-        will-change: transform;
-        contain: layout style paint;
-    }
-
-    .orb-1,
-    .orb-2,
-    .orb-3,
-    .orb-4,
-    .orb-5 {
-        animation: float ease-in-out infinite, colorPulse ease-in-out infinite;
-    }
-
-    .orb-1 {
-        width: 600px;
-        height: 600px;
-        background: radial-gradient(circle, var(--primary), transparent);
-        top: -15%;
-        left: -10%;
-        animation-duration: 25s, 8s;
-        animation-delay: 0s, 0s;
-    }
-
-    .orb-2 {
-        width: 700px;
-        height: 700px;
-        background: radial-gradient(circle, var(--ternary), transparent);
-        top: 10%;
-        right: -20%;
-        animation-duration: 30s, 10s;
-        animation-delay: 0s, 2s;
-        animation-direction: reverse, normal;
-    }
-
-    .orb-3 {
-        width: 550px;
-        height: 550px;
-        background: radial-gradient(circle, var(--hover), transparent);
-        bottom: -15%;
-        left: 15%;
-        animation-duration: 28s, 12s;
-        animation-delay: 0s, 4s;
-    }
-
-    .orb-4 {
-        width: 500px;
-        height: 500px;
-        background: radial-gradient(circle, var(--primary), transparent);
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        animation-duration: 20s, 9s;
-        animation-delay: 0s, 3s;
-        opacity: 0.3;
-    }
-
-    .orb-5 {
-        width: 650px;
-        height: 650px;
-        background: radial-gradient(circle, var(--ternary), transparent);
-        bottom: 5%;
-        right: 5%;
-        animation-duration: 22s, 11s;
-        animation-delay: 0s, 5s;
-        animation-direction: reverse, normal;
-    }
-
-    @keyframes float {
-        0%,
-        100% {
-            transform: translate(0, 0) scale(1);
-        }
-
-        25% {
-            transform: translate(50px, -60px) scale(1.15);
-        }
-
-        50% {
-            transform: translate(-30px, 40px) scale(0.95);
-        }
-
-        75% {
-            transform: translate(40px, 30px) scale(1.05);
-        }
-    }
-
-    @keyframes colorPulse {
-        0%,
-        100% {
-            opacity: 0.4;
-            filter: blur(120px) brightness(0.9);
-        }
-
-        50% {
-            opacity: 0.6;
-            filter: blur(140px) brightness(1.1);
-        }
-    }
-
-    .grid-pattern {
-        position: absolute;
-        inset: 0;
-        background-image:
-            linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
-        background-size: 50px 50px;
-        animation: gridMove 20s linear infinite;
-        opacity: 0.5;
-    }
-
-    @keyframes gridMove {
-        0% {
-            transform: translate(0, 0);
-        }
-
-        100% {
-            transform: translate(50px, 50px);
-        }
-    }
-
-    @keyframes float-image {
-        0%,
-        100% {
-            transform: translateY(0px);
-        }
-
-        50% {
-            transform: translateY(-20px);
-        }
-    }
-
-    @keyframes float-around {
-        0%,
-        100% {
-            transform: translate(0, 0) rotate(0deg);
-        }
-
-        25% {
-            transform: translate(10px, -20px) rotate(5deg);
-        }
-
-        50% {
-            transform: translate(-10px, -10px) rotate(-5deg);
-        }
-
-        75% {
-            transform: translate(15px, 10px) rotate(3deg);
-        }
+    .hero-bg {
+        background: radial-gradient(800px 400px at 10% 20%, rgba(217, 70, 239, 0.15), transparent 60%),radial-gradient(700px 350px at 90% 30%, rgba(59, 130, 246, 0.15), transparent 60%), linear-gradient(135deg, #0b0f1a 0%, #0f172a 50%, #020617 100%);
     }
 
     @keyframes scroll-wheel {
         0% {
-            transform: translateX(-50%) translateY(0px);
+            transform: translateY(0px);
             opacity: 1;
         }
 
         50% {
-            transform: translateX(-50%) translateY(12px);
+            transform: translateY(12px);
             opacity: 0.5;
         }
 
         100% {
-            transform: translateX(-50%) translateY(0px);
+            transform: translateY(0px);
             opacity: 1;
         }
+    }
+
+    .animate-scroll-wheel {
+        animation: scroll-wheel 2s ease-in-out infinite;
     }
 
     @keyframes textPulse {
@@ -282,16 +98,8 @@ import homeImg from "../assets/images/home.png";
         }
     }
 
-    @keyframes fadeInUp {
-        from {
-            opacity: 0;
-            transform: translateX(-50%) translateY(20px);
-        }
-
-        to {
-            opacity: 1;
-            transform: translateX(-50%) translateY(0);
-        }
+    .animate-text-pulse {
+        animation: textPulse 2s ease-in-out infinite;
     }
 
     @keyframes slideInLeft {
@@ -302,41 +110,6 @@ import homeImg from "../assets/images/home.png";
         to {
             transform: translateX(0);
         }
-    }
-
-    .animate-float-image {
-        animation: float-image 6s ease-in-out infinite;
-    }
-
-    .animate-float-around-1,
-    .animate-float-around-2,
-    .animate-float-around-3,
-    .animate-float-around-4 {
-        animation: float-around 8s ease-in-out infinite;
-    }
-
-    .animate-float-around-1 {
-        animation-delay: 0s;
-    }
-
-    .animate-float-around-2 {
-        animation-delay: 2s;
-    }
-
-    .animate-float-around-3 {
-        animation-delay: 4s;
-    }
-
-    .animate-float-around-4 {
-        animation-delay: 6s;
-    }
-
-    .animate-scroll-wheel {
-        animation: scroll-wheel 2s ease-in-out infinite;
-    }
-
-    .animate-text-pulse {
-        animation: textPulse 2s ease-in-out infinite;
     }
 
     .home .text-1,
@@ -364,81 +137,47 @@ import homeImg from "../assets/images/home.png";
 
     .home .home-buttons {
         animation-duration: 1s;
-        animation-delay: 0.3s;
+        animation-delay: 0.4s;
     }
 
-    .scroll-indicator {
-        animation: fadeInUp 1s ease forwards 0.5s;
-        opacity: 1;
-    }
-
-    .btn-primary,
-    .btn-secondary {
+    .hero-btn {
+        border: 2px solid transparent;
         position: relative;
-        cursor: pointer;
+        overflow: hidden;
+        transition: transform 0.3s ease, background 0.3s ease;
+        background: linear-gradient(#0b0f1a, #0b0f1a) padding-box, var(--navbar) border-box;
     }
 
-    .btn-primary::before,
-    .btn-secondary::before {
+    .hero-btn-primary::before,
+    .hero-btn-secondary::before {
         content: '';
         position: absolute;
         top: 0;
         left: -100%;
         width: 100%;
         height: 100%;
-        transition: left 0.5s ease;
         z-index: -1;
+        border-radius: inherit;
+        transition: left 0.5s ease;
     }
 
-    .btn-primary::before {
-        background: var(--gradient3);
-    }
-
-    .btn-secondary::before {
+    .hero-btn-primary::before {
         background: var(--gradient2);
     }
 
-    .btn-primary:hover::before,
-    .btn-secondary:hover::before {
+    .hero-btn-secondary::before {
+        background: var(--gradient1);
+    }
+
+    .hero-btn-primary:hover::before,
+    .hero-btn-secondary:hover::before {
         left: 0;
     }
 
-    .btn-primary:hover,
-    .btn-secondary:hover {
-        backdrop-filter: blur(30px);
-        -webkit-backdrop-filter: blur(30px);
-        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25);
-        transform: translateY(-5px) scale(1.05);
-    }
-
-    .btn-primary:hover {
-        background: var(--ternary);
-        border: 2px solid var(--ternary);
-        box-shadow: 0 12px 40px var(--ternary), inset 0 1px 0 rgba(255, 255, 255, 0.25);
-    }
-
-    .btn-secondary:hover {
-        background: var(--primary);
-        border: 2px solid var(--primary);
-        box-shadow: 0 12px 40px var(--primary), inset 0 1px 0 rgba(255, 255, 255, 0.25);
-    }
-
-    .btn-primary:active,
-    .btn-secondary:active {
-        transform: scale(0.95);
-    }
-
-    .name-underline::after {
-        content: '';
-        position: absolute;
-        left: 0;
-        bottom: -5px;
-        width: 0;
-        height: 3px;
-        background: var(--gradient2);
-        box-shadow: 0 0 10px var(--primary), 0 0 20px var(--primary);
-        transition: width 0.8s ease;
-        animation: underlineGrow 1s ease forwards 1s;
+    .hero-btn-primary:hover,
+    .hero-btn-secondary:hover {
+        transform: translateY(-3px) scale(1.05);
+        background: linear-gradient(#0b0f1a, #0b0f1a) padding-box, var(--gradient1) border-box;
     }
 
     @keyframes underlineGrow {
@@ -452,6 +191,14 @@ import homeImg from "../assets/images/home.png";
     }
 
     .name-underline::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -5px;
+        width: 0;
+        height: 3px;
+        background: var(--gradient1);
+        transition: width 0.8s ease;
         animation: underlineGrow 1s ease forwards 1s;
     }
 
@@ -478,244 +225,90 @@ import homeImg from "../assets/images/home.png";
         }
     }
 
-    .animate-float-image,
-    .animate-float-around-1,
-    .animate-float-around-2,
-    .animate-float-around-3,
-    .animate-float-around-4 {
-        will-change: transform;
+    @keyframes heroFloat {
+        0% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(-14px);
+        }
+        100% {
+            transform: translateY(0);
+        }
     }
 
-    /* Large tablets and small desktops (up to 1023px) */
-    @media (max-width: 1023px) {
+    .hero-image {
+        animation: heroFloat 6s ease-in-out infinite;
+    }
+
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateX(-50%) translateY(20px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+    }
+
+    .scroll-indicator {
+        animation: fadeInUp 1s ease forwards 0.5s;
+    }
+
+    @media (max-width: 1024px) {
         .home-wrapper {
-            height: auto;
             min-height: 100vh;
         }
 
-        .home {
-            position: relative;
-            padding-top: 80px;
-            padding-bottom: 60px;
-        }
-
-        .home-text {
-            margin-bottom: 2rem;
-        }
-
-        .text-3 {
-            min-height: 45px !important;
-        }
-
-        .scroll-indicator {
-            display: none;
-        }
-
-        .gradient-orb {
-            filter: blur(60px);
-            animation-duration: 30s;
-        }
-
-        .orb-1,
-        .orb-2,
-        .orb-3,
-        .orb-4,
-        .orb-5 {
-            animation-duration: 35s, 8s;
-        }
-
-        .orb-1 {
-            width: 400px;
-            height: 400px;
-        }
-
-        .orb-2 {
-            width: 450px;
-            height: 450px;
-        }
-
-        .orb-3 {
-            width: 350px;
-            height: 350px;
-        }
-
-        .orb-4 {
-            width: 300px;
-            height: 300px;
-        }
-
-        .orb-5 {
-            width: 400px;
-            height: 400px;
-        }
-
-        .grid-pattern {
-            animation: gridMove 30s linear infinite;
-        }
-
-        .animate-float-around-1,
-        .animate-float-around-2,
-        .animate-float-around-3,
-        .animate-float-around-4 {
-            animation-duration: 12s;
-        }
-    }
-
-    /* Landscape tablets and small screens (up to 1023px with short height) */
-    @media (max-width: 1023px) and (max-height: 600px) {
         .home {
             padding-top: 70px;
             padding-bottom: 30px;
         }
 
+        .max-width {
+            min-height: calc(100vh - 100px);
+            justify-content: center;
+        }
+
         .home-text {
-            min-height: 150px !important;
+            margin-bottom: 2rem;
+            min-height: 150px;
         }
 
         .text-1 {
-            margin-bottom: 0.25rem !important;
+            margin-bottom: 0.5rem;
         }
 
         .text-2 {
-            margin-bottom: 0.5rem !important;
-        }
-
-        .text-3 {
-            margin-top: 0.5rem !important;
-            margin-bottom: 0.5rem !important;
-            min-height: 35px !important;
-        }
-
-        .home-buttons {
-            margin-top: 0.75rem;
-            gap: 0.5rem !important;
+            margin-bottom: 1rem;
         }
 
         .home-image {
-            margin-top: 1rem !important;
+            margin-top: 1rem;
             max-width: clamp(140px, 50vw, 300px) !important;
         }
 
-        .max-width {
-            padding-top: 1rem;
-            padding-bottom: 1rem;
+        .scroll-indicator {
+            display: none;
         }
     }
 
-    /* Mobile performance optimizations and layout (up to 768px) */
     @media (max-width: 768px) {
-        .home {
-            padding-top: 100px;
-            padding-bottom: 40px;
-        }
-
-        .home-text {
-            min-height: 200px !important;
-        }
-
-        .text-1 {
-            margin-bottom: 0.5rem !important;
-        }
-
-        .text-2 {
-            margin-bottom: 0.75rem !important;
-        }
-
         .text-3 {
-            margin-top: 0.75rem !important;
-            margin-bottom: 0.75rem !important;
-            min-height: 40px !important;
-        }
-
-        .home-buttons {
-            margin-top: 1rem;
+            min-height: 40px;
         }
 
         .home-image {
-            margin-top: 2rem !important;
             max-width: clamp(180px, 70vw, 400px) !important;
         }
-
-        .animated-gradient-bg {
-            animation: none !important;
-            background-size: 200% 200%;
-        }
-
-        .grid-pattern {
-            background-size: 30px 30px;
-            animation: none !important;
-            opacity: 0.15 !important;
-        }
-
-        .gradient-orb {
-            animation: none !important;
-            transform: none !important;
-            filter: blur(35px) !important;
-            opacity: 0.25 !important;
-        }
-
-        .orb-1,
-        .orb-2,
-        .orb-3,
-        .orb-4,
-        .orb-5 {
-            width: 180px !important;
-            height: 180px !important;
-        }
-
-        .animate-float-around-1,
-        .animate-float-around-2,
-        .animate-float-around-3,
-        .animate-float-around-4 {
-            animation: none !important;
-            transform: translate(0, 0) rotate(0deg) !important;
-        }
-
-        .animate-float-image {
-            animation: none !important;
-        }
-
-        .home .text-1,
-        .home .text-2,
-        .home .text-3,
-        .home .home-buttons,
-        .scroll-indicator {
-            animation: none !important;
-            opacity: 1 !important;
-            transform: none !important;
-        }
-
-        .btn-primary,
-        .btn-secondary {
-            backdrop-filter: none !important;
-            -webkit-backdrop-filter: none !important;
-            box-shadow: none !important;
-        }
-
-        .btn-primary:hover,
-        .btn-secondary:hover {
-            transform: none !important;
-            box-shadow: none !important;
-        }
     }
 
-    /* Small mobile devices (up to 640px) */
     @media (max-width: 640px) {
-        .home {
-            padding-top: 90px;
-        }
-
-        .home-text {
-            min-height: 180px !important;
-        }
-
         .home-image {
-            margin-top: 1.5rem !important;
+            margin-top: 1rem;
             max-width: clamp(160px, 65vw, 350px) !important;
-        }
-
-        .floating-icons .float-icon {
-            font-size: 1.5rem !important;
         }
     }
 </style>
@@ -725,7 +318,7 @@ import homeImg from "../assets/images/home.png";
     // Type declaration for Typed.js
     declare var Typed: any;
 
-    // Typed.js initialization - using a more reliable approach
+    // Typed.js initialization with single initialization point
     function initTyped() {
         if (typeof Typed !== 'undefined') {
             const typingElement = document.getElementById('typing-text');
@@ -749,12 +342,10 @@ import homeImg from "../assets/images/home.png";
         }
     }
 
-    // Try multiple initialization points
+    // Single initialization point
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', initTyped);
     } else {
         initTyped();
     }
-
-    window.addEventListener('load', initTyped);
 </script>

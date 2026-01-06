@@ -3,6 +3,11 @@
     "compilerOptions": {
         "jsx": "preserve",
         "jsxImportSource": "astro",
-        "types": ["astro/client"]
+        "types": ["astro/client", "astro/env"],
+        "skipLibCheck": true,
+        "allowSyntheticDefaultImports": true,
+        "moduleResolution": "bundler",
+        "allowImportingTsExtensions": true,
+        "noEmit": true
     }
 }

@@ -9,7 +9,7 @@
 
     html,
     body {
-        overscroll-behavior-y: auto !important;
+        overscroll-behavior-y: auto;
     }
 
     html {
@@ -30,15 +30,30 @@
         min-width: 320px;
     }
 
-    /* Base scrollbar styles */
+    /* Base Scrollbar */
     ::-webkit-scrollbar {
-        width: 12px;
+        width: 10px;
     }
 
     ::-webkit-scrollbar-track {
         background: rgba(26, 15, 62, 0.3);
         border-radius: 10px;
         margin: 5px 0;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        border: none;
+        min-height: 75px;
+        border-radius: 8px;
+        background: var(--primary);
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: var(--hover);
+    }
+
+    ::-webkit-scrollbar-thumb:active {
+        background: var(--primary);
     }
 }
 
@@ -49,161 +64,108 @@
     }
 
     .glass-effect {
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.12);
     }
-}
-
-/* GPU acceleration for smooth animations */
-.scroll-to-top,
-.skill-card,
-.project-card,
-.info-card,
-.navbar,
-.hero-image,
-.contact-image-wrapper img,
-.box,
-.certificate-card {
-    will-change: transform, opacity;
 }
 
 /* Theme Variables */
 :root {
-    --navbar: linear-gradient(135deg, #FF512F 0%, #F09819 100%);
     --main1: #1a0e0e;
     --main2: #2d1b1b;
     --primary: #FF512F;
     --secondary: #ffffff;
     --ternary: #F09819;
     --hover: #ff7e5f;
-    --gradient1: linear-gradient(135deg, #FF512F 0%, #F09819 100%);
-    --gradient2: linear-gradient(135deg, #FF512F 0%, #DD2476 100%);
-    --gradient3: linear-gradient(135deg, #F09819 0%, #EDDE5D 100%);
-    --gradient4: linear-gradient(135deg, #ff7e5f 0%, #feb47b 100%);
-    --gradient5: linear-gradient(135deg, #FF512F 0%, #feb47b 100%);
-}
-
-[data-theme="purple"] {
-    --navbar: linear-gradient(135deg, #5f27cd 0%, #341f97 100%);
-    --main1: #0a0320;
-    --main2: #1a0f3e;
-    --primary: #d946ef;
-    --secondary: #ffffff;
-    --ternary: #3b82f6;
-    --hover: #06b6d4;
-    --gradient1: linear-gradient(135deg, #5f27cd 0%, #341f97 100%);
-    --gradient2: linear-gradient(135deg, #d946ef 0%, #a855f7 100%);
-    --gradient3: linear-gradient(135deg, #3b82f6 0%, #06b6d4 100%);
-    --gradient4: linear-gradient(135deg, #10b981 0%, #14b8a6 100%);
-    --gradient5: linear-gradient(135deg, #ec4899 0%, #f59e0b 100%);
-}
-
-[data-theme="ocean"] {
-    --navbar: linear-gradient(135deg, #2E3192 0%, #1BFFFF 100%);
-    --main1: #0a1128;
-    --main2: #001f54;
-    --primary: #1BFFFF;
-    --secondary: #ffffff;
-    --ternary: #4facfe;
-    --hover: #00d4ff;
-    --gradient1: linear-gradient(135deg, #2E3192 0%, #1BFFFF 100%);
-    --gradient2: linear-gradient(135deg, #00d4ff 0%, #0099ff 100%);
-    --gradient3: linear-gradient(135deg, #1BFFFF 0%, #00a8cc 100%);
-    --gradient4: linear-gradient(135deg, #00d4ff 0%, #0066ff 100%);
-    --gradient5: linear-gradient(135deg, #2E3192 0%, #00d4ff 100%);
-}
-
-[data-theme="forest"] {
-    --navbar: linear-gradient(135deg, #134E5E 0%, #71B280 100%);
-    --main1: #0d1b1e;
-    --main2: #1a2f35;
-    --primary: #71B280;
-    --secondary: #ffffff;
-    --ternary: #52c77c;
-    --hover: #8fd9a8;
-    --gradient1: linear-gradient(135deg, #134E5E 0%, #71B280 100%);
-    --gradient2: linear-gradient(135deg, #52c77c 0%, #3a9d5d 100%);
-    --gradient3: linear-gradient(135deg, #71B280 0%, #a8e6cf 100%);
-    --gradient4: linear-gradient(135deg, #56ab2f 0%, #a8e063 100%);
-    --gradient5: linear-gradient(135deg, #134E5E 0%, #a8e063 100%);
-}
-
-[data-theme="rose"] {
-    --navbar: linear-gradient(135deg, #EC008C 0%, #FC6767 100%);
-    --main1: #1a0a14;
-    --main2: #2d1428;
-    --primary: #EC008C;
-    --secondary: #ffffff;
-    --ternary: #FC6767;
-    --hover: #ff4d94;
-    --gradient1: linear-gradient(135deg, #EC008C 0%, #FC6767 100%);
-    --gradient2: linear-gradient(135deg, #EC008C 0%, #ff0080 100%);
-    --gradient3: linear-gradient(135deg, #FC6767 0%, #ff9a9e 100%);
-    --gradient4: linear-gradient(135deg, #ff0080 0%, #ff8c94 100%);
-    --gradient5: linear-gradient(135deg, #EC008C 0%, #ff8c94 100%);
+    --navbar: linear-gradient(135deg, #FF512F 0%, #F09819 100%);
+    --gradient1: linear-gradient(135deg, #FF512F 0%, #DD2476 100%);
+    --gradient2: linear-gradient(135deg, #F09819 0%, #EDDE5D 100%);
+    --gradient3: linear-gradient(135deg, #ff7e5f 0%, #feb47b 100%);
+    --gradient4: linear-gradient(135deg, #FF512F 0%, #feb47b 100%);
 }
 
 [data-theme="midnight"] {
-    --navbar: linear-gradient(135deg, #2C3E50 0%, #4CA1AF 100%);
     --main1: #0c1419;
     --main2: #1a2530;
     --primary: #4CA1AF;
     --secondary: #ffffff;
     --ternary: #5dade2;
     --hover: #6fc3d0;
-    --gradient1: linear-gradient(135deg, #2C3E50 0%, #4CA1AF 100%);
-    --gradient2: linear-gradient(135deg, #4CA1AF 0%, #3498db 100%);
-    --gradient3: linear-gradient(135deg, #5dade2 0%, #85c1e9 100%);
-    --gradient4: linear-gradient(135deg, #3498db 0%, #85d8ce 100%);
-    --gradient5: linear-gradient(135deg, #2C3E50 0%, #85d8ce 100%);
+    --navbar: linear-gradient(135deg, #2C3E50 0%, #4CA1AF 100%);
+    --gradient1: linear-gradient(135deg, #4CA1AF 0%, #3498db 100%);
+    --gradient2: linear-gradient(135deg, #5dade2 0%, #85c1e9 100%);
+    --gradient3: linear-gradient(135deg, #3498db 0%, #85d8ce 100%);
+    --gradient4: linear-gradient(135deg, #2C3E50 0%, #85d8ce 100%);
 }
 
-/* Desktop scrollbar styles */
-@media (min-width: 769px) {
-    ::-webkit-scrollbar-thumb {
-        background: var(--gradient1);
-        border-radius: 10px;
-        border: 2px solid rgba(255, 255, 255, 0.1);
-        box-shadow: 0 0 15px var(--primary), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+[data-theme="forest"] {
+    --main1: #0d1b1e;
+    --main2: #1a2f35;
+    --primary: #71B280;
+    --secondary: #ffffff;
+    --ternary: #52c77c;
+    --hover: #8fd9a8;
+    --navbar: linear-gradient(135deg, #134E5E 0%, #71B280 100%);
+    --gradient1: linear-gradient(135deg, #52c77c 0%, #3a9d5d 100%);
+    --gradient2: linear-gradient(135deg, #71B280 0%, #a8e6cf 100%);
+    --gradient3: linear-gradient(135deg, #56ab2f 0%, #a8e063 100%);
+    --gradient4: linear-gradient(135deg, #134E5E 0%, #a8e063 100%);
+}
+
+/* Common Styles */
+@keyframes titleGlow {
+    0%,
+    100% {
+        filter: drop-shadow(0 0 20px rgba(240, 147, 251, 0.5));
     }
 
-    ::-webkit-scrollbar-thumb:hover {
-        background: var(--gradient2);
-        box-shadow: 0 0 25px var(--primary),
-            0 0 40px var(--hover),
-            inset 0 1px 0 rgba(255, 255, 255, 0.3);
-        border-color: rgba(255, 255, 255, 0.2);
-        transform: scaleY(1.05);
-    }
-
-    ::-webkit-scrollbar-thumb:active {
-        background: var(--gradient3);
-        box-shadow: 0 0 30px var(--primary),
-            inset 0 2px 5px rgba(0, 0, 0, 0.3);
+    50% {
+        filter: drop-shadow(0 0 30px rgba(240, 147, 251, 0.8));
     }
 }
 
-/* Mobile Performance Optimizations */
+.section-title {
+    background: var(--gradient1);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: titleGlow 3s ease-in-out infinite;
+}
+
+.quote-text {
+    font-size: clamp(12px, 3.5vw, 18px);
+    padding: 0.25rem 0.75rem;
+    display: inline-block;
+    text-align: center;
+    color: var(--secondary);
+    border: 2px solid var(--hover);
+    border-radius: 25px;
+    transition: box-shadow 0.3s ease;
+}
+
+.quote-text:hover {
+    box-shadow: 0 5px 20px var(--primary), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.section-common {
+    @apply z-[3] min-h-screen relative py-16 px-7 overflow-hidden;
+}
+
+.section-bg-primary {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+}
+
+.section-bg-secondary {
+    background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+}
+
 @media (max-width: 768px) {
-    /* Remove performance-heavy effects */
-    *,
-    .glass-effect,
-    [class*="backdrop-blur"],
-    [class*="backdrop-blur-"],
-    .backdrop-blur,
-    .blur {
-        backdrop-filter: none !important;
-        -webkit-backdrop-filter: none !important;
-        box-shadow: none !important;
-    }
-
     .glass-effect {
         background: rgba(255, 255, 255, 0.1) !important;
     }
 
-    ::-webkit-scrollbar-thumb {
-        background: #444 !important;
-        box-shadow: none !important;
-        border: none !important;
+    .quote-text {
+        padding: 0.5rem 0.75rem;
+        font-size: 12px;
     }
 }
