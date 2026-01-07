@@ -363,40 +363,6 @@ const navItems = [
         return { open, close, toggle, isOpen: () => isOpen };
     }
 
-    // Mobile menu setup
-    const menuToggle = document.getElementById('menu-toggle');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const hamburgerIcon = menuToggle?.querySelector('.hamburger');
-    const closeIcon = menuToggle?.querySelector('.close');
-    const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
-
-    const mobileMenuHandler = createToggleHandler(menuToggle, mobileMenu, '', 'translateY(-20px)');
-
-    // Override mobile menu functions to handle icons and body scroll
-    const originalMobileOpen = mobileMenuHandler.open;
-    const originalMobileClose = mobileMenuHandler.close;
-
-    mobileMenuHandler.open = () => {
-        originalMobileOpen();
-        hamburgerIcon?.classList.add('hidden');
-        closeIcon?.classList.remove('hidden');
-        document.body.style.overflow = 'hidden';
-    };
-
-    mobileMenuHandler.close = () => {
-        originalMobileClose();
-        hamburgerIcon?.classList.remove('hidden');
-        closeIcon?.classList.add('hidden');
-        document.body.style.overflow = '';
-    };
-
-    menuToggle?.addEventListener('click', mobileMenuHandler.toggle);
-
-    // Close mobile menu when clicking a link
-    mobileNavLinks.forEach(link => {
-        link.addEventListener('click', mobileMenuHandler.close);
-    });
-
     // Theme switcher setup
     const themeToggleBtn = document.getElementById('theme-toggle-btn');
     const themeOptions = document.getElementById('theme-options');
@@ -409,7 +375,82 @@ const navItems = [
         'translateY(-10px)'
     );
 
-    themeToggleBtn?.addEventListener('click', themeHandler.toggle);
+    // Mobile menu setup
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    const hamburgerIcon = menuToggle?.querySelector('.hamburger');
+    const closeIcon = menuToggle?.querySelector('.close');
+    const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+    let isMenuOpen = false;
+
+    function openMenu() {
+        if (!mobileMenu) return;
+        isMenuOpen = true;
+
+        mobileMenu.style.opacity = '1';
+        mobileMenu.style.visibility = 'visible';
+        mobileMenu.style.transform = 'translateY(0)';
+
+        hamburgerIcon?.classList.add('hidden');
+        closeIcon?.classList.remove('hidden');
+
+        document.documentElement.style.overflow = 'hidden';
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeMenu() {
+        if (!mobileMenu || !isMenuOpen) return;
+
+        isMenuOpen = false;
+
+        mobileMenu.style.opacity = '0';
+        mobileMenu.style.visibility = 'hidden';
+        mobileMenu.style.transform = 'translateY(-20px)';
+
+        hamburgerIcon?.classList.remove('hidden');
+        closeIcon?.classList.add('hidden');
+
+        document.documentElement.style.overflow = '';
+        document.body.style.overflow = '';
+    }
+
+    function toggleMenu() {
+        isMenuOpen ? closeMenu() : openMenu();
+    }
+
+    menuToggle?.addEventListener('click', (e) => {
+        e.stopPropagation();
+
+        if (themeHandler.isOpen()) {
+            themeHandler.close();
+        }
+
+        toggleMenu();
+    });
+
+    mobileMenu?.addEventListener('click', (e) => {
+        e.stopPropagation();
+    });
+
+    mobileNavLinks.forEach(link => {
+        link.addEventListener('click', closeMenu);
+    });
+
+    themeToggleBtn?.addEventListener('click', (e) => {
+        e.stopPropagation();
+
+        if (isMenuOpen) {
+            closeMenu();
+        }
+
+        themeHandler.toggle();
+    });
+
+    themeOptions?.addEventListener('click', (e) => {
+        e.stopPropagation();
+    });
 
     // Load and apply saved theme
     const savedTheme = localStorage.getItem('theme') || 'sunset';
@@ -440,18 +481,16 @@ const navItems = [
 
     // Global click handler for closing dropdowns
     document.addEventListener('click', (e) => {
-        const target = e.target as Node;
+        const target = e.target as HTMLElement;
 
-        // Close mobile menu if clicking outside
-        if (mobileMenuHandler.isOpen() &&
-            !mobileMenu?.contains(target) &&
-            !menuToggle?.contains(target)) {
-            mobileMenuHandler.close();
+        if (isMenuOpen) {
+            closeMenu();
         }
 
-        // Close theme options if clicking outside
-        const themeSwitcher = document.getElementById('theme-switcher');
-        if (themeHandler.isOpen() && themeSwitcher && !themeSwitcher.contains(target)) {
+        if (
+            themeHandler.isOpen() &&
+            !target.closest('#theme-switcher')
+        ) {
             themeHandler.close();
         }
     });
@@ -500,7 +539,7 @@ const navItems = [
         setActiveLink(hash);
     }
 
-    // Intersection Observer for scroll-based active link highlighting
+    // Intersection observer for scroll-based active link highlighting
     const observer = new IntersectionObserver(
         (entries: IntersectionObserverEntry[]) => {
             if (isUserNavigating) return;
