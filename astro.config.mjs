@@ -7,9 +7,5 @@ export default defineConfig({
     output: 'static',
     devToolbar: {
         enabled: false
-    },
-    typescript: {
-        strict: false,
-        typeCheck: false
     }
 });

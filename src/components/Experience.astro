@@ -1,6 +1,5 @@
 ---
 import experiencesData from '../../public/assets/jsons/experiences.json';
-const experiences = experiencesData;
 // Tech stack icons mapping for visualization
 const techIcons = {
     "HTML": "🌐",
@@ -65,7 +64,7 @@ const techIcons = {
         <div class="experience-timeline-line absolute top-0 bottom-0 w-1" style="background: linear-gradient(180deg, transparent 0%, var(--primary) 15%, var(--primary) 85%, transparent 100%);"></div>
 
         <div class="experience-boxes flex flex-col gap-8 relative" id="experience-boxes">
-            {experiences.slice(0, 6).map((exp) => (
+            {experiencesData.slice(0, 6).map((exp) => (
             <div class="exp-box relative exp-card-ready" data-category={exp.category}>
                 <div class="timeline-dot">
                     <div class="dot-inner"></div>
@@ -95,8 +94,8 @@ const techIcons = {
 
                     <ul class="exp-description list-none p-0 m-0 flex flex-col gap-2.5">
                         {exp.description.filter(desc => !desc.includes('Tech Stacks')).map((desc) => (
-                        <li class="flex items-start gap-3 text-sm leading-relaxed" style="color: rgba(255, 255, 255, 0.9);">
-                            <span class="text-base flex-shrink-0 mt-0.5" style="color: var(--primary);">▹</span>
+                        <li class="exp-description-item flex items-start gap-3 text-sm leading-relaxed">
+                            <span class="exp-bullet text-base flex-shrink-0 mt-0.5">▹</span>
                             <span set:html={desc}></span>
                         </li>
                         ))}
@@ -129,7 +128,7 @@ const techIcons = {
             </div>
             ))}
 
-            {experiences.slice(6).map((exp) => (
+            {experiencesData.slice(6).map((exp) => (
             <div class="exp-box hidden-exp relative exp-card-ready" data-category={exp.category} style="display: none;">
                 <div class="timeline-dot">
                     <div class="dot-inner"></div>
@@ -159,8 +158,8 @@ const techIcons = {
 
                     <ul class="exp-description list-none p-0 m-0 flex flex-col gap-2.5">
                         {exp.description.filter(desc => !desc.includes('Tech Stacks')).map((desc) => (
-                        <li class="flex items-start gap-3 text-sm leading-relaxed" style="color: rgba(255, 255, 255, 0.9);">
-                            <span class="text-base flex-shrink-0 mt-0.5" style="color: var(--primary);">▹</span>
+                        <li class="exp-description-item flex items-start gap-3 text-sm leading-relaxed">
+                            <span class="exp-bullet text-base flex-shrink-0 mt-0.5">▹</span>
                             <span set:html={desc}></span>
                         </li>
                         ))}
@@ -221,7 +220,7 @@ const techIcons = {
         overflow: hidden;
         transition: transform 0.3s ease;
         border: 2px solid var(--ternary);
-        background: rgba(26, 15, 62, 0.3);
+        background: rgba(0, 0, 0, 0.3);
     }
 
     .exp-filter-btn:hover,
@@ -258,7 +257,7 @@ const techIcons = {
     .exp-content {
         border-radius: 20px;
         padding: 1.5rem;
-        background: rgba(26, 15, 62, 0.3);
+        background: rgba(0, 0, 0, 0.3);
         border: 3px solid rgba(255, 255, 255, 0.15);
         transition: transform 0.35s ease, border-color 0.35s ease;
     }
@@ -418,6 +417,14 @@ const techIcons = {
 
     .tech-item:hover .tech-emoji {
         transform: scale(1.2) rotate(10deg);
+    }
+
+    .exp-description-item {
+        color: rgba(255, 255, 255, 0.9);
+    }
+
+    .exp-bullet {
+        color: var(--primary);
     }
 
     .load-more-btn {

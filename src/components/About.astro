@@ -25,7 +25,7 @@ import profileImg from "../assets/images/profile.png";
             <!-- Right Column -->
             <div class="column right w-full lg:w-[60%] text-white">
                 <div class="topic about-text-animate opacity-0 mb-2 text-center" data-delay="0">
-                    <span class="text-[20px] sm:text-[22px] md:text-[24px] lg:text-[25px] font-bold gradient-text">DevOps Engineer focused on cloud-native infrastructure and automation</span>
+                    <span class="text-[20px] sm:text-[22px] md:text-[24px] lg:text-[25px] font-bold about-gradient-text">DevOps Engineer focused on cloud-native infrastructure and automation</span>
                 </div>
 
                 <!-- Achievement Stats Cards -->
@@ -58,18 +58,18 @@ import profileImg from "../assets/images/profile.png";
                     </div>
                 </div>
 
-                <p class="about-text-animate opacity-0 text-justify text-sm sm:text-base font-medium leading-relaxed mt-4 md:mt-5 text-white/90 font-lato" data-delay="0.2">
+                <p class="about-text-animate opacity-0 text-justify text-sm sm:text-base font-medium leading-relaxed mt-4 md:mt-5 text-white/90" data-delay="0.2">
                     I am a <span class="highlight font-bold px-1">DevOps Engineer at OpenText</span>, working on cloud-native deployment and automation for enterprise Documentum applications.
                 </p>
-                <p class="about-text-animate opacity-0 text-justify text-sm sm:text-base font-medium leading-relaxed mt-4 md:mt-5 text-white/90 font-lato" data-delay="0.25">
+                <p class="about-text-animate opacity-0 text-justify text-sm sm:text-base font-medium leading-relaxed mt-4 md:mt-5 text-white/90" data-delay="0.25">
                     My work focuses on Kubernetes and Helm based deployments, <span class="highlight font-bold px-1">CI/CD pipelines</span>, and deployment automation using tools like <span class="highlight font-bold px-1">Ansible</span>, Docker and Linux across cloud environments including <span class="highlight font-bold px-1">AWS</span> and <span class="highlight font-bold px-1">GCP</span>.
                 </p>
-                <p class="about-text-animate opacity-0 text-justify text-sm sm:text-base font-medium leading-relaxed mt-4 md:mt-5 text-white/90 font-lato" data-delay="0.3">
+                <p class="about-text-animate opacity-0 text-justify text-sm sm:text-base font-medium leading-relaxed mt-4 md:mt-5 text-white/90" data-delay="0.3">
                     Outside of work, I enjoy badminton 🏸 and devotional music 🎵. I am driven by continuous learning and aim to build reliable systems that scale with business needs.
                 </p>
 
                 <div class="social-connect mt-6 md:mt-8 lg:mt-10">
-                    <h3 class="about-text-animate opacity-0 text-[18px] sm:text-[20px] lg:text-[22px] font-bold mb-4 md:mb-5 inline-block gradient-text text-center lg:text-left w-full lg:w-auto" data-delay="0.6">Let's Connect</h3>
+                    <h3 class="about-text-animate opacity-0 text-[18px] sm:text-[20px] lg:text-[22px] font-bold mb-4 md:mb-5 inline-block about-gradient-text text-center lg:text-left w-full lg:w-auto" data-delay="0.6">Let's Connect</h3>
                     <div class="media-icons about-social-animate opacity-0 flex gap-3 sm:gap-4 lg:gap-5 flex-wrap justify-center lg:justify-start" data-delay="0.8">
                         <!-- Bio Link -->
                         <a href="https://rakesh9100.bio.link/" target="_blank" rel="noopener noreferrer" class="social-icon-wrapper">
@@ -109,7 +109,7 @@ import profileImg from "../assets/images/profile.png";
         padding: 4px;
         border-radius: 20px;
         border: 3px solid transparent;
-        background: linear-gradient(#12122a, #12122a) padding-box, var(--gradient1) border-box;
+        background: linear-gradient(rgba(18, 18, 42, 1), rgba(18, 18, 42, 1)) padding-box, var(--gradient1) border-box;
     }
 
     .profile-card:hover .profile-img {
@@ -168,7 +168,7 @@ import profileImg from "../assets/images/profile.png";
         position: relative;
         overflow: hidden;
         transition: border-color 0.3s ease;
-        background: rgba(26, 15, 62, 0.4);
+        background: rgba(0, 0, 0, 0.4);
         border: 2px solid var(--hover);
         width: 100%;
         min-width: 0;
@@ -234,7 +234,7 @@ import profileImg from "../assets/images/profile.png";
         justify-content: center;
         position: relative;
         overflow: hidden;
-        background: rgba(26, 15, 62, 0.6);
+        background: rgba(0, 0, 0, 0.6);
         border: 3px solid var(--ternary);
         transition: transform 0.3s ease, border-color 0.3s ease;
     }
@@ -249,12 +249,12 @@ import profileImg from "../assets/images/profile.png";
         height: 50px;
     }
 
-    .gradient-text {
+    .about-gradient-text {
         background: var(--gradient1);
         background-clip: text;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
-        filter: drop-shadow(0 0 10px rgba(240, 147, 251, 0.3));
+        filter: drop-shadow(0 0 10px rgba(217, 70, 239, 0.3));
     }
 
     .highlight {
@@ -262,10 +262,6 @@ import profileImg from "../assets/images/profile.png";
         background-clip: text;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
-    }
-
-    .font-lato {
-        font-family: 'Lato', sans-serif;
     }
 
     @keyframes socialFadeIn {
@@ -319,14 +315,6 @@ import profileImg from "../assets/images/profile.png";
 
     .about-social-animate.animate-in .social-icon-wrapper:nth-child(4) {
         animation-delay: 0.4s;
-    }
-
-    .about-social-animate.animate-in .social-icon-wrapper:nth-child(5) {
-        animation-delay: 0.5s;
-    }
-
-    .about-social-animate.animate-in .social-icon-wrapper:nth-child(6) {
-        animation-delay: 0.6s;
     }
 
     @media (max-width: 768px) {

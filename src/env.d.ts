@@ -40,14 +40,3 @@ declare module '*.svg' {
     const src: ImageMetadata;
     export default src;
 }
-
-// React Fragment for JSX
-declare global {
-    const Fragment: any;
-}
-
-declare namespace JSX {
-    interface IntrinsicElements {
-        [elemName: string]: any;
-    }
-}

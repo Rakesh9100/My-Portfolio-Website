@@ -3,7 +3,7 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="404 - Page Not Found | Rakesh Roshan">
-    <div class="error-page h-screen flex items-center justify-center relative overflow-hidden error-bg">
+    <div class="error-page h-screen flex items-center justify-center relative overflow-hidden section-bg-secondary">
         <div class="error-content text-center px-4 relative z-10 max-h-screen flex flex-col justify-center">
             <h1 class="error-code text-[80px] sm:text-[150px] lg:text-[200px] font-black mb-2 sm:mb-4 gradient-text-404">404</h1>
             <h2 class="error-title text-xl sm:text-3xl lg:text-4xl font-bold text-white mb-2 sm:mb-4">Oops! Page Not Found</h2>
@@ -31,10 +31,6 @@ import Layout from '../layouts/Layout.astro';
 </Layout>
 
 <style>
-    .error-bg {
-        background: linear-gradient(180deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
-    }
-
     .gradient-text-404 {
         background: var(--gradient1);
         background-clip: text;

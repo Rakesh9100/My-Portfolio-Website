@@ -36,7 +36,7 @@
     }
 
     ::-webkit-scrollbar-track {
-        background: rgba(26, 15, 62, 0.3);
+        background: rgba(0, 0, 0, 0.3);
         border-radius: 10px;
         margin: 5px 0;
     }
@@ -57,22 +57,9 @@
     }
 }
 
-@layer utilities {
-    .gradient-text {
-        @apply bg-clip-text text-transparent;
-        background-image: linear-gradient(135deg, #d946ef 0%, #a855f7 100%);
-    }
-
-    .glass-effect {
-        background: rgba(255, 255, 255, 0.08);
-        border: 1px solid rgba(255, 255, 255, 0.12);
-    }
-}
-
 /* Theme Variables */
 :root {
     --main1: #1a0e0e;
-    --main2: #2d1b1b;
     --primary: #FF512F;
     --secondary: #ffffff;
     --ternary: #F09819;
@@ -86,7 +73,6 @@
 
 [data-theme="midnight"] {
     --main1: #0c1419;
-    --main2: #1a2530;
     --primary: #4CA1AF;
     --secondary: #ffffff;
     --ternary: #5dade2;
@@ -100,7 +86,6 @@
 
 [data-theme="forest"] {
     --main1: #0d1b1e;
-    --main2: #1a2f35;
     --primary: #71B280;
     --secondary: #ffffff;
     --ternary: #52c77c;
@@ -160,10 +145,6 @@
 }
 
 @media (max-width: 768px) {
-    .glass-effect {
-        background: rgba(255, 255, 255, 0.1) !important;
-    }
-
     .quote-text {
         padding: 0.5rem 0.75rem;
         font-size: 12px;

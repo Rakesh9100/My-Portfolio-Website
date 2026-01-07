@@ -1,6 +1,5 @@
 ---
 import skillsData from '../../public/assets/jsons/skills.json';
-const skills = skillsData;
 ---
 
 <section class="skills section-common section-bg-secondary" id="skills">
@@ -44,7 +43,7 @@ const skills = skillsData;
     </div>
 
     <div class="skill-boxes flex flex-wrap mx-auto items-center justify-center gap-x-4 gap-y-6 sm:gap-x-6 sm:gap-y-8 lg:gap-x-8 lg:gap-y-10 relative z-10 px-4 lg:px-0 sm:max-w-md md:flex md:max-w-none" id="skill-boxes">
-        {skills.map((skill) => (
+        {skillsData.map((skill) => (
         <div class="box skill-card-ready show" data-category={skill.category}>
             <div class="skill-card-inner relative z-[3]">
                 <img src={`/${skill.image}`} alt={skill.title} class="skill-img" />
@@ -70,7 +69,7 @@ const skills = skillsData;
         cursor: pointer;
         position: relative;
         overflow: hidden;
-        background: rgba(26, 15, 62, 0.4);
+        background: rgba(0, 0, 0, 0.4);
         border: 2px solid var(--ternary);
         transition: transform 0.25s ease, border-color 0.25s ease;
     }
@@ -106,7 +105,7 @@ const skills = skillsData;
         position: relative;
         overflow: hidden;
         margin-bottom: -20px;
-        background: rgba(26, 15, 62, 0.9);
+        background: rgba(0, 0, 0, 0.9);
         border: 3px solid rgba(255, 255, 255, 0.15);
         transition: transform 0.35s ease, border-color 0.35s ease;
     }

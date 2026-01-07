@@ -14,7 +14,7 @@ const navItems = [
 ---
 
 <nav class="navbar fixed w-full z-[999] transition-all duration-300 px-4 sm:px-6 md:px-8 py-2">
-    <div class="max-width max-w-full mx-auto flex items-center justify-between px-3 sm:px-4 py-1.5 rounded-[20px] sm:rounded-[25px] relative bg-[#0b0f1a] border border-white/10">
+    <div class="max-width max-w-full mx-auto flex items-center justify-between px-3 sm:px-4 py-1.5 rounded-[20px] sm:rounded-[25px] relative bg-[rgba(11,15,26,0.9)] border border-white/10">
         <!-- Logo -->
         <a href="#home" aria-label="Go to home" class="logo-link">
             <Image src={logo} alt="Rakesh Roshan logo" width={200} height={60} class="img-logo" />
@@ -37,7 +37,7 @@ const navItems = [
         <!-- Right Section -->
         <div class="navbar-right flex items-center gap-3 sm:gap-4 md:gap-5">
             <!-- Resume Button -->
-            <a href="/assets/Rakesh_Roshan_Resume.pdf" target="_blank" rel="noopener noreferrer" aria-label="Open resume in new tab" class="resume-btn relative flex items-center gap-2 px-3 sm:px-4 md:px-5 py-2 sm:py-2.5 rounded-full text-white font-semibold text-xs sm:text-sm transition-colors duration-300 bg-[#0b0f1a]">
+            <a href="/assets/Rakesh_Roshan_Resume.pdf" target="_blank" rel="noopener noreferrer" aria-label="Open resume in new tab" class="resume-btn relative flex items-center gap-2 px-3 sm:px-4 md:px-5 py-2 sm:py-2.5 rounded-full text-white font-semibold text-xs sm:text-sm transition-colors duration-300 bg-[rgba(11,15,26,0.9)]">
 
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="relative z-[1] transition-transform duration-300 sm:w-[18px] sm:h-[18px]">
                     <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
@@ -56,7 +56,7 @@ const navItems = [
                         <path d="M512 256c0 .9 0 1.8 0 2.7c-.4 36.5-33.6 61.3-70.1 61.3H344c-26.5 0-48 21.5-48 48c0 3.4 .4 6.7 1 9.9c2.1 10.2 6.5 20 10.8 29.9c6.1 13.8 12.1 27.5 12.1 42c0 31.8-21.6 60.7-53.4 62c-3.5 .1-7 .2-10.6 .2C114.6 512 0 397.4 0 256S114.6 0 256 0S512 114.6 512 256zM128 288a32 32 0 1 0 -64 0 32 32 0 1 0 64 0zm0-96a32 32 0 1 0 0-64 32 32 0 1 0 0 64zM288 96a32 32 0 1 0 -64 0 32 32 0 1 0 64 0zm96 96a32 32 0 1 0 0-64 32 32 0 1 0 0 64z"/>
                     </svg>
                 </button>
-                <div class="theme-options absolute top-[55px] right-0 rounded-[15px] px-4 py-4 opacity-0 invisible -translate-y-2.5 transition-all duration-300 min-w-[180px]" id="theme-options" style="background: rgba(5, 5, 15, 0.95); border: 2px solid rgba(255, 255, 255, 0.3); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);">
+                <div class="theme-options absolute top-[55px] right-0 rounded-[15px] px-4 py-4 opacity-0 invisible -translate-y-2.5 transition-all duration-300 min-w-[180px]" id="theme-options" style="background: rgba(11, 15, 26, 0.95); border: 2px solid rgba(255, 255, 255, 0.3); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);">
                     <button class="theme-btn active w-full flex items-center gap-3 px-4 py-2.5 mb-2 rounded-[10px] transition-all duration-300 text-white text-sm font-semibold" data-theme="sunset">
                         <span class="theme-color w-[30px] h-[30px] rounded-full block theme-sunset"></span>
                         <span class="theme-name flex-1 text-left">Sunset</span>
@@ -88,7 +88,7 @@ const navItems = [
 
     <!-- Mobile Menu -->
     <div class="mobile-menu lg:hidden fixed top-[70px] left-0 right-0 opacity-0 invisible translate-y-[-20px] transition-all duration-300 z-[999] px-4" id="mobile-menu">
-        <div class="mobile-menu-content rounded-[20px] overflow-hidden" style="background: rgba(5, 5, 15, 0.98);">
+        <div class="mobile-menu-content rounded-[20px] overflow-hidden" style="background: rgba(11, 15, 26, 0.98);">
             <ul class="list-none p-4">
                 {navItems.map((item, index) => {
                     const isActive = index === 0 ? ' active' : '';
@@ -169,17 +169,17 @@ const navItems = [
 
     .navbar .menu li a.active {
         background: var(--navbar);
-        color: #ffffff;
+        color: var(--secondary);
         border-radius: 15px;
     }
 
     .resume-btn {
         border: 2px solid transparent;
-        background: linear-gradient(#0b0f1a, #0b0f1a) padding-box, var(--navbar) border-box;
+        background: linear-gradient(rgba(11,15,26,0.9), rgba(11,15,26,0.9)) padding-box, var(--navbar) border-box;
     }
 
     .resume-btn:hover {
-        background: linear-gradient(#0b0f1a, #0b0f1a) padding-box, var(--gradient1) border-box;
+        background: linear-gradient(rgba(11,15,26,0.9), rgba(11,15,26,0.9)) padding-box, var(--gradient1) border-box;
     }
 
     @keyframes bounceDown {
@@ -209,7 +209,7 @@ const navItems = [
     }
 
     .theme-sunset {
-        background: linear-gradient(135deg, #FF512F 0%, #F09819 100%);
+        background: var(--navbar);
     }
 
     .theme-midnight {
@@ -250,7 +250,7 @@ const navItems = [
     }
 
     .mobile-menu::-webkit-scrollbar-track {
-        background: rgba(26, 15, 62, 0.3);
+        background: rgba(0, 0, 0, 0.3);
         border-radius: 10px;
     }
 
@@ -270,7 +270,7 @@ const navItems = [
     }
 
     .mobile-nav-link.active {
-        color: #ffffff;
+        color: var(--secondary);
         background: var(--gradient1);
         border: 1px solid var(--primary);
     }

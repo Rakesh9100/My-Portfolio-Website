@@ -68,7 +68,7 @@ import homeImg from "../assets/images/home.png";
     }
 
     .hero-bg {
-        background: radial-gradient(800px 400px at 10% 20%, rgba(217, 70, 239, 0.15), transparent 60%),radial-gradient(700px 350px at 90% 30%, rgba(59, 130, 246, 0.15), transparent 60%), linear-gradient(135deg, #0b0f1a 0%, #0f172a 50%, #020617 100%);
+        background: radial-gradient(800px 400px at 10% 20%, rgba(217, 70, 239, 0.15), transparent 60%), radial-gradient(700px 350px at 90% 30%, rgba(59, 130, 246, 0.15), transparent 60%),linear-gradient(135deg, rgba(11, 15, 26, 1) 0%, rgba(15, 23, 42, 1) 50%, rgba(2, 6, 23, 1) 100%);
     }
 
     @keyframes scroll-wheel {
@@ -185,7 +185,7 @@ import homeImg from "../assets/images/home.png";
         position: relative;
         overflow: hidden;
         transition: transform 0.3s ease, background 0.3s ease;
-        background: linear-gradient(#0b0f1a, #0b0f1a) padding-box, var(--navbar) border-box;
+        background: linear-gradient(rgba(11, 15, 26, 1), rgba(11, 15, 26, 1)) padding-box, var(--navbar) border-box;
     }
 
     .hero-btn-primary::before,
@@ -217,7 +217,7 @@ import homeImg from "../assets/images/home.png";
     .hero-btn-primary:hover,
     .hero-btn-secondary:hover {
         transform: translateY(-3px) scale(1.05);
-        background: linear-gradient(#0b0f1a, #0b0f1a) padding-box, var(--gradient1) border-box;
+        background: linear-gradient(rgba(11, 15, 26, 1), rgba(11, 15, 26, 1)) padding-box, var(--gradient1) border-box;
     }
 
     @keyframes underlineGrow {
