@@ -122,7 +122,6 @@
     padding: 0.25rem 0.75rem;
     display: inline-block;
     text-align: center;
-    color: var(--secondary);
     border: 2px solid var(--hover);
     border-radius: 25px;
     transition: box-shadow 0.3s ease;
