@@ -1,12 +1,7 @@
----
-import { Image } from "astro:assets";
-import homeImg from "../assets/images/home.png";
----
-
 <div class="home-wrapper min-h-screen flex flex-col overflow-hidden relative">
     <!-- Animated Gradient Background -->
     <div class="absolute inset-0 z-[1] hero-bg"></div>
-    <section class="home flex-1 flex items-center justify-center text-white relative z-[2]" id="home">
+    <section class="home px-[25px] flex-1 flex items-center justify-center text-white relative z-[2]" id="home">
         <div class="max-width w-full flex flex-col lg:flex-row items-center justify-between relative z-10 px-4 sm:px-6 md:px-10 lg:px-20 py-8 lg:py-12 min-h-[calc(100vh-120px)] lg:min-h-0">
             <div class="home-text w-full lg:max-w-[600px] min-h-[250px] lg:min-h-[300px] text-center lg:text-left">
                 <div class="text-1 font-bold mb-2 tracking-wide opacity-0 translate-x-[-50px] text-[36px] lg:text-[40px] flex items-center justify-center lg:justify-start gap-2">
@@ -45,7 +40,7 @@ import homeImg from "../assets/images/home.png";
 
             <div class="home-image mt-8 lg:mt-5 lg:ml-5 relative w-full lg:w-auto flex justify-center lg:justify-end" style="max-width: clamp(200px, 80vw, 450px);">
                 <div class="image-container relative w-full hero-image-wrapper">
-                    <Image src={homeImg} alt="Home Image" width={450} height={460} format="webp" loading="eager" fetchpriority="high" class="hero-image w-full h-auto"/>
+                    <img src="/assets/images/home.png" alt="Home Illustration" loading="eager" class="hero-image w-full h-auto" />
                 </div>
             </div>
         </div>
@@ -297,7 +292,14 @@ import homeImg from "../assets/images/home.png";
         animation: fadeInUp 1s ease forwards 0.5s;
     }
 
-    @media (max-width: 1024px) {
+    @media (max-width: 1100px) {
+        .home-image {
+            margin-top: 1rem;
+            max-width: clamp(180px, 70vw, 350px) !important;
+        }
+    }
+
+    @media (max-width: 1023px) {
         .home-wrapper {
             min-height: 100vh;
         }
@@ -327,7 +329,7 @@ import homeImg from "../assets/images/home.png";
 
         .home-image {
             margin-top: 1rem;
-            max-width: clamp(140px, 50vw, 300px) !important;
+            max-width: clamp(180px, 70vw, 400px) !important;
         }
 
         .scroll-indicator {
@@ -339,16 +341,12 @@ import homeImg from "../assets/images/home.png";
         .text-3 {
             min-height: 40px;
         }
-
-        .home-image {
-            max-width: clamp(180px, 70vw, 400px) !important;
-        }
     }
 
     @media (max-width: 640px) {
-        .home-image {
-            margin-top: 1rem;
-            max-width: clamp(160px, 65vw, 350px) !important;
+        .home {
+            padding-left: 0;
+            padding-right: 0;
         }
     }
 </style>

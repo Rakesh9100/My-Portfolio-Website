@@ -1,7 +1,4 @@
 ---
-import { Image } from "astro:assets";
-import logo from "../assets/images/logo.png";
-
 const navItems = [
     { href: '#home', label: 'HOME' },
     { href: '#about', label: 'ABOUT' },
@@ -17,7 +14,7 @@ const navItems = [
     <div class="navbar-container">
         <!-- Logo -->
         <a href="#home" aria-label="Go to home" class="logo-link">
-            <Image src={logo} alt="Rakesh Roshan logo" width={200} height={60} class="img-logo" />
+            <img src="/assets/images/logo.png" alt="Rakesh Roshan logo" class="img-logo" />
         </a>
 
         <!-- Desktop Menu -->
