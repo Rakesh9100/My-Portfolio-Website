@@ -1,49 +1,57 @@
 ---
 import { Image } from 'astro:assets';
-import c2025_1 from '../assets/images/certificates/2025/Generative AI Leader (Oct,2025).jpg';
-import c2025_2 from '../assets/images/certificates/2025/SWOC Project Admin (Mar,2025).jpg';
-import c2025_3 from '../assets/images/certificates/2025/IWOC Project Maintainer (Mar,2025).jpg';
+import c2026_1 from '../assets/images/certificates/2026/Associate Cloud Engineer (Jan).jpg';
+import c2026_2 from '../assets/images/certificates/2026/SnowPro Associate (Jan).jpg';
+import c2026_3 from '../assets/images/certificates/2026/New Relic Verified Foundation (Jan).jpg';
 
-import c2024_1 from '../assets/images/certificates/2024/KWOC Project Mentor (Dec,2024).jpg';
-import c2024_2 from '../assets/images/certificates/2024/GSSOC Project Admin (Aug,2024).jpg';
-import c2024_3 from '../assets/images/certificates/2024/JWOC Project Mentor (Mar,2024).jpg';
+import c2025_1 from '../assets/images/certificates/2025/Generative AI Leader (Oct).jpg';
+import c2025_2 from '../assets/images/certificates/2025/SWOC Project Admin (March).jpg';
+import c2025_3 from '../assets/images/certificates/2025/IWOC Project Maintainer (March).jpg';
 
-import c2023_1 from '../assets/images/certificates/2023/SLOP Project Mentor (Dec,2023).jpg';
-import c2023_2 from '../assets/images/certificates/2023/GSSOC Project Admin (Aug,2023).jpg';
-import c2023_3 from '../assets/images/certificates/2023/GSSOC Project Mentor (Aug,2023).jpg';
-import c2023_4 from '../assets/images/certificates/2023/Natural Language Processing (Apr,2023).jpg';
-import c2023_5 from '../assets/images/certificates/2023/JWOC Project Mentor (Mar,2023).jpg';
-import c2023_6 from '../assets/images/certificates/2023/GCCP Pathway Campaign (Feb,2023).jpg';
-import c2023_7 from '../assets/images/certificates/2023/JPMC Virtual Software Engineering (Jan,2023).jpg';
+import c2024_1 from '../assets/images/certificates/2024/KWOC Project Mentor (Dec).jpg';
+import c2024_2 from '../assets/images/certificates/2024/GSSOC Project Admin (Aug).jpg';
+import c2024_3 from '../assets/images/certificates/2024/JWOC Project Mentor (March).jpg';
 
-import c2022_1 from '../assets/images/certificates/2022/HSOC Project Maintainer (Sep,2022).jpg';
-import c2022_2 from '../assets/images/certificates/2022/HSOC Top Contributor (Sep,2022).jpg';
-import c2022_3 from '../assets/images/certificates/2022/GSSOC LOR (July,2022).jpg';
-import c2022_4 from '../assets/images/certificates/2022/GSSOC Top Contributor (July,2022).jpg';
-import c2022_5 from '../assets/images/certificates/2022/Google IT Automation (Apr,2022).jpg';
+import c2023_1 from '../assets/images/certificates/2023/SLOP Project Mentor (Dec).jpg';
+import c2023_2 from '../assets/images/certificates/2023/GSSOC Project Admin (Sept).jpg';
+import c2023_3 from '../assets/images/certificates/2023/GSSOC Project Mentor (Sept).jpg';
+import c2023_4 from '../assets/images/certificates/2023/Natural Language Processing (April).jpg';
+import c2023_5 from '../assets/images/certificates/2023/JWOC Project Mentor (March).jpg';
+import c2023_6 from '../assets/images/certificates/2023/GCCP Pathway Campaign (Feb).jpg';
+import c2023_7 from '../assets/images/certificates/2023/JPMC Virtual Software Engineering (Jan).jpg';
+
+import c2022_1 from '../assets/images/certificates/2022/HSOC Project Maintainer (Sept).jpg';
+import c2022_2 from '../assets/images/certificates/2022/HSOC Top Contributor (Sept).jpg';
+import c2022_3 from '../assets/images/certificates/2022/GSSOC LOR (June).jpg';
+import c2022_4 from '../assets/images/certificates/2022/GSSOC Top Contributor (June).jpg';
+import c2022_5 from '../assets/images/certificates/2022/Google IT Automation (April).jpg';
 
 const certificates = [
+    { image: c2026_1, title: "Associate Cloud Engineer (ACE)", date: "Jan, 2026" },
+    { image: c2026_2, title: "SnowPro Associate", date: "Jan, 2026" },
+    { image: c2026_3, title: "New Relic Verified Foundation", date: "Jan, 2026" },
+
     { image: c2025_1, title: "Generative AI Leader", date: "Oct, 2025" },
-    { image: c2025_2, title: "SWOC Project Admin", date: "Mar, 2025" },
-    { image: c2025_3, title: "IWOC Project Maintainer", date: "Mar, 2025" },
+    { image: c2025_2, title: "SWOC Project Admin", date: "March, 2025" },
+    { image: c2025_3, title: "IWOC Project Maintainer", date: "March, 2025" },
 
     { image: c2024_1, title: "KWOC Project Mentor", date: "Dec, 2024" },
     { image: c2024_2, title: "GSSOC Project Admin", date: "Aug, 2024" },
-    { image: c2024_3, title: "JWOC Project Mentor", date: "Mar, 2024" },
+    { image: c2024_3, title: "JWOC Project Mentor", date: "March, 2024" },
 
     { image: c2023_1, title: "SLOP Project Mentor", date: "Dec, 2023" },
-    { image: c2023_2, title: "GSSOC Project Admin", date: "Aug, 2023" },
-    { image: c2023_3, title: "GSSOC Project Mentor", date: "Aug, 2023" },
-    { image: c2023_4, title: "Natural Language Processing", date: "Apr, 2023" },
-    { image: c2023_5, title: "JWOC Project Mentor", date: "Mar, 2023" },
+    { image: c2023_2, title: "GSSOC Project Admin", date: "Sept, 2023" },
+    { image: c2023_3, title: "GSSOC Project Mentor", date: "Sept, 2023" },
+    { image: c2023_4, title: "Natural Language Processing", date: "April, 2023" },
+    { image: c2023_5, title: "JWOC Project Mentor", date: "March, 2023" },
     { image: c2023_6, title: "GCCP Pathway Campaign", date: "Feb, 2023" },
     { image: c2023_7, title: "JPMC Virtual Software Engineering", date: "Jan, 2023" },
 
-    { image: c2022_1, title: "HSOC Project Maintainer", date: "Sep, 2022" },
-    { image: c2022_2, title: "HSOC Top Contributor", date: "Sep, 2022" },
+    { image: c2022_1, title: "HSOC Project Maintainer", date: "Sept, 2022" },
+    { image: c2022_2, title: "HSOC Top Contributor", date: "Sept, 2022" },
     { image: c2022_3, title: "GSSOC Letter of Recommendation", date: "June, 2022" },
     { image: c2022_4, title: "GSSOC Top Contributor", date: "June, 2022" },
-    { image: c2022_5, title: "Google IT Automation with Python", date: "Apr, 2022" }
+    { image: c2022_5, title: "Google IT Automation with Python", date: "April, 2022" }
 ];
 ---
 
@@ -77,6 +85,7 @@ const certificates = [
         </div>
         <div class="certificate-filters" id="certificate-filters">
             <button class="cert-filter-btn active" data-year="all">All Years</button>
+            <button class="cert-filter-btn" data-year="2026">2026</button>
             <button class="cert-filter-btn" data-year="2025">2025</button>
             <button class="cert-filter-btn" data-year="2024">2024</button>
             <button class="cert-filter-btn" data-year="2023">2023</button>
@@ -653,7 +662,7 @@ const certificates = [
                 img.src = imageSrc;
                 img.alt = certificate.title;
                 topic.textContent = certificate.title;
-                topic1.textContent = '(' + certificate.date + ')';
+                topic1.textContent = certificate.date;
                 badge.textContent = category;
 
                 // Set data attributes for the view button
