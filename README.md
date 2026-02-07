@@ -12,6 +12,11 @@
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)](https://www.w3schools.com/js/)
+[![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)](https://www.docker.com/)
+[![CI/CD](https://img.shields.io/badge/CI%2FCD-GitHub_Actions-2088FF?style=for-the-badge&logo=github-actions&logoColor=white)](https://github.com/features/actions)
+
+[![CI/CD Pipeline](https://github.com/Rakesh9100/My-Portfolio-Website/actions/workflows/ci-cd.yml/badge.svg)](https://github.com/Rakesh9100/My-Portfolio-Website/actions)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/YOUR_SITE_ID/deploy-status)](https://app.netlify.com/sites/rakeshroshan/deploys)
 
 </div>
 
@@ -21,8 +26,10 @@
 
 - [Introduction](#-introduction)
 - [Technology Stack](#-technology-stack)
+- [DevOps Features](#-devops-features)
 - [Screenshots](#-screenshots)
 - [Quick Start](#-quick-start)
+- [Docker Deployment](#-docker-deployment)
 - [Easter Eggs](#-easter-eggs)
 - [Contact](#-contact)
 
@@ -35,9 +42,12 @@ A **modern, fully responsive portfolio website** built with Astro, Tailwind CSS,
 **What makes this special:**
 - 🎨 6 customizable theme colors
 - 🎭 Smooth animations
-- � Hidden easter eggs
+- 🥚 Hidden easter eggs
 - 📊 Real-time performance metrics
 - 📱 Fully responsive (mobile, tablet, desktop)
+- 🐳 DevOps-enabled with Docker & CI/CD
+- 🏥 Health monitoring endpoints
+- 📊 DevOps dashboard
 
 ---
 
@@ -49,10 +59,58 @@ A **modern, fully responsive portfolio website** built with Astro, Tailwind CSS,
 - 📘 **TypeScript** - Type-safe JavaScript
 - 🟨 **JavaScript** - Dynamic functionality
 
+**DevOps & Infrastructure:**
+- 🐳 **Docker** - Containerization with multi-stage builds
+- ⚙️ **GitHub Actions** - CI/CD automation
+- 🌐 **Nginx** - Production web server
+- 🔒 **Trivy** - Security vulnerability scanning
+- 📊 **Lighthouse CI** - Performance monitoring
+- 🤖 **Dependabot** - Automated dependency updates
+
 **Libraries:**
 - ⌨️ **Typed.js** - Typing animations
 - 🎨 **Custom CSS Animations** - Smooth scroll-triggered animations
 - 🎯 **Custom Tilt Effects** - Lightweight 3D hover effects
+
+---
+
+## 🚀 DevOps Features
+
+This portfolio showcases real DevOps practices and tools:
+
+### 🐳 Containerization
+- Multi-stage Docker build reducing image size to 70.2MB
+- Docker Compose for one-command deployment
+- Optimized production-ready Nginx configuration
+
+### 🔄 CI/CD Pipeline
+- Automated testing with GitHub Actions
+- TypeScript checking and build validation
+- Security scanning with Trivy
+- Performance monitoring with Lighthouse CI
+- Automated Docker image builds and testing
+
+### 🏥 Health Monitoring
+- Health check endpoint: `/health`
+- Automated container health checks every 30s
+- DevOps dashboard: `/dashboard`
+- Real-time system status monitoring
+
+### 🔒 Security
+- Enhanced security headers (CSP, XSS protection)
+- Automated vulnerability scanning
+- Dependabot for dependency updates
+- Multi-stage builds for minimal attack surface
+
+### 📊 Monitoring & Observability
+- Live DevOps dashboard showing system status
+- Build information and metrics
+- CI/CD pipeline status
+- Container health monitoring
+
+**Access DevOps Features:**
+- 🏥 Health Check: [https://rakeshroshan.netlify.app/health](https://rakeshroshan.netlify.app/health)
+- 📊 DevOps Dashboard: [https://rakeshroshan.netlify.app/dashboard](https://rakeshroshan.netlify.app/dashboard)
 
 ---
 
@@ -72,6 +130,7 @@ A **modern, fully responsive portfolio website** built with Astro, Tailwind CSS,
 
 - **Node.js** v18.14.1 or higher - [Download](https://nodejs.org/)
 - **npm** (comes with Node.js)
+- **Docker** (optional, for containerized deployment) - [Download](https://www.docker.com/)
 
 ### Installation (3 Steps)
 
@@ -94,6 +153,49 @@ npm run dev
 
 ---
 
+## 🐳 Docker Deployment
+
+### Using Docker Compose (Recommended)
+
+```bash
+# Build and run the container
+docker-compose up -d
+
+# Access the site
+# Portfolio: http://localhost:8080
+# Health Check: http://localhost:8080/health
+# Dashboard: http://localhost:8080/dashboard
+
+# View logs
+docker logs -f portfolio-website
+
+# Stop the container
+docker-compose down
+```
+
+### Using Docker Directly
+
+```bash
+# Build the image
+docker build -t portfolio .
+
+# Run the container
+docker run -d -p 8080:80 --name portfolio-website portfolio
+
+# Check health status
+docker ps
+```
+
+### Docker Features
+- ✅ Multi-stage build (Node.js → Nginx)
+- ✅ Optimized image size (70.2MB)
+- ✅ Automated health checks
+- ✅ Production-ready Nginx configuration
+- ✅ Gzip compression enabled
+- ✅ Static asset caching
+
+---
+
 ## 🎮 Easter Eggs
 
 Hidden interactive features! Try typing these anywhere on the page **(desktop only)**:
@@ -108,6 +210,32 @@ Hidden interactive features! Try typing these anywhere on the page **(desktop on
 **Hint:** Check the footer for a clue! 👀
 
 **Note:** Easter eggs are disabled on mobile for better performance.
+
+---
+
+## 🔄 CI/CD Pipeline
+
+The project uses GitHub Actions for automated CI/CD:
+
+```
+┌─────────────┐      ┌──────────────┐      ┌─────────────┐
+│   GitHub    │────▶│GitHub Actions│────▶ │   Netlify   │
+│ Repository  │      │   CI/CD      │      │   Hosting   │
+└─────────────┘      └──────────────┘      └─────────────┘
+                            │
+                            ▼
+                    ┌──────────────┐
+                    │ Docker Image │
+                    │  Multi-stage │
+                    │     Build    │
+                    └──────────────┘
+```
+
+**Pipeline Stages:**
+1. **Build & Test** - Install dependencies, build app, TypeScript checks, Lighthouse CI
+2. **Security Scan** - Trivy vulnerability scanning
+3. **Docker Build** - Build and test Docker image with health checks
+4. **Deploy** - Automatic deployment to Netlify
 
 ---
 

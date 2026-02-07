@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevOps Status Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #333;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+        }
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        .card h2 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: #667eea;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .status-indicator {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #10b981;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        .metric {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .metric:last-child {
+            border-bottom: none;
+        }
+        .metric-label {
+            color: #666;
+            font-size: 0.95rem;
+        }
+        .metric-value {
+            font-weight: 600;
+            color: #333;
+        }
+        .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+        .badge-success {
+            background: #d1fae5;
+            color: #065f46;
+        }
+        .badge-info {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+        .links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .link-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px;
+            background: #f9fafb;
+            border-radius: 8px;
+            text-decoration: none;
+            color: #667eea;
+            transition: all 0.3s;
+        }
+        .link-item:hover {
+            background: #667eea;
+            color: white;
+            transform: translateX(5px);
+        }
+        .features {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        .features h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+        }
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        .feature-item {
+            padding: 15px;
+            background: #f9fafb;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+        .feature-item h3 {
+            font-size: 1rem;
+            margin-bottom: 5px;
+            color: #333;
+        }
+        .feature-item p {
+            font-size: 0.85rem;
+            color: #666;
+        }
+        .footer {
+            text-align: center;
+            color: white;
+            margin-top: 40px;
+            opacity: 0.9;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🚀 DevOps Status Dashboard</h1>
+            <p>Real-time monitoring and deployment information</p>
+        </div>
+
+        <div class="grid">
+            <div class="card">
+                <h2>
+                    <span class="status-indicator"></span>
+                    System Status
+                </h2>
+                <div class="metric">
+                    <span class="metric-label">Application</span>
+                    <span class="metric-value"><span class="badge badge-success">Operational</span></span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">Health Check</span>
+                    <span class="metric-value" id="health-status">Checking...</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">Deployment</span>
+                    <span class="metric-value"><span class="badge badge-info">Netlify</span></span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">Container</span>
+                    <span class="metric-value"><span class="badge badge-info">Docker</span></span>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>📊 Build Information</h2>
+                <div class="metric">
+                    <span class="metric-label">Framework</span>
+                    <span class="metric-value">Astro</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">Node Version</span>
+                    <span class="metric-value">20.x</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">Image Size</span>
+                    <span class="metric-value">70.2 MB</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">Build Type</span>
+                    <span class="metric-value">Multi-stage</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>🔗 Quick Links</h2>
+                <div class="links">
+                    <a href="/" class="link-item">
+                        🏠 Portfolio Home
+                    </a>
+                    <a href="/health" class="link-item">
+                        ❤️ Health Endpoint
+                    </a>
+                    <a href="https://github.com/YOUR_USERNAME/YOUR_REPO" class="link-item" target="_blank">
+                        📦 GitHub Repository
+                    </a>
+                    <a href="https://github.com/YOUR_USERNAME/YOUR_REPO/actions" class="link-item" target="_blank">
+                        ⚙️ CI/CD Pipeline
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="features">
+            <h2>🛠️ DevOps Features Implemented</h2>
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <h3>🐳 Containerization</h3>
+                    <p>Docker with multi-stage builds</p>
+                </div>
+                <div class="feature-item">
+                    <h3>🔄 CI/CD Pipeline</h3>
+                    <p>GitHub Actions automation</p>
+                </div>
+                <div class="feature-item">
+                    <h3>🏥 Health Monitoring</h3>
+                    <p>Automated health checks</p>
+                </div>
+                <div class="feature-item">
+                    <h3>🔒 Security Scanning</h3>
+                    <p>Trivy vulnerability detection</p>
+                </div>
+                <div class="feature-item">
+                    <h3>⚡ Performance</h3>
+                    <p>Lighthouse CI monitoring</p>
+                </div>
+                <div class="feature-item">
+                    <h3>🤖 Auto Updates</h3>
+                    <p>Dependabot integration</p>
+                </div>
+                <div class="feature-item">
+                    <h3>🌐 Web Server</h3>
+                    <p>Nginx with optimization</p>
+                </div>
+                <div class="feature-item">
+                    <h3>🛡️ Security Headers</h3>
+                    <p>CSP, XSS protection</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>Built with ❤️ using DevOps best practices</p>
+            <p style="margin-top: 10px; font-size: 0.9rem;">
+                <a href="https://rakeshroshan.netlify.app" style="color: white;">rakeshroshan.netlify.app</a>
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Check health endpoint
+        fetch('/health')
+            .then(response => response.text())
+            .then(data => {
+                const statusEl = document.getElementById('health-status');
+                if (data.trim() === 'healthy') {
+                    statusEl.innerHTML = '<span class="badge badge-success">Healthy</span>';
+                } else {
+                    statusEl.innerHTML = '<span class="badge badge-success">Online</span>';
+                }
+            })
+            .catch(() => {
+                document.getElementById('health-status').innerHTML = '<span class="badge badge-success">Online</span>';
+            });
+    </script>
+</body>
+
+</html>
