@@ -16,7 +16,7 @@
 [![CI/CD](https://img.shields.io/badge/CI%2FCD-GitHub_Actions-2088FF?style=for-the-badge&logo=github-actions&logoColor=white)](https://github.com/features/actions)
 
 [![CI/CD Pipeline](https://github.com/Rakesh9100/My-Portfolio-Website/actions/workflows/ci-cd.yml/badge.svg)](https://github.com/Rakesh9100/My-Portfolio-Website/actions)
-[![Netlify Status](https://api.netlify.com/api/v1/badges/YOUR_SITE_ID/deploy-status)](https://app.netlify.com/sites/rakeshroshan/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/a6ba9a47-0451-4ecc-996b-7d9b45083991/deploy-status)](https://app.netlify.com/projects/rakeshroshan/deploys)
 
 </div>
 
