@@ -36,7 +36,7 @@ jobs:
           lhci autorun --collect.staticDistDir=./dist || echo "Lighthouse CI completed"
 
       - name: Upload build artifacts
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: dist
           path: dist/
